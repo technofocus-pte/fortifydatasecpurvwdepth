@@ -28,7 +28,7 @@ that recognizes the pattern of employee IDs near the keywords "Employee"
 and "ID".
 
 1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
-    to **+++**https://**purview**.microsoft.com**+++** and log in as
+    to **```**https://**purview**.microsoft.com**```** and log in as
     **Patti Fernandez** using the
     username **PattiF@WWLxXXXXXX.onmicrosoft.com** and the User Password
     given on your resources tab.
@@ -36,21 +36,7 @@ and "ID".
 2.  From the left navigation, select **Solutions** \> **Data** **Loss
     Prevention**.
 
-![](./media/image1.png)
-
-3.  
-
-4.  
-
-5.  
-
-6.  
-
-7.  
-
-8.  
-
-9.  
+![](./media/image1.png) 
 
 10. Select **Classifiers** from the left pane. Select **Sensitive info
     types** from the sub-navigation pane. Select **+Create sensitive
@@ -62,9 +48,9 @@ generated](./media/image6.png)
 11. On the **Name your sensitive info type** page, enter the following
     information:
 
-    - **Name**: **+++Contoso Employee IDs+++**
+    - **Name**: **```Contoso Employee IDs```**
 
-    - **Description**: **+++Pattern for Contosoemployee IDs+++.**
+    - **Description**: **```Pattern for Contosoemployee IDs```.**
 
 12. Select **Next**.
 
@@ -86,9 +72,9 @@ generated](./media/image10.png)
 15. In the new right-side pane **Add a regular expression**, enter the
     following:
 
-    - **ID**: **+++Contoso IDs+++**
+    - **ID**: **```Contoso IDs```**
 
-    - **Regular expression**: **+++\s\[A-Z\]{3}\[0-9\]{6}\s+++**
+    - **Regular expression**: **```\s\[A-Z\]{3}\[0-9\]{6}\s```**
 
     - Select **String match**
 
@@ -107,13 +93,13 @@ generated](./media/image12.png)
 18. In the new right-side pane **Add a keyword list**, enter the
     following:
 
-    - **ID**: **+++Employee ID keywords+++**
+    - **ID**: **```Employee ID keywords```**
 
     - **Case insensitive**:
 
-**+++Employee**
+**```Employee**
 
-**ID+++**
+**ID```**
 
 19. Select the radial for ***Word match*** under the **Case
     Sensitive** field
@@ -171,10 +157,10 @@ Birthdate, StreetAddress, and EmployeeID.
 ![A screenshot of a computer Description automatically
 generated](./media/image18.png)
 
-2.  In the **Name** field, enter **+++employeedb+++**.
+2.  In the **Name** field, enter **```employeedb```**.
 
 3.  In the **Description** field,
-    enter **+++Employee Database schema.+++**.
+    enter **```Employee Database schema.```**.
 
 4.  Enable **Ignore delimiters and punctuation for all schema fields**.
 
@@ -188,7 +174,7 @@ generated](./media/image21.png)
 ![Graphical user interface, application Description automatically
 generated](./media/image22.png)
 
-6.  In the first Schema field name, enter **+++Name+++** and mark
+6.  In the first Schema field name, enter **```Name```** and mark
     the **Field is searchable** box.
 
 7.  Select **+ Add schema data field** from the lower end.
@@ -196,17 +182,17 @@ generated](./media/image22.png)
 ![BrokenImage](./media/image23.png)
 
 8.  In **Schema field name**, below **Schema field \#2**,
-    enter **+++Birthdate+++**.
+    enter **```Birthdate```**.
 
 9.  Select **+ Add schema data field** from the lower end again.
 
 10. In **Schema field name**, below **Schema field \#3**,
-    enter **+++StreetAddress+++**.
+    enter **```StreetAddress```**.
 
 11. Select **+ Add schema data field** from the lower end a last time.
 
 12. In **Schema field name**, below **Schema field \#4**,
-    enter **+++EmployeeID+++**.
+    enter **```EmployeeID```**.
 
 13. Select **Field is searchable**.
 
@@ -274,10 +260,10 @@ generated](./media/image35.png)
 automatically generated](./media/image36.png)
 
 27. In the **Name and describe your EDM sensitive info type** page,
-    enter **+++Contoso Employee EDM+++** for the name.
+    enter **```Contoso Employee EDM```** for the name.
 
-28. In the **Description for admins** field, enter **+++EDM-based
-    sensitive information type for employee personal information.+++**.
+28. In the **Description for admins** field, enter **```EDM-based
+    sensitive information type for employee personal information.```**.
     Select **Next.**
 
 ![Graphical user interface, text, application Description automatically
@@ -307,7 +293,7 @@ sensitive data, hashing and uploading the actual data for the sensitive
 information type via the EDM Upload Agent tool is required next.
 
 1.  In **Microsoft Edge**, navigate
-    to **+++**https://go.microsoft.com/fwlink/?linkid=2088639**+++** to
+    to **```**https://go.microsoft.com/fwlink/?linkid=2088639**```** to
     access the EDM download agent.
 
 2.  Select **Run** to download and install the tool.
@@ -337,13 +323,13 @@ information type via the EDM Upload Agent tool is required next.
 
     - Enter the following text to the first line in the notepad window:
 
-**+++Name,Birthdate,StreetAddress,EmployeeID**
+**```Name,Birthdate,StreetAddress,EmployeeID**
 
 **Patti Fernandez,01.06.1980,1Main Street,CSO123456**
 
-**Christie Cline,31.01.1985,2Secondary Street,CSO654321+++**
+**Christie Cline,31.01.1985,2Secondary Street,CSO654321```**
 
-4.  Select File and Save As: **+++EmployeeData.csv+++**
+4.  Select File and Save As: **```EmployeeData.csv```**
 
 5.  Select the dropdown at **Save as type:** and select **All Files
     (*.*)**.
@@ -364,14 +350,14 @@ information type via the EDM Upload Agent tool is required next.
 
 10. Navigate to the EDM Upload Agent directory:
 
-**+++cd "C:\Program Files\Microsoft\EdmUploadAgent"+++**
+**```cd "C:\Program Files\Microsoft\EdmUploadAgent"```**
 
 ![Text Description automatically generated](./media/image45.png)
 
 11. Authorize with your Account to upload the database to your tenant by
     running the following cmdlet:
 
-**+++.\EdmUploadAgent.exe /Authorize+++**
+**```.\EdmUploadAgent.exe /Authorize```**
 
 ![BrokenImage](./media/image46.png)
 
@@ -389,7 +375,7 @@ the commands accordingly.
     classification sensitive information type by running the following
     script in PowerShell:
 
-**+++.\EdmUploadAgent.exe /SaveSchema /DataStoreNameemployeedb /OutputDirC:\Users\Admin\Documents\\++**
+**```.\EdmUploadAgent.exe /SaveSchema /DataStoreNameemployeedb /OutputDirC:\Users\Admin\Documents\\++**
 
 **Note**: If the last command fails, it possibly takes more time until
 the **EDM_DataUploaders** group membership is applied. It can take up to
@@ -403,7 +389,7 @@ path the documents folder on your VM.
     sensitive information type by running the following script in
     PowerShell:
 
-**+++.\EdmUploadAgent.exe /UploadData/DataStoreName employeedb /DataFileC:\Users\Admin\Documents\EmployeeData.csv /HashLocation C:\Users\Admin\Documents\\/SchemaC:\Users\Admin\Documents\employeedb.xml+++**
+**```.\EdmUploadAgent.exe /UploadData/DataStoreName employeedb /DataFileC:\Users\Admin\Documents\EmployeeData.csv /HashLocation C:\Users\Admin\Documents\\/SchemaC:\Users\Admin\Documents\employeedb.xml```**
 
 ![BrokenImage](./media/image48.png)
 
@@ -420,7 +406,7 @@ Check the path where you saved the file EmployeeData.csv
 14. Check the upload progress until the state changes to completed then
     run the following PowerShell command:
 
-**+++.\EdmUploadAgent.exe /GetSession /DataStoreNameemployeedb+++**
+**```.\EdmUploadAgent.exe /GetSession /DataStoreNameemployeedb```**
 
 ![BrokenImage](./media/image50.png)
 
@@ -435,7 +421,7 @@ happened the reason for illness or disease was sent out. We do not want
 that to happen.
 
 1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
-    to **+++https://purview.microsoft.com+++** and log in as **Patti
+    to **```https://purview.microsoft.com```** and log in as **Patti
     Fernandez** using the username **PattiF@WWLxXXXXXX.onmicrosoft.com**
     and the User Password given on your resources tab.
 
@@ -452,46 +438,36 @@ generated](./media/image1.png)
 ![A screenshot of a computer Description automatically
 generated](./media/image6.png)
 
-4.  
+4.  On the **Name your sensitive info type** page, enter the following:
 
-&nbsp;
+    - Name: **```Contoso Diseases List```**
 
-1.  
-2.  
-3.  
-
-&nbsp;
-
-5.  On the **Name your sensitive info type** page, enter the following:
-
-    - Name: **+++Contoso Diseases List+++**
-
-    - Description: **+++List of possible diseases of employees.+++**
+    - Description: **```List of possible diseases of employees.```**
 
 ![Graphical user interface, application, Teams Description automatically
 generated](./media/image51.png)
 
-4.  Select **Next**.
+5.  Select **Next**.
 
-5.  On the **Define patterns for this sensitive info type** page,
+6.  On the **Define patterns for this sensitive info type** page,
     select **+ Create pattern**.
 
 ![Graphical user interface, application, Teams Description automatically
 generated](./media/image52.png)
 
-6.  Select the dropdown field below **Primary element** and
+7.  Select the dropdown field below **Primary element** and
     select **Keyword dictionary**.
 
 ![Graphical user interface, application Description automatically
 generated](./media/image53.png)
 
-7.  In the **Add a keyword dictionary** page enter the
+8.  In the **Add a keyword dictionary** page enter the
     name **!!*Diseases Dictionary*!!**.
 
-8.  In the **Keywords** area enter the following keywords, each into a
+9.  In the **Keywords** area enter the following keywords, each into a
     separate line:
 
-**+++flu**
+```**flu**
 
 **influenza**
 
@@ -499,33 +475,33 @@ generated](./media/image53.png)
 
 **bronchitis**
 
-**otitis+++**
+**otitis**```
 
 ![BrokenImage](./media/image54.png)
 
-9.  Select **Done**.
+10.  Select **Done**.
 
-10. Below **Supporting elements**, select **+ Add supporting elements or
+11. Below **Supporting elements**, select **+ Add supporting elements or
     group of elements** drop-down and select **keyword list** to add
     additional support for the keyword dictionary.
 
 ![Graphical user interface, application Description automatically
 generated](./media/image55.png)
 
-11. In the **Add a keyword list** page enter **Employee absence** in
+12. In the **Add a keyword list** page enter **Employee absence** in
     the **ID** field. In the **Case insensitive** box, enter the
     following keywords, each into a separate line:
 
-**+++employee**
+```**employee**
 
 **absence**
 
-**reason+++**
+**reason**```
 
 ![Graphical user interface, application Description automatically
 generated](./media/image56.png)
 
-12. Select **Done**.
+13. Select **Done**.
 
 13. In the **New pattern** page, review the configuration and
     select **Create**.
@@ -561,30 +537,28 @@ positive rate. Proceed with the next task.
 
 Custom Sensitive information types should always be tested before using
 them in policies otherwise data loss or leakage may occur due to a
-malfunctioning custom search pattern.
+malfunctioning custom search pattern.  
 
-1.  
-
-2.  Select the Windows symbol in the lower left to open the start menu,
+1.  Select the Windows symbol in the lower left to open the start menu,
     enter **Notepad** and select **Notepad** from the start menu.
 
-3.  Enter the following text to the notepad window:
+2.  Enter the following text to the notepad window:
 
-**+++Employee Patti Fernandez EMP123456 is on absence because of the
-flu/influenza+++**
+**```Employee Patti Fernandez EMP123456 is on absence because of the
+flu/influenza```**
 
-4.  Select **File** and Save As **SickTestData** and select **Save**.
+3.  Select **File** and Save As **SickTestData** and select **Save**.
 
-5.  Close the Notepad window.
+4.  Close the Notepad window.
 
-6.  In **Microsoft Edge**, the Microsoft Purview portal tab should still
+5.  In **Microsoft Edge**, the Microsoft Purview portal tab should still
     be open. If so, select it and proceed to the next step. If you
     closed it, then in a new tab, navigate
-    to **+++https://purview.microsoft.com+++**. Log in as **Patti
+    to **```https://purview.microsoft.com```**. Log in as **Patti
     Fernandez** using the username **PattiF@WWLxXXXXXX.onmicrosoft.com**
     and the User Password given on your resources tab.
 
-7.  In the left navigation pane select **Solutions** \> **Data Loss
+6.  In the left navigation pane select **Solutions** \> **Data Loss
     Prevention**, then select the **Sensitive info types** under
     **Classifiers** . In the **Search** box from the upper right side
     and enter ***Contoso*** and press Enter. Select **Contoso Employee
@@ -593,60 +567,56 @@ flu/influenza+++**
 ![A screenshot of a computer Description automatically
 generated](./media/image61.png)
 
-8.  Select **Test** from the right-side pane.
+7.  Select **Test** from the right-side pane.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image63.png)
 
-9.  On the **Upload file to test** page, select **Upload file**.
+8.  On the **Upload file to test** page, select **Upload file**.
 
 ![BrokenImage](./media/image65.png)
 
-10. Select **Documents** from the left pane, select the file with the
+9. Select **Documents** from the left pane, select the file with the
     name **SickTestData** and select **Open**.
 
 ![Graphical user interface, text, application Description automatically
 generated](./media/image66.png)
 
-11. Select **Test** to start the analysis.
+10. Select **Test** to start the analysis.
 
 ![Graphical user interface, text, application Description automatically
 generated](./media/image67.png)
 
-12. On the **Match results** page, review the found match.
+11. On the **Match results** page, review the found match.
 
 ![BrokenImage](./media/image68.png)
 
-13. Select **Finish** and close the test page by clicking
+12. Select **Finish** and close the test page by clicking
     the **X** button.
 
 ![Graphical user interface, text, application Description automatically
 generated](./media/image69.png)
 
-14. 
-
-15. Back on the **Data classification** page, select the Sensitive
+13. Back on the **Data classification** page, select the Sensitive
     Information Type with the name **Contoso Diseases** **List**.
 
-16. In the right side pane, select **Test**.
+14. In the right side pane, select **Test**.
 
 ![BrokenImage](./media/image71.png)
 
-17. On the **Upload file to test** page, select **Upload file**.
+15. On the **Upload file to test** page, select **Upload file**.
 
 ![BrokenImage](./media/image72.png)
 
-18. 
-
-19. Select **Documents** from the left pane, select the file with the
+16. Select **Documents** from the left pane, select the file with the
     name *SickTestData* and select **Open**.
 
-20. Select **Test** to start the analysis.
+17. Select **Test** to start the analysis.
 
 ![Graphical user interface, text, application Description automatically
 generated](./media/image74.png)
 
-21. On the **Match results** page, review the found match. When done
+18. On the **Match results** page, review the found match. When done
     review select **Finish**.
 
 ![Graphical user interface, application Description automatically
