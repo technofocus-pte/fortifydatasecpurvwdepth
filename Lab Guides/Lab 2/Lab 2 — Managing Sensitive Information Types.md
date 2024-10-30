@@ -30,46 +30,46 @@ and "ID".
 1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
     to **```**https://**purview**.microsoft.com**```** and log in as
     **Patti Fernandez** using the
-    username **PattiF@WWLxXXXXXX.onmicrosoft.com** and the User Password
+    username **PattiF@{TENANTPREFIX}.onmicrosoft.com** and the User Password
     given on your resources tab.
 
-2.  From the left navigation, select **Solutions** \> **Data** **Loss
+2.  From the left navigation, select **Solutions** \> **Data Loss
     Prevention**.
 
 ![](./media/image1.png) 
 
-10. Select **Classifiers** from the left pane. Select **Sensitive info
+3. Select **Classifiers** from the left pane. Select **Sensitive info
     types** from the sub-navigation pane. Select **+Create sensitive
     info type** to open the wizard for a new sensitive information type.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image6.png)
 
-11. On the **Name your sensitive info type** page, enter the following
+4. On the **Name your sensitive info type** page, enter the following
     information:
 
     - **Name**: **```Contoso Employee IDs```**
 
-    - **Description**: **```Pattern for Contosoemployee IDs```.**
+    - **Description**: **```Pattern for Contosoemployee IDs.```**
 
-12. Select **Next**.
+5. Select **Next**.
 
 ![Graphical user interface, application Description automatically
 generated](./media/image7.png)
 
-13. On the **Define patterns for this sensitive info type** page,
+6. On the **Define patterns for this sensitive info type** page,
     select **Create pattern**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image9.png)
 
-14. In the right-side **New pattern** pane, select **Add primary
+7. In the right-side **New pattern** pane, select **Add primary
     element** and select **Regular expression**.
 
 ![Graphical user interface, application, Teams Description automatically
 generated](./media/image10.png)
 
-15. In the new right-side pane **Add a regular expression**, enter the
+8. In the new right-side pane **Add a regular expression**, enter the
     following:
 
     - **ID**: **```Contoso IDs```**
@@ -78,19 +78,19 @@ generated](./media/image10.png)
 
     - Select **String match**
 
-16. Select **Done**.
+9. Select **Done**.
 
 ![Graphical user interface, application Description automatically
 generated](./media/image11.png)
 
-17. In the right-side **New pattern** pane again, below **Supporting
+10. In the right-side **New pattern** pane again, below **Supporting
     elements**, select **+ Add supporting elements or group of
     elements** drop-down menu and select **Keyword list**.
 
 ![Graphical user interface, application Description automatically
 generated](./media/image12.png)
 
-18. In the new right-side pane **Add a keyword list**, enter the
+10. In the new right-side pane **Add a keyword list**, enter the
     following:
 
     - **ID**: **```Employee ID keywords```**
@@ -101,41 +101,41 @@ generated](./media/image12.png)
 
 **ID```**
 
-19. Select the radial for ***Word match*** under the **Case
+11. Select the radial for ***Word match*** under the **Case
     Sensitive** field
 
-20. Select **Done**.
+12. Select **Done**.
 
 ![Graphical user interface, text, application Description automatically
 generated](./media/image13.png)
 
-21. In the New pattern windows decrease the **Character
+13. In the New pattern windows decrease the **Character
     proximity** value to ***100*** characters.
 
 ![Graphical user interface, text, application Description automatically
 generated](./media/image14.png)
 
-22. Select the **Create** button.
+14. Select the **Create** button.
 
-23. Back on the **Define patterns for this sensitive info type** page
+15. Back on the **Define patterns for this sensitive info type** page
     select **Next**.
 
 ![Graphical user interface, text, application, Teams Description
 automatically generated](./media/image15.png)
 
-24. On the **Choose the recommended confidence level to show in
+16. On the **Choose the recommended confidence level to show in
     compliance policies** page use the default value and
     select **Next**.
 
 ![BrokenImage](./media/image16.png)
 
-25. On the **Review settings and finish** page review the settings and
+17. On the **Review settings and finish** page review the settings and
     select **Create**. When successfully created select **Done**.
 
 ![Graphical user interface, text, application Description automatically
 generated](./media/image17.png)
 
-26. Leave the browser window open.
+18. Leave the browser window open.
 
 You have successfully created a new sensitive information type to
 identify employee IDs in the pattern of three uppercase characters, six
@@ -247,8 +247,8 @@ generated](./media/image31.png)
 ![A screenshot of a computer Description automatically
 generated](./media/image34.png)
 
-25. Select **Next** in the *Define patterns for this EDM sensitive info
-    type* screen.
+25. Select **Next** in the **Define patterns for this EDM sensitive info
+    type** screen.
 
 ![Graphical user interface, text, application Description automatically
 generated](./media/image35.png)
@@ -321,13 +321,13 @@ information type via the EDM Upload Agent tool is required next.
       menu, enter **Notepad** and select **Notepad** from the start
       menu.
 
-    - Enter the following text to the first line in the notepad window:
+    - Enter the following text to the first line in the notepad window ( Make sure you enter all the following three in new lines.): 
 
-**```Name,Birthdate,StreetAddress,EmployeeID**
+**```Name,Birthdate,StreetAddress,EmployeeID```**
 
-**Patti Fernandez,01.06.1980,1Main Street,CSO123456**
+**```Patti Fernandez,01.06.1980,1Main Street,CSO123456```**
 
-**Christie Cline,31.01.1985,2Secondary Street,CSO654321```**
+**```Christie Cline,31.01.1985,2Secondary Street,CSO654321```**
 
 4.  Select File and Save As: **```EmployeeData.csv```**
 
@@ -361,8 +361,8 @@ information type via the EDM Upload Agent tool is required next.
 
 ![BrokenImage](./media/image46.png)
 
-27. When the **Pick an account** window is displayed, log in as **Patti
-    Fernandez** using the username **PattiF@WWLxXXXXXX.onmicrosoft.com**
+12. When the **Pick an account** window is displayed, log in as **Patti
+    Fernandez** using the username **PattiF@{TENANTPREFIX}.onmicrosoft.com**
     and the User Password given on your resources tab. (Or the new
     password you reset.)
 
@@ -370,12 +370,11 @@ Note: For the next steps, please make sure that the path of the files
 resembles the path in your VM. It may be different than the instructions
 or the screenshots. In such case please change the path of your file in
 the commands accordingly.
-
-12. Download the database schema definition of the EDM-based
+13. Download the database schema definition of the EDM-based
     classification sensitive information type by running the following
     script in PowerShell:
 
-**```.\EdmUploadAgent.exe /SaveSchema /DataStoreNameemployeedb /OutputDirC:\Users\Admin\Documents\\++**
+**```.\EdmUploadAgent.exe /SaveSchema /DataStoreNameemployeedb /OutputDirC:\Users\Admin\Documents\```**
 
 **Note**: If the last command fails, it possibly takes more time until
 the **EDM_DataUploaders** group membership is applied. It can take up to
@@ -385,7 +384,7 @@ path the documents folder on your VM.
 
 ![BrokenImage](./media/image47.png)
 
-13. Hash the database file and upload it to the EDM-based classification
+14. Hash the database file and upload it to the EDM-based classification
     sensitive information type by running the following script in
     PowerShell:
 
@@ -403,7 +402,7 @@ Check the path where you saved the file EmployeeData.csv
 
 ![Text Description automatically generated](./media/image49.png)
 
-14. Check the upload progress until the state changes to completed then
+15. Check the upload progress until the state changes to completed then
     run the following PowerShell command:
 
 **```.\EdmUploadAgent.exe /GetSession /DataStoreNameemployeedb```**
@@ -422,7 +421,7 @@ that to happen.
 
 1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
     to **```https://purview.microsoft.com```** and log in as **Patti
-    Fernandez** using the username **PattiF@WWLxXXXXXX.onmicrosoft.com**
+    Fernandez** using the username **PattiF@{TENANTPREFIX}.onmicrosoft.com**
     and the User Password given on your resources tab.
 
 2.  From the left navigation, select **Solutions** \> **Data Loss
@@ -467,15 +466,15 @@ generated](./media/image53.png)
 9.  In the **Keywords** area enter the following keywords, each into a
     separate line:
 
-```**flu**
+**```flu```**
 
-**influenza**
+**```influenza```**
 
-**cold**
+**```cold```**
 
-**bronchitis**
+**```bronchitis```**
 
-**otitis**```
+**```otitis```**
 
 ![BrokenImage](./media/image54.png)
 
@@ -492,42 +491,42 @@ generated](./media/image55.png)
     the **ID** field. In the **Case insensitive** box, enter the
     following keywords, each into a separate line:
 
-```**employee**
+**```employee```**
 
-**absence**
+**```absence```**
 
-**reason**```
+**```reason**```**
 
 ![Graphical user interface, application Description automatically
 generated](./media/image56.png)
 
 13. Select **Done**.
 
-13. In the **New pattern** page, review the configuration and
+14. In the **New pattern** page, review the configuration and
     select **Create**.
 
 ![Graphical user interface, application Description automatically
 generated](./media/image57.png)
 
-14. In the **Define patterns for this sensitive info
+15. In the **Define patterns for this sensitive info
     type** select **Next**.
 
 ![Graphical user interface, application, Teams Description automatically
 generated](./media/image58.png)
 
-15. In the **Choose the recommended confidence level to show in
+16. In the **Choose the recommended confidence level to show in
     compliance policies** let the default value persist and
     select **Next**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image59.png)
 
-16. In the **Review settings and finish** page, review your settings and
+17. In the **Review settings and finish** page, review your settings and
     select **Create**. When the process is complete select **Done**.
 
 ![BrokenImage](./media/image60.png)
 
-17. Leave the browser window in the Microsoft Purview portal open.
+18. Leave the browser window in the Microsoft Purview portal open.
 
 You have successfully created a new sensitive information type based on
 a keyword dictionary and added more keywords to decrease the false
@@ -547,7 +546,7 @@ malfunctioning custom search pattern.
 **```Employee Patti Fernandez EMP123456 is on absence because of the
 flu/influenza```**
 
-3.  Select **File** and Save As **SickTestData** and select **Save**.
+3.  Select **File** and Save As **```SickTestData```** and select **Save**.
 
 4.  Close the Notepad window.
 
@@ -555,7 +554,7 @@ flu/influenza```**
     be open. If so, select it and proceed to the next step. If you
     closed it, then in a new tab, navigate
     to **```https://purview.microsoft.com```**. Log in as **Patti
-    Fernandez** using the username **PattiF@WWLxXXXXXX.onmicrosoft.com**
+    Fernandez** using the username **PattiF@{TENANTPREFIX}.onmicrosoft.com**
     and the User Password given on your resources tab.
 
 6.  In the left navigation pane select **Solutions** \> **Data Loss
@@ -598,7 +597,7 @@ generated](./media/image67.png)
 generated](./media/image69.png)
 
 13. Back on the **Data classification** page, select the Sensitive
-    Information Type with the name **Contoso Diseases** **List**.
+    Information Type with the name **Contoso Diseases List**.
 
 14. In the right side pane, select **Test**.
 
