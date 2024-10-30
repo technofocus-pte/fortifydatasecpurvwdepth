@@ -1,4 +1,4 @@
-# Lab 8 – Configuring Insider Risk Management
+ # Lab 8 – Configuring Insider Risk Management
 
 ## Objective:
 
@@ -37,9 +37,11 @@ medium confidence](./media/image3.png)
 
 ### Task 1: Redeem the Azure Pass
 
+**Note**: - You may be asked for authentication while performing this Task. Please download Microsoft Authenticator on your mobile device or add your phone number as the authentication method when asked. You will be guided through the steps given on your authentication setup wizard, when asked for authentication.
+
 #### Redeeming a Microsoft Azure Pass Promo Code
 
-1.  Open a browser and navigate to: **+++www.microsoftazurepass.com+++**
+1.  Open a browser and navigate to: ** ```www.microsoftazurepass.com ```**
 
 It is recommended you close all browsers and open a new In-Private
 Browser session. Other log-ins can persist and cause errors during the
@@ -59,7 +61,7 @@ activation step.
 ![](./media/image7.png)
 
 5.  Enter your **Azure Pass** promo code in the Enter Promo code box and
-    click “**Claim Promo** **Code**”.
+    click “**Claim Promo Code**”.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image9.png)
@@ -112,7 +114,7 @@ generated](./media/image15.png)
 generated](./media/image16.png)
 
 4.  In the **Set up a work or school account** prompt, click on **Join
-    this device to** **Microsoft Entra ID**.
+    this device to Microsoft Entra ID**.
 
 ![](./media/image17.png)
 
@@ -162,7 +164,7 @@ as some features keep on updating in Azure. Please follow the
 instructions thoroughly and refer to the screenshots for finding the
 buttons or the areas of interest.
 
-1.  On the **Azure portal** **(+++https://portal.azure.com+++)** menu or
+1.  On the **Azure portal ( ```https://portal.azure.com ```)** menu or
     from the **Home** page, select **Create a resource**.
 
 2.  Select Create under Virtual Machines.
@@ -210,9 +212,9 @@ medium confidence](./media/image29.png)
 11. You can open the RDP files and use the following local credentials
     to log in sign in to these Virtual Machines.
 
-    - User Name: **+++Admin01+++**
+    - User Name: ** ```Admin01 ```**
 
-    - Password: **+++Pa55.w0rd@123+++**
+    - Password: ** ```Pa55.w0rd@123 ```**
 
 ### Task 4: Enrol the VMs in Azure AD as different users
 
@@ -236,7 +238,7 @@ generated](./media/image15.png)
 generated](./media/image16.png)
 
 16. In the **Set up a work or school account** prompt, click on **Join
-    this device to** **Microsoft Entra ID**.
+    this device to Microsoft Entra ID**.
 
 ![](./media/image17.png)
 
@@ -245,8 +247,8 @@ generated](./media/image16.png)
 18. 
 
 19. In the sign in prompt, sign in with the
-    username **pattif@WWLxXXXXXX.onmicrosoft.com** and the User
-    password. (replace WWLxXXXXXX with your tenant prefix given on the
+    username **pattif@{TENANTPREFIX}.onmicrosoft.com** and the User
+    password. (replace {TENANTPREFIX} with your tenant prefix given on the
     resources tab).
 
 20. 
@@ -272,8 +274,8 @@ generated](./media/image16.png)
 26. 
 
 27. In the Set up a work or school account prompt, sign in with
-    username **pattif@WWLxXXXXXX.onmicrosoft.com** and the User
-    password. (replace WWLxXXXXXX with your tenant prefix given on the
+    username **pattif@{TENANTPREFIX}.onmicrosoft.com** and the User
+    password. (replace {TENANTPREFIX} with your tenant prefix given on the
     resources tab).
 
 28. It will take a couple of minutes to sign in.
@@ -324,8 +326,8 @@ with low confidence](./media/image49.png)
 
 37. 
 
-38. Sign in with username **pattif@WWLxXXXXXX.onmicrosoft.com** and the
-    User password. (replace WWLxXXXXXX with your tenant prefix given on
+38. Sign in with username **pattif@{TENANTPREFIX}.onmicrosoft.com** and the
+    User password. (replace {TENANTPREFIX} with your tenant prefix given on
     the resources tab). If asked for the confirmation, click on **Yes**.
 
 39. 
@@ -333,8 +335,8 @@ with low confidence](./media/image49.png)
 40. Open the RDP file of Adele’s device and following the same 1 t0 19
     steps as we did for Patti’s device, enrol the device in Microsoft
     Entra ID. In the sign in prompt, sign in with the
-    username **adelev@WWLxXXXXXX.onmicrosoft.com** and the User password
-    (replace WWLxXXXXXX with your tenant prefix given on the resources
+    username **adelev@{TENANTPREFIX}.onmicrosoft.com** and the User password
+    (replace {TENANTPREFIX} with your tenant prefix given on the resources
     tab).
 
 41. 
@@ -342,8 +344,8 @@ with low confidence](./media/image49.png)
 42. Open the RDP file of Christie’s device and following the same 1 t0
     19 steps as we did for Patti’s device, enrol the device in Azure AD.
     In the sign in prompt, sign in with the
-    username **christiec@WWLxXXXXXX.onmicrosoft.com** and the User
-    password (replace WWLxXXXXXX with your tenant prefix given on the
+    username **christiec@{TENANTPREFIX}.onmicrosoft.com** and the User
+    password (replace {TENANTPREFIX} with your tenant prefix given on the
     resources tab).
 
 **Note:** Henceforth, while logging in these devices you will use the
@@ -352,19 +354,19 @@ Exercises. Use the following credentials:
 
 Pattis-Device
 
-pattif@WWLxXXXXXX.onmicrosoft.com
+pattif@{TENANTPREFIX}.onmicrosoft.com
 
 User password
 
 Adeles-Device
 
-adelev@WWLxXXXXXX.onmicrosoft.com
+adelev@{TENANTPREFIX}.onmicrosoft.com
 
 User password
 
 Christies-Device
 
-christies@WWLxXXXXXX.onmicrosoft.com
+christies@{TENANTPREFIX}.onmicrosoft.com
 
 User password
 
@@ -375,7 +377,7 @@ User password
 #### Step 1 – Add users to Insider risk management role group
 
 1.  If the Microsoft Purview portal is open continue to step 2,
-    otherwise, open the **+++https://purview.microsoft.com+++** and log
+    otherwise, open the ** ```https://purview.microsoft.com ```** and log
     in with the **MOD Administrator** credentials.
 
 ![](./media/image54.png)
@@ -489,10 +491,10 @@ generated](./media/image78.png)
 
 10. 
 
-11. Sign in to +++**https://security.microsoft.com/+++** using
+11. Sign in to  ```**https://security.microsoft.com/ ```** using
     your **MOD Administrator** account on your Lab VM.
 
-12. Select **Settings** \> **Device** **onboarding**.
+12. Select **Settings** \> **Device onboarding**.
 
 ![](./media/image80.png)
 
@@ -502,7 +504,7 @@ generated](./media/image78.png)
 generated](./media/image82.png)
 
 14. From the **settings** \> **Device onboarding** \> **Onboarding**.
-    Click on **Download** **package**.
+    Click on **Download package**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image83.png)
@@ -553,7 +555,7 @@ generated](./media/image91.png)
     and run the command below. The Command Prompt window will close
     automatically.
 
-**+++powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyleHidden $ErrorActionPreference= 'silentlycontinue';(New-ObjectSystem.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe','C:\test-WDATP-test\invoice.exe');Start-Process 'C:\test-WDATP-test\invoice.exe'+++**
+** ```powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyleHidden $ErrorActionPreference= 'silentlycontinue';(New-ObjectSystem.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe','C:\test-WDATP-test\invoice.exe');Start-Process 'C:\test-WDATP-test\invoice.exe' ```**
 
 ![Text Description automatically generated](./media/image92.png)
 
@@ -578,9 +580,9 @@ generated](./media/image93.png)
 
 30. 
 
-31. Open the **+++https://purview.microsoft.com+++** and log in with the
-    username **pattif@WWLxXXXXXX.onmicrosoft.com** and the User
-    password. (replace WWLxXXXXXX with your tenant prefix given on the
+31. Open the ** ```https://purview.microsoft.com ```** and log in with the
+    username **pattif@{TENANTPREFIX}.onmicrosoft.com** and the User
+    password. (replace {TENANTPREFIX} with your tenant prefix given on the
     resources tab).
 
 32. 
@@ -608,12 +610,12 @@ to be enabled, please allow up to 30 minutes.
 #### Step 1 – Create a new policy
 
 1.  If you closed the browser window in the previous task, open
-    the **+++https://purview.microsoft.com+++** and log in with the
-    username **pattif@WWLxXXXXXX.onmicrosoft.com** and the User
-    password. (replace WWLxXXXXXX with your tenant prefix given on the
+    the ** ```https://purview.microsoft.com ```** and log in with the
+    username **pattif@{TENANTPREFIX}.onmicrosoft.com** and the User
+    password. (replace {TENANTPREFIX} with your tenant prefix given on the
     resources tab).
 
-2.  Go to **Insider Risk** **Management** and select
+2.  Go to **Insider Risk Management** and select
     the **Policies** tab. Select **Create policy** to open the policy
     wizard.
 
@@ -749,9 +751,9 @@ with medium confidence](./media/image120.png)
 #### Step 1 – Create a new policy
 
 1.  If you closed the browser window in the previous task, open
-    the **+++https://purview.microsoft.com+++** and log in with the
-    username **pattif@WWLxXXXXXX.onmicrosoft.com** and the User
-    password. (replace WWLxXXXXXX with your tenant prefix given on the
+    the ** ```https://purview.microsoft.com ```** and log in with the
+    username **pattif@{TENANTPREFIX}.onmicrosoft.com** and the User
+    password. (replace {TENANTPREFIX} with your tenant prefix given on the
     resources tab).
 
 2.  Go to **Insider Risk Management** and select the **Policies** tab.
@@ -903,9 +905,9 @@ generated](./media/image137.png)
 #### Step 1 – Create a new policy
 
 1.  If you closed the browser window in the previous task, open
-    the **+++https://purview.microsoft.com+++** and log in with the
-    username **pattif@WWLxXXXXXX.onmicrosoft.com** and the User
-    password. (replace WWLxXXXXXX with your tenant prefix given on the
+    the ** ```https://purview.microsoft.com ```** and log in with the
+    username **pattif@{TENANTPREFIX}.onmicrosoft.com** and the User
+    password. (replace {TENANTPREFIX} with your tenant prefix given on the
     resources tab).
 
 2.  Go to **Insider Risk Management** and select the **Policies** tab.
@@ -948,7 +950,7 @@ medium confidence](./media/image140.png)
 
 8.  On the SharePoint sites to prioritize page, select Add or edit
     SharePoint sites. On the flyout pane,
-    select **https://wwlxXXXXXX.sharepoint.com/sites/ContosoWeb1** and
+    select **https://{TENANTPREFIX}.sharepoint.com/sites/ContosoWeb1** and
     select Add. Then click Next.
 
 9.  On the Sensitivity labels to prioritize page, select Add or edit
