@@ -97,9 +97,9 @@ generated](./media/image12.png)
 
     - **Case insensitive**:
 
-```Employee
+```Employee```
 
-ID```
+```ID```
 
 11. Select the radial for ***Word match*** under the **Case
     Sensitive** field
@@ -322,11 +322,11 @@ information type via the EDM Upload Agent tool is required next.
 
     - Enter the following text to the first line in the notepad window ( Make sure you enter all the following three in new lines.): 
 
-```Name,Birthdate,StreetAddress,EmployeeID
+```Name,Birthdate,StreetAddress,EmployeeID```
 
-Patti Fernandez,01.06.1980,1Main Street,CSO123456
+```Patti Fernandez,01.06.1980,1Main Street,CSO123456
 
-Christie Cline,31.01.1985,2Secondary Street,CSO654321```
+```Christie Cline,31.01.1985,2Secondary Street,CSO654321```
 
 4.  Select File and Save As: ```EmployeeData.csv```
 
@@ -365,10 +365,12 @@ Christie Cline,31.01.1985,2Secondary Street,CSO654321```
     and the User Password given on your resources tab. (Or the new
     password you reset.)
 
-**Note**: For the next steps, please make sure that the path of the files
+**
+ Note**: For the next steps, please make sure that the path of the files
 resembles the path in your VM. It may be different than the instructions
 or the screenshots. In such case please change the path of your file in
 the commands accordingly.
+ **
 
 13. Download the database schema definition of the EDM-based
     classification sensitive information type by running the following
