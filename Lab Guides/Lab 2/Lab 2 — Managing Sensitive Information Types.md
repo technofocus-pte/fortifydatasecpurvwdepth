@@ -324,7 +324,7 @@ information type via the EDM Upload Agent tool is required next.
 
 ```Name,Birthdate,StreetAddress,EmployeeID```
 
-```Patti Fernandez,01.06.1980,1Main Street,CSO123456
+```Patti Fernandez,01.06.1980,1Main Street,CSO123456```
 
 ```Christie Cline,31.01.1985,2Secondary Street,CSO654321```
 
