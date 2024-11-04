@@ -491,9 +491,11 @@ generated](./media/image55.png)
     the **ID** field. In the **Case insensitive** box, enter the
     following keywords, each into a separate line:
 
-```employee
+```
+employee
 absence
-reason```
+reason
+```
 
 ![Graphical user interface, application Description automatically
 generated](./media/image56.png)
