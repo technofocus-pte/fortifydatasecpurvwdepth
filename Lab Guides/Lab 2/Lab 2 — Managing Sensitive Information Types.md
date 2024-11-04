@@ -465,7 +465,7 @@ generated](./media/image53.png)
     name **!!*Diseases Dictionary*!!**.
 
 9.  In the **Keywords** area enter the following keywords, each into a
-    separate line:
+    separate line
 
 ``
 flu
@@ -488,7 +488,7 @@ generated](./media/image55.png)
 
 12. In the **Add a keyword list** page enter **Employee absence** in
     the **ID** field. In the **Case insensitive** box, enter the
-    following keywords, each into a separate line:
+    following keywords, each into a separate line	
 
 ```
 employee
