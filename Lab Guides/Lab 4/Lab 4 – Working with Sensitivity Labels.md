@@ -142,8 +142,7 @@ Internal documents and a sublabel for the HR department.
 
     - Description for users: ```Internal sensitivity label```
 
-    - Description for admins: ```Internal sensitivity
-      label for Contoso.```
+    - Description for admins: ```Internal sensitivity label for Contoso.```
 
 ![Graphical user interface, text, application, email Description
 automatically generated](./media/image16.png)
