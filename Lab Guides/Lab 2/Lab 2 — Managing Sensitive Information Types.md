@@ -468,15 +468,15 @@ generated](./media/image53.png)
 9.  In the **Keywords** area enter the following keywords, each into a
     separate line:
 
-```flu
+```flu```
 
-influenza
+```influenza```
 
-cold
+```cold```
 
-bronchitis
+```bronchitis```
 
-otitis```
+```otitis```
 
 ![BrokenImage](./media/image54.png)
 
@@ -493,11 +493,11 @@ generated](./media/image55.png)
     the **ID** field. In the **Case insensitive** box, enter the
     following keywords, each into a separate line:
 
-```employee
+```employee```
 
-absence
+```absence```
 
-reason```
+```reason```
 
 ![Graphical user interface, application Description automatically
 generated](./media/image56.png)
