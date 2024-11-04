@@ -365,12 +365,10 @@ information type via the EDM Upload Agent tool is required next.
     and the User Password given on your resources tab. (Or the new
     password you reset.)
 
-**
- Note**: For the next steps, please make sure that the path of the files
+**Note**: For the next steps, please make sure that the path of the files
 resembles the path in your VM. It may be different than the instructions
 or the screenshots. In such case please change the path of your file in
 the commands accordingly.
- **
 
 13. Download the database schema definition of the EDM-based
     classification sensitive information type by running the following
@@ -493,11 +491,9 @@ generated](./media/image55.png)
     the **ID** field. In the **Case insensitive** box, enter the
     following keywords, each into a separate line:
 
-```employee```
-
-```absence```
-
-```reason```
+```employee
+absence
+reason```
 
 ![Graphical user interface, application Description automatically
 generated](./media/image56.png)
@@ -543,10 +539,9 @@ malfunctioning custom search pattern.
 1.  Select the Windows symbol in the lower left to open the start menu,
     enter **Notepad** and select **Notepad** from the start menu.
 
-2.  Enter the following text to the notepad window:
+2.  Enter the following text to the notepad window
 
-```Employee Patti Fernandez EMP123456 is on absence because of the
-flu/influenza```
+```Employee Patti Fernandez EMP123456 is on absence because of the flu/influenza```
 
 3.  Select **File** and Save As ```SickTestData``` and select **Save**.
 
