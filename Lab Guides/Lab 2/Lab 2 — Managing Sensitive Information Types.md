@@ -320,7 +320,7 @@ information type via the EDM Upload Agent tool is required next.
       menu, enter **Notepad** and select **Notepad** from the start
       menu.
 
-    - Enter the following text to the first line in the notepad window ( Make sure you enter all the following three in new lines.): 
+    - Enter the following text to the first line in the notepad window ( Make sure you enter all the following three in new lines.)
 
 ```Name,Birthdate,StreetAddress,EmployeeID```
 
