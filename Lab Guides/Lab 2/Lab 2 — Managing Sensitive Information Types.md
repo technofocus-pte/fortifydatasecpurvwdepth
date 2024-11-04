@@ -97,9 +97,10 @@ generated](./media/image12.png)
 
     - **Case insensitive**:
 
-```Employee```
-
-```ID```
+```
+Employee
+ID
+```
 
 11. Select the radial for ***Word match*** under the **Case
     Sensitive** field
@@ -322,11 +323,11 @@ information type via the EDM Upload Agent tool is required next.
 
     - Enter the following text to the first line in the notepad window ( Make sure you enter all the following three in new lines.)
 
-```Name,Birthdate,StreetAddress,EmployeeID```
-
-```Patti Fernandez,01.06.1980,1Main Street,CSO123456```
-
-```Christie Cline,31.01.1985,2Secondary Street,CSO654321```
+```
+Name,Birthdate,StreetAddress,EmployeeID
+Patti Fernandez,01.06.1980,1Main Street,CSO123456
+Christie Cline,31.01.1985,2Secondary Street,CSO654321
+```
 
 4.  Select File and Save As: ```EmployeeData.csv```
 
@@ -466,15 +467,13 @@ generated](./media/image53.png)
 9.  In the **Keywords** area enter the following keywords, each into a
     separate line:
 
-```flu```
-
-```influenza```
-
-```cold```
-
-```bronchitis```
-
-```otitis```
+``
+flu
+influenza
+cold
+bronchitis
+otitis
+```
 
 ![BrokenImage](./media/image54.png)
 
@@ -491,9 +490,11 @@ generated](./media/image55.png)
     the **ID** field. In the **Case insensitive** box, enter the
     following keywords, each into a separate line:
 
-```employee
+```
+employee
 absence
-reason```
+reason
+```
 
 ![Graphical user interface, application Description automatically
 generated](./media/image56.png)
