@@ -467,7 +467,7 @@ generated](./media/image53.png)
 9.  In the **Keywords** area enter the following keywords, each into a
     separate line
 
-``
+```
 flu
 influenza
 cold
