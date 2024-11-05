@@ -19,7 +19,7 @@ your tenant.
     and select **Windows PowerShell (Admin)** and run as administrator.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image1.png)```
+generated](./media/image1.png)
 
 2.  Confirm the **User Account Control** window with **Yes** and press
     Enter.
@@ -60,7 +60,7 @@ generated](./media/image5.png)
 ![BrokenImage](./media/image6.png)
 
 8.  In the **Sign in to your account** form, log in as **Patti
-    Fernandez** using the username **PattiF@{TENENTPREFIX}.onmicrosoft.com**
+    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
     and the User Password given on your resources tab.
 
 ![A screenshot of a computer screen Description automatically
@@ -70,13 +70,13 @@ generated](./media/image7.png)
 
 10. Enter the following cmdlet to get the domain:
 
-```\\domain = get-msoldomain```
+```$domain = get-msoldomain```
 
 ![BrokenImage](./media/image8.png)
 
 11. Enter the following cmdlet to create the SharePoint admin url:
 
-```\\adminurl = "https://" +\\domain.Name.split('.')\[0\] +"-admin.sharepoint.com"```
+```$adminurl = "https://" + $domain.Name.split('.')\[0\] + "-admin.sharepoint.com"```
 
 ![A screenshot of a computer screen Description automatically
 generated](./media/image9.png)
@@ -84,7 +84,7 @@ generated](./media/image9.png)
 12. Enter the following cmdlet to sign in to the SharePoint Online admin
     center:
 
-```Connect-SPOService -url \\adminurl```
+```Connect-SPOService -url $adminurl```
 
 ![A screenshot of a computer screen Description automatically
 generated](./media/image10.png)
@@ -118,7 +118,7 @@ Internal documents and a sublabel for the HR department.
 
 1.  In **Microsoft Edge** navigate to
     ```https://purview.microsoft.com``` and log in as **Patti
-    Fernandez** using the username **PattiF@{TENENTPREFIX}.onmicrosoft.com**
+    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
     and the User Password given on your resources tab.
 
 2.  In the Microsoft Purview portal, on the left navigation pane, select
@@ -181,7 +181,7 @@ generated](./media/image21.png)
 ![A screenshot of a computer Description automatically
 generated](./media/image22.png)
 
-11. On the **Auto-labeling for schematized dataassets
+11. On the **Auto-labeling for schematized data assets
     (preview)** page, select **Next**.
 
 ![Graphical user interface, text, application Description automatically
@@ -322,7 +322,7 @@ to their HR documents.
 
 1.  In **Microsoft Edge** navigate to
     ```https://purview.microsoft.com``` and log in as **Patti
-    Fernandez** using the username **PattiF@{TENENTPREFIX}.onmicrosoft.com**
+    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
     and the User Password given on your resources tab.
 
 2.  In the Microsoft Purview portal, on the left navigation pane, select
@@ -381,7 +381,7 @@ generated](./media/image56.png)
 14. On the **Default settings for meetings and calendar events**,
     select **Next**.
 
-15. On the **Default settings for Fabric and Power BI content page**,
+15. On the **Default settings for Fabric and Power BI content** page,
     select **Next**.
 
 16. On the **Name your policy** page, enter the following information:
@@ -541,7 +541,7 @@ the **European General Data Protection Regulation (GPDR)**.
 1.  In **Microsoft Edge**, the Microsoft Purview portal tab should still
     be open.
 
-2.  You should be logged into the portal as **PattiFernandez**.
+2.  You should be logged into the portal as **Patti Fernandez**.
 
 3.  Under the **Information protection**, select **Label**, highlight
     (without selecting) the existing **Internal** label, and select the
@@ -620,10 +620,10 @@ generated](./media/image90.png)
 ![A screenshot of a computer Description automatically
 generated](./media/image91.png)
 
-17. On the **Auto-labeling for schematized dataassets
+17. On the **Auto-labeling for schematized data assets
     (preview)** page, select **Next**.
 
-18. On the **Auto-labeling for schematized data assets (preview)** page,
+18. On the **Default settings for Fabric and Power BI content page** page,
     select **Next**.
 
 19. On the **Review your settings and finish** page, select **Create
@@ -646,8 +646,8 @@ automatically generated](./media/image93.png)
 ![Graphical user interface, text, application, Word Description
 automatically generated](./media/image94.png)
 
-23. On the Choose sensitivity labels to publish page, select the Choose
-    sensitivity labels to publish link.
+23. On the **Choose sensitivity labels to publish** page, select the **Choose
+    sensitivity labels to publish** link.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image95.png)
