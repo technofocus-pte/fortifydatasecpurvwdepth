@@ -37,7 +37,7 @@ action to affect your users yet.
 
 4.  On the **Start with a template or create a custom policy** page,
     scroll down and select **Custom** under **Categories** and **Custom
-    policy** under **Templates**. By default, both options should
+    policy** under **Regulations**. By default, both options should
     already be selected , select **Next**.
 
 ![](./media/image6.png)
@@ -411,7 +411,7 @@ quarantine files containing credit card information if they are shared.
   close the box.
 
 7.  In the **Microsoft 365 Defender** portal, in the left navigation
-    pane, expand **Policies** and select **Policy management**.
+    pane, expand **Cloud apps** > **Policies** and select **Policy management**.
 
 8.  On the **Policies** page, expand **+ Create policy** and then
     select **File policy**.
@@ -575,7 +575,7 @@ connector that is not Salesforce.
     portal as **MOD Administrator**.
 
 2.  From the left navigation pane, select **Solutions** \> **Insider
-    Risk Management** \> **Adaptive protection (preview)** \>
+    Risk Management** \> **Adaptive protection** \>
     **Dashboard**. Select **Quick setup**.
 
 3.  It will show a message saying we are setting things up. It will take
@@ -585,7 +585,7 @@ connector that is not Salesforce.
 ![A screenshot of a computer Description automatically
 generated](./media/image118.png) 
 
-4.  Select **Adaptive Protection settings (preview)** tab and switch
+4.  Select **Adaptive Protection settings** tab and switch
     on the **Adaptive Protection** toggle button. Select **Save**.
 
 ![A screenshot of a computer Description automatically
