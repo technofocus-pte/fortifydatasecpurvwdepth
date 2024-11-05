@@ -238,8 +238,8 @@ generated](./media/image26.png)
 
 ![](./media/image34.png)
 
-21. On **Encryption Page**, select **Configure
-    encryption** **settings**.
+21. On **Access Control** page, select **Configure
+    access control ettings**.
 
 ![](./media/image36.png)
 
@@ -600,7 +600,7 @@ generated](./media/image87.png)
 
 ```German```
 
-13. Press the enter button, the results will display sensitivity info
+13. Press the enter key on your keyboard, the results will display sensitivity info
     types related to Germany. Press the **Select all** check box.
 
 ![BrokenImage](./media/image88.png)
@@ -623,14 +623,14 @@ generated](./media/image91.png)
 17. On the **Auto-labeling for schematized data assets
     (preview)** page, select **Next**.
 
-18. On the **Default settings for Fabric and Power BI content page** page,
+18. If redirected to the **Default settings for Fabric and Power BI content page** page,
     select **Next**.
 
 19. On the **Review your settings and finish** page, select **Create
     label**.
 
 20. The label will be created and when complete a message will
-    display: **Your sensitivity label was created**. Then
+    display: **Your sensitivity label was created**. Under next steps, select **Don't create a policy yet**. Then
     select **Done**.
 
 ![Graphical user interface, text, application, Word Description
