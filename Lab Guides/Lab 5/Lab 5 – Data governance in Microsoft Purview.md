@@ -307,7 +307,7 @@ generated](./media/image2.png)
 
 ![A screenshot of a computer Description automatically
 generated](./media/image27.png)
-```
+
 5. You will be redirected to the new Microsoft Purview portal. If asked, agree to the terms and conditions and select **Get started**.
 
 ![A screenshot of a computer Description automatically
