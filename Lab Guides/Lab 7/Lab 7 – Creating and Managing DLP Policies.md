@@ -242,7 +242,7 @@ first and then execute the step again.
 If it shows error try running the following commands one by one first
 and then execute the step again. If you still face any error, download
 the following file and install it before proceeding further.
-**https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/PowerShell-7.4.0-win-x64.msi**
+```https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/PowerShell-7.4.0-win-x64.msi```
 
 3.  Enter the following command into PowerShell to create a DLP policy
     that scans all Exchange mailboxes:
