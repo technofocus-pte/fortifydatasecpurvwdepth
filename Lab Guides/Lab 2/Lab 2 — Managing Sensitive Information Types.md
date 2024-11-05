@@ -28,9 +28,9 @@ that recognizes the pattern of employee IDs near the keywords "Employee"
 and "ID".
 
 1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
-    to ```https://**purview**.microsoft.com``` and log in as
+    to ```https://purview.microsoft.com``` and log in as
     **Patti Fernandez** using the
-    username **PattiF@{TENANTPREFIX}.onmicrosoft.com** and the User Password
+    username ```PattiF@{TENANTPREFIX}.onmicrosoft.com``` and the User Password
     given on your resources tab. If asked, agree to the terms and conditions and select **Get started**.
 
 2.  From the left navigation, select **Solutions** \> **Data Loss
