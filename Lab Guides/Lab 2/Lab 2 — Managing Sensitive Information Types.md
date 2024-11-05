@@ -28,9 +28,9 @@ that recognizes the pattern of employee IDs near the keywords "Employee"
 and "ID".
 
 1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
-    to ```https://**purview**.microsoft.com``` and log in as
+    to ```https://purview.microsoft.com``` and log in as
     **Patti Fernandez** using the
-    username **PattiF@{TENANTPREFIX}.onmicrosoft.com** and the User Password
+    username ```PattiF@{TENANTPREFIX}.onmicrosoft.com``` and the User Password
     given on your resources tab. If asked, agree to the terms and conditions and select **Get started**.
 
 2.  From the left navigation, select **Solutions** \> **Data Loss
@@ -50,7 +50,7 @@ generated](./media/image6.png)
 
     - **Name**: ```Contoso Employee IDs```
 
-    - **Description**: ```Pattern for Contosoemployee IDs.```
+    - **Description**: ```Pattern for Contoso Employee IDs.```
 
 5. Select **Next**.
 
@@ -362,7 +362,7 @@ Christie Cline,31.01.1985,2Secondary Street,CSO654321
 ![BrokenImage](./media/image46.png)
 
 12. When the **Pick an account** window is displayed, log in as **Patti
-    Fernandez** using the username **PattiF@{TENANTPREFIX}.onmicrosoft.com**
+    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
     and the User Password given on your resources tab. (Or the new
     password you reset.)
 
@@ -389,7 +389,7 @@ path the documents folder on your VM.
     sensitive information type by running the following script in
     PowerShell:
 
-```.\EdmUploadAgent.exe /UploadData/DataStoreName employeedb /DataFileC:\Users\Admin\Documents\EmployeeData.csv /HashLocation C:\Users\Admin\Documents\\/SchemaC:\Users\Admin\Documents\employeedb.xml```
+```.\EdmUploadAgent.exe /UploadData/DataStoreName employeedb /DataFile C:\Users\Admin\Documents\EmployeeData.csv /HashLocation C:\Users\Admin\Documents\ /Schema C:\Users\Admin\Documents\employeedb.xml```
 
 ![BrokenImage](./media/image48.png)
 
@@ -422,7 +422,7 @@ that to happen.
 
 1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
     to ```https://purview.microsoft.com``` and log in as **Patti
-    Fernandez** using the username **PattiF@{TENANTPREFIX}.onmicrosoft.com**
+    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
     and the User Password given on your resources tab.
 
 2.  From the left navigation, select **Solutions** \> **Data Loss
@@ -558,7 +558,7 @@ malfunctioning custom search pattern.
 6.  In the left navigation pane select **Solutions** \> **Data Loss
     Prevention**, then select the **Sensitive info types** under
     **Classifiers** . In the **Search** box from the upper right side
-    and enter ***Contoso*** and press Enter. Select **Contoso Employee
+    and enter ***Contoso*** and press **Enter**. Select **Contoso Employee
     IDs** to open the right side pane.
 
 ![A screenshot of a computer Description automatically
