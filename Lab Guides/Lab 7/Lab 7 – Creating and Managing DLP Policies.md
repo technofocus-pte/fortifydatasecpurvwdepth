@@ -134,7 +134,7 @@ generated](./media/image32.png)
 **Note**: If you were not able to select the check box of **Allow
 overrides from M365 services**, enable the check box of **Notify users
 in Office 365 with a policy tip** which can be found on the **Create
-rule** page under the **User notification \>\\ \>Microsoft 365
+rule** page under the **User notification** > **Microsoft 365
 services** section from the previous step. Then select the check box
 of **Allow overrides from M365 services. Allows users in Exchange,**
 **SharePoint, OneDrive and Teams to override policy restrictions.**
@@ -154,16 +154,15 @@ of **Allow overrides from M365 services. Allows users in Exchange,**
 generated](./media/image40.png)
 
 23. On the **Test or turn on the policy** page select **Run the policy
-    in simulation mode** and select **Show policy tips while in test**
-    **mode**.
+    in simulation mode** and select **Show policy tips while in test mode**.
 
 ![](./media/image42.png)
 
-25. Select **Submit** to create the policy.
+24. Select **Submit** to create the policy.
 
 ![](./media/image44.png)
 
-26. Once the policy is created select **Done**.
+25. Once the policy is created select **Done**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image47.png)
@@ -239,6 +238,11 @@ first and then execute the step again.
 ```Install-ModuleExchangeOnlineManagement```
 
 ```Import-ModuleExchangeOnlineManagement```
+
+If it shows error try running the following commands one by one first
+and then execute the step again. If you still face any error, download
+the following file and install it before proceeding further.
+**https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/PowerShell-7.4.0-win-x64.msi**
 
 3.  Enter the following command into PowerShell to create a DLP policy
     that scans all Exchange mailboxes:
