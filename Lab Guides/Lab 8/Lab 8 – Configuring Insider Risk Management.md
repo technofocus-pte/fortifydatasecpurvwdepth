@@ -232,9 +232,9 @@ medium confidence](./media/image29.png)
 9. You can open the RDP files and use the following local credentials
     to log in sign in to these Virtual Machines.
 
-    - User Name: ** ```Admin01```**
+    - User Name: ```Admin01```
 
-    - Password: ** ```Pa55.w0rd@123```**
+    - Password: ```Pa55.w0rd@123```
 
 ### Task 4: Enrol the VMs in Azure AD as different users
 
@@ -377,7 +377,7 @@ User password
 #### Step 1 – Add users to Insider risk management role group
 
 1.  If the Microsoft Purview portal is open continue to step 2,
-    otherwise, open the ** ```https://purview.microsoft.com ```** and log
+    otherwise, open the ```https://purview.microsoft.com ``` and log
     in with the **MOD Administrator** credentials.
 
 ![](./media/image54.png)
@@ -475,7 +475,7 @@ generated](./media/image78.png)
 9.  Repeat the steps from 1 to 7 to
     update **Adeles-Device** and **Christies-Device**.
 
-10. Sign in to  ```**https://security.microsoft.com/ ```** using
+10. Sign in to  ```https://security.microsoft.com/ ``` using
     your **MOD Administrator** account on your Lab VM.
 
 11. Select **Settings** \> **Device onboarding**.
@@ -535,7 +535,7 @@ generated](./media/image91.png)
     and run the command below. The Command Prompt window will close
     automatically.
 
-** ```powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyleHidden $ErrorActionPreference= 'silentlycontinue';(New-ObjectSystem.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe','C:\test-WDATP-test\invoice.exe');Start-Process 'C:\test-WDATP-test\invoice.exe'```**
+```powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyleHidden $ErrorActionPreference= 'silentlycontinue';(New-ObjectSystem.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe','C:\test-WDATP-test\invoice.exe');Start-Process 'C:\test-WDATP-test\invoice.exe'```
 
 ![Text Description automatically generated](./media/image92.png)
 
