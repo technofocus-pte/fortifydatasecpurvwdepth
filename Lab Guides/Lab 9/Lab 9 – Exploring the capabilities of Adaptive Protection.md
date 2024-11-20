@@ -1,3 +1,5 @@
+# Lab 9 – Exploring the capabilities of Adaptive Protection
+
 ## Exercise 1 – Setting up Adaptive Protection
 
 ### Task 1 – Setting up risk levels for Adaptive Protection
