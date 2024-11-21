@@ -32,7 +32,7 @@ for implementing security with Microsoft Purview.
 
 3.  From the left pane, select **Users** \> **Active users**, and click on the first user **Adele Vance**.
 
- ![](./media/image16.png)
+    ![](./media/image16.png)
 
 4.  Under **Manager**, Click **Edit manager**.
 
