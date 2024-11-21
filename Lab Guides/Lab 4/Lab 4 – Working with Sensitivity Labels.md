@@ -18,7 +18,8 @@ your tenant.
 1.  Select the windows symbol in the taskbar with the right mouse button
     and select **Windows PowerShell (Admin)** and run as administrator.
 
-    ![A screenshot of a computer Description automatically generated](./media/image1.png)
+    ![A screenshot of a computer Description automatically
+generated](./media/image1.png)
 
 2.  Confirm the **User Account Control** window with **Yes** and press
     Enter.
