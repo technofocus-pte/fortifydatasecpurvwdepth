@@ -23,14 +23,14 @@ stored by Contoso Ltd.
 2.  From the left navigation, select **Solutions** \> **Data Loss
     Prevention**.
 
-    ![A screenshot of a computer Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image1.png)
 
 3. Expand **Classifiers** from the left pane. Select **Trainable
     Classifiers** from the sub-navigation pane. Select **+ Create
     trainable classifier** to create a new classifier.
 
-    ![](./media/image2.png)
+![](./media/image2.png)
 
 4. Enter the following information on the **Name and describe your
     trainable classifier** page:
@@ -41,12 +41,12 @@ generated](./media/image1.png)
 
 7. Select **Next**.
 
-    ![A screenshot of a computer Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image3.png)
 
 8. Select **Choose sites** to open the right side pane.
 
-    ![A screenshot of a computer Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image4.png)
 
 9. Select the following SharePoint sites and select **Add**.
@@ -61,11 +61,11 @@ generated](./media/image4.png)
 
     - Mark 8 Project Team
 
-    ![](./media/image5.png)
+![](./media/image5.png)
 
 10. Wait until the chosen site is shown in the list and select **Next**.
 
-    ![A screenshot of a computer Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image6.png)
 
 11. On the **Source of the negative sample content page**, select the
@@ -73,7 +73,7 @@ generated](./media/image6.png)
 
 12. Review the settings and select **Create trainable classifier**.
 
-    ![A screenshot of a computer Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image7.png)
 
 13. When the message Your trainable classifier was created is shown,
