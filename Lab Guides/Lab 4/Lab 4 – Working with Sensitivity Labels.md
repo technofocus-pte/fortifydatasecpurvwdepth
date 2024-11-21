@@ -26,7 +26,7 @@ your tenant.
 3.  Enter the following cmdlet to install the latest Microsoft Online
     PowerShell module version:
 
-+++Install-Module -Name MSOnline+++
+    +++Install-Module -Name MSOnline+++
 
     ![A screenshot of a computer Description automatically generated](./media/image2.png)
 
@@ -39,7 +39,7 @@ your tenant.
 5.  Enter the following cmdlet to install the latest SharePoint Online
     PowerShell module version:
 
-+++Install-Module -Name Microsoft.Online.SharePoint.PowerShell+++
+    +++Install-Module -Name Microsoft.Online.SharePoint.PowerShell+++
 
     ![A screenshot of a computer Description automatically
 generated](./media/image4.png)
@@ -53,7 +53,7 @@ generated](./media/image5.png)
 7.  Enter the following cmdlet to connect to the Microsoft Online
     service:
 
-+++Connect-MsolService+++
+    +++Connect-MsolService+++
 
     ![BrokenImage](./media/image6.png)
 
@@ -68,13 +68,13 @@ generated](./media/image7.png)
 
 10. Enter the following cmdlet to get the domain:
 
-+++$domain = get-msoldomain+++
+    +++$domain = get-msoldomain+++
 
     ![BrokenImage](./media/image8.png)
 
 11. Enter the following cmdlet to create the SharePoint admin url:
 
-+++$adminurl = "https://" + $domain.Name.split('.')\[0\] + "-admin.sharepoint.com"+++
+    +++$adminurl = "https://" + $domain.Name.split('.')\[0\] + "-admin.sharepoint.com"+++
 
     ![A screenshot of a computer screen Description automatically
 generated](./media/image9.png)
@@ -82,7 +82,7 @@ generated](./media/image9.png)
 12. Enter the following cmdlet to sign in to the SharePoint Online admin
     center:
 
-+++Connect-SPOService -url $adminurl+++
+    +++Connect-SPOService -url $adminurl+++
 
     ![A screenshot of a computer screen Description automatically
 generated](./media/image10.png)
@@ -95,7 +95,7 @@ generated](./media/image10.png)
 
 15. Enter the following cmdlet to enable support for sensitivity labels:
 
-+++Set-SPOTenant -EnableAIPIntegration $true+++
+    +++Set-SPOTenant -EnableAIPIntegration $true+++
 
     ![BrokenImage](./media/image11.png)
 
@@ -447,7 +447,7 @@ generated](./media/image65.png)
 
 6.  Enter the following contents into the word document:
 
-```Important HR employee document.```
+    ```Important HR employee document.```
 
     ![Graphical user interface, application, Word Description automatically
 generated](./media/image67.png)
@@ -459,7 +459,7 @@ generated](./media/image68.png)
 
 8.  Select **Internal** \>**Employee data (HR)** to apply the label.
 
-**Note**: Be aware, the script you ran in task 1 of this exercise
+    **Note**: Be aware, the script you ran in task 1 of this exercise
 activated sensitivity labels in Word for your tenant. It can sometimes
 take an hour for that activation to be realized in Microsoft Word
 online. If you don't see the Sensitivity label menu in Word, you may
@@ -499,12 +499,12 @@ generated](./media/image72.png)
 15. Within the email message (the large content panel at the bottom of
     the page), insert the following message:
 
-```
-DearMs. Adele,
-Please find attached the important HR employee document.
-Kind regards,
-Patti Fernandez
-```
+    ```
+    DearMs. Adele,
+    Please find attached the important HR employee document.
+    Kind regards,
+    Patti Fernandez
+    ```
 
     ![A screenshot of a computer Description automatically
 generated](./media/image76.png)
@@ -596,7 +596,7 @@ generated](./media/image87.png)
 12. In the **Search for sensitive info types** search panel, enter the
     following information:
 
-```German```
+    ```German```
 
 13. Press the enter key on your keyboard, the results will display sensitivity info
     types related to Germany. Press the **Select all** check box.
