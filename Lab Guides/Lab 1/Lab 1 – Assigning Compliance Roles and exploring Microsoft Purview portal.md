@@ -32,15 +32,15 @@ for implementing security with Microsoft Purview.
 
 3.  From the left pane, select **Users** \> **Active users**, and click on the first user **Adele Vance**.
 
- ![](./media/image16.png)
+![](./media/image16.png)
 
 4.  Under **Manager**, Click **Edit manager**.
 
- ![](./media/image18.png)
+![](./media/image18.png)
 
 5.  Remove the current manager and type **Patti** in the search box. Select **Patti Fernandez**. Click **Save Changes**.
 
- ![A screenshot of a computer Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image20.png)
 
 6.  Change the manager to **Patti Fernandez** for all the users who have been assigned the licenses except MOD Administrator.
