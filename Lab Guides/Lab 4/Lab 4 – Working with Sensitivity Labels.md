@@ -28,8 +28,7 @@ your tenant.
 
 +++Install-Module -Name MSOnline+++
 
-    ![A screenshot of a computer Description automatically
-generated](./media/image2.png)
+    ![A screenshot of a computer Description automatically generated](./media/image2.png)
 
 4.  Confirm the NuGet security dialog and the Untrusted repository
     security dialog with Y for Yes and press Enter. This may take a
