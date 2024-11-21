@@ -36,13 +36,13 @@ and "ID".
 2.  From the left navigation, select **Solutions** \> **Data Loss
     Prevention**.
 
-    ![](./media/image1.png) 
+![](./media/image1.png) 
 
 3. Select **Classifiers** from the left pane. Select **Sensitive info
     types** from the sub-navigation pane. Select **+Create sensitive
     info type** to open the wizard for a new sensitive information type.
 
-    ![A screenshot of a computer Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image6.png)
 
 4. On the **Name your sensitive info type** page, enter the following
@@ -54,19 +54,19 @@ generated](./media/image6.png)
 
 5. Select **Next**.
 
-    ![Graphical user interface, application Description automatically
+![Graphical user interface, application Description automatically
 generated](./media/image7.png)
 
 6. On the **Define patterns for this sensitive info type** page,
     select **Create pattern**.
 
-    ![A screenshot of a computer Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image9.png)
 
 7. In the right-side **New pattern** pane, select **Add primary
     element** and select **Regular expression**.
 
-    ![Graphical user interface, application, Teams Description automatically
+![Graphical user interface, application, Teams Description automatically
 generated](./media/image10.png)
 
 8. In the new right-side pane **Add a regular expression**, enter the
@@ -80,14 +80,14 @@ generated](./media/image10.png)
 
 9. Select **Done**.
 
-    ![Graphical user interface, application Description automatically
+![Graphical user interface, application Description automatically
 generated](./media/image11.png)
 
 10. In the right-side **New pattern** pane again, below **Supporting
     elements**, select **+ Add supporting elements or group of
     elements** drop-down menu and select **Keyword list**.
 
-    ![Graphical user interface, application Description automatically
+![Graphical user interface, application Description automatically
 generated](./media/image12.png)
 
 10. In the new right-side pane **Add a keyword list**, enter the
@@ -107,13 +107,13 @@ ID
 
 12. Select **Done**.
 
-    ![Graphical user interface, text, application Description automatically
+![Graphical user interface, text, application Description automatically
 generated](./media/image13.png)
 
 13. In the New pattern windows decrease the **Character
     proximity** value to ***100*** characters.
 
-    ![Graphical user interface, text, application Description automatically
+![Graphical user interface, text, application Description automatically
 generated](./media/image14.png)
 
 14. Select the **Create** button.
@@ -121,19 +121,19 @@ generated](./media/image14.png)
 15. Back on the **Define patterns for this sensitive info type** page
     select **Next**.
 
-    ![Graphical user interface, text, application, Teams Description
+![Graphical user interface, text, application, Teams Description
 automatically generated](./media/image15.png)
 
 16. On the **Choose the recommended confidence level to show in
     compliance policies** page use the default value and
     select **Next**.
 
-    ![BrokenImage](./media/image16.png)
+![BrokenImage](./media/image16.png)
 
 17. On the **Review settings and finish** page review the settings and
     select **Create**. When successfully created select **Done**.
 
-    ![Graphical user interface, text, application Description automatically
+![Graphical user interface, text, application Description automatically
 generated](./media/image17.png)
 
 18. Leave the browser window open.
@@ -155,7 +155,7 @@ Birthdate, StreetAddress, and EmployeeID.
     and from EDM Schema, select **+ Create EDM schema** to create a new
     schema definition.
 
-    ![A screenshot of a computer Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image18.png)
 
 2.  In the **Name** field, enter ```employeedb```.
@@ -165,14 +165,14 @@ generated](./media/image18.png)
 
 4.  Enable **Ignore delimiters and punctuation for all schema fields**.
 
-    ![A screenshot of a computer Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image21.png)
 
 5.  Click the dropdown for **Choose delimiters and punctuation to
     ignore** and select **Hyphen**, **Period**, **Space**, **Open
     parenthesis** and **Close parenthesis**.
 
-    ![Graphical user interface, application Description automatically
+![Graphical user interface, application Description automatically
 generated](./media/image22.png)
 
 6.  In the first Schema field name, enter ```Name``` and mark
@@ -180,7 +180,7 @@ generated](./media/image22.png)
 
 7.  Select **+ Add schema data field** from the lower end.
 
-    ![BrokenImage](./media/image23.png)
+![BrokenImage](./media/image23.png)
 
 8.  In **Schema field name**, below **Schema field \#2**,
     enter ```Birthdate```.
@@ -199,35 +199,35 @@ generated](./media/image22.png)
 
 14. Select **Save**.
 
-    ![Graphical user interface, application Description automatically
+![Graphical user interface, application Description automatically
 generated](./media/image24.png)
 
 15. Select **EDM sensitive info types** from the left pane and
     select **+ Create EDM sensitive info type** to open the **EDM rule
     package** wizard.
 
-    ![](./media/image26.png)
+![](./media/image26.png)
 
 16. On the **Define data store schema** page, select **Choose an
     existing EDM schema**.
 
-    ![Graphical user interface, application Description automatically
+![Graphical user interface, application Description automatically
 generated](./media/image27.png)
 
 17. Select **employeedb** and select **Add**.
 
-    ![Graphical user interface, text, application Description automatically
+![Graphical user interface, text, application Description automatically
 generated](./media/image28.png)
 
 18. Review the data store schema and select **Next**.
 
-    ![Graphical user interface, application Description automatically
+![Graphical user interface, application Description automatically
 generated](./media/image29.png)
 
 19. On the **Define patterns for this EDM sensitive info type** page,
     select **+ Create pattern**.
 
-    ![Graphical user interface, application Description automatically
+![Graphical user interface, application Description automatically
 generated](./media/image30.png)
 
 20. On the **New pattern** pane on the right-side, in the **Primary
@@ -236,7 +236,7 @@ generated](./media/image30.png)
 21. Below **Primary element's sensitive info type**, select **Choose
     sensitive info type**.
 
-    ![A screenshot of a pattern Description automatically
+![A screenshot of a pattern Description automatically
 generated](./media/image31.png)
 
 22. In the **Search** bar, enter ***Contoso*** and press the enter key.
@@ -245,19 +245,19 @@ generated](./media/image31.png)
 
 24. Select **Done**.
 
-    ![A screenshot of a computer Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image34.png)
 
 25. Select **Next** in the **Define patterns for this EDM sensitive info
     type** screen.
 
-    ![Graphical user interface, text, application Description automatically
+![Graphical user interface, text, application Description automatically
 generated](./media/image35.png)
 
 26. In the **Choose the recommended confidence level and character
     proximity** let the default value persist and select **Next**.
 
-    ![Graphical user interface, text, application, Word Description
+![Graphical user interface, text, application, Word Description
 automatically generated](./media/image36.png)
 
 27. In the **Name and describe your EDM sensitive info type** page,
@@ -266,18 +266,18 @@ automatically generated](./media/image36.png)
 28. In the **Description for admins** field, enter ```EDM-based sensitive information type for employee personal information.```.
     Select **Next.**
 
-    ![Graphical user interface, text, application Description automatically
+![Graphical user interface, text, application Description automatically
 generated](./media/image37.png)
 
 29. Review the settings and select **Submit**.
 
-    ![Graphical user interface, application Description automatically
+![Graphical user interface, application Description automatically
 generated](./media/image38.png)
 
 30. On the **Your EDM sensitive info type was created** page,
     select **Done**.
 
-    ![A screenshot of a computer Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image40.png)
 
 31. Leave the browser open with the Microsoft Purview portal.
@@ -298,7 +298,7 @@ information type via the EDM Upload Agent tool is required next.
 
 2.  Select **Run** to download and install the tool.
 
-    ![BrokenImage](./media/image41.png)
+![BrokenImage](./media/image41.png)
 
 3.  In the **Microsoft Exact Data Match Upload Agent Setup** wizard,
     select **Next**.
@@ -337,14 +337,14 @@ Christie Cline,31.01.1985,2Secondary Street,CSO654321
 6.  Select the dropdown at **Encoding:** and select **UTF-8** and
     select **Save**.
 
-    ![BrokenImage](./media/image43.png)
+![BrokenImage](./media/image43.png)
 
 7.  Close the Notepad window.
 
 8.  Select the windows symbol in the taskbar with the right mouse button
     and select **Windows PowerShell (Admin)** and run as administrator.
 
-    ![BrokenImage](./media/image44.png)
+![BrokenImage](./media/image44.png)
 
 9.  When the **User Account Control** window opens, select **Yes**.
 
@@ -352,14 +352,14 @@ Christie Cline,31.01.1985,2Secondary Street,CSO654321
 
 ```cd "C:\Program Files\Microsoft\EdmUploadAgent"```
 
-    ![Text Description automatically generated](./media/image45.png)
+![Text Description automatically generated](./media/image45.png)
 
 11. Authorize with your Account to upload the database to your tenant by
     running the following cmdlet:
 
 ```.\EdmUploadAgent.exe /Authorize```
 
-    ![BrokenImage](./media/image46.png)
+![BrokenImage](./media/image46.png)
 
 12. When the **Pick an account** window is displayed, log in as **Patti
     Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
@@ -383,7 +383,7 @@ one hour until it is possible to download the schema file. If it fails
 proceed to the next task and return to this step later. Or check the
 path the documents folder on your VM.
 
-    ![BrokenImage](./media/image47.png)
+![BrokenImage](./media/image47.png)
 
 14. Hash the database file and upload it to the EDM-based classification
     sensitive information type by running the following script in
@@ -391,7 +391,7 @@ path the documents folder on your VM.
 
 ```.\EdmUploadAgent.exe /UploadData/DataStoreName employeedb /DataFile C:\Users\Admin\Documents\EmployeeData.csv /HashLocation C:\Users\Admin\Documents\ /Schema C:\Users\Admin\Documents\employeedb.xml```
 
-    ![BrokenImage](./media/image48.png)
+![BrokenImage](./media/image48.png)
 
 **Note:** If you get the following errors
 
@@ -401,14 +401,14 @@ Error Message: Unable to find the specified file.
 
 Check the path where you saved the file EmployeeData.csv
 
-    ![Text Description automatically generated](./media/image49.png)
+![Text Description automatically generated](./media/image49.png)
 
 15. Check the upload progress until the state changes to completed then
     run the following PowerShell command:
 
 ```.\EdmUploadAgent.exe /GetSession /DataStoreNameemployeedb```
 
-    ![BrokenImage](./media/image50.png)
+![BrokenImage](./media/image50.png)
 
 You have successfully hashed and uploaded a database file for a
 EDM-based classification sensitive information type.
@@ -428,14 +428,14 @@ that to happen.
 2.  From the left navigation, select **Solutions** \> **Data Loss
     Prevention**.
 
-    ![A screenshot of a computer Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image1.png)
 
 3.  Select **Classifiers** from the left pane. Select **Sensitive info
     types** from the sub-navigation pane. Select **+Create sensitive
     info type** to open the wizard for a new sensitive information type.
 
-    ![A screenshot of a computer Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image6.png)
 
 4.  On the **Name your sensitive info type** page, enter the following:
@@ -444,7 +444,7 @@ generated](./media/image6.png)
 
     - Description: ```List of possible diseases of employees.```
 
-    ![Graphical user interface, application, Teams Description automatically
+![Graphical user interface, application, Teams Description automatically
 generated](./media/image51.png)
 
 5.  Select **Next**.
@@ -452,13 +452,13 @@ generated](./media/image51.png)
 6.  On the **Define patterns for this sensitive info type** page,
     select **+ Create pattern**.
 
-    ![Graphical user interface, application, Teams Description automatically
+![Graphical user interface, application, Teams Description automatically
 generated](./media/image52.png)
 
 7.  Select the dropdown field below **Primary element** and
     select **Keyword dictionary**.
 
-    ![Graphical user interface, application Description automatically
+![Graphical user interface, application Description automatically
 generated](./media/image53.png)
 
 8.  In the **Add a keyword dictionary** page enter the
@@ -475,7 +475,7 @@ bronchitis
 otitis
 ```
 
-    ![BrokenImage](./media/image54.png)
+![BrokenImage](./media/image54.png)
 
 10.  Select **Done**.
 
@@ -483,7 +483,7 @@ otitis
     group of elements** drop-down and select **keyword list** to add
     additional support for the keyword dictionary.
 
-    ![Graphical user interface, application Description automatically
+![Graphical user interface, application Description automatically
 generated](./media/image55.png)
 
 12. In the **Add a keyword list** page enter **Employee absence** in
@@ -496,7 +496,7 @@ absence
 reason
 ```
 
-    ![Graphical user interface, application Description automatically
+![Graphical user interface, application Description automatically
 generated](./media/image56.png)
 
 13. Select **Done**.
@@ -504,26 +504,26 @@ generated](./media/image56.png)
 14. In the **New pattern** page, review the configuration and
     select **Create**.
 
-    ![Graphical user interface, application Description automatically
+![Graphical user interface, application Description automatically
 generated](./media/image57.png)
 
 15. In the **Define patterns for this sensitive info
     type** select **Next**.
 
-    ![Graphical user interface, application, Teams Description automatically
+![Graphical user interface, application, Teams Description automatically
 generated](./media/image58.png)
 
 16. In the **Choose the recommended confidence level to show in
     compliance policies** let the default value persist and
     select **Next**.
 
-    ![A screenshot of a computer Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image59.png)
 
 17. In the **Review settings and finish** page, review your settings and
     select **Create**. When the process is complete select **Done**.
 
-    ![BrokenImage](./media/image60.png)
+![BrokenImage](./media/image60.png)
 
 18. Leave the browser window in the Microsoft Purview portal open.
 
@@ -561,37 +561,37 @@ malfunctioning custom search pattern.
     and enter ***Contoso*** and press **Enter**. Select **Contoso Employee
     IDs** to open the right side pane.
 
-    ![A screenshot of a computer Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image61.png)
 
 7.  Select **Test** from the right-side pane.
 
-    ![A screenshot of a computer Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image63.png)
 
 8.  On the **Upload file to test** page, select **Upload file**.
 
-    ![BrokenImage](./media/image65.png)
+![BrokenImage](./media/image65.png)
 
 9. Select **Documents** from the left pane, select the file with the
     name **SickTestData** and select **Open**.
 
-    ![Graphical user interface, text, application Description automatically
+![Graphical user interface, text, application Description automatically
 generated](./media/image66.png)
 
 10. Select **Test** to start the analysis.
 
-    ![Graphical user interface, text, application Description automatically
+![Graphical user interface, text, application Description automatically
 generated](./media/image67.png)
 
 11. On the **Match results** page, review the found match.
 
-    ![BrokenImage](./media/image68.png)
+![BrokenImage](./media/image68.png)
 
 12. Select **Finish** and close the test page by clicking
     the **X** button.
 
-    ![Graphical user interface, text, application Description automatically
+![Graphical user interface, text, application Description automatically
 generated](./media/image69.png)
 
 13. Back on the **Data classification** page, select the Sensitive
@@ -599,24 +599,24 @@ generated](./media/image69.png)
 
 14. In the right side pane, select **Test**.
 
-    ![BrokenImage](./media/image71.png)
+![BrokenImage](./media/image71.png)
 
 15. On the **Upload file to test** page, select **Upload file**.
 
-    ![BrokenImage](./media/image72.png)
+![BrokenImage](./media/image72.png)
 
 16. Select **Documents** from the left pane, select the file with the
     name *SickTestData* and select **Open**.
 
 17. Select **Test** to start the analysis.
 
-    ![Graphical user interface, text, application Description automatically
+![Graphical user interface, text, application Description automatically
 generated](./media/image74.png)
 
 18. On the **Match results** page, review the found match. When done
     review select **Finish**.
 
-    ![Graphical user interface, application Description automatically
+![Graphical user interface, application Description automatically
 generated](./media/image75.png)
 
 ## Summary:
