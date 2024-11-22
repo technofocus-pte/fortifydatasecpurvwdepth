@@ -552,7 +552,7 @@ malfunctioning custom search pattern.
     be open. If so, select it and proceed to the next step. If you
     closed it, then in a new tab, navigate
     to ```https://purview.microsoft.com```. Log in as **Patti
-    Fernandez** using the username **PattiF@{TENANTPREFIX}.onmicrosoft.com**
+    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
     and the User Password given on your resources tab.
 
 6.  In the left navigation pane select **Solutions** \> **Data Loss
