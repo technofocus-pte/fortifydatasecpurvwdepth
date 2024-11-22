@@ -263,7 +263,7 @@ generated](./media/image16.png)
 ![](./media/image17.png)
 
 6. In the sign in prompt, sign in with the
-    username **pattif@{TENANTPREFIX}.onmicrosoft.com** and the User
+    username ```pattif@{TENANTPREFIX}.onmicrosoft.com``` and the User
     password. (replace {TENANTPREFIX} with your tenant prefix given on the
     resources tab).
 
@@ -282,7 +282,7 @@ generated](./media/image16.png)
 ![](./media/image37.png)
 
 10. In the Set up a work or school account prompt, sign in with
-    username **pattif@{TENANTPREFIX}.onmicrosoft.com** and the User
+    username ```pattif@{TENANTPREFIX}.onmicrosoft.com``` and the User
     password. (replace {TENANTPREFIX} with your tenant prefix given on the
     resources tab).
 
@@ -329,21 +329,21 @@ generated with medium confidence](./media/image48.png)
 ![A screenshot of a computer screen Description automatically generated
 with low confidence](./media/image49.png)
 
-19. Sign in with username **pattif@{TENANTPREFIX}.onmicrosoft.com** and the
+19. Sign in with username ```pattif@{TENANTPREFIX}.onmicrosoft.com``` and the
     User password. (replace {TENANTPREFIX} with your tenant prefix given on
     the resources tab). If asked for the confirmation, click on **Yes**.
 
 20. Open the RDP file of Adele’s device and following the same 1 t0 19
     steps as we did for Patti’s device, enrol the device in Microsoft
     Entra ID. In the sign in prompt, sign in with the
-    username **adelev@{TENANTPREFIX}.onmicrosoft.com** and the User password
+    username ```adelev@{TENANTPREFIX}.onmicrosoft.com``` and the User password
     (replace {TENANTPREFIX} with your tenant prefix given on the resources
     tab).
 
 21. Open the RDP file of Christie’s device and following the same 1 t0
     19 steps as we did for Patti’s device, enrol the device in Azure AD.
     In the sign in prompt, sign in with the
-    username **christiec@{TENANTPREFIX}.onmicrosoft.com** and the User
+    username ```christiec@{TENANTPREFIX}.onmicrosoft.com``` and the User
     password (replace {TENANTPREFIX} with your tenant prefix given on the
     resources tab).
 
@@ -554,7 +554,7 @@ generated](./media/image93.png)
     Defender** portal.
 
 25. Open the ```https://purview.microsoft.com ``` and log in with the
-    username **pattif@{TENANTPREFIX}.onmicrosoft.com** and the User
+    username ```pattif@{TENANTPREFIX}.onmicrosoft.com``` and the User
     password. (replace {TENANTPREFIX} with your tenant prefix given on the
     resources tab).
 
@@ -909,7 +909,7 @@ medium confidence](./media/image140.png)
 
 9.  On the **SharePoint sites to prioritize** page, select **Add or edit
     SharePoint sites**. On the flyout pane,
-    select **https://{TENANTPREFIX}.sharepoint.com/sites/ContosoWeb1** and
+    select ```https://{TENANTPREFIX}.sharepoint.com/sites/ContosoWeb1``` and
     select **Add**. Then click **Next**.
 
 10.  On the **Sensitivity labels to prioritize** page, select **Add or edit
