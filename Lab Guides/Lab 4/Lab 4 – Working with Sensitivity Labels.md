@@ -76,7 +76,7 @@ generated](./media/image7.png)
 
 11. Enter the following cmdlet to create the SharePoint admin url:
 
-```$adminurl = "https://" + $domain.Name.split('.')\[0\] + "-admin.sharepoint.com"```
+```$adminurl = "https://" + $domain.Name.split('.')[0] + "-admin.sharepoint.com"```
 
 ![A screenshot of a computer screen Description automatically
 generated](./media/image9.png)
@@ -459,7 +459,7 @@ generated](./media/image67.png)
 ![Graphical user interface, application, Word Description automatically
 generated](./media/image68.png)
 
-8.  Select **Internal** \>**Employee data (HR)** to apply the label.
+8.  Select **Internal** \> **Employee data (HR)** to apply the label.
 
 **Note**: Be aware, the script you ran in task 1 of this exercise
 activated sensitivity labels in Word for your tenant. It can sometimes
