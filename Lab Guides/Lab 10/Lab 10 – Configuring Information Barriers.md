@@ -239,3 +239,4 @@ In this lab we learned how to create the segments to implement the IB
 Policies. We created different policies to create information barriers
 by allowing or blocking the communication and collaboration between
 different segments.
+
