@@ -108,16 +108,13 @@ generated](./media/image17.png)
     users to the communication compliance policy:
 
 ```
-$Mbx = (Get-Mailbox -RecipientTypeDetails UserMailbox -ResultSize
-Unlimited -Filter {CustomAttribute9 -eq $Null})
+$Mbx = (Get-Mailbox -RecipientTypeDetails UserMailbox -ResultSize Unlimited -Filter {CustomAttribute9 -eq $Null})
 $i = 0
 ForEach ($M in $Mbx)
 {
 Write-Host "Adding" $M.DisplayName
-Add-DistributionGroupMember -Identity "Communication Compliance Group
-Contoso" -Member $M.DistinguishedName -ErrorAction SilentlyContinue
-Set-Mailbox -Identity $M.Alias -CustomAttribute1
-"MonitoredCommunication"
+Add-DistributionGroupMember -Identity "Communication Compliance Group Contoso" -Member $M.DistinguishedName -ErrorAction SilentlyContinue
+Set-Mailbox -Identity $M.Alias -CustomAttribute1 "MonitoredCommunication"
 $i++
 }
 Write-Host $i "Mailboxes added to supervisory review distribution group."
