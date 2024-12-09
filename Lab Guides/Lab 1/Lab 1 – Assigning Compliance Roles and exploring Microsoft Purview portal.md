@@ -100,7 +100,7 @@ generated](./media/image29.png)
 4.  On the **Add members** page add **Adele Vance**, and **Christie Cline** as members,
  click **Next**. On the **Add members** page, select **Next**.
 
-5.  For group email address use ```contfosofinance``` and then
+5.  For group email address use ```contosofinance``` and then
  click **Next**.
 
 ![A screenshot of a computer Description automatically
