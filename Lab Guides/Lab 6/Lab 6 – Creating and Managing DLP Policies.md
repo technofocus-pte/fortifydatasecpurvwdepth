@@ -355,17 +355,16 @@ create a file policy, you need to enable file monitoring so Microsoft
     to ```https://security.microsoft.com``` and log into the
     Microsoft 365 Defender portal as **MOD Administrator**.
 
-2.  In the navigation select **Cloud appsSystem** \> **FilesSettings**** \> **Cloud apps** from the menu.
+2.  In the navigation select **Cloud appsSystem** \> **Files Settings** \> **Cloud apps** from the menu.
 
 ![](./media/image80.png)
 
-4.      Then select **Enable file monitoring**.Select **Files** under **Information Protection**.
-
+3. Then select **Enable file monitoring**.Select **Files** under **Information Protection**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image75.png)
 
-53.  Select the **Enable file monitoring** checkbox and then
+4.  Select the **Enable file monitoring** checkbox and then
     select **Save** if it is not already marked.
 
 ![A screenshot of a computer Description automatically
