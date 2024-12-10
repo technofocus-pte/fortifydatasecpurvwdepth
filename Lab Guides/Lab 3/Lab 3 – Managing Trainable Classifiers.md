@@ -81,11 +81,11 @@ generated](./media/image7.png)
 The documents and files in the chosen SharePoint site are now being
 analyzed, which can take up to 24 hours. Once it is ready, you can perform the following.
 
-    -Test the classifier
+- Test the classifier
 
-    -Review the classifier
+- Review the classifier
 
-    -Publish the classifier
+- Publish the classifier
 
 You can explore the already existing classifiers for further review.
 
