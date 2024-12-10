@@ -542,7 +542,21 @@ generated](./media/image92.png)
 
     4.  Review the encrypted message with custom branding.
 
-You have successfully tested the new customized OME template
+You have successfully tested the new customized OME template.
+
+## Exercise 3 – Enabling Adaptive Protection 
+
+1.	In Microsoft Edge, navigate to ```https://purview.microsoft.com``` and log into the perview portal as **MOD Administrator**.
+
+2.	From the left navigation pane, select **Solutioons** \> **Insider risk management** \> **Adaptive Protection**. Then select **Dashboard**. Select **Quick setup**.
+ 
+3.	It will show a message saying we are setting things up. It will take 72 hours to enable it. We will use this in the 8th lab where we explore Adaptive Protection feature.
+
+![BrokenImage](./media/image94.png)
+ 
+4.	Select **Adaptive Protection settings** tab and switch on the **Adaptive Protection** toggle button. Select **Save**.
+
+![BrokenImage](./media/image95.png)
 
 ## Summary:
 
