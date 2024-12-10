@@ -97,7 +97,7 @@ medium confidence](./media/image3.png)
 
 5.  Your Azure subscription is ready to be used.
 
-### Task 2: Register your lab VM in Azure AD (Now Microsoft Entra ID)
+### Task 2: Register your lab VM in Microsoft Entra ID
 
 To open any VM that is registered in Azure AD, we need to register our
 device/VM in Microsoft Entra ID. So, we will register our Lab VM to the
@@ -227,7 +227,7 @@ medium confidence](./media/image29.png)
 | Setting                 | Value                                                                                                                                       |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Resource group          | Select **ContosoDevices**                                                          						                |
-| Virtual machine name    | ```Christie-Device```                                                                                                                   |
+| Virtual machine name    | ```Christies-Device```                                                                                                                   |
 | Region                  | **(Asia Pacific) Australia EastUS** (You can use any other region as per availability of the VM images like DS1 or DS2 variants)            |
 | Security                | Standard                                                                                                                                    |
 | Image                   | Windows 10 Pro, Version 22H2 – x64 Gen2                                                                                                     |
@@ -239,15 +239,14 @@ medium confidence](./media/image29.png)
 
     - User Name: ```Admin01```
 
-    - Password: ```Pa55.w0rd@123```
+    - Password: ```Pa$$.w0rd@123```
 
-### Task 4: Enrol the VMs in Azure AD as different users
+### Task 4: Enrol the VMs in Microsoft Entra ID as different users' devices
 
 1. Open the RDP file for **Pattis-Device** and log in with the local
     credentials.
 
-2. Open windows **Setting** on your newly created VM named **Patti’s**
-    **Device**.
+2. Open windows **Setting** on your newly created VM named **Pattis-Device**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image14.png)
@@ -272,8 +271,7 @@ generated](./media/image16.png)
     password. (replace {TENANTPREFIX} with your tenant prefix given on the
     resources tab).
 
-7. Press Join in the prompt **Make sure this is your**
-    **organisation**.
+7. Press Join in the prompt **Make sure this is your organisation**.
 
 ![](./media/image34.png)
 
@@ -302,7 +300,7 @@ generated](./media/image41.png)
 ![Graphical user interface, text, application, Word Description
 automatically generated](./media/image42.png)
 
-13. On your **Settings \>Accounts \>Access work or school** page, you
+13. On your **Settings** \> **Accounts** \> **Access work or school** page, you
     will see Patti Fernandez’s account connected twice. Expand the one
     that says **Connected to Contoso MDM.**
 
@@ -312,7 +310,7 @@ automatically generated](./media/image42.png)
 
 ![](./media/image45.png)
 
-15. On the **Settings** \>**Accounts** \> **Access work or school** \> **Managed by Contoso**, under **Device sync status**, click
+15. On the **Settings** \> **Accounts** \> **Access work or school** \> **Managed by Contoso**, under **Device sync status**, click
     on **Sync**.
 
 ![](./media/image46.png)
@@ -370,7 +368,7 @@ User password
 
 Christies-Device
 
-christies@{TENANTPREFIX}.onmicrosoft.com
+christiec@{TENANTPREFIX}.onmicrosoft.com
 
 User password
 
@@ -398,7 +396,7 @@ User password
 ![A screenshot of a computer Description automatically
 generated](./media/image60.png)
 
-4.  Select the checkbox near **Megan** and **Alex**. Then
+4.  Select the checkbox near **MOD Admin**, **Megan** and **Alex**. Then
     choose **Select**.
 
 ![](./media/image62.png)
@@ -532,7 +530,7 @@ generated](./media/image91.png)
 
 20. You will receive a message that the device is onboarded. In the
     Command Prompt once you get the message, **Press any key to continue
-    . . .**, press any key.
+    ...**, press any key.
 
 21. Once the Command Prompt is closed, open Command Prompt in
     administrator mode to run a detection test and at the prompt, copy
