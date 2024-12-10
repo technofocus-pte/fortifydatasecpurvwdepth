@@ -396,7 +396,7 @@ User password
 ![A screenshot of a computer Description automatically
 generated](./media/image60.png)
 
-4.  Select the checkbox near **MOD Admin**, **Megan** and **Alex**. Then
+4.  Select the checkbox near **MOD Admin**, **Patti**, **Megan** and **Alex**. Then
     choose **Select**.
 
 ![](./media/image62.png)
@@ -477,7 +477,7 @@ generated](./media/image78.png)
 9.  Repeat the steps from 1 to 7 to
     update **Adeles-Device** and **Christies-Device**.
 
-10. Sign in to  ```https://security.microsoft.com/ ``` using
+10. Sign in to  ```https://purview.microsoft.com``` using
     your **MOD Administrator** account on your Lab VM.
 
 11. Select **Settings** \> **Device onboarding**.
@@ -537,22 +537,19 @@ generated](./media/image91.png)
     and run the command below. The Command Prompt window will close
     automatically.
 
-```powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyleHidden $ErrorActionPreference= 'silentlycontinue';(New-ObjectSystem.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe','C:\test-WDATP-test\invoice.exe');Start-Process 'C:\test-WDATP-test\invoice.exe'```
+```powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden $ErrorActionPreference= 'silentlycontinue';(New-ObjectSystem.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe','C:\test-WDATP-test\invoice.exe');Start-Process 'C:\test-WDATP-test\invoice.exe'```
 
 ![Text Description automatically generated](./media/image92.png)
 
 22. Close the VM connection.
 
 23. If the device onboarding is successful, you can go to
-    the **Microsoft 365 Defender** portal that we left open in the
+    the **Microsoft Purview** portal that we left open in the
     browser on Lab VM and you will see that the detection test is marked
-    as completed and a new alert appears in few minutes.
-
-![A screenshot of a computer Description automatically
-generated](./media/image93.png)
+    as completed and a new alert appears in few minutes on the **Settings** \> **Device Onboarding** \> **Devices** page.
 
 24. Now copy the file we downloaded in step 13, and repeat the steps 15
-    to 21 for the VMs — **Connies-Device** and **Chriss-Device**,
+    to 21 for the VMs — **Adeles-Device** and **Christies-Device**,
     respectively to onboard them as Devices in **Microsoft 365
     Defender** portal.
 
@@ -614,14 +611,7 @@ generated](./media/image104.png)
 ![Graphical user interface, text, application Description automatically
 generated](./media/image105.png)
 
-8.  On the **Choose users and groups** page, select Include all users and
-    groups. Select **Next** to continue.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image105.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image106.png)
+8.  On the **Choose users, groups, & adaptive scopes** page, select **All users, groups, & adaptive scopes**. Select **Next** to continue.
 
 9.   On the **Exclude users and groups** page, select **Next**.
 10.  On the **Decide whether to prioritize** page, select **I don't want to
@@ -744,13 +734,9 @@ generated](./media/image121.png)
 ![A screenshot of a computer Description automatically
 generated](./media/image122.png)
 
-6.  On the **Choose users and groups** page, select **Include all users and
-    groups**. Select **Next** to continue.
+6.  On the **Choose users, groups, & adaptive scopes** page, select **All users, groups, & adaptive scopes**. Select **Next** to continue.
 
-![A screenshot of a computer Description automatically
-generated](./media/image106.png)
-
-7.  On the **Exclude users and groups** page, select **Next**.
+7.  On the **Exclude users, groups, & adaptive scopes** page, select **Next**.
 
 9.  On the **Decide whether to prioritize** page, select **I want to specify
     priority content**. Select the check box for **Sensitivity
