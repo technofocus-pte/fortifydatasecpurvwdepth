@@ -82,4 +82,4 @@ generated](./media/image7.png)
 
 19. Follow through the tutorial. Similarly you can explore all 10 tasks available in the pane.
 
-Note: There may be some difference in the current **Microsoft Purview** https://purview.microsoft.com/ portal and the portal in the tutorial as the current portal is undergoing the changes as per Microsoft announcements.
+Note: There may be some difference in the current **Microsoft Purview** ```https://purview.microsoft.com/``` portal and the portal in the tutorial as the current portal is undergoing the changes as per Microsoft announcements.
