@@ -1,7 +1,6 @@
 # Lab 5 – Data governance in Microsoft Purview
 
-To create business domains, glossary terms, define CDEs, and establish
-OKRs follow the given steps.
+To understand the features of Unified Catalogue (earlier Data Cataloge) follow the given steps.
 
 1.  Open the ```https://app.powerbi.com/```.
 
