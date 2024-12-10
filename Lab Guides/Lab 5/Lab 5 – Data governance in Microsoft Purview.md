@@ -1,6 +1,6 @@
 # Lab 5 – Data governance in Microsoft Purview
 
-To understand the features of Unified Catalogue (earlier Data Cataloge) follow the given steps.
+To understand the features of Unified Catalog (earlier Data Catalog) follow the given steps.
 
 1.  Open the ```https://app.powerbi.com/```.
 
