@@ -384,10 +384,10 @@ generated](./media/image79.png)
 ![Graphical user interface, text, email Description automatically
 generated](./media/image80.png)
 
-**Note**: In the trial account you will not have the privilege to send any email
-but you can check out the following steps to understand how to test the
-template when you have your own licenses. Your mail will not be able to
+**Note**: In the trial account you may or may not have the privilege to send any email and your mail may not be able to
 reach the receiver from your current tenant.
+But your email goes through, you can check out the following steps to test the
+template.
 
 10. Sign in to your personal email account and open the message from
     Adele Vance. If you sent this email to a Microsoft account (like
