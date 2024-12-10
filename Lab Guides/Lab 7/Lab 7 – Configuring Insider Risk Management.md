@@ -35,62 +35,67 @@ generated](./media/image2.jpeg)
 ![A screenshot of a computer Description automatically generated with
 medium confidence](./media/image3.png)
 
-### Task 1: Redeem the Azure Pass
-
-**Note**: - You may be asked for authentication while performing this Task. Please download Microsoft Authenticator on your mobile device or add your phone number as the authentication method when asked. You will be guided through the steps given on your authentication setup wizard, when asked for authentication.
+### Task 1: Redeeming an Azure Pass
 
 #### Redeeming a Microsoft Azure Pass Promo Code
 
-1.  Open a browser and navigate to: ```www.microsoftazurepass.com ```
+1.  Open a new In-Private Browser session and navigate to:
+    ```https://www.microsoftazurepass.com```. Select
+    the **Start** button to get started.
 
-It is recommended you close all browsers and open a new In-Private
-Browser session. Other log-ins can persist and cause errors during the
-activation step.
+> ![A person sitting on a couch using a computer Description
+> automatically generated](./media/image6.png)
 
-2.  Click the **Start** button to get started.
-
-![screenshot showing redemption start button](./media/image4.jpeg)
-
-3.  Enter your Office 365 tenant credentials and select Sign In.
-
-![screenshot showing login form](./media/image5.jpeg)
-
-4.  Click **Confirm Microsoft Account** if the correct email address is
+2.  Enter your **Office 365 admin credentials** and select **Sign In**.
+    Click **Confirm Microsoft Account** if the correct email address is
     listed.
 
-![](./media/image7.png)
+> ![](./media/image7.png)
 
-5.  Enter your **Azure Pass** promo code in the Enter Promo code box and
-    click “**Claim Promo Code**”.
+3.  Enter your **Azure Pass** promo code in the **Enter Promo code**
+    box, enter the captcha and select **Submit**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image9.png)
+> ![](./media/image8.png)
 
-6.  It may take up to 5 minutes to process the redemption.
+4.  It may take up to 5 minutes to process the redemption.
 
-![screenshot showing loading screen while promo code is being
-redeemed](./media/image10.jpeg)
+> ![A screenshot of a computer Description automatically
+> generated](./media/image9.png)
 
 #### Activate your subscription
 
 1.  When the redemption process is completed, it will redirect to the
     sign up page.
 
-2.  Enter your account information and click **Next**.
+2.  Enter your account information and click **Sign up**.
 
-![screenshot showing sign up form to enter account
-information](./media/image11.jpeg)
+    - **Country/Region**: United States
 
-3.  Click the agreement check box and click the Sign up button.
+    - **First Name**: ```MOD```
 
-4.  It may take a few minutes to process the request.
+    - **Last Name**: ```Administrater``` (You will not be able to use the correct spelling as it is a reserved word)
 
-![screenshot showing agreement checkbox and sign up
-button](./media/image12.jpeg)
+    - **Phone**: ```(987) 654-3210```
 
-5.  Your **Azure subscription** is ready
+    - **Address line 1**: ```One Microsoft Way```
 
-![screenshot showing azure portal home page](./media/image13.jpeg)
+    - **City**: Redmond
+
+    - **State**: Washington
+
+    - **ZIP Code**: ```98052```
+
+    - Agree to the subscription agreement and offer details.
+
+3.  It may take a few minutes to process the request.
+
+4.  You will be asked to enable multi-factor authentication. Once you
+    download Microsoft Authenticator on your mobile device, follow the
+    on-screen instructions to set up the authentication.
+
+> ![](./media/image10.png)
+
+5.  Your Azure subscription is ready to be used.
 
 ### Task 2: Register your lab VM in Azure AD (Now Microsoft Entra ID)
 
