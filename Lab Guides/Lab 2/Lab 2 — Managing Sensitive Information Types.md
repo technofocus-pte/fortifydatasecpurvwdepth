@@ -139,7 +139,6 @@ automatically generated](./media/image10.png)
 
 ![BrokenImage](./media/image11.png)
 
-BrokenImage
 
 17. 在 **Review settings and finish** 页面上，查看设置并选择
     **Create**。成功创建后，选择 **Done**。
@@ -196,7 +195,6 @@ generated](./media/image15.png)
 
 ![BrokenImage](./media/image16.png)
 
-BrokenImage
 
 8.  在 **Schema field name 中的** Schema field \#2 **下**，输入
     `Birthdate`。
@@ -338,7 +336,6 @@ generated](./media/image29.png)
 
 ![BrokenImage](./media/image30.png)
 
-BrokenImage
 
 3.  在 **Microsoft Exact Data Match Upload Agent Setup** 向导中，选择
     **Next**。
@@ -375,7 +372,6 @@ BrokenImage
 
 ![BrokenImage](./media/image31.png)
 
-BrokenImage
 
 7.  关闭记事本窗口。
 
@@ -384,7 +380,6 @@ BrokenImage
 
 ![BrokenImage](./media/image32.png)
 
-BrokenImage
 
 9.  当 **User Account Control** 窗口打开时，选择 **Yes**。
 
@@ -402,7 +397,6 @@ Text Description automatically generated
 
 ![BrokenImage](./media/image34.png)
 
-BrokenImage
 
 12. 当 **Pick an account （选择帐户**） 窗口显示时， 使用用户名
     PattiF@{TENANTPREFIX}.onmicrosoft.com` ``和资源选项卡上提供的用户密码以`` `**Patti
@@ -423,7 +417,6 @@ documents 文件夹的路径。
 
 ![BrokenImage](./media/image35.png)
 
-BrokenImage
 
 > \`14.通过在PowerShell中运行以下脚本，对数据库文件进行哈希处理，并将其上传到基于
 > EDM 的分类敏感信息类型：
@@ -432,7 +425,6 @@ BrokenImage
 
 ![BrokenImage](./media/image36.png)
 
-BrokenImage
 
 **注意：** 如果您收到以下错误
 
@@ -453,7 +445,6 @@ BrokenImage
 
 ![BrokenImage](./media/image38.png)
 
-BrokenImage
 
 您已成功对基于 EDM 的分类敏感信息类型进行哈希处理并上传数据库文件。
 
@@ -526,7 +517,6 @@ generated](./media/image41.png)
 
 ![BrokenImage](./media/image42.png)
 
-BrokenImage
 
 10. 选择 **Done**。
 
@@ -584,7 +574,6 @@ generated](./media/image47.png)
 
 ![BrokenImage](./media/image48.png)
 
-BrokenImage
 
 18. 使 Microsoft Purview 门户中的浏览器窗口保持打开状态。
 
@@ -633,7 +622,6 @@ generated](./media/image50.png)
 
 ![BrokenImage](./media/image51.png)
 
-BrokenImage
 
 9.  从左侧窗格中选择 **Documents** ，选择名为 **SickTestData**
     的文件，然后选择 **Open**。
@@ -654,7 +642,6 @@ generated](./media/image53.png)
 
 ![BrokenImage](./media/image54.png)
 
-BrokenImage
 
 12. 选择 **Finish** 并通过单击 **X** 按钮关闭测试页面 。
 
@@ -670,13 +657,11 @@ generated](./media/image55.png)
 
 ![BrokenImage](./media/image56.png)
 
-BrokenImage
 
 15. 在 **Upload file to test** 页面上，选择 **Upload file**。
 
 ![BrokenImage](./media/image57.png)
 
-BrokenImage
 
 16. 从左侧窗格中选择 **Documents**，选择名为 *SickTestData*
     的文件，然后选择 **Open**。
