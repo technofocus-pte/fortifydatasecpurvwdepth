@@ -1,627 +1,701 @@
-# Lab 2 — Managing Sensitive Information Types
+# 实验 2 — 管理敏感信息类型
 
-## Objective:
+## 目的:
 
-Contoso Ltd. previously had issues with employees accidentally sending
-out personal information from customers when working on support tickets
-in the ticketing solution.
+Contoso Ltd.
+以前遇到过员工在工单解决方案中处理支持工单时意外发送客户的个人信息的问题。
 
-To educate users in the future, a custom sensitive information type is
-required to identify employee IDs in emails and documents, which consist
-of three uppercase characters and six numbers, using Sensitive info
-types. To lower the false positive rate, the keywords "Employee" and
-"IDs" will be used.
+为了在将来教育用户，需要自定义敏感信息类型来识别电子邮件和文档中的员工
+ID，这些 ID
+由三个大写字符和六个数字组成，使用敏感信息类型。为了降低误报率，将使用关键字
+“Employee” 和 “IDs”。
 
-In this Lab you will create:
+在本练习中，您将创建：
 
-- a new custom sensitive information type
+- 新的自定义敏感信息类型
 
-- a database for EDM-based classification
+- 基于 EDM 的分类数据库
 
-- keyword dictionary
+- 关键字字典
 
-## Exercise 1 – Creating Custom Sensitive Information Types
+## 练习 1 – 创建自定义敏感信息类型
 
-In this exercise, you will use the **Security & Compliance Center
-PowerShell** module to create a new custom sensitive information type
-that recognizes the pattern of employee IDs near the keywords "Employee"
-and "ID".
+在本练习中，你将使用 **Security & Compliance Center PowerShell**
+模块创建新的自定义敏感信息类型，该类型可识别关键字“Employee”和“ID”附近的员工
+ID 模式。
 
-1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
-    to ```https://purview.microsoft.com``` and log in as
-    **Patti Fernandez** using the
-    username ```PattiF@{TENANTPREFIX}.onmicrosoft.com``` and the User Password
-    given on your resources tab. If asked, agree to the terms and conditions and select **Get started**.
+1.  在 **Microsoft Edge** 中，打开 **New InPrivate Window**，导航到
+    `https://purview.microsoft.com` 并使用用户名
+    PattiF@{TENANTPREFIX}.onmicrosoft.com 和资源选项卡上提供的用户密码以
+    **Patti Fernandez**` ``身份登录`` `
+    。如果系统提示，请同意条款和条件，然后选择 **Get started**。
 
-2.  From the left navigation, select **Solutions** \> **Data Loss
-    Prevention**.
+2.  从左侧导航栏中，选择 **Solutions** \> **Data Loss Prevention**。
 
-![](./media/image1.png) 
+![](./media/image1.png)
 
-3. Select **Classifiers** from the left pane. Select **Sensitive info
-    types** from the sub-navigation pane. Select **+Create sensitive
-    info type** to open the wizard for a new sensitive information type.
+3.  从左侧窗格中选择 **Classifiers。**从子导航窗格中选择 **Sensitive
+    info types** 。选择 **+Create sensitive info
+    type**以打开新敏感信息类型的向导。
 
 ![A screenshot of a computer Description automatically
+generated](./media/image2.png)
+
+自动生成的计算机 Description 的屏幕截图
+
+4.  在 **Name your sensitive info type**页上，输入以下信息:
+
+    - **Name**: `Contoso Employee IDs`
+
+    - **Description**: `Pattern for Contoso Employee IDs.`
+
+5.  选择 **Next**。
+
+![Graphical user interface, application Description automatically
+generated](./media/image3.png)
+
+图形用户界面，自动生成应用程序描述
+
+6.  在 Define patterns for this sensitive info type 页上，选择 Create
+    pattern。
+
+![A screenshot of a computer Description automatically
+generated](./media/image4.png)
+
+自动生成的计算机 Description 的屏幕截图
+
+7.  在右侧的 **New pattern** 窗格中，选择 **Add primary element**
+    ，然后选择 **Regular expression**。
+
+![Graphical user interface, application, Teams Description automatically
+generated](./media/image5.png)
+
+自动生成图形用户界面、应用程序、Teams 描述
+
+8.  在新的右侧窗格 **Add a regular expression** 中，输入以下内容:
+
+    - **ID**: `Contoso IDs`
+
+    - **Regular expression**: `\s\[A-Z\]{3}\[0-9\]{6}\s`
+
+    - Select **String match**
+
+9.  选择 **Done**。
+
+![Graphical user interface, application Description automatically
 generated](./media/image6.png)
 
-4. On the **Name your sensitive info type** page, enter the following
-    information:
+图形用户界面，自动生成应用程序描述
 
-    - **Name**: ```Contoso Employee IDs```
-
-    - **Description**: ```Pattern for Contoso Employee IDs.```
-
-5. Select **Next**.
+10. 再次在右侧的 **New pattern** 窗格中，**在 Supporting elements
+    下**，选择 **+ Add supporting elements or group of
+    elements**下拉菜单，然后选择 **Keyword list**。
 
 ![Graphical user interface, application Description automatically
 generated](./media/image7.png)
 
-6. On the **Define patterns for this sensitive info type** page,
-    select **Create pattern**.
+图形用户界面，自动生成应用程序描述
 
-![A screenshot of a computer Description automatically
-generated](./media/image9.png)
+10. 在新的右侧窗格 **Add a keyword list** 中，输入以下内容:
 
-7. In the right-side **New pattern** pane, select **Add primary
-    element** and select **Regular expression**.
-
-![Graphical user interface, application, Teams Description automatically
-generated](./media/image10.png)
-
-8. In the new right-side pane **Add a regular expression**, enter the
-    following:
-
-    - **ID**: ```Contoso IDs```
-
-    - **Regular expression**: ```\s\[A-Z\]{3}\[0-9\]{6}\s```
-
-    - Select **String match**
-
-9. Select **Done**.
-
-![Graphical user interface, application Description automatically
-generated](./media/image11.png)
-
-10. In the right-side **New pattern** pane again, below **Supporting
-    elements**, select **+ Add supporting elements or group of
-    elements** drop-down menu and select **Keyword list**.
-
-![Graphical user interface, application Description automatically
-generated](./media/image12.png)
-
-10. In the new right-side pane **Add a keyword list**, enter the
-    following:
-
-    - **ID**: ```Employee ID keywords```
+    - **ID**: `Employee ID keywords`
 
     - **Case insensitive**:
 
-```
-Employee
-ID
-```
+&nbsp;
 
-11. Select the radial for ***Word match*** under the **Case
-    Sensitive** field
+    Employee
+    ID
 
-12. Select **Done**.
+11. 在 Case Sensitive ***字段***下为 **Word match** 选择径向
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image13.png)
-
-13. In the New pattern windows decrease the **Character
-    proximity** value to ***100*** characters.
+12. 选择 **Done**。
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/image14.png)
+generated](./media/image8.png)
 
-14. Select the **Create** button.
+自动生成图形用户界面、文本、应用程序描述
 
-15. Back on the **Define patterns for this sensitive info type** page
-    select **Next**.
+13. 在 New pattern 窗口中，将 **Character proximity** 值减少到 ***100***
+    个字符。
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image9.png)
+
+自动生成图形用户界面、文本、应用程序描述
+
+14. 选择 **Create** 按钮。
+
+15. 返回 **Define patterns for this sensitive info type** 页，选择
+    **Next**。
 
 ![Graphical user interface, text, application, Teams Description
-automatically generated](./media/image15.png)
+automatically generated](./media/image10.png)
 
-16. On the **Choose the recommended confidence level to show in
-    compliance policies** page use the default value and
-    select **Next**.
+自动生成图形用户界面、文本、应用程序、Teams 描述
+
+16. 在 **Choose the recommended confidence level to show in compliance
+    policies** 页面上，使用默认值，然后选择 **Next**。
+
+![BrokenImage](./media/image11.png)
+
+BrokenImage
+
+17. 在 **Review settings and finish** 页面上，查看设置并选择
+    **Create**。成功创建后，选择 **Done**。
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image12.png)
+
+自动生成图形用户界面、文本、应用程序描述
+
+18. 使浏览器窗口保持打开状态。
+
+您已成功创建新的敏感信息类型，以 3 个大写字符、6 个数字和 100
+个字符范围内的关键字“Employee”或“ID”模式标识员工 ID。
+
+## 练习 2 – 创建基于 EDM 的分类信息类型
+
+作为额外的搜索模式，您将使用员工数据的数据库架构创建基于 EDM
+的分类。数据库源文件将使用员工的以下数据字段进行格式设置：Name、Birthdate、StreetAddress
+和 EmployeeID。
+
+1.  选择 **Solutions \> Data Loss Prevention \> Classifiers**，导航到
+    **EDM classifiers**，关闭 **New EDM experience**，然后从 EDM Schema
+    中选择**+ Create EDM schema** 以创建新的架构定义。
+
+![A screenshot of a computer Description automatically
+generated](./media/image13.png)
+
+自动生成的计算机 Description 的屏幕截图
+
+2.  在 **Name** 字段中，输入 employeedb。
+
+3.  在 **Description** 字段中，输入 Employee Database schema..
+
+4.  启用 **Ignore delimiters and punctuation for all schema fields**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image14.png)
+
+自动生成的计算机 Description 的屏幕截图
+
+5.  单击 **Choose delimiters and punctuation** **的下拉列表，**然后选择
+    **Hyphen, Period, Space, Open parenthesis** 和 **Close
+    parenthesis**。
+
+![Graphical user interface, application Description automatically
+generated](./media/image15.png)
+
+图形用户界面，自动生成应用程序描述
+
+6.  在第一个 Schema field name 中，输入 `Name` 并标记 **Field is
+    searchable** 框。
+
+7.  从 下端选择 **+ Add schema data field**。
 
 ![BrokenImage](./media/image16.png)
 
-17. On the **Review settings and finish** page review the settings and
-    select **Create**. When successfully created select **Done**.
+BrokenImage
 
-![Graphical user interface, text, application Description automatically
+8.  在 **Schema field name 中的** Schema field \#2 **下**，输入
+    `Birthdate`。
+
+9.  再次从下端选择 **+ Add schema data field**。
+
+&nbsp;
+
+10. 在 **Schema field name** 中，在 **Schema field \#3** 下，输入
+    `StreetAddress`。
+
+11. 最后一次从下端选择 **+ Add schema data field**。
+
+12. 在 **Schema field name 中的 Schema field \#4 下**，输入
+    `EmployeeID`。
+
+13. 选择 **Field is searchable**。
+
+14. 选择 **Save**。
+
+![Graphical user interface, application Description automatically
 generated](./media/image17.png)
 
-18. Leave the browser window open.
+图形用户界面，自动生成应用程序描述
 
-You have successfully created a new sensitive information type to
-identify employee IDs in the pattern of three uppercase characters, six
-numbers, and the keywords 'Employee' or 'IDs' within a range of 100
-characters.
+15. 从左窗格中选择 **EDM sensitive info types**，然后选择 **+ Create EDM
+    sensitive info type** 以打开 **EDM rule package** 向导。
 
-## Exercise 2 – Creating EDM-based classification information type
+![](./media/image18.png)
 
-As an extra search pattern, you will create an EDM-based classification
-with a database schema of employee data. The database source file will
-be formatted with the following data fields of employees: Name,
-Birthdate, StreetAddress, and EmployeeID.
+16. 在 **Define data store schema** 页面上，选择 **Choose an existing
+    EDM schema**。
 
-1.  Select **Solutions** \> **Data Loss Prevention** \> **Classifiers**,
-    navigate to **EDM classifiers**, switch off **New EDM experience**,
-    and from EDM Schema, select **+ Create EDM schema** to create a new
-    schema definition.
+![Graphical user interface, application Description automatically
+generated](./media/image19.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image18.png)
+图形用户界面，自动生成应用程序描述
 
-2.  In the **Name** field, enter ```employeedb```.
+17. 选择 **employeedb** ，然后选择 **Add**。
 
-3.  In the **Description** field,
-    enter ```Employee Database schema.```.
+![Graphical user interface, text, application Description automatically
+generated](./media/image20.png)
 
-4.  Enable **Ignore delimiters and punctuation for all schema fields**.
+自动生成图形用户界面、文本、应用程序描述
 
-![A screenshot of a computer Description automatically
+18. 查看数据存储架构，然后选择 **Next**。
+
+![Graphical user interface, application Description automatically
 generated](./media/image21.png)
 
-5.  Click the dropdown for **Choose delimiters and punctuation to
-    ignore** and select **Hyphen**, **Period**, **Space**, **Open
-    parenthesis** and **Close parenthesis**.
+图形用户界面，自动生成应用程序描述
+
+19. 在 **Define patterns for this EDM sensitive info type** 页上，选择
+    **+ Create pattern**。
 
 ![Graphical user interface, application Description automatically
 generated](./media/image22.png)
 
-6.  In the first Schema field name, enter ```Name``` and mark
-    the **Field is searchable** box.
+图形用户界面，自动生成应用程序描述
 
-7.  Select **+ Add schema data field** from the lower end.
+20. 在右侧的 **New pattern** 窗格的 **Primary element** 字段中，选择
+    ***EmployeeID***。
 
-![BrokenImage](./media/image23.png)
-
-8.  In **Schema field name**, below **Schema field \#2**,
-    enter ```Birthdate```.
-
-9.  Select **+ Add schema data field** from the lower end again.
-
-10. In **Schema field name**, below **Schema field \#3**,
-    enter ```StreetAddress```.
-
-11. Select **+ Add schema data field** from the lower end a last time.
-
-12. In **Schema field name**, below **Schema field \#4**,
-    enter ```EmployeeID```.
-
-13. Select **Field is searchable**.
-
-14. Select **Save**.
-
-![Graphical user interface, application Description automatically
-generated](./media/image24.png)
-
-15. Select **EDM sensitive info types** from the left pane and
-    select **+ Create EDM sensitive info type** to open the **EDM rule
-    package** wizard.
-
-![](./media/image26.png)
-
-16. On the **Define data store schema** page, select **Choose an
-    existing EDM schema**.
-
-![Graphical user interface, application Description automatically
-generated](./media/image27.png)
-
-17. Select **employeedb** and select **Add**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image28.png)
-
-18. Review the data store schema and select **Next**.
-
-![Graphical user interface, application Description automatically
-generated](./media/image29.png)
-
-19. On the **Define patterns for this EDM sensitive info type** page,
-    select **+ Create pattern**.
-
-![Graphical user interface, application Description automatically
-generated](./media/image30.png)
-
-20. On the **New pattern** pane on the right-side, in the **Primary
-    element** field, select ***EmployeeID***.
-
-21. Below **Primary element's sensitive info type**, select **Choose
-    sensitive info type**.
+21. 在 **Primary element's sensitive information type**下，选择 **Choose
+    sensitive information type** 。
 
 ![A screenshot of a pattern Description automatically
-generated](./media/image31.png)
+generated](./media/image23.png)
 
-22. In the **Search** bar, enter ***Contoso*** and press the enter key.
+自动生成的模式 Description 的屏幕截图
 
-23. Select **Contoso Employee IDs** and select **Done**.
+22. 在 **Search** 栏中，输入 ***Contoso*** 并按 Enter 键。
 
-24. Select **Done**.
+23. 选择 **Contoso Employee ID，** 然后选择 **Done**。
+
+24. 选择 **Done**。
 
 ![A screenshot of a computer Description automatically
-generated](./media/image34.png)
+generated](./media/image24.png)
 
-25. Select **Next** in the **Define patterns for this EDM sensitive info
-    type** screen.
+自动生成的计算机 Description 的屏幕截图
+
+25. 在 **Define patterns for this EDM sensitive info type** 屏幕中选择
+    **Next**。
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/image35.png)
+generated](./media/image25.png)
 
-26. In the **Choose the recommended confidence level and character
-    proximity** let the default value persist and select **Next**.
+自动生成图形用户界面、文本、应用程序描述
+
+26. 在 **Choose the recommended confidence level and character
+    proximity** 中，保留默认值，然后选择 **Next**。
 
 ![Graphical user interface, text, application, Word Description
-automatically generated](./media/image36.png)
+automatically generated](./media/image26.png)
 
-27. In the **Name and describe your EDM sensitive info type** page,
-    enter ```Contoso Employee EDM``` for the name.
+自动生成图形用户界面、文本、应用程序、Word 描述
 
-28. In the **Description for admins** field, enter ```EDM-based sensitive information type for employee personal information.```.
-    Select **Next.**
+27. 在 **Name and describe your EDM sensitive info type** 页中，输入
+    `Contoso Employee EDM` 作为名称。
+
+28. 在 **Description for admins** 字段中，为员工个人信息输入
+    `基于`` EDM ``的敏感信息类型``。`。选择 **Next。**
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/image37.png)
+generated](./media/image27.png)
 
-29. Review the settings and select **Submit**.
+自动生成图形用户界面、文本、应用程序描述
+
+29. 查看设置，然后选择 **Submit**。
 
 ![Graphical user interface, application Description automatically
-generated](./media/image38.png)
+generated](./media/image28.png)
 
-30. On the **Your EDM sensitive info type was created** page,
-    select **Done**.
+图形用户界面，自动生成应用程序描述
+
+30. 在 **Your EDM sensitive info type**页上，选择 **Done**。
 
 ![A screenshot of a computer Description automatically
-generated](./media/image40.png)
+generated](./media/image29.png)
 
-31. Leave the browser open with the Microsoft Purview portal.
+自动生成的计算机 Description 的屏幕截图
 
-You have successfully created a new EDM-based classification sensitive
-information type for identifying employee data from a database file
-source.
+31. 使用 Microsoft Purview 门户使浏览器保持打开状态。
 
-## Exercise 3 – Creating EDM-based classification data source
+您已成功创建新的基于 EDM
+的分类敏感信息类型，用于从数据库文件源中识别员工数据。
 
-To associate the EDM-based classification with a database containing
-sensitive data, hashing and uploading the actual data for the sensitive
-information type via the EDM Upload Agent tool is required next.
+## 练习 3 – 创建基于 EDM 的分类数据源
 
-1.  In **Microsoft Edge**, navigate
-    to ```https://go.microsoft.com/fwlink/?linkid=2088639``` to
-    access the EDM download agent.
+要将基于 EDM 的分类与包含敏感数据的数据库相关联，接下来需要通过 EDM
+上传代理工具对敏感信息类型的实际数据进行哈希处理和上传。
 
-2.  Select **Run** to download and install the tool.
+1.  在 **Microsoft Edge** 中，导航到
+    `https://go.microsoft.com/fwlink/?linkid=2088639` 以访问 EDM
+    下载代理。
 
-![BrokenImage](./media/image41.png)
+2.  选择 **Run**下载并安装该工具。
 
-3.  In the **Microsoft Exact Data Match Upload Agent Setup** wizard,
-    select **Next**.
+![BrokenImage](./media/image30.png)
 
-    - Select **I accept the terms in the License Agreement** and
-      select **Next**.
+BrokenImage
 
-    - Do not change the default **Destination Folder** path and
-      select **Next**.
+3.  在 **Microsoft Exact Data Match Upload Agent Setup** 向导中，选择
+    **Next**。
 
-    - Select **Install** to perform the installation.
+    - **选择 I accept the terms in the License Agreement，然后选择
+      Next。**
 
-    - When the **User Account Control** window opens, select **Yes**.
+    - 请勿更改默认的 **Destination Folder** 路径，然后选择 **Next**。
 
-    - If asked to log in, log in via **Patti’s** account.
+    - 选择 **Install** 以执行安装。
 
-    - When the installation finishes, select **Finish**.
+    - 当 **User Account Control** 窗口打开时，选择 **Yes**。
 
-    - Select the Windows symbol in the lower left to open the start
-      menu, enter **Notepad** and select **Notepad** from the start
-      menu.
+    - 如果要求登录，请通过 **Patti** 的帐户登录。
 
-    - Enter the following text to the first line in the notepad window ( Make sure you enter all the following three in new lines.)
+    - 安装完成后，选择 **Finish。**
 
-```
-Name,Birthdate,StreetAddress,EmployeeID
-Patti Fernandez,01.06.1980,1Main Street,CSO123456
-Christie Cline,31.01.1985,2Secondary Street,CSO654321
-```
+    - 选择左下角的 Windows 符号打开开始菜单，输入**Notebook** 并选择
+      **Notebook** 从开始菜单中。
 
-4.  Select File and Save As: ```EmployeeData.csv```
+    - 在记事本窗口的第一行中输入以下文本（确保在新行中输入以下所有三个文本。
 
-5.  Select the dropdown at **Save as type:** and select **All Files
-    (*.*)**.
+&nbsp;
 
-6.  Select the dropdown at **Encoding:** and select **UTF-8** and
-    select **Save**.
+    Name,Birthdate,StreetAddress,EmployeeID
+    Patti Fernandez,01.06.1980,1Main Street,CSO123456
+    Christie Cline,31.01.1985,2Secondary Street,CSO654321
 
-![BrokenImage](./media/image43.png)
+4.  选择 File （文件） 和 Save as： `EmployeeData.csv`
 
-7.  Close the Notepad window.
+5.  选择**下拉列表 Save as type：**，然后选择 **All Files (.)**中。
 
-8.  Select the windows symbol in the taskbar with the right mouse button
-    and select **Windows PowerShell (Admin)** and run as administrator.
+6.  选择 Encoding： **的下拉列表**，然后选择 **UTF-8** 并选择 **Save**。
 
-![BrokenImage](./media/image44.png)
+![BrokenImage](./media/image31.png)
 
-9.  When the **User Account Control** window opens, select **Yes**.
+BrokenImage
 
-10. Navigate to the EDM Upload Agent directory:
+7.  关闭记事本窗口。
 
-```cd "C:\Program Files\Microsoft\EdmUploadAgent"```
+8.  用鼠标右键选择任务栏中的 Windows 符号，然后选择 **Windows PowerShell
+    （Admin）** 并以管理员身份运行。
 
-![Text Description automatically generated](./media/image45.png)
+![BrokenImage](./media/image32.png)
 
-11. Authorize with your Account to upload the database to your tenant by
-    running the following cmdlet:
+BrokenImage
 
-```.\EdmUploadAgent.exe /Authorize```
+9.  当 **User Account Control** 窗口打开时，选择 **Yes**。
 
-![BrokenImage](./media/image46.png)
+10. 导航到 EDM Upload Agent 目录：
 
-12. When the **Pick an account** window is displayed, log in as **Patti
-    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
-    and the User Password given on your resources tab. (Or the new
-    password you reset.)
+`cd "C:\Program Files\Microsoft\``EdmUploadAgent``"`
 
-**Note**: For the next steps, please make sure that the path of the files
-resembles the path in your VM. It may be different than the instructions
-or the screenshots. In such case please change the path of your file in
-the commands accordingly.
+![Text Description automatically generated](./media/image33.png)
 
-13. Download the database schema definition of the EDM-based
-    classification sensitive information type by running the following
-    script in PowerShell
+Text Description automatically generated
 
-```.\EdmUploadAgent.exe /SaveSchema /DataStoreName employeedb /OutputDir "C:\Users\Admin\Documents\"```
+11. 通过运行以下 cmdlet，使用您的帐户授权将数据库上传到您的租户：
 
-**Note**: If the last command fails, it possibly takes more time until
-the **EDM_DataUploaders** group membership is applied. It can take up to
-one hour until it is possible to download the schema file. If it fails
-proceed to the next task and return to this step later. Or check the
-path the documents folder on your VM.
+`.\EdmUploadAgent.exe /Authorize`
 
-![BrokenImage](./media/image47.png)
+![BrokenImage](./media/image34.png)
 
-14. Hash the database file and upload it to the EDM-based classification
-    sensitive information type by running the following script in
-    PowerShell:
+BrokenImage
 
-```.\EdmUploadAgent.exe /UploadData /DataStoreName employeedb /DataFile "C:\Users\Admin\Documents\EmployeeData.csv" /HashLocation "C:\Users\Admin\Documents\" /Schema "C:\Users\Admin\Documents\employeedb.xml"```
+12. 当 **Pick an account （选择帐户**） 窗口显示时， 使用用户名
+    PattiF@{TENANTPREFIX}.onmicrosoft.com` ``和资源选项卡上提供的用户密码以`` `**Patti
+    Fernandez** 身份登录。
 
-![BrokenImage](./media/image48.png)
+**注意**：对于后续步骤，请确保文件的路径与 VM
+中的路径相似。它可能与说明或屏幕截图不同。在这种情况下，请在命令中相应地更改文件的路径。
 
-**Note:** If you get the following errors
+13. 通过在 PowerShell 中运行以下脚本，下载基于 EDM
+    的分类敏感信息类型的数据库架构定义
 
-Error Type: System.IO.FileNotFoundException
+`.\EdmUploadAgent.exe /``SaveSchema`` /``DataStoreName`` ``employeedb`` /``OutputDir`` "C:\Users\Admin\Documents\"`
 
-Error Message: Unable to find the specified file.
+**注意**：如果最后一个命令失败，则可能需要更多时间才能应用
+**EDM_DataUploaders** 组成员资格。可能需要长达一小时才能下载 Schema
+文件。如果失败，请继续执行下一个任务，稍后返回此步骤。或者检查 VM 上
+documents 文件夹的路径。
 
-Check the path where you saved the file EmployeeData.csv
+![BrokenImage](./media/image35.png)
 
-![Text Description automatically generated](./media/image49.png)
+BrokenImage
 
-15. Check the upload progress until the state changes to completed then
-    run the following PowerShell command:
+> \`14.通过在PowerShell中运行以下脚本，对数据库文件进行哈希处理，并将其上传到基于
+> EDM 的分类敏感信息类型：
 
-```.\EdmUploadAgent.exe /GetSession /DataStoreName employeedb```
+`.\EdmUploadAgent.exe /``UploadData`` /``DataStoreName`` ``employeedb`` /``DataFile`` "C:\Users\Admin\Documents\EmployeeData.csv" /``HashLocation`` "C:\Users\Admin\Documents\" /Schema "C:\Users\Admin\Documents\employeedb.xml"`
 
-![BrokenImage](./media/image50.png)
+![BrokenImage](./media/image36.png)
 
-You have successfully hashed and uploaded a database file for a
-EDM-based classification sensitive information type.
+BrokenImage
 
-## Exercise 4 – Creating Keyword Dictionary
+**注意：** 如果您收到以下错误
 
-Several violations of personal information leakage happened when users
-sent out emails after colleagues reported on sick leave. When that
-happened the reason for illness or disease was sent out. We do not want
-that to happen.
+错误类型: System.IO.FileNotFoundException
 
-1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
-    to ```https://purview.microsoft.com``` and log in as **Patti
-    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
-    and the User Password given on your resources tab.
+错误消息：找不到指定的文件。
 
-2.  From the left navigation, select **Solutions** \> **Data Loss
-    Prevention**.
+检查保存文件的路径EmployeeData.csv
+
+![Text Description automatically generated](./media/image37.png)
+
+自动生成文本描述
+
+15. 检查上传进度，直到状态更改为 completed （已完成），然后运行以下
+    PowerShell 命令：
+
+`.\EdmUploadAgent.exe /``GetSession`` /``DataStoreName`` ``employeedb`
+
+![BrokenImage](./media/image38.png)
+
+BrokenImage
+
+您已成功对基于 EDM 的分类敏感信息类型进行哈希处理并上传数据库文件。
+
+## 练习 4 – 创建关键字词典
+
+当用户在同事报告病假后发送电子邮件时，发生了几起个人信息泄露违规行为。当这种情况发生时，生病或生病的原因就被发出来了。我们不希望这种情况发生。
+
+1.  在 **Microsoft Edge** 中，打开一个 **New InPrivate Window**，导航到
+    `https://purview.microsoft.com`，然后使用用户名
+    PattiF@{TENANTPREFIX}.onmicrosoft.com 和资源选项卡上提供的用户密码以
+    `Patti Fernandez` 身份登录。
+
+2.  从左侧导航栏中，选择 **Solutions** \> **Data Loss Prevention**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image1.png)
 
-3.  Select **Classifiers** from the left pane. Select **Sensitive info
-    types** from the sub-navigation pane. Select **+Create sensitive
-    info type** to open the wizard for a new sensitive information type.
+自动生成的计算机 Description 的屏幕截图
+
+3.  从左侧窗格中选择 **Classifiers。**从子导航窗格中选择 **Sensitive
+    info types** 。选择 **+Create sensitive info type**
+    以打开新敏感信息类型的向导。
 
 ![A screenshot of a computer Description automatically
-generated](./media/image6.png)
+generated](./media/image2.png)
 
-4.  On the **Name your sensitive info type** page, enter the following:
+自动生成的计算机 Description 的屏幕截图
 
-    - Name: ```Contoso Diseases List```
+4.  在 **Name your sensitive info type**页上，输入以下内容:
 
-    - Description: ```List of possible diseases of employees.```
+    - 名字: `Contoso Diseases List`
 
-![Graphical user interface, application, Teams Description automatically
-generated](./media/image51.png)
-
-5.  Select **Next**.
-
-6.  On the **Define patterns for this sensitive info type** page,
-    select **+ Create pattern**.
+    - 描述: `List of possible diseases of employees.`
 
 ![Graphical user interface, application, Teams Description automatically
-generated](./media/image52.png)
+generated](./media/image39.png)
 
-7.  Select the dropdown field below **Primary element** and
-    select **Keyword dictionary**.
+自动生成图形用户界面、应用程序、Teams 描述
+
+5.  选择 **Next**。
+
+6.  在 **Define patterns for this sensitive info type**页上，选择 **+
+    Create pattern**。
+
+![Graphical user interface, application, Teams Description automatically
+generated](./media/image40.png)
+
+自动生成图形用户界面、应用程序、Teams 描述
+
+7.  选择 **Primary element** 下的下拉字段 ，然后选择 **Keyword
+    dictionary**。
 
 ![Graphical user interface, application Description automatically
+generated](./media/image41.png)
+
+图形用户界面，自动生成应用程序描述
+
+8.  在 **Add a keyword dictionary** 页面中，输入名称
+    `Diseases Dictionary`。
+
+9.  在 **Keywords** 区域中，输入以下关键字，每个关键字都放在单独的行中
+
+&nbsp;
+
+    flu
+    influenza
+    cold
+    bronchitis
+    otitis
+
+![BrokenImage](./media/image42.png)
+
+BrokenImage
+
+10. 选择 **Done**。
+
+11. 在 **Supporting elements下**，选择 **+ Add supporting elements or
+    group of elements**下拉列表，然后选择 **keyword
+    list**以添加对关键字词典的其他支持。
+
+![Graphical user interface, application Description automatically
+generated](./media/image43.png)
+
+图形用户界面，自动生成应用程序描述
+
+12. 在 **Add a keyword list**页中`，在 `ID 字段中输入 员工缺勤。在
+    **Case insensitive**
+    框中，输入以下关键字，每个关键字都放在单独的行中
+
+&nbsp;
+
+    employee
+    absence
+    reason
+
+![Graphical user interface, application Description automatically
+generated](./media/image44.png)
+
+图形用户界面，自动生成应用程序描述
+
+13.选择 **Done**。
+
+14.在 **New pattern** 页面中，查看配置并选择 **Create**。
+
+![Graphical user interface, application Description automatically
+generated](./media/image45.png)
+
+图形用户界面，自动生成应用程序描述
+
+15. 在 **Define patterns for this sensitive info type**中，选择
+    **Next**。
+
+![Graphical user interface, application, Teams Description automatically
+generated](./media/image46.png)
+
+自动生成图形用户界面、应用程序、Teams 描述
+
+16. 在 **Choose the recommended confidence level to show in compliance
+    policies** 中，保留默认值，然后选择 **Next**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image47.png)
+
+自动生成的计算机 Description 的屏幕截图
+
+17. 在 **Review settings and finish** 页面中，查看您的设置并选择
+    **Create**。该过程完成后，选择 **Done**。
+
+![BrokenImage](./media/image48.png)
+
+BrokenImage
+
+18. 使 Microsoft Purview 门户中的浏览器窗口保持打开状态。
+
+您已成功基于关键字字典创建新的敏感信息类型，并添加了更多关键字以降低误报率。继续执行下一个任务。
+
+## 练习 5 – 使用自定义敏感信息类型
+
+在策略中使用自定义敏感信息类型之前，应始终对其进行测试，否则可能会因自定义搜索模式故障而导致数据丢失或泄漏。
+
+1.  选择左下角的 Windows
+    符号打开开始菜单，输入**Notepad**并选择**Notepad**从开始菜单中。
+
+2.  在记事本窗口中输入以下**Notepad**
+
+`Employee Patti Fernandez EMP123456 is on absence because of the flu/influenza`
+
+3.  选择 **File （文件** ） 和 Save As `SickTestData`` `，然后选择
+    **Save**。
+
+4.  关闭记事本窗口。
+
+5.  在 **Microsoft Edge** 中，Microsoft Purview
+    门户选项卡应仍处于打开状态。如果是这样，请选择它并继续下一步。如果您关闭了它，则在新选项卡中导航到
+    `https://purview.microsoft.com`。 **使用用户名**
+    PattiF@{TENANTPREFIX}.onmicrosoft.com` ``和资源选项卡上提供的用户密码以`` `**Patti
+    Fernandez** 身份登录。
+
+6.  在左侧导航窗格中，选择 **Solutions** \> **Data Loss
+    Prevention**，然后在 **Classifiers** 下**Sensitive info
+    types**。在右上角的 **Search （搜索**） 框中，输入 ***Contoso***
+    并按 **Enter**。选择 **Contoso 员工 ID** 以打开右侧窗格。
+
+![A screenshot of a computer Description automatically
+generated](./media/image49.png)
+
+自动生成的计算机 Description 的屏幕截图
+
+7.  从 右侧窗格中选择 **Test**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image50.png)
+
+自动生成的计算机 Description 的屏幕截图
+
+8.  在 **Upload file to test** 页面上，选择 **Upload file**。
+
+![BrokenImage](./media/image51.png)
+
+BrokenImage
+
+9.  从左侧窗格中选择 **Documents** ，选择名为 **SickTestData**
+    的文件，然后选择 **Open**。
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image52.png)
+
+自动生成图形用户界面、文本、应用程序描述
+
+10. 选择 **Test** 以开始分析。
+
+![Graphical user interface, text, application Description automatically
 generated](./media/image53.png)
 
-8.  In the **Add a keyword dictionary** page enter the
-    name ```Diseases Dictionary```.
+自动生成图形用户界面、文本、应用程序描述
 
-9.  In the **Keywords** area enter the following keywords, each into a
-    separate line
-
-```
-flu
-influenza
-cold
-bronchitis
-otitis
-```
+11. 在 **Match results** 页面上，查看找到的匹配项。
 
 ![BrokenImage](./media/image54.png)
 
-10.  Select **Done**.
+BrokenImage
 
-11. Below **Supporting elements**, select **+ Add supporting elements or
-    group of elements** drop-down and select **keyword list** to add
-    additional support for the keyword dictionary.
+12. 选择 **Finish** 并通过单击 **X** 按钮关闭测试页面 。
 
-![Graphical user interface, application Description automatically
+![Graphical user interface, text, application Description automatically
 generated](./media/image55.png)
 
-12. In the **Add a keyword list** page enter ```Employee absence``` in
-    the **ID** field. In the **Case insensitive** box, enter the
-    following keywords, each into a separate line	
+自动生成图形用户界面、文本、应用程序描述
 
-```
-employee
-absence
-reason
-```
+13. 返回 **Data classification** 页，选择名为 **Contoso Diseases List**
+    的 Sensitive Information Type。
 
-![Graphical user interface, application Description automatically
-generated](./media/image56.png)
+14. 在右侧窗格中，选择 **Test**.
 
-13. Select **Done**.
+![BrokenImage](./media/image56.png)
 
-14. In the **New pattern** page, review the configuration and
-    select **Create**.
+BrokenImage
 
-![Graphical user interface, application Description automatically
-generated](./media/image57.png)
+15. 在 **Upload file to test** 页面上，选择 **Upload file**。
 
-15. In the **Define patterns for this sensitive info
-    type** select **Next**.
+![BrokenImage](./media/image57.png)
 
-![Graphical user interface, application, Teams Description automatically
+BrokenImage
+
+16. 从左侧窗格中选择 **Documents**，选择名为 *SickTestData*
+    的文件，然后选择 **Open**。
+
+17. 选择 **Test** 以开始分析。
+
+![Graphical user interface, text, application Description automatically
 generated](./media/image58.png)
 
-16. In the **Choose the recommended confidence level to show in
-    compliance policies** let the default value persist and
-    select **Next**.
+自动生成图形用户界面、文本、应用程序描述
 
-![A screenshot of a computer Description automatically
-generated](./media/image59.png)
-
-17. In the **Review settings and finish** page, review your settings and
-    select **Create**. When the process is complete select **Done**.
-
-![BrokenImage](./media/image60.png)
-
-18. Leave the browser window in the Microsoft Purview portal open.
-
-You have successfully created a new sensitive information type based on
-a keyword dictionary and added more keywords to decrease the false
-positive rate. Proceed with the next task.
-
-## Exercise 5 – Working with custom Sensitive Information Types
-
-Custom Sensitive information types should always be tested before using
-them in policies otherwise data loss or leakage may occur due to a
-malfunctioning custom search pattern.  
-
-1.  Select the Windows symbol in the lower left to open the start menu,
-    enter **Notepad** and select **Notepad** from the start menu.
-
-2.  Enter the following text to the notepad window
-
-```Employee Patti Fernandez EMP123456 is on absence because of the flu/influenza```
-
-3.  Select **File** and Save As ```SickTestData``` and select **Save**.
-
-4.  Close the Notepad window.
-
-5.  In **Microsoft Edge**, the Microsoft Purview portal tab should still
-    be open. If so, select it and proceed to the next step. If you
-    closed it, then in a new tab, navigate
-    to ```https://purview.microsoft.com```. Log in as **Patti
-    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
-    and the User Password given on your resources tab.
-
-6.  In the left navigation pane select **Solutions** \> **Data Loss
-    Prevention**, then select the **Sensitive info types** under
-    **Classifiers** . In the **Search** box from the upper right side
-    and enter ***Contoso*** and press **Enter**. Select **Contoso Employee
-    IDs** to open the right side pane.
-
-![A screenshot of a computer Description automatically
-generated](./media/image61.png)
-
-7.  Select **Test** from the right-side pane.
-
-![A screenshot of a computer Description automatically
-generated](./media/image63.png)
-
-8.  On the **Upload file to test** page, select **Upload file**.
-
-![BrokenImage](./media/image65.png)
-
-9. Select **Documents** from the left pane, select the file with the
-    name **SickTestData** and select **Open**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image66.png)
-
-10. Select **Test** to start the analysis.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image67.png)
-
-11. On the **Match results** page, review the found match.
-
-![BrokenImage](./media/image68.png)
-
-12. Select **Finish** and close the test page by clicking
-    the **X** button.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image69.png)
-
-13. Back on the **Data classification** page, select the Sensitive
-    Information Type with the name **Contoso Diseases List**.
-
-14. In the right side pane, select **Test**.
-
-![BrokenImage](./media/image71.png)
-
-15. On the **Upload file to test** page, select **Upload file**.
-
-![BrokenImage](./media/image72.png)
-
-16. Select **Documents** from the left pane, select the file with the
-    name *SickTestData* and select **Open**.
-
-17. Select **Test** to start the analysis.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image74.png)
-
-18. On the **Match results** page, review the found match. When done
-    review select **Finish**.
+18. 在 **Match results** 页面上，查看找到的匹配项。完成后，查看，选择
+    **Finish**。
 
 ![Graphical user interface, application Description automatically
-generated](./media/image75.png)
+generated](./media/image59.png)
 
-## Summary:
+图形用户界面，自动生成应用程序描述
 
-You have successfully tested the two custom sensitive information types
-and validated the search pattern recognizes the desired patterns. You
-have finished the creation of sensitive information types and can
-proceed with the next exercise.
+## 总结:
+
+您已成功测试了两种自定义敏感信息类型，并验证了搜索模式可识别所需的模式。您已完成敏感信息类型的创建，可以继续进行下一个练习。
