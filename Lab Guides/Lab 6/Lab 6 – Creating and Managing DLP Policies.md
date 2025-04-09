@@ -255,7 +255,6 @@ Contoso EmployeeID，则会阻止用户发送电子邮件。
 
 ![BrokenImage](./media/image29.png)
 
-BrokenImage
 
 4.  在 PowerShell 中输入以下命令，将 DLP 规则添加到您在上一步中创建的
     DLP 策略:
