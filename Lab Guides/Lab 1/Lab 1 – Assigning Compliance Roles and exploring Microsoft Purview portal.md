@@ -261,13 +261,11 @@ generated](./media/image23.png)
 
 ![BrokenImage](./media/image25.png)
 
-BrokenImage
 
 7.  使用 **Y** 确认 Execution Policy Change，为 Yes，然后按 **Enter**。
 
 ![BrokenImage](./media/image26.png)
 
-BrokenImage
 
 8.  输入以下 cmdlet 以使用 **Exchange Online PowerShell**
     模块并连接到您的租户:
@@ -276,7 +274,6 @@ BrokenImage
 
 ![BrokenImage](./media/image27.png)
 
-BrokenImage
 
 9.  当显示**Sign in**窗口时，使用用户名
     PattiF@{TENANTPREFIX}.onmicrosoft.com 和资源选项卡上提供的用户密码以
@@ -293,7 +290,6 @@ BrokenImage
 
 ![BrokenImage](./media/image28.png)
 
-BrokenImage
 
 12. 使用以下 cmdlet（将 {TENANTPREFIX}
     替换为资源选项卡上提供的租户前缀），针对演示试点用户 **Adele Vance**
@@ -331,7 +327,6 @@ generated](./media/image30.png)
 
 ![BrokenImage](./media/image31.png)
 
-BrokenImage
 
 3.  运行以下 cmdlet 以限制使用社交 ID 访问来自受 OME 保护的租户的消息:
 
@@ -346,7 +341,6 @@ generated](./media/image32.png)
 
 ![BrokenImage](./media/image33.png)
 
-BrokenImage
 
 5.  再次检查默认配置并验证， **SocialIdSignIn** 参数现在设置为
     **False**。
@@ -357,7 +351,6 @@ BrokenImage
 
 ![BrokenImage](./media/image34.png)
 
-BrokenImage
 
 7.  让 **PowerShell** 窗口 保持打开状态，然后继续进行下一个练习。
 
@@ -471,13 +464,11 @@ generated](./media/image39.png)
 
 ![BrokenImage](./media/image42.png)
 
-BrokenImage
 
 4.  使用 **Y** 确认自定义模板的警告消息 ，表示 Yes，然后按 **Enter**。
 
 ![BrokenImage](./media/image43.png)
 
-BrokenImage
 
 5.  使用以下 cmdlet 更改邮件的正文电子邮件文本
 
@@ -501,7 +492,6 @@ BrokenImage
 
 ![BrokenImage](./media/image46.png)
 
-BrokenImage
 
 9.  使用以下 cmdlet 创建邮件流规则，该规则将自定义 OME 模板应用于从
     Contoso 财务团队发送的所有邮件。此过程可能需要几秒钟才能完成。
@@ -510,7 +500,6 @@ BrokenImage
 
 ![BrokenImage](./media/image47.png)
 
-BrokenImage
 
 ![Text Description automatically generated](./media/image48.png)
 
@@ -522,7 +511,6 @@ BrokenImage
 
 ![BrokenImage](./media/image49.png)
 
-BrokenImage
 
 11. 使 **PowerShell** 保持打开状态。
 
@@ -560,7 +548,6 @@ generated](./media/image50.png)
 
 ![BrokenImage](./media/image51.png)
 
-BrokenImage
 
 7.  如果要阅读该消息，请执行以下步骤。
 
@@ -592,14 +579,12 @@ BrokenImage
 
 ![BrokenImage](./media/image52.png)
 
-BrokenImage
 
 4.  选择 **Adaptive Protection settings** 选项卡，然后打开 **Adaptive
     Protection** 切换按钮。选择 **Save** 。
 
 ![BrokenImage](./media/image53.png)
 
-BrokenImage
 
 ## 总结：
 
