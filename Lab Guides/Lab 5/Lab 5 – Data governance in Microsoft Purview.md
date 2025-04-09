@@ -1,84 +1,111 @@
-# Lab 5 – Data governance in Microsoft Purview
+# 实验 5 – Microsoft Purview 中的数据治理
 
-To understand the features of Unified Catalog (earlier Data Catalog) follow the given steps.
+要了解 Unified Catalog（早期 Data Catalog）的功能，请按照给定的步骤作。
 
-1.  Open the ```https://app.powerbi.com/```.
+1.  打开 `https://app.powerbi.com/`。
 
-2.  Sign in to the Power BI portal using the admin credentials
-    provided with your lab environment.
+2.  使用实验室环境提供的管理员凭据登录到 Power BI 门户。
 
-3.  Select **Settings** \> **Microsoft Purview hub (preview)**.
+3.  选择 **Settings \> Microsoft Purview hub (preview).**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image1.png)
+
+自动生成的计算机 Description 的屏幕截图
+
+4.  选择 **Data Catalog**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image2.png)
 
-4. Select **Data Catalog**.
+自动生成的计算机 Description 的屏幕截图
 
-![A screenshot of a computer Description automatically
-generated](./media/image27.png)
-
-5. You will be redirected to the new Microsoft Purview portal. If asked, agree to the terms and conditions and select **Get started**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image28.png)
- 
-6. Under **Getting started tutorial** select **View all tasks**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image29.png)
-
-7. Select step 1 - **Set up roles and permissions**.
+5.  您将被重定向到新的 Microsoft Purview
+    门户。如果系统提示，请同意条款和条件，然后选择 **Get started**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image3.png)
 
-8.  Select the window with the click through tutorial.
+自动生成的计算机 Description 的屏幕截图
+
+6.  在 **Getting started tutorial** 下，选择 **View all tasks**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image4.png)
 
-9.  You will see a pop up with the introduction - Select **get started**.
+自动生成的计算机 Description 的屏幕截图
+
+7.  选择步骤 1 - **Set up roles and permissions**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image5.png)
 
-10.  You will be pointed to the fields on screen and guided through the steps with the explanation.
+自动生成的计算机 Description 的屏幕截图
+
+8.  选择包含单击教程的窗口。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image6.png)
 
-11.  Complete the tutorial. Once done you can either explore more fields, or resume the demo again. Once done, close the tab and move on to the next steps.
+自动生成的计算机 Description 的屏幕截图
 
-12. in a new tab, Open the ```https://app.powerbi.com/```.
-
-13.  Sign in to the Power BI portal using the admin credentials
-    provided with your lab environment.
-
-14.  Select **Settings** \> **Microsoft Purview hub (preview)**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image2.png)
-
-!5. Select **Data Catalog**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image27.png)
-
-16. You will be redirected to the new Microsoft Purview portal. If asked, agree to the terms and conditions and select **Get started**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image28.png)
- 
-17. Under **Getting started tutorial** select **View all tasks**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image29.png)
-
-18. Select step 2 - **Set up roles and permissions**.
+9.  您将看到一个弹出窗口，其中包含简介 - 选择 **Get started**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image7.png)
 
-19. Follow through the tutorial. Similarly you can explore all 10 tasks available in the pane.
+自动生成的计算机 Description 的屏幕截图
 
-Note: There may be some difference in the current **Microsoft Purview** ```https://purview.microsoft.com/``` portal and the portal in the tutorial as the current portal is undergoing the changes as per Microsoft announcements.
+10. 您将被指向屏幕上的字段，并引导您完成带有说明的步骤。
+
+![A screenshot of a computer Description automatically
+generated](./media/image8.png)
+
+自动生成的计算机 Description 的屏幕截图
+
+11. 完成本教程。完成后，您可以浏览更多字段，或再次恢复演示。完成后，关闭选项卡并继续下一步。
+
+12. 在新选项卡中，打开 `https://app.powerbi.com/`。
+
+13. 使用实验室环境提供的管理员凭据登录到 Power BI 门户。
+
+14. 选择 **Settings \> Microsoft Purview hub (preview)**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image1.png)
+
+自动生成的计算机 Description 的屏幕截图
+
+15. 选择 **Data Catalog**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image2.png)
+
+自动生成的计算机 Description 的屏幕截图
+
+16. 您将被重定向到新的 Microsoft Purview
+    门户。如果系统提示，请同意条款和条件，然后选择 **Get started**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image3.png)
+
+自动生成的计算机 Description 的屏幕截图
+
+17. 在 **Getting started tutorial** 下，选择 **View all tasks** 。
+
+![A screenshot of a computer Description automatically
+generated](./media/image4.png)
+
+自动生成的计算机 Description 的屏幕截图
+
+18. 选择步骤 2 - **Set up roles and permissions**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image9.png)
+
+自动生成的计算机 Description 的屏幕截图
+
+19. 按照本教程进行作。同样，您可以浏览窗格中提供的所有 10 个任务。
+
+注意：当前 **Microsoft Purview** `https://purview.microsoft.com/`
+门户与本教程中的门户可能存在一些差异，因为当前门户正在根据Microsoft公告进行更改。
