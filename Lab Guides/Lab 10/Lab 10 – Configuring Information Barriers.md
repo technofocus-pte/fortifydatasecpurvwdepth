@@ -1,242 +1,257 @@
-# Lab 10 – Configuring Information Barriers
+# 實驗 10 – 配置信息屏障
 
-## Objective:
+## 目的：
 
-Contoso has five departments: *HR*, *Sales*, *Marketing*, *Research*,
-and *Manufacturing*. In order to remain compliant with industry
-regulations, users in some departments aren't supposed to communicate
-with other departments, as listed in the following table:
+Contoso
+有五個部門：*人力資源*、*銷售*、*市場營銷*、*研究和製造*。爲了保持符合行業法規，某些部門的用戶不應與其他部門通信，如下表所示:
 
-| Segment       | Can communicate with         | Can't communicate with            |
-|---------------|------------------------------|-----------------------------------|
-| HR            | Everyone                     | (no restrictions)                 |
-| Sales         | HR, Marketing, Manufacturing | Research                          |
-| Marketing     | Everyone                     | (no restrictions)                 |
-| Research      | HR, Marketing, Manufacturing | Sales                             |
-| Manufacturing | HR, Marketing                | Anyone other than HR or Marketing |
+[TABLE]
 
-For this structure, Contoso's plan includes three IB policies:
+對于此結構，Contoso 的計劃包括三個 IB 策略:
 
-1.  An IB policy designed to prevent Sales from communicating with
-    Research
+1.  旨在阻止銷售人員與 Research 溝通的 IB 政策
 
-2.  Another IB policy to prevent Research from communicating with Sales.
+2.  阻止 Research 與 Sales 通信的另一項 IB 策略。
 
-3.  An IB policy designed to allow Manufacturing to communicate with HR
-    and Marketing only.
+3.  一種 IB 策略，旨在允許 Manufacturing 僅與 HR 和 Marketing 進行通信。
 
-## Exercise 1 – Prerequisites
+## 練習 1 – 先决條件
 
-### Task 1 – Create segment for users in your organization
+### 任務 1 – 爲組織中的用戶創建細分
 
-1.  On your VM, run **PowerShell** as an administrator.
+1.  在 VM 上， 以管理員身份運行 **PowerShell**。
 
 ![BrokenImage](./media/image1.png)
 
-2.  Run the following:
+BrokenImage
 
-```Install-Module ExchangeOnlineManagement```
+2.  運行以下命令:
 
-3.  If prompted ‘**Do you want PowerShellGet to install and import the
-    NuGet provider now?**’ and ‘**Are you sure you want to install the
-    modules from 'PSGallery'?**’ type **y** and press enter.
+`Install-Module ``ExchangeOnlineManagement`
+
+3.  如果系統提示**Do you want PowerShellGet to install and import the
+    NuGet provider now?**’ 和‘**Are you sure you want to install the
+    modules from ‘PSGallery’?**’鍵入 **y** 幷按 Enter。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image2.png)
 
-4.  Run the following command once the installation is done.
+自動生成的計算機 Description 的屏幕截圖
 
-```Import-Module ExchangeOnlineManagement```
+4.  安裝完成後，運行以下命令。
+
+`Import-Module ``ExchangeOnlineManagement`
 
 ![A screenshot of a computer Description automatically
 generated](./media/image3.png)
 
-5.  Now run the following command to connect to Exchange Online.
+自動生成的計算機 Description 的屏幕截圖
 
-```Connect-IPPSSession```
+5.  現在運行以下命令以連接到 Exchange Online。
+
+`Connect-``IPPSSession`
 
 ![A screenshot of a computer Description automatically
 generated](./media/image4.png)
 
-6.  Log in using the **MOD Administrator** credentials given on the home
-    page of the lab environment.
+自動生成的計算機 Description 的屏幕截圖
+
+6.  使用 實驗室環境主頁上提供的 MOD Administrator 憑證登錄。
 
 ![BrokenImage](./media/image5.png)
 
-7.  Run the following command one by one in the **PowerShell** to create
-    the organisation structure.
+BrokenImage
 
-```New-OrganizationSegment -Name "HR" -UserGroupFilter "Department -eq 'HR'"```
+7.  在 **PowerShell** 中逐個運行以下命令 以創建組織結構。
+
+`New-``OrganizationSegment`` -Name "HR" -``UserGroupFilter`` "Department -eq 'HR'"`
 
 ![BrokenImage](./media/image6.png)
 
-```New-OrganizationSegment -Name "Sales" -UserGroupFilter "Department -eq 'Sales'"```
+BrokenImage
 
-```New-OrganizationSegment -Name "Marketing" -UserGroupFilter "Department -eq 'Marketing'"```
+`New-``OrganizationSegment`` -Name "Sales" -``UserGroupFilter`` "Department -eq 'Sales'"`
 
-```New-OrganizationSegment -Name "Research" -UserGroupFilter "Department -eq 'Research'"```
+`New-``OrganizationSegment`` -Name "Marketing" -``UserGroupFilter`` "Department -eq 'Marketing'"`
 
-```New-OrganizationSegment -Name "Manufacturing" -UserGroupFilter "Department -eq 'Manufacturing'"```
+`New-``OrganizationSegment`` -Name "Research" -``UserGroupFilter`` "Department -eq 'Research'"`
 
-### Task 2 – Enable scoped directory search in Microsoft Teams
+`New-``OrganizationSegment`` -Name "Manufacturing" -``UserGroupFilter`` "Department -eq 'Manufacturing'"`
 
-To turn on search by name
+### 任務 2 – 在 Microsoft Teams 中啓用範圍目錄搜索
 
-1.  Go to Microsoft Teams admin center by going
-    to ```https://admin.teams.microsoft.com```,
-    select **Teams** \> **Teams settings**.
+打開按名稱搜索
+
+1.  轉到 Microsoft Teams 管理中心，轉到
+    `https://admin.teams.microsoft.com`，選擇 **Teams** \> **Teams
+    settings**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image7.png)
 
-2.  Under **Search by name**, next to **Scope directory search using an
-    Exchange address book policy**, turn the toggle **On**.
-    Select **Save**.
+自動生成的計算機 Description 的屏幕截圖
+
+2.  在 **Search by name下**，在 Scope **directory search using an
+    Exchange address book** 旁邊，打開開關 **On**。選擇 **Save** 。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image8.png)
 
-## Exercise 2 – Create IB policies
+自動生成的計算機 Description 的屏幕截圖
 
-### Task 1 – Block communications between segments
+## 練習 2 – 創建 IB 策略
 
-1.  Sign into the ```https://purview.microsoft.com/``` using
-    credentials for MOD Administration, given on the resources tab of
-    your environment.
+### 任務 1 – 阻止段之間的通信
 
-2.  In the left navigation pane, select **Solutions** > **Information barriers**.
+1.  `使用`` MOD Administration ``的憑證登錄`` ``https://purview.microsoft.com/``，該憑證在環境的`` resources ``選項卡上提供``。`
+
+2.  在左側導航窗格中，選擇 **Solutions** \> **Information barriers**。
 
 ![](./media/image9.png)
 
-3.  In the sub-navigation, select **Policies**. On
-    the **Policies** page, select **Create policy** to create and
-    configure a new IB policy.
+3.  在子導航中，選擇 **Policies**。在 **Policies** 頁面上，選擇 **Create
+    policy** 以創建和配置新的 IB 策略。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image10.png)
 
-4.  On the **Name** page, enter a name for the
-    policy—```Sales-Research```. Then select **Next**.
+自動生成的計算機 Description 的屏幕截圖
+
+4.  在 **Name** 頁面上，輸入策略的名稱 — `Sales-Research`。然後選擇
+    **Next**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image11.png)
 
-5.  On the **Assigned segment** page, select **Choose segment**. **On
-    Select assigned segment for this policy** pane, select Sales. Now
-    select **Add** to add the selected segment to the policy. You can
-    only select one segment.
+自動生成的計算機 Description 的屏幕截圖
+
+5.  在 **Assigned segment** 頁面上，選擇 **Choose segment**。 **在 On
+    Select assigned segment for this policy** 窗格中，選擇
+    Sales。現在，選擇 **Add**
+    將所選區段添加到策略中。您只能選擇一個區段。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image12.png)
 
-6.  Select **Next**.
+自動生成的計算機 Description 的屏幕截圖
+
+6.  選擇 **Next**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image13.png)
 
-7.  Under **Communication and collaboration**, select **Blocked**.
-    Select **Choose segment**, select **Research** and then
-    select **Add.**
+自動生成的計算機 Description 的屏幕截圖
+
+7.  在 **Communication and collaboration**下，選擇 **Blocked**。選擇
+    **Choose segment**，選擇 **Research** ，然後選擇 **Add。**
 
 ![A screenshot of a computer Description automatically
 generated](./media/image14.png)
 
-8.  On the **Communication and collaboration** page, select the policy
-    type Blocked in the **Communication and collaboration** field.
-    Select **Next**.
+自動生成的計算機 Description 的屏幕截圖
+
+8.  在 **Communication and collaboration 頁面上，在 Communication and
+    collaboration** 字段中選擇策略類型 **Blocked**。選擇 **Next**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image15.png)
 
-9.  On the **Policy status** page, toggle the active policy status
-    to **On**. Select **Next** to continue.
+自動生成的計算機 Description 的屏幕截圖
+
+9.  在 **Policy status** 頁面上，將活動策略狀態切換爲 **On**。選擇
+    **Next** 繼續。
 
 ![BrokenImage](./media/image16.png)
 
-10. On the **Review your settings** page, review the settings you've
-    chosen for the policy and any suggestions or warnings for your
-    selections. Select **Edit** to change any of the policy segments and
-    status or select **Submit** to create the policy.
+BrokenImage
+
+10. 在 **Review your settings**
+    頁面上，查看您爲策略選擇的設置以及針對您的選擇的任何建議或警告。選擇
+    **Edit** 以更改任何策略分段和狀態，或選擇 **Submit** 以創建策略。
 
 ![BrokenImage](./media/image17.png)
 
-11. Select **Done** once the policy is created.
+BrokenImage
+
+11. 選擇 **Done** 創建 策略後。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image18.png)
 
-### Task 2 – Create IB Policies via PowerShell
+自動生成的計算機 Description 的屏幕截圖
 
-1.  On your VM, run **PowerShell** as an administrator.
+### 任務 2 – 通過 PowerShell 創建 IB 策略
+
+1.  在 VM 上， 以管理員身份運行 PowerShell。
 
 ![BrokenImage](./media/image1.png)
 
-2.  Run the following:
+BrokenImage
 
-```Import-Module ExchangeOnlineManagement```
+2.  運行以下命令:
+
+`Import-Module ``ExchangeOnlineManagement`
 
 ![A screenshot of a computer Description automatically
 generated](./media/image19.png)
 
-3.  Now run the following command to connect to Exchange Online.
+自動生成的計算機 Description 的屏幕截圖
 
-```Connect-IPPSSession```
+3.  現在運行以下命令以連接到 Exchange Online。
+
+`Connect-``IPPSSession`
 
 ![A screenshot of a computer Description automatically
 generated](./media/image4.png)
 
-4.  Log in using the **MOD Administrator** credentials given on the
-    resources page of the lab environment.
+自動生成的計算機 Description 的屏幕截圖
 
-5.  Run the following command to create an IB policy
-    called **Research-Sales**. When this policy is active and applied,
-    it will help prevent users who are in the **Research** segment from
-    communicating with users in the **Sales** segment.
+4.  使用 實驗室環境資源頁面上提供的 **MOD Administrator**憑證登錄。
 
-```New-InformationBarrierPolicy -Name "Research-Sales" -AssignedSegment "Research" -SegmentsBlocked "Sales" -State Inactive```
+5.  運行以下命令以創建名爲 **Research-Sales** 的 IB
+    策略。當此策略處于活動狀態幷應用時，它將有助于阻止 **Research**
+    區段中的用戶與 **Sales** 區段中的用戶通信。
+
+`New-``InformationBarrierPolicy`` -Name "Research-Sales" -``AssignedSegment`` "Research" -``SegmentsBlocked`` "Sales" -State Inactive`
 
 ![BrokenImage](./media/image20.png)
 
-6.  Run the following command to create an IB policy
-    called, **Manufacturing-HRMarketing**. When this policy is active
-    and applied, **Manufacturing** can communicate only
-    with **HR** and **Marketing**. HR and Marketing aren't restricted
-    from communicating with other segments..
+BrokenImage
 
-```New-InformationBarrierPolicy -Name "Manufacturing-HRMarketing" -AssignedSegment "Manufacturing" -SegmentsAllowed "HR","Marketing","Manufacturing" -State Inactive```
+6.  運行以下命令以創建名爲 **Manufacturing-HRMarketing** 的 IB
+    策略。當此策略處于活動狀態幷應用時，**Manufacturing** 部門只能與
+    **HR** 和 **Marketing**
+    進行通信。人力資源和營銷部門不受與其他部門交流的限制..
+
+`New-``InformationBarrierPolicy`` -Name "Manufacturing-``HRMarketing``" -``AssignedSegment`` "Manufacturing" -``SegmentsAllowed`` "``HR","Marketing","Manufacturing``" -State Inactive`
 
 ![A computer screen shot of a computer program Description automatically
 generated](./media/image21.png)
 
-7.  Sign into the ```https://purview.microsoft.com/``` using
-    credentials for **MOD Administration**, given on the home page of
-    your environment.
+自動生成的計算機程序說明的計算機屏幕截圖
 
-8.  In the left navigation pane, select **Information
-    barriers** \> **Policies**. On the **Policies** page. You will be
-    able to see the policies that we created.
+7.  `使用環境主頁上提供的`` `**MOD Administration** 憑證登錄
+    https://purview.microsoft.com/。
+
+8.  在左側導航窗格中，選擇 **Information barriers \> Policies**。在
+    **Policies** 頁面上。您將能够看到我們創建的策略。
 
 ![](./media/image22.png)
 
-## Exercise 3 – Apply IB policies
+## 練習 3 - 應用 IB 策略
 
-1.  Sign into the ```https://purview.microsoft.com/``` using
-    credentials for MOD Administration, given on the resources tab of
-    your environment.
+1.  `使用`` MOD Administration ``的憑證登錄`` ``https://purview.microsoft.com/``，該憑證在環境的`` resources ``選項卡上提供。`
 
-2.  In the left navigation pane, select **Information barriers**.
+2.  在左側導航窗格中，選擇 **Information barriers**。
 
 ![](./media/image9.png)
 
-3.  In the sub-navigation, select **Policy applications**. Select
-    **Apply all policies**.
+3.  在子導航中，選擇 **Policy applications**。選擇 **Apply all
+    policies**。
 
 ![](./media/image23.png)
 
-**Summary:**
+**總結：**
 
-In this lab we learned how to create the segments to implement the IB
-Policies. We created different policies to create information barriers
-by allowing or blocking the communication and collaboration between
-different segments.
-
+在本實驗中，我們學習了如何創建區段以實施 IB
+策略。我們創建了不同的策略，通過允許或阻止不同部門之間的通信和協作來創建信息屏障。
