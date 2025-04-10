@@ -1,54 +1,55 @@
-# Lab 3 – Managing Trainable Classifiers
+# 實驗 3 – 管理可訓練分類器
 
-## Objective:
+## 目的:
 
-The Contoso Ltd. tenant contains a SharePoint site collections that will be used in the future to store
-several financial related documents and reports. Because of the nature
-of these documents, you need to create a trainable classifier to
-recognize and label these files. For this purpose, you will activate
-custom trainable classifiers and create a new one in this lab.
+Contoso Ltd. 租戶包含一個 SharePoint
+網站集，該網站集將來將用于存儲多個與財務相關的文檔和報表。由于這些文檔的性質，您需要創建一個可訓練的分類器來識別和標記這些文件。爲此，您將激活自定義可訓練分類器，幷在此實驗室中創建一個新分類器。
 
-## Exercise 1 – Creating a trainable classifier
+## 練習 1 – 創建可訓練分類器
 
-In this task, Patti will create a new trainable classifier and select
-different SharePoint sites for identifying typical data created and
-stored by Contoso Ltd.
+在此任務中，Patti 將創建一個新的可訓練分類器，幷選擇不同的 SharePoint
+站點來識別 Contoso Ltd. 創建和存儲的典型數據。
 
-1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
-    to ```https://purview.microsoft.com``` and log in as **Patti
-    Fernandez** using the username ```PattiF@WWLx{TENANTPREFIX}.onmicrosoft.com```
-    and the User Password given on your resources tab.
+1.  在 **Microsoft Edge** 中，打開一個 **New InPrivate Window**，導航到
+    `https://purview.microsoft.com` 幷使用用戶名
+    PattiF@WWLx{TENANTPREFIX}.onmicrosoft.com
+    和資源選項卡上提供的用戶密碼以 `Patti Fernandez` 身份登錄。
 
-2.  From the left navigation, select **Solutions** \> **Data Loss
-    Prevention**.
+2.  從左側導航欄中，選擇 **Solutions** \> **Data Loss Prevention**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image1.png)
 
-3. Expand **Classifiers** from the left pane. Select **Trainable
-    Classifiers** from the sub-navigation pane. Select **+ Create
-    trainable classifier** to create a new classifier.
+自動生成的計算機 Description 的屏幕截圖
+
+3.  從左側窗格中展開 **Classifiers**。從子導航窗格中選擇 **Trainable
+    Classifiers。+ Create trainable classifier** 以創建新的分類器。
 
 ![](./media/image2.png)
 
-4. Enter the following information on the **Name and describe your
-    trainable classifier** page:
+4.  在 **Name and describe your trainable classifier**
+    頁面上輸入以下信息：
 
-    - Name: ```Contoso Company Data```
+    - 名字: `Contoso Company Data`
 
-    - Description: ```Trainable classifier for company data produced and stored by Contoso Ltd.```
+    - 描述:
+      `Trainable classifier for company data produced and stored by Contoso Ltd.`
 
-7. Select **Next**.
+5.  選擇 **Next**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image3.png)
 
-8. Select **Choose sites** to open the right side pane.
+自動生成的計算機 Description 的屏幕截圖
+
+8.  選擇 **Choose sites** 以打開右側窗格。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image4.png)
 
-9. Select the following SharePoint sites and select **Add**.
+自動生成的計算機 Description 的屏幕截圖
+
+9.  選擇以下 SharePoint 站點，然後選擇 **Add**。
 
     - Brand
 
@@ -62,24 +63,27 @@ generated](./media/image4.png)
 
 ![](./media/image5.png)
 
-10. Wait until the chosen site is shown in the list and select **Next**.
+10. 等待所選站點顯示在列表中，然後選擇 **Next**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image6.png)
 
-11. On the **Source of the negative sample content page**, select the
-    site **Learn**, and then select **Next**.
+自動生成的計算機 Description 的屏幕截圖
 
-12. Review the settings and select **Create trainable classifier**.
+11. 在 **Source of the negative sample content page**，選擇站點
+    **Learn**，然後選擇 **Next**。
+
+12. 查看設置，然後選擇 **Create trainable classifier**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image7.png)
 
-13. When the message Your trainable classifier was created is shown,
-    select **Done**.
+自動生成的計算機 Description 的屏幕截圖
 
-The documents and files in the chosen SharePoint site are now being
-analyzed, which can take up to 24 hours. Once it is ready, you can perform the following.
+13. 當顯示消息 Your trainable classifier was created 時，選擇 **Done**。
+
+現在正在分析所選 SharePoint 站點中的文檔和文件，這可能需要長達 24
+小時。準備就緒後，您可以執行以下作。
 
 - Test the classifier
 
@@ -87,9 +91,9 @@ analyzed, which can take up to 24 hours. Once it is ready, you can perform the f
 
 - Publish the classifier
 
-You can explore the already existing classifiers for further review.
+您可以瀏覽已存在的分類器以供進一步查看。
 
-## Summary:
+## 總結:
 
-You have successfully created a custom trainable classifier that matches
-the files stored on the existing SharePoint sites of Contoso Ltd.
+您已成功創建一個自定義可訓練分類器，該分類器與 Contoso Ltd. 的現有
+SharePoint 站點上存儲的文件匹配。
