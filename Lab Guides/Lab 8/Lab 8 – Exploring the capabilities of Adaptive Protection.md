@@ -1,82 +1,90 @@
-# Lab 8 – Exploring the capabilities of Adaptive Protection
+# 實驗 8 – 探索自適應保護的功能
 
-## Exercise 1 – Setting up Adaptive Protection
+## 練習 1 - 設置自適應保護
 
-### Task 1 – Setting up risk levels for Adaptive Protection
+### 任務 1 – 設置自適應保護的風險級別
 
-1.  In Microsoft Edge, open a New InPrivate Window, navigate
-    to ```https://purview.microsoft.com``` and log in using the
-    admin tenant.
+1.  在 Microsoft Edge 中，打開一個新的 InPrivate 窗口，導航到
+    `https://purview.microsoft.com` 幷使用管理員租戶登錄。
 
-2.  From the navigation bar, go to **Solutions** \> **Insider risk**
-    **management**.
+2.  從導航欄中，轉到 **Solutions** \> **Insider risk management**。
 
 ![](./media/image1.png)
 
-3.  From the sub-navigation, select **Adaptive Protection (Preview)**.
+3.  從子導航欄中，選擇 **Adaptive Protection （Preview）**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image2.png)
 
-4.  Since we used the quick start option while enabling **Adaptive
-    Protection**, we can see 2 DLP policies created.
+自動生成的計算機 Description 的屏幕截圖
+
+4.  由于我們在啓用**Adaptive Protection**
+    時使用了快速啓動選項，因此我們可以看到創建了 2 個 DLP 策略。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image3.png)
 
-5.  Now click on **Risk levels for Adaptive Protection** from the
-    submenu and from the drop down select **Data leaks by a user**.
+自動生成的計算機 Description 的屏幕截圖
+
+5.  現在，從**Risk levels for Adaptive
+    Protection**，然後從下拉列表中選擇 **Data leaks by a user**。
 
 ![BrokenImage](./media/image4.png)
 
-6.  Under **Define conditions for risk levels**, select **User performs
-    at least 3 data exfiltration activities,
-    each…** for **Elevated** risk. Select **User performs at least 2
-    data exfiltration activities, each…** for **Moderate** risk.
-    **Select User performs at least 1 data exfiltration activities,
-    each…** for **Minor** risk. Then click **Save**.
+6.  在 **Define conditions for risk levels** 下，選擇 **User perform the
+    least 3 data exfiltration activities， each ...**
+    爲** Elevated **的風險。選擇 **User performs at least 2 data
+    exfiltration activities, each…**爲** Moderate **風險。 **Select User
+    performs at least 1 data exfiltration activities, each… ** 爲
+    **Minor** 風險。然後單擊 **Save**。
 
 ![BrokenImage](./media/image5.png)
 
-7.  Similarly, you can customise the conditions for all the available
-    policy under Insider risk management.
+7.  同樣，您可以在 Insider risk management 下自定義所有可用策略的條件。
 
-8.  Now we can customise the DLP policy for each level.
+8.  現在我們可以爲每個級別自定義 DLP 策略。
 
-### Task 2 – Exploring Default DLP policies for each of the risk levels of
+### 任務 2 – 探索每個風險級別的默認 DLP 策略
+
 Adaptive Protection
 
-1.  Under Adaptive Protection, select DLP Polices and select Adaptive
-    Protection Policy for Endpoint DLP.
+1.  在  Adaptive Protection下，選擇 DLP Polices ，然後選擇 “Endpoint DLP
+    的Adaptive Protection Policy。
 
 ![BrokenImage](./media/image6.png)
 
-2.  Select **Edit**.
+
+2.  選擇 **Edit**。
 
 ![A screenshot of a computer screen Description automatically generated
 with medium confidence](./media/image7.png)
 
-3.  Click on Next till you reach **Customize advanced DLP rules**.
+以中等置信度自動生成的計算機屏幕描述的屏幕截圖
+
+3.  點擊 下一步 直到您到達 **Customize advanced DLP rules**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image8.png)
 
-4.  Check the rules and the conditions made for each level of risk.
-    Click **Next**.
+自動生成的計算機 Description 的屏幕截圖
 
-5.  On the **Policy mode** page select the radio button near **Turn it
-    on right away**. Click **Next**.
+4.  檢查針對每個風險級別制定的規則和條件。單擊 **Next**。
 
-![A screenshot of a computer Description automatically
-generated](./media/image9.png)
-
-6.  Select **Submit**.
+5.  在 **Policy mode** 頁面上，選擇 **Turn it on right right
+    （立即打開**） 旁邊的單選按鈕。單擊 **Next**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image9.png)
 
-7.  Repeat the steps to enable the Adaptive Protection Policy for Teams
-    and Exchange DLP.
+自動生成的計算機 Description 的屏幕截圖
 
-8.  We will not create any rules or policy as of now, but you can
-    explore various available option after you complete the lab.
+6.  選擇 **Submit**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image9.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+7.  重複這些步驟以啓用 Teams 和 Exchange DLP 的自適應保護策略。
+
+8.  目前，我們不會創建任何規則或策略，但您可以在完成實驗後探索各種可用選項。
