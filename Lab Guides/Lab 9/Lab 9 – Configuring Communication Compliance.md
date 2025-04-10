@@ -75,8 +75,6 @@ generated](./media/image6.png)
 
 ![BrokenImage](./media/image8.png)
 
-BrokenImage
-
 4.  使用以下属性为全局通信合规性策略创建专用通讯组:
 
     - **MemberDepartRestriction =
@@ -90,8 +88,6 @@ BrokenImage
 `New-DistributionGroup -Name "Communication Compliance Group Contoso" -Alias "CCG_Contoso" -MemberDepartRestriction 'Closed' -MemberJoinRestriction 'Closed' -ModerationEnabled $true`
 
 ![BrokenImage](./media/image9.png)
-
-BrokenImage
 
 **注意：**可以按  **following command** 添加 **Exchange Custom
 Attribute**，以跟踪添加到组织中通信合规性策略的用户。
@@ -120,16 +116,12 @@ generated](./media/image10.png)
 
 ![BrokenImage](./media/image11.png)
 
-BrokenImage
-
 **注意：**此脚本应该在每个特定间隔后运行。截至现在，您将能够在Microsoft
 365 admin中心的活跃团队和组下看到分发列表。
 
 如果单击组名称，您将能够看到 members 选项卡下列出的所有用户。
 
 ![BrokenImage](./media/image12.png)
-
-BrokenImage
 
 ## 练习 3 - 创建通信合规性策略
 
