@@ -1,995 +1,790 @@
-# Lab 7 – Configuring Insider Risk Management
+# 實驗 7 – 配置內部風險管理
 
-## Objective:
+## 目的:
 
-In this lab we will learn how to configure Insider Risk Management using
-the Insider Risk Management Policies. We will use the Sensitive Info
-Types that we created in Lab 2 and DLP policies that we created in Lab 5
-to create policies which will secure the organisation against risky
-browser usage or any data theft or leaks.
+在此實驗室中，我們將學習如何使用 Insider Risk Management 策略配置
+Insider Risk Management。我們將使用我們在實驗室 2
+中創建的敏感信息類型和我們在實驗室 5 中創建的 DLP
+策略來創建策略，以保護組織免受有風險的瀏覽器使用或任何數據盜竊或泄漏的影響。
 
-To do this we will create an infrastructure in Azure that will represent
-the devices in an organisation. We will learn how to onboard those
-devices in Azure AD and Intune, and install an MDM agent on them, so
-that they can be used to get the alerts from those machines.
+爲此，我們將在 Azure
+中創建一個基礎結構，該基礎結構將代表組織中的設備。我們將瞭解如何在 Azure
+AD 和 Intune 中載入這些設備，幷在其上安裝 MDM
+代理，以便可以使用它們從這些計算機獲取警報。
 
-## Exercise 1: Set up the environment
+## 練習 1：同步 VM 時鐘
 
-### Task 0 : Synchronize the VM clock
-
-1.  After logging into the VM, select the windows icon. Then search
-    for **Date and time**, and select **Date and time settings**.
+1.  登錄到 VM 後，選擇 Windows 圖標。然後搜索 **Date and time，幷選擇
+    Date and time settings** 。
 
 ![A screenshot of a computer Description automatically
-generated](./media/image1.jpeg)
+generated](./media/image1.jpg)
 
-2.  On the Settings screen that opens up, click on the **Sync
-    now** under Additional settings.
+自動生成的計算機 Description 的屏幕截圖
+
+2.  在打開的 個人設置 屏幕上，單擊 **Sync now** 下 其他設置.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image2.jpeg)
+generated](./media/image2.jpg)
 
-3.  This takes care of synchronizing the time just in case the automatic
-    synchronization does not work.
+自動生成的計算機 Description 的屏幕截圖
+
+3.  這負責同步時間，以防自動同步不起作用。
 
 ![A screenshot of a computer Description automatically generated with
 medium confidence](./media/image3.png)
 
-### Task 1: Redeeming an Azure Pass
+以中等置信度自動生成的計算機描述的屏幕截圖
 
-#### Redeeming a Microsoft Azure Pass Promo Code
+## 練習 2：創建 Insider Risk Management 策略。
 
-1.  Open a new In-Private Browser session and navigate to:
-    ```https://www.microsoftazurepass.com```. Select
-    the **Start** button to get started.
+### 先决條件
 
-> ![A person sitting on a couch using a computer Description
-> automatically generated](./media/image6.png)
+#### 步驟 1 - 將用戶添加到預覽體驗成員風險管理角色組
 
-2.  Enter your **Office 365 admin credentials** and select **Sign In**.
-    Click **Confirm Microsoft Account** if the correct email address is
-    listed.
+1.  如果 Microsoft Purview 門戶已打開，請繼續執行步驟 2，否則，請打開
+    `https://purview.microsoft.com` 幷使用 **MOD
+    Administrator**憑據登錄。
 
-> ![](./media/image7.png)
+![](./media/image4.png)
 
-3.  Enter your **Azure Pass** promo code in the **Enter Promo code**
-    box, enter the captcha and select **Submit**.
+2.  在導航中，選擇 **Settings**，然後選擇 **Role groups**，在 **Role
+    groups下**，選擇 **Insider Risk Management**。然後選擇
+    **Edit**。在側窗格中，再次選擇 **Edit**
 
-> ![](./media/image8.png)
+![](./media/image5.png)
 
-4.  It may take up to 5 minutes to process the redemption.
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image9.png)
-
-#### Activate your subscription
-
-1.  When the redemption process is completed, it will redirect to the
-    sign up page.
-
-2.  Enter your account information and click **Sign up**.
-
-    - **Country/Region**: United States
-
-    - **First Name**: ```MOD```
-
-    - **Last Name**: ```Administrater``` (You will not be able to use the correct spelling as it is a reserved word)
-
-    - **Phone**: ```(987) 654-3210```
-
-    - **Address line 1**: ```One Microsoft Way```
-
-    - **City**: Redmond
-
-    - **State**: Washington
-
-    - **ZIP Code**: ```98052```
-
-    - Agree to the subscription agreement and offer details.
-
-3.  It may take a few minutes to process the request.
-
-4.  You will be asked to enable multi-factor authentication. Once you
-    download Microsoft Authenticator on your mobile device, follow the
-    on-screen instructions to set up the authentication.
-
-> ![](./media/image10.png)
-
-5.  Your Azure subscription is ready to be used.
-
-### Task 2: Register your lab VM in Microsoft Entra ID
-
-To open any VM that is registered in Azure AD, we need to register our
-device/VM in Microsoft Entra ID. So, we will register our Lab VM to the
-Contoso’s Entra ID.
-
-1.  Open windows **Setting** on your VM.
+3.  在 **Edit Members of the role group** 頁面上，選擇 **Choose
+    users**。
 
 ![A screenshot of a computer Description automatically
-generated](./media/image14.png)
+generated](./media/image6.png)
 
-2.  Go to **Accounts** \> **Access work or school**.
+自動生成的計算機 Description 的屏幕截圖
+
+4.  選中 **MOD Admin、Patti、Megan 和 Alex** 附近的複選框。然後選擇
+    **Select** 。
+
+![](./media/image7.png)
+
+5.  然後選擇 **Next**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image8.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+6.  選擇 **Save** 將用戶添加到角色組。
+
+![A screenshot of a computer Description automatically
+generated](./media/image9.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+7.  選擇 **Done** 以完成這些步驟。
+
+![A screenshot of a computer Description automatically
+generated](./media/image10.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+#### 步驟 2 - 啓用內部風險分析見解
+
+1.  在 Microsoft Purview 門戶中。導航到 ** Settings**，轉到 **nsider
+    risk management**。轉到 **Analytics**，啓用單選按鈕，然後單擊
+    **Save**。
+
+![](./media/image11.png)
+
+#### 第 3 步 – 載入設備
+
+在此部署方案中，你將載入尚未載入的設備，幷且你只想檢測 Windows 10
+設備上的內部風險活動。
+
+我們需要在 Microsoft Entra ID
+中注册我們的設備/VM，作爲創建任何內部風險策略的先决條件。
+
+1.  在 VM 上打開 Windows **Setting **。
+
+![A screenshot of a computer Description automatically
+generated](./media/image12.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+2.  轉到 **Accounts \> Access work or school**。在 **Access** **work or
+    school** 頁面上，單擊 **Connect**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image13.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+3.  在**Set up a work or school account** 提示中，單擊 **Join this
+    device to Microsoft Entra ID。**
+
+![](./media/image14.png)
+
+4.  在登錄提示中，使用 實驗室環境的 resources 選項卡上提供的 **MOD**
+    **Administrator** 憑證登錄。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image15.png)
 
-3.  Under **Access work or school account**, click on **Connect**.
+自動生成的計算機 Description 的屏幕截圖
+
+![Graphical user interface, application, PowerPoint Description
+automatically generated](./media/image16.png)
+
+自動生成圖形用戶界面、應用程序、PowerPoint 描述
+
+5.  在 提示 **Make sure This is your organization** 中按 **Join** 。
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image17.png)
+
+自動生成圖形用戶界面、文本、應用程序描述
+
+6.  完成後，您將看到一個確認窗口**：ou're all setup！**。點擊**Done**。
 
 ![A screenshot of a computer Description automatically
-generated](./media/image16.png)
+generated](./media/image18.png)
 
-4.  In the **Set up a work or school account** prompt, click on **Join
-    this device to Microsoft Entra ID**.
+自動生成的計算機 Description 的屏幕截圖
 
-![](./media/image17.png)
+7.  再次轉到 **accounts \> Access work or school**。在 **Access work or
+    school** 頁面上，單擊 **Connect**。
 
-5.  In the sign in prompt, sign in with **MOD
-    Administrator** credentials given on the resources tab of your lab
-    environment. 
+![A screenshot of a computer Description automatically
+generated](./media/image13.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+8.  在 **Set up a work or school account** 提示中，使用 **MOD**
+    **Administrator** 憑據登錄。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image19.png)
 
-![Graphical user interface, application, PowerPoint Description
-automatically generated](./media/image20.png)
+自動生成的計算機 Description 的屏幕截圖
 
-6.  Press **Join** in the prompt **Make sure this is your organisation**.
+9.  在 **Setting up your device** 頁面上，選擇 **Got it** 。
 
-![Graphical user interface, text, application Description automatically
+![A screenshot of a computer Description automatically
+generated](./media/image20.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+10. 現在轉到 **windows settings \> Accounts \> Access work or school \>
+    Connected to Contoso MDM \> Info \> Sync**。
+
+![A screenshot of a computer Description automatically
 generated](./media/image21.png)
 
-7.  Once done you will see a confirmation window **You’re all set!**.
-    Click on **Done**.
-
-8.  Now click on the windows symbol on your VM. Select the
-    user **Admin** and select **Sign out**.
+自動生成的計算機 Description 的屏幕截圖
 
 ![A screenshot of a computer Description automatically
 generated](./media/image22.png)
 
-9.  On the user screen select **Other user**.
+自動生成的計算機 Description 的屏幕截圖
 
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/image23.png)
+11. 單擊 VM 上的 Windows 符號。選擇用戶 **Admin** 幷選擇 **Sign out**。
 
-10. Enter your O365 credentials given on the home page of your lab
-    environment and log into the VM as **MOD Administrator**.
+![A screenshot of a computer Description automatically
+generated](./media/image23.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+12. 在用戶屏幕上，選擇 **Other user**。
 
 ![A screenshot of a computer Description automatically generated with
 medium confidence](./media/image24.png)
 
-11. All the following tasks should be performed under this user only. If
-    not, you will not be able to log into the VMs we will be creating in
-    the following exercises.
+以中等置信度自動生成的計算機描述的屏幕截圖
 
-### Task 3: Create VMs to replicate an organization’s Structure.
+13. 輸入實驗室環境主頁上提供的 O365 憑據，然後以 **MOD
+    Administrator**身份登錄 VM。
 
-Note: The configurations in the screenshots may not be exactly the same
-as some features keep on updating in Azure. Please follow the
-instructions thoroughly and refer to the screenshots for finding the
-buttons or the areas of interest.
+![A screenshot of a computer Description automatically generated with
+medium confidence](./media/image25.png)
 
-1.  On the **Azure portal ( ```https://portal.azure.com ```)** menu or
-    from the **Home** page, select **Create a resource**.
+以中等置信度自動生成的計算機描述的屏幕截圖
 
-2.  Select **Create** under **Virtual Machines**.
+14. 關閉 Windows 設置應用程序。 ` ``在`` ` 實驗室 VM 上使用 **MOD
+    Administrator** 帳戶登錄 https://purview.microsoft.com。
 
-![A screenshot of a computer Description automatically
-generated](./media/image25.png)
+15. 選擇 **Settings \> Device onboarding \> Devices**。
 
-3.  Enter these values for the virtual machine:
+![](./media/image26.png)
 
-| Setting                 | Value                                                                                                                                       |
-|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| Resource group          | Click on **Create new** > ```ContosoDevices``` > Click on **Ok**                                                                        |
-| Virtual machine name    | ```Pattis-Device```                                                                                                                     |
-| Region                  | **(Asia Pacific) Australia EastUS** (You can use any other region as per availability of the VM images like DS1 or DS2 variants)            |
-| Security                | Standard                                                                                                                                    |
-| Image                   | Windows 10 Pro, Version 22H2 – x64 Gen2                                                                                                     |
-| Administrator user name | ```Admin01```                                                                                                                               |
-| Password                | ```Pa$$.w0rd@123```                                                                                                                         |
-
-![A screenshot of a computer Description automatically
-generated](./media/image26.png)
-
-4.  Make sure that under Licenses the check box besides Would you like
-    to use an existing Windows Server license? is checked.
+16. 單擊 **Turn on Device onboarding**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image27.png)
 
-5.  Accept the other defaults and select **Review + create**.
+自動生成的計算機 Description 的屏幕截圖
+
+17. 從 **Settings \> Device onboarding \> Onboarding**。單擊 **Download
+    package**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image28.png)
 
-6.  Review the settings on the summary page, and then select **Create**.
+自動生成的計算機 Description 的屏幕截圖
+
+18. 右鍵單擊文件幷 **Extract all ...** 。
 
 ![A screenshot of a computer Description automatically generated with
 medium confidence](./media/image29.png)
 
-7.  Go to the newly created machine, **Pattis-Device**,
-    select **Connect** and then **RDP** and download the RDP file.
-
-8. Create 2 other VMs using the same steps and the following
-    information.
-
-| Setting                 | Value                                                                                                                                       |
-|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| Resource group          | Select **ContosoDevices**                                                 						                        |
-| Virtual machine name    | ```Adeles-Device```                                                                                                                     |
-| Region                  | **(Asia Pacific) Australia EastUS** (You can use any other region as per availability of the VM images like DS1 or DS2 variants)            |
-| Security                | Standard                                                                                                                                    |
-| Image                   | Windows 10 Pro, Version 22H2 – x64 Gen2                                                                                                     |
-| Administrator user name | ```Admin01```                                                                                                                               |
-| Password                | ```Pa$$.w0rd@123```                                                                                                                         |
-
-| Setting                 | Value                                                                                                                                       |
-|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| Resource group          | Select **ContosoDevices**                                                          						                |
-| Virtual machine name    | ```Christies-Device```                                                                                                                   |
-| Region                  | **(Asia Pacific) Australia EastUS** (You can use any other region as per availability of the VM images like DS1 or DS2 variants)            |
-| Security                | Standard                                                                                                                                    |
-| Image                   | Windows 10 Pro, Version 22H2 – x64 Gen2                                                                                                     |
-| Administrator user name | ```Admin01```                                                                                                                               |
-| Password                | ```Pa$$.w0rd@123```                                                                                                                         |
-
-9. You can open the RDP files and use the following local credentials
-    to log in sign in to these Virtual Machines.
-
-    - User Name: ```Admin01```
-
-    - Password: ```Pa$$.w0rd@123```
-
-### Task 4: Enrol the VMs in Microsoft Entra ID as different users' devices
-
-1. Open the RDP file for **Pattis-Device** and log in with the local
-    credentials.
-
-2. Open windows **Setting** on your newly created VM named **Pattis-Device**.
+以中等置信度自動生成的計算機描述的屏幕截圖
 
 ![A screenshot of a computer Description automatically
-generated](./media/image14.png)
+generated](./media/image30.png)
 
-3. Go to **Accounts** \> **Access work or school**.
+自動生成的計算機 Description 的屏幕截圖
+
+19. 完成後，打開文件夾幷使用**Administrator**權限運行文件。
+
+![A computer screen with a computer screen Description automatically
+generated](./media/image31.png)
+
+帶有計算機屏幕的計算機屏幕自動生成的描述
+
+20. 單擊 **More info**。
+
+![Graphical user interface, application Description automatically
+generated](./media/image32.png)
+
+圖形用戶界面，自動生成應用程序描述
+
+21. 單擊 **Run anyway**。
+
+![A screenshot of a computer error Description automatically
+generated](./media/image33.png)
+
+自動生成的計算機錯誤描述的屏幕截圖
+
+22. 在命令提示符中，按 **Y** 鍵幷按 Enter 鍵確認幷在出現提示時繼續。
+
+![A screenshot of a computer error Description automatically
+generated](./media/image34.png)
+
+自動生成的計算機錯誤描述的屏幕截圖
+
+23. 您將收到一條消息，指出設備已載入。在命令提示符中收到消息後，**Press
+    any key to continue…**，按任意鍵。
+
+24. 關閉命令提示符後，在管理員模式下打開命令提示符以運行檢測測試，然後在提示符下複製幷運行以下命令。命令提示符窗口將自動關閉。
+
+`powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden $ErrorActionPreference= 'silentlycontinue';(New-ObjectSystem.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe','C:\test-WDATP-test\invoice.exe');Start-Process 'C:\test-WDATP-test\invoice.exe'`
+
+![Text Description automatically generated](./media/image35.png)
+
+自動生成文本描述
+
+25. 通過單擊導航中的設置**打開 settings**，然後選擇 **Devices
+    Onboarding** \> **Devices**。
+
+**注意：**雖然啓用設備載入通常需要大約 60 秒，但請最多等待 30 分鐘。
+
+26. 您將能够檢查 **Devices**
+    列表。在您載入設備之前，該列表將爲空，完成後，您將能够看到您的 VM
+    列爲已載入的設備。
+
+### 任務 1：創建組織範圍的策略以檢測風險瀏覽器使用情况幷對其進行評分
+
+#### 步驟 1 – 創建新策略
+
+1.  如果您在上一個任務中關閉了瀏覽器窗口，請打開
+    `https://purview.microsoft.com` 幷使用管理員憑證登錄。
+
+2.  轉到 **Insider Risk Management** 幷選擇 **Policies** 選項卡。選擇
+    **Create policy** 以打開策略嚮導。
+
+![](./media/image36.png)
+
+3.  在 **Choose a policy template **頁面上，在 **Choose a policy
+    template **下**選擇  Risky browser usage (preview)**。
 
 ![A screenshot of a computer Description automatically
-generated](./media/image15.png)
+generated](./media/image37.png)
 
-4. Under **Access work or school account**, click on **Connect**.
+自動生成的計算機 Description 的屏幕截圖
 
-![A screenshot of a computer Description automatically
-generated](./media/image16.png)
-
-5. In the **Set up a work or school account** prompt, click on **Join
-    this device to Microsoft Entra ID**.
-
-![](./media/image17.png)
-
-6. In the sign in prompt, sign in with the
-    username ```pattif@{TENANTPREFIX}.onmicrosoft.com``` and the User
-    password. (replace {TENANTPREFIX} with your tenant prefix given on the
-    resources tab).
-
-7. Press Join in the prompt **Make sure this is your organisation**.
-
-![](./media/image34.png)
-
-8. Once done you will see a confirmation window **You’re all set!**.
-    Click on **Done**.
-
-![](./media/image35.png)
-
-9. Once again near **Access work or school**, click on **Connect**.
-
-![](./media/image37.png)
-
-10. In the Set up a work or school account prompt, sign in with
-    username ```pattif@{TENANTPREFIX}.onmicrosoft.com``` and the User
-    password. (replace {TENANTPREFIX} with your tenant prefix given on the
-    resources tab).
-
-11. It will take a couple of minutes to sign in.
+4.  確保滿足所有先决條件。
 
 ![A screenshot of a computer Description automatically
+generated](./media/image38.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+5.  選擇 **Next ** 繼續。
+
+![A screenshot of a computer Description automatically
+generated](./media/image39.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+6.  在 **Name and description** 頁面上，填寫以下字段:
+
+    - 姓名 （必填）：`Risky usage of browser`
+
+    - 描述（可選）：`This is a test policy for the risky browser usage.`
+
+7.  選擇 ** Next** 繼續。
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image40.png)
+
+自動生成圖形用戶界面、文本、應用程序描述
+
+8.  在**Choose users, groups, & adaptive scopes **頁面上，選擇 **All
+    users, groups, & adaptive scopes**。選擇 **Next** 繼續。
+
+9.  在 **Exclude users and groups** 頁上，選擇 **Next**。
+
+10. 在 **Decide whether to prioritize** 頁面上，選擇 **I don't want to
+    specify priority content right
+    now**（創建策略後，您將能够執行此作）。選擇 Next 繼續。
+
+![Graphical user interface, text, application Description automatically
 generated](./media/image41.png)
 
-12. You will get a prompt saying, **Setting up your account**.
-    Press **Got it**.
+自動生成圖形用戶界面、文本、應用程序描述
 
-![Graphical user interface, text, application, Word Description
-automatically generated](./media/image42.png)
-
-13. On your **Settings** \> **Accounts** \> **Access work or school** page, you
-    will see Patti Fernandez’s account connected twice. Expand the one
-    that says **Connected to Contoso MDM.**
-
-![](./media/image43.png)
-
-14. Click on **Info**.
-
-![](./media/image45.png)
-
-15. On the **Settings** \> **Accounts** \> **Access work or school** \> **Managed by Contoso**, under **Device sync status**, click
-    on **Sync**.
-
-![](./media/image46.png)
-
-16. Once done close the **Settings** and from the start
-    window, **restart** the PC. Please make sure you do not shut it
-    down.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/image47.png)
-
-17. Open the RDP file again. Click on **More choices**.
-
-![A screenshot of a computer security Description automatically
-generated with medium confidence](./media/image48.png)
-
-18. Click on **Use a different account**.
-
-![A screenshot of a computer screen Description automatically generated
-with low confidence](./media/image49.png)
-
-19. Sign in with username ```pattif@{TENANTPREFIX}.onmicrosoft.com``` and the
-    User password. (replace {TENANTPREFIX} with your tenant prefix given on
-    the resources tab). If asked for the confirmation, click on **Yes**.
-
-20. Open the RDP file of Adele’s device and following the same 1 t0 19
-    steps as we did for Patti’s device, enrol the device in Microsoft
-    Entra ID. In the sign in prompt, sign in with the
-    username ```adelev@{TENANTPREFIX}.onmicrosoft.com``` and the User password
-    (replace {TENANTPREFIX} with your tenant prefix given on the resources
-    tab).
-
-21. Open the RDP file of Christie’s device and following the same 1 t0
-    19 steps as we did for Patti’s device, enrol the device in Azure AD.
-    In the sign in prompt, sign in with the
-    username ```christiec@{TENANTPREFIX}.onmicrosoft.com``` and the User
-    password (replace {TENANTPREFIX} with your tenant prefix given on the
-    resources tab).
-
-**Note:** Henceforth, while logging in these devices you will use the
-Azure AD credentials of the respective users of the VMs throughout
-Exercises. Use the following credentials:
-
-Pattis-Device
-
-pattif@{TENANTPREFIX}.onmicrosoft.com
-
-User password
-
-Adeles-Device
-
-adelev@{TENANTPREFIX}.onmicrosoft.com
-
-User password
-
-Christies-Device
-
-christiec@{TENANTPREFIX}.onmicrosoft.com
-
-User password
-
-## Exercise 2: Create Insider Risk Management policies.
-
-### Prerequisites
-
-#### Step 1 – Add users to Insider risk management role group
-
-1.  If the Microsoft Purview portal is open continue to step 2,
-    otherwise, open the ```https://purview.microsoft.com ``` and log
-    in with the **MOD Administrator** credentials.
-
-![](./media/image54.png)
-
-2.  In the navigation select **Settings**, and select **Role groups**
-    under **Role groups**, select **Insider Risk Management**. Then
-    select **Edit**. On the side pane, again select **Edit**
-
-![](./media/image55.png)
-
-3.  On the **Edit Members of the role group** page, select **Choose
-    users**.
+11. 在  **Triggers for this policy** 頁上，選擇 **Turn on indicators**。
 
 ![A screenshot of a computer Description automatically
-generated](./media/image60.png)
+generated](./media/image42.png)
 
-4.  Select the checkbox near **MOD Admin**, **Patti**, **Megan** and **Alex**. Then
-    choose **Select**.
+自動生成的計算機 Description 的屏幕截圖
 
-![](./media/image62.png)
+12. 在 **Choose indicators to turn on上**，選擇**Select all under Risky
+    browsing indicators (preview)下的“全選”**，然後取消選中其餘框。
 
-5. Then select **Next**.
+![A screenshot of a computer Description automatically
+generated](./media/image43.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+13. 向下滾動幷選擇 **Save**。
+
+14. 在 **Triggers for this policy 的 Select** **which activities will
+    trigger this policy 下。** 選擇所有選項，然後單擊** Next**。
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image44.png)
+
+自動生成圖形用戶界面、文本、應用程序描述
+
+15. 在 **Triggering thresholds for this policy**頁上，選擇**Use custom
+    thresholds (Recommended)**，將所有閾值更改爲每天 **1**
+    個，然後選擇 **Next**。
+
+![Graphical user interface, application Description automatically
+generated](./media/image45.png)
+
+圖形用戶界面，自動生成應用程序描述
+
+![A screenshot of a computer Description automatically
+generated](./media/image46.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+16. 在 **indicators** 頁面上，選擇 **Next**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image47.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+17. 在 ** Decide whether to use default or custom indicator
+    thresholds上**，選擇 ** Use default thresholds for all
+    indicators**，然後選擇 ** Next**。
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image48.png)
+
+自動生成圖形用戶界面、文本、應用程序描述
+
+18. 在 **Review settings and finish上**，選擇 **Submit**。
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image49.png)
+
+自動生成圖形用戶界面、文本、應用程序描述
+
+19. 在 **Your policy was created** 上，選擇 **Done**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image50.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+20. 保持選項卡打開幷繼續執行下一個任務。
+
+#### 步驟 2 - 對策略進行評分
+
+1.  單擊名爲 **Risky usage of browser** 的新策略。選擇 **Start scoring
+    activity for users**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image51.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+2.  在 **Add users to multiple policies** 窗格的 **Reason** 字段中，鍵入
+    **Testing the policy**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image52.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+3.  在 **This should last for （choose between 5 to 30 days）**
+    字段中，選擇 **10** 天。
+
+4.  使用 **Search user to add to policies** 字段。添加 **MOD
+    Admin**。然後單擊 **Start scoring activity**。
+
+5.  確認您已開始 **Scoring activity for 1 users** 後，單擊 **Close**。
+
+6.  ![A screenshot of a computer screen Description automatically
+    generated with medium confidence](./media/image53.png)
+
+以中等置信度自動生成的計算機屏幕描述的屏幕截圖
+
+### 任務 2：離職用戶竊取數據
+
+#### 步驟 1 – 創建新策略
+
+1.  如果您在上一個任務中關閉了瀏覽器窗口，請打開
+    `https://purview.microsoft.com` 幷使用管理員憑證登錄。
+
+2.  轉到 **Insider Risk Management** 幷選擇 **Policies** 選項卡。選擇
+    **Create policy**以打開策略嚮導。
+
+![](./media/image36.png)
+
+3.  在 Choose a policy template 頁面上，在 Data theft 下選擇 Data theft
+    by deleaveing users。選擇 下一步 繼續。
+
+![A screenshot of a computer Description automatically
+generated](./media/image54.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+4.  在 **Name and description** 頁面上，填寫以下字段:
+
+    - 姓名 （必填）：`Data theft by a user`
+
+    - 描述（可選）：`This is a test policy for the preventing data theft.`
+
+5.  選擇 ** Next** 繼續。
+
+![A screenshot of a computer Description automatically
+generated](./media/image55.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+6.  在**Choose users, groups, & adaptive scopes **頁面上，選擇** All
+    users, groups, & adaptive scopes**。選擇 **Next ** 繼續。
+
+7.  在 **Exclude users, groups, & adaptive scopes**頁面上，選擇
+    **Next**。
+
+8.  在 **Decide whether to prioritize （决定是否確定優先級**）
+    頁面上，選擇 **I want to specify priority content
+    （我想指定優先內容**）。選中 **Sensitivity labels **和 **ensitive
+    info types 的複選框**。選擇 **Next** 繼續。
+
+![A screenshot of a computer screen Description automatically generated
+with medium confidence](./media/image56.png)
+
+以中等置信度自動生成的計算機屏幕描述的屏幕截圖
+
+9.  在 ** Sensitivity labels to prioritize**頁上，選擇 ** Add or edit
+    sensitivity labels**。在浮出控件窗格中，選擇 ** Internal/Employee
+    data (HR) **，然後單擊“** Add**。然後單擊 **Next**。
+
+![A screenshot of a computer screen Description automatically generated
+with medium confidence](./media/image57.png)
+
+以中等置信度自動生成的計算機屏幕描述的屏幕截圖
+
+10. 在  **Sensitive info types to prioritize**頁上，選擇“ **Add or edit
+    sensitive info types**。在浮出控件窗格中，**Credit Card
+    Number**, **Contoso Employee ID** 和 **Contoso Employee EDM**。選擇
+    **Add**。然後單擊 **Next**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image58.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+11. 在 **Decide whether to only activity with priority content**
+    上，選擇 **Get alerts for all activity**。選擇 **Next**。
+
+![A screenshot of a computer screen Description automatically generated
+with medium confidence](./media/image59.png)
+
+以中等置信度自動生成的計算機屏幕描述的屏幕截圖
+
+12. 在此策略頁的觸發器上，選擇默認值，然後選擇 下一步。
+
+![A screenshot of a computer Description automatically generated with
+medium confidence](./media/image60.png)
+
+以中等置信度自動生成的計算機描述的屏幕截圖
+
+13. 在 **Indicators** 頁面上，從提示中選擇 **Turn on indicators**。
+
+![A screenshot of a computer Description automatically generated with
+medium confidence](./media/image61.png)
+
+以中等置信度自動生成的計算機描述的屏幕截圖
+
+14. 在 **Select all under Office indicators ，**然後單擊 **Save**。
+
+![A screenshot of a computer screen Description automatically generated
+with medium confidence](./media/image62.png)
+
+以中等置信度自動生成的計算機屏幕描述的屏幕截圖
+
+15. 選擇所有選項，然後單擊 **Next**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image63.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+16. 在 **Detection options**頁面上，選擇默認值，然後選擇 **Next**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image64.png)
 
-6. Select **Save** to add the users to the role group.
+自動生成的計算機 Description 的屏幕截圖
+
+17. 在** indicators **頁面上，選擇**Next**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image47.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+18. 在 ** Decide whether to use default or custom indicator
+    thresholds上**，選擇 ** Customise thresholds**，爲每個階段分別使用
+    **1**、**2** 和 **3** 個事件，然後選擇 Next。
+
+![A screenshot of a computer screen Description automatically
+generated](./media/image65.png)
+
+自動生成的計算機屏幕描述的屏幕截圖
+
+19. 在 **Review settings and finish 上**，選擇 **Submit** 。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image66.png)
 
-7. Select **Done** to complete the steps.
+自動生成的計算機 Description 的屏幕截圖
+
+20. 在 **Your policy was created** 上，選擇 **Done**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image67.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+21. 保持選項卡打開幷繼續執行下一個任務。
+
+#### 步驟 2 - 對策略進行評分
+
+1.  單擊名爲 **Data theft by a user** 的新策略。選擇 **Start scoring
+    activity for users**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image68.png)
 
-#### Step 2 – Enable insider risk analytics insights
+自動生成的計算機 Description 的屏幕截圖
 
-1.  In the Microsoft Purview portal. Navigate to **Settings**, go
-    to **Insider risk management**. Go to **Analytics**, and enable the
-    radio button, and click on **Save**.
+2.  在 **Add users to multiple policies 窗格的 Reason 字段中**，鍵入
+    **Testing the policy**。
 
-![](./media/image70.png)
+![A screenshot of a computer Description automatically
+generated](./media/image52.png)
 
-#### Step 3 – Onboarding a device
+自動生成的計算機 Description 的屏幕截圖
 
-In this deployment scenario, you'll onboard devices that haven't been
-onboarded yet, and you just want to detect insider risk activities on
-Windows 10 devices.
+3.  在 **This should last for （choose between 5 to 30 days）**
+    字段中，選擇 **10** 天。
 
-1.  Connect to **Pattis-Device** via RDP, click on windows and search
-    for **Windows Security**.
+4.  使用 **Search user to add to policies** 字段。添加 **MOD
+    Admin**。然後單擊 **Start scoring activity**。
+
+5.  確認您已開始 **Scoring activity for 1 users** 後，單擊 **Close**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image69.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+### 任務 3：用戶數據泄露
+
+#### 步驟 1 – 創建新策略
+
+1.  如果您在上一個任務中關閉了瀏覽器窗口，請打開
+    `https://purview.microsoft.com` 幷使用管理員憑證登錄。
+
+2.  轉到 **Insider Risk Management** 幷選擇 **Policies** 選項卡。選擇
+    **Create policy** 以打開策略嚮導。
+
+![A screenshot of a computer Description automatically
+generated](./media/image36.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+3.  在 **Choose a policy template** 頁面上，在 **Data leaks**下選擇
+    **Data leaks** 。選擇 **Next** 繼續。
+
+![A screenshot of a computer Description automatically
+generated](./media/image70.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+4.  在 **Name and description** 頁面上，填寫以下字段:
+
+    - 姓名 （必填）：`Data leaks by a user`
+
+    - 描述（可選）：`This is a test policy for preventing data leaks.`
+
+5.  選擇 **Next** 繼續。
+
+![A screenshot of a computer Description automatically
+generated](./media/image71.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+6.  在 **Choose users and groups**頁面上，選擇 **Include all users and
+    groups**。選擇 **Next** 繼續。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image72.png)
 
-2.  Click on **settings** icon in the bottom left.
+自動生成的計算機 Description 的屏幕截圖
 
-![Graphical user interface, application, Teams Description automatically
-generated](./media/image73.png)
+7.  在 **Exclude users and groups**頁上，選擇 **Next**。
 
-3.  Click on **About**.
+8.  在 **Decide whether to prioritize** 頁面上，選擇 **I want to specify
+    priority content**。選中 **SharePoint
+    網站**、**敏感度標簽**和**敏感信息類型的複選框**。選擇 **下一步**
+    繼續。
+
+![A screenshot of a computer Description automatically generated with
+medium confidence](./media/image73.png)
+
+以中等置信度自動生成的計算機描述的屏幕截圖
+
+9.  在 **SharePoint sites to prioritize** 頁面上，選擇 **Add or edit
+    SharePoint sites**。在彈出窗格中，選擇
+    `https://{TENANTPREFIX}.sharepoint.com/sites/ContosoWeb1` 幷選擇
+    **Add**。然後單擊 **Next**。
+
+10. 在 **Sensitivity labels to prioritize** 頁上，選擇 ** Add or edit
+    sensitivity labels.**。在浮出控件窗格中，選擇 ** Internal/Employee
+    data (HR) **，然後單擊 **Add** 。然後單擊 **Next**。
+
+![A screenshot of a computer screen Description automatically generated
+with medium confidence](./media/image57.png)
+
+以中等置信度自動生成的計算機屏幕描述的屏幕截圖
+
+11. 在 **Sensitive info types to prioritize **頁上，選擇** Add or edit
+    sensitive info types**。在浮出控件窗格中，搜索幷選擇 **Credit Card
+    Number**, **Contoso Employee ID** 和 **Contoso Employee EDM**。選擇
+    **Add**。然後單擊 **Next**。
+
+![A screenshot of a computer Description automatically
+generated](./media/image58.png)
+
+自動生成的計算機 Description 的屏幕截圖
+
+12. 在 **Decide whether to only activity with priority content**
+    上，選擇 **Get alerts for all activity** 。選擇 **Next**。
+
+![A screenshot of a computer screen Description automatically generated
+with medium confidence](./media/image59.png)
+
+以中等置信度自動生成的計算機屏幕描述的屏幕截圖
+
+13. 在 ** Triggers for this policy** 頁上，選擇 **User performs an
+    exfiltration activity** 附近的“單選按鈕”。在
+    “選擇將觸發此策略的活動” 下，選擇所有可用選項，尤其是 **Download
+    content from SharePoint**。然後選擇 Next 。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image74.png)
 
-4.  The version number is listed under Antimalware Client Version. The
-    version number is listed under Antimalware Client Version. Check
-    that **Antimalware Client Version** **4.18.2110** or newer, if not
-    continue to next step or if it is continue to step 9.
+自動生成的計算機 Description 的屏幕截圖
 
-![A screenshot of a computer Description automatically
-generated](./media/image75.png)
+14. 在 **Triggering thresholds for this policy** 上，選擇 **Use custom
+    thresholds**。將每個閾值設置爲 **1**，然後選擇 **Next**。
 
-5.  On the VM, click on windows and search for **Check for Updates**.
+![A screenshot of a computer Description automatically generated with
+medium confidence](./media/image75.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image76.png)
+以中等置信度自動生成的計算機描述的屏幕截圖
 
-6.  Click on **Download now**, or **Install now**.
+15. 在 **Indicators** 頁面上選擇默認設置**，** 然後選擇 **Next**。
 
-![A screenshot of a computer Description automatically
-generated](./media/image77.png)
+16. 在 ** Decide whether to use default or custom indicator thresholds**
+    上，選擇 ** Customise thresholds**，爲每個階段分別使用 **1**、**2**
+    和 **3** 個事件，然後選擇 **Next**。
 
-7.  Once the install is completed, go again to windows security again
-    and check that **Antimalware Client Version** is **4.18.2110** or newer.
-    If not, repeat the steps 5 and 6, till the VM is updated.
+![A screenshot of a computer Description automatically generated with
+medium confidence](./media/image76.png)
+
+以中等置信度自動生成的計算機描述的屏幕截圖
+
+17. 在 **Review settings and finish 上**，選擇 **Submit**。
+
+![A screenshot of a computer Description automatically generated with
+medium confidence](./media/image77.png)
+
+以中等置信度自動生成的計算機描述的屏幕截圖
+
+18. 在 **Your policy was created** 上，選擇 **Done**。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image78.png)
 
-8.  Close security center and update center. End the RDP connection for
-    now.
+自動生成的計算機 Description 的屏幕截圖
 
-9.  Repeat the steps from 1 to 7 to
-    update **Adeles-Device** and **Christies-Device**.
+19. 保持選項卡打開幷繼續執行下一個任務。
 
-10. Sign in to  ```https://purview.microsoft.com``` using
-    your **MOD Administrator** account on your Lab VM.
+#### 步驟 2 - 對策略進行評分
 
-11. Select **Settings** \> **Device onboarding**.
-
-![](./media/image80.png)
-
-12. Click on **Turn on Device onboarding**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image82.png)
-
-13. From the **settings** \> **Device onboarding** \> **Onboarding**.
-    Click on **Download package**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image83.png)
-
-14. Once downloaded, connect to **Pattis-Device** via RDP and copy the
-    file to the desktop of **Pattis-Device**.
-
-15. Right click the file and **Extract all…** .
+1.  單擊名爲 **Data leaks by a user** 的新策略。選擇 **Start scoring
+    activity for users**。
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/image86.png)
+medium confidence](./media/image79.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image87.png)
+以中等置信度自動生成的計算機描述的屏幕截圖
 
-16. Once done open the folder and run the file
-    with **Administrator** rights.
+2.  在 **Reason field in the Add users to multiple
+    policies**窗格 中，鍵入 Testing the policy。在 **This should last
+    for （choose between 5 to 30 days）** 字段中，選擇 **10** 天。使用
+    **Search user to add to policies** 字段。添加 **MOD
+    Admin**。然後單擊 **Start scoring activity**。
 
-![A computer screen with a computer screen Description automatically
-generated](./media/image88.png)
+3.  確認您已開始 **Scoring activity for 1 個用戶**後，單擊 **Close**.
 
-17. Click on **More info**.
+您已成功創建 Insider 風險管理策略。
 
-![Graphical user interface, application Description automatically
-generated](./media/image89.png)
+## 總結：
 
-18. Click on **Run anyway**.
-
-![A screenshot of a computer error Description automatically
-generated](./media/image90.png)
-
-19. In the Command Prompt, press **Y** and press enter to confirm and
-    continue when prompted.
-
-![A screenshot of a computer error Description automatically
-generated](./media/image91.png)
-
-20. You will receive a message that the device is onboarded. In the
-    Command Prompt once you get the message, **Press any key to continue
-    ...**, press any key.
-
-21. Once the Command Prompt is closed, open Command Prompt in
-    administrator mode to run a detection test and at the prompt, copy
-    and run the command below. The Command Prompt window will close
-    automatically.
-
-```powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden $ErrorActionPreference= 'silentlycontinue';(New-ObjectSystem.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe','C:\test-WDATP-test\invoice.exe');Start-Process 'C:\test-WDATP-test\invoice.exe'```
-
-![Text Description automatically generated](./media/image92.png)
-
-22. Close the VM connection.
-
-23. If the device onboarding is successful, you can go to
-    the **Microsoft Purview** portal that we left open in the
-    browser on Lab VM and you will see that the detection test is marked
-    as completed and a new alert appears in few minutes on the **Settings** \> **Device Onboarding** \> **Devices** page.
-
-24. Now copy the file we downloaded in step 13, and repeat the steps 15
-    to 21 for the VMs — **Adeles-Device** and **Christies-Device**,
-    respectively to onboard them as Devices in **Microsoft 365
-    Defender** portal.
-
-25. Open the ```https://purview.microsoft.com ``` and log in with the
-    username ```pattif@{TENANTPREFIX}.onmicrosoft.com``` and the User
-    password. (replace {TENANTPREFIX} with your tenant prefix given on the
-    resources tab).
-
-26. Open the **settings** by clicking on the settings in the navigation
-    and choose **Devices Onboarding** \> **Devices**.
-
-**Note:** While it usually takes about 60 seconds for device onboarding
-to be enabled, please allow up to 30 minutes.
-
-27. You will be able to check the **Devices** list. The list will be
-    empty until you onboard devices, once done, you will be able to see
-    your VMs listed as the onboarded device.
-
-### Task 1: Creating an organisation wide policy to detect and score Risky Browser Usage
-
-#### Step 1 – Create a new policy
-
-1.  If you closed the browser window in the previous task, open
-    the ```https://purview.microsoft.com ``` and log in with the
-    username ```pattif@{TENANTPREFIX}.onmicrosoft.com``` and the User
-    password. (replace {TENANTPREFIX} with your tenant prefix given on the
-    resources tab).
-
-2.  Go to **Insider Risk Management** and select
-    the **Policies** tab. Select **Create policy** to open the policy
-    wizard.
-
-![](./media/image100.png)
-
-3.  On the **Choose a policy template** page, choose **Risky browser usage
-    (preview)**, under **Risky browser usage (preview)**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image102.png)
-
-4.  Make sure that all the prerequisites are met.
-
-![A screenshot of a computer Description automatically
-generated](./media/image103.png)
-
-5.  Select **Next** to continue.
-
-![A screenshot of a computer Description automatically
-generated](./media/image104.png)
-
-6.  On the **Name and description** page, complete the following fields:
-
-    - Name (required): ```Risky usage of browser```
-
-    - Description (optional): ```This is a test policy for the risky browser usage.```
-
-7.  Select **Next** to continue.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image105.png)
-
-8.  On the **Choose users, groups, & adaptive scopes** page, select **All users, groups, & adaptive scopes**. Select **Next** to continue.
-
-9.   On the **Exclude users and groups** page, select **Next**.
-10.  On the **Decide whether to prioritize** page, select **I don't want to
-    specify priority content right now** (you'll be able to do this after
-    the policy is created). Select **Next** to continue.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image107.png)
-
-11. On the **Triggers for this policy** page, select **Turn on indicators**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image108.png)
-
-12. On **Choose indicators to turn on**, select **Select all under Risky
-    browsing indicators (preview)**, and uncheck rest of the boxes.
-
-![A screenshot of a computer Description automatically
-generated](./media/image109.png)
-
-13. Scroll down and select **Save**.
-
-14. On **Triggers for this policy**, under **Select which activities will
-    trigger this policy**. Select all the options and click on **Next**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image110.png)
-
-15. On **Triggering thresholds for this policy** page, select **Use custom
-    thresholds (Recommended)**, change all the thresholds to **1** per day and
-    then select **Next**.
-
-![Graphical user interface, application Description automatically
-generated](./media/image111.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image112.png)
-
-16. On **indicators** page, select **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image113.png)
-
-17. On **Decide whether to use default or custom indicator thresholds**,
-    select **Use default thresholds for all indicators**, then select **Next**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image114.png)
-
-18. On **Review settings and finish**, select **Submit**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image115.png)
-
-19. On **Your policy was created**, select **Done**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image116.png)
-
-20. Keep the tab open and continue to the next task.
-
-#### Step 2 – Score the policy
-
-1.  Click on the new policy named **Risky usage of browser**. Select **Start
-    scoring activity for users**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image117.png)
-
-2.  In the **Reason** field in the **Add users to multiple policies** pane,
-    type **Testing the policy**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image118.png)
-
-3.  In the **This should last for (choose between 5 and 30 days)** field,
-    select **10** days.
-
-4.  Use the **Search user to add to policies** field. Add **Patti**, **Adele**,
-    and **Christie**. Then click on **Start scoring activity**.
-
-![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/image119.png)
-
-5.  Once you get the confirmation that you have started **Scoring
-    activity for 3 users**, click **Close**.
-
-![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/image120.png)
-
-### Task 2: Data theft by departing users
-
-#### Step 1 – Create a new policy
-
-1.  If you closed the browser window in the previous task, open
-    the ```https://purview.microsoft.com ``` and log in with the
-    username ```pattif@{TENANTPREFIX}.onmicrosoft.com``` and the User
-    password. (replace {TENANTPREFIX} with your tenant prefix given on the
-    resources tab).
-
-2.  Go to **Insider Risk Management** and select the **Policies** tab.
-    Select **Create policy** to open the policy wizard.
-
-![](./media/image100.png)
-
-3.  On the Choose a policy template page, choose Data theft by departing
-    users, under Data theft. Select Next to continue.
-
-![A screenshot of a computer Description automatically
-generated](./media/image121.png)
-
-4.  On the **Name and description** page, complete the following fields:
-
-    - Name (required): ```Data theft by a user```
-
-    - Description (optional): ```This is a test policy forthe preventing data theft.```
-
-5.  Select **Next** to continue.
-
-![A screenshot of a computer Description automatically
-generated](./media/image122.png)
-
-6.  On the **Choose users, groups, & adaptive scopes** page, select **All users, groups, & adaptive scopes**. Select **Next** to continue.
-
-7.  On the **Exclude users, groups, & adaptive scopes** page, select **Next**.
-
-9.  On the **Decide whether to prioritize** page, select **I want to specify
-    priority content**. Select the check box for **Sensitivity
-    labels** and **Sensitive info types**. Select **Next** to continue.
-
-![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/image123.png)
-
-9.  On the **Sensitivity labels to prioritize** page, select **Add or edit
-    sensitivity labels**. On the flyout pane, select **Internal/Employee
-    data (HR)** and select **Add**. Then click **Next**.
-
-![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/image124.png)
-
-10.  On the **Sensitive info types to prioritize** page, select **Add or edit
-    sensitive info types**. On the flyout pane, search for and
-    select **Credit Card Number**, **Contoso Employee ID** and **Contoso Employee
-    EDM**. Select **Add**. Then click **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image125.png)
-
-11.  On **Decide whether to score only activity with priority content**,
-    select **Get alerts for all activity**. Select **Next**.
-
-![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/image126.png)
-
-12.  On triggers for this policy page, select the default and then
-    select Next.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/image127.png)
-
-13.  On **Indicators** page, select **Turn on indicators** from the
-    prompt.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/image128.png)
-
-14. Select **Select all under Office indicators** and click **Save**.
-
-![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/image129.png)
-
-15. Select all the options and click on **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image130.png)
-
-16. On **Detection options** page, select the default and then
-    select **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image131.png)
-
-17. On **indicators** page, select **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image113.png)
-
-18. On **Decide whether to use default or custom indicator thresholds**,
-    select **Customise thresholds**, use **1**, **2**, and **3** events for each stage
-    respectively then select Next.
-
-![A screenshot of a computer screen Description automatically
-generated](./media/image132.png)
-
-19. On **Review settings and finish**, select **Submit**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image133.png)
-
-20. On **Your policy was created**, select **Done**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image134.png)
-
-21. Keep the tab open and continue to the next task.
-
-#### Step 2 – Score the policy
-
-1.  Click on the new policy named **Data theft by a user**. Select **Start
-    scoring activity for users**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image135.png)
-
-2.  In the **Reason field in the Add users to multiple policies** pane,
-    type **Testing the policy**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image118.png)
-
-3.  In the **This should last for (choose between 5 and 30 days)** field,
-    select **10** days.
-
-4.  Use the **Search user to add to policies** field. Add **Patti**. Then click
-    on **Start scoring activity**.
-
-![A screenshot of a computer screen Description automatically
-generated](./media/image136.png)
-
-5.  Once you get the confirmation that you have started **Scoring
-    activity for 1 users**, click **Close**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image137.png)
-
-### Task 3: Data leaks by users
-
-#### Step 1 – Create a new policy
-
-1.  If you closed the browser window in the previous task, open
-    the ```https://purview.microsoft.com ``` and log in with the
-    username ```pattif@{TENANTPREFIX}.onmicrosoft.com``` and the User
-    password. (replace {TENANTPREFIX} with your tenant prefix given on the
-    resources tab).
-
-2.  Go to **Insider Risk Management** and select the **Policies** tab.
-    Select **Create policy** to open the policy wizard.
-
-![A screenshot of a computer Description automatically
-generated](./media/image100.png)
-
-3.  On the **Choose a policy template** page, choose **Data leaks**,
-    under **Data leaks**. Select **Next** to continue.
-
-![A screenshot of a computer Description automatically
-generated](./media/image138.png)
-
-4.  On the **Name and description** page, complete the following fields:
-
-    - Name (required): ```Data leaks by a user```
-
-    - Description (optional): ```This is a test policy forthe preventing data leaks.```
-
-5.  Select **Next** to continue.
-
-![A screenshot of a computer Description automatically
-generated](./media/image139.png)
-
-6.  On the **Choose users and groups** page, select **Include all users and
-    groups**. Select **Next** to continue.
-
-![A screenshot of a computer Description automatically
-generated](./media/image106.png)
-
-7.  On the **Exclude users and groups** page, select **Next**.
-
-9.  On the **Decide whether to prioritize** page, select **I want to specify
-    priority content**. Select the check box for **SharePoint
-    sites**, **Sensitivity labels** and **Sensitive info types**. Select **Next** to
-    continue.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/image140.png)
-
-9.  On the **SharePoint sites to prioritize** page, select **Add or edit
-    SharePoint sites**. On the flyout pane,
-    select ```https://{TENANTPREFIX}.sharepoint.com/sites/ContosoWeb1``` and
-    select **Add**. Then click **Next**.
-
-10.  On the **Sensitivity labels to prioritize** page, select **Add or edit
-    sensitivity labels**. On the flyout pane, select **Internal/Employee
-    data (HR)** and select **Add**. Then click **Next**.
-
-![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/image124.png)
-
-11. On the **Sensitive info types to prioritize** page, select **Add or edit
-    sensitive info types**. On the flyout pane, search for and
-    select **Credit Card Number**, **Contoso Employee ID** and **Contoso Employee
-    EDM**. Select **Add**. Then click **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image125.png)
-
-12. On **Decide whether to score only activity with priority content**,
-    select **Get alerts for all activity**. Select **Next**.
-
-![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/image126.png)
-
-13. On **Triggers for this policy** page, select Radio button near **User
-    performs an exfiltration activity**. Under select which activities
-    will trigger this policy, select all the available
-    options especially **Download content from SharePoint**. and then
-    select **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image141.png)
-
-14. On **Triggering thresholds for this policy**, select **Use custom
-    thresholds**. Set every threshold to **1** and select **Next**.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/image142.png)
-
-15. Select the default settings on the **Indicators** page and
-    select **Next**.
-
-16. On **Decide whether to use default or custom indicator thresholds**,
-    select **Customise thresholds**, use **1**, **2**, and **3** events for each stage
-    respectively then select **Next**.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/image143.png)
-
-17. On **Review settings and finish**, select **Submit**.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/image144.png)
-
-18. On **Your policy was created**, select **Done**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image145.png)
-
-19. Keep the tab open and continue to the next task.
-
-#### Step 2 – Score the policy
-
-1.  Click on the new policy named **Data leaks by a user**. Select **Start
-    scoring activity for users**.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/image146.png)
-
-2.  In the **Reason field in the Add users to multiple policies** pane,
-    type Testing the policy. In the **This should last for (choose between
-    5 and 30 days)** field, select **10** days. Use the **Search user to add to
-    policies** field. Add **Patti**, **Adele**, and **Christie**. Then click on **Start
-    scoring activity**.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/image147.png)
-
-3.  Once you get the confirmation that you have started **Scoring
-    activity for 3 users**, click **Close**.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/image148.png)
-
-You have successfully created the Insider risk management policies.
-
-## Summary:
-
-In this lab we explored setting up Insider Risk Management from
-end-to-end. With your own subscription and licenses, you can also use
-this lab guide to create an Azure setup that can also be used to create
-various alerts (which includes sending emails with restricted data,
-which is not possible from a trial subscription) for the Insider Risk
-management policies which you can use to explore the Adaptive Protection
-feature on Purview.
+在此實驗室中，我們探索了從端到端設置 Insider Risk
+Management。使用您自己的訂閱和許可證，您還可以使用此實驗室指南創建一個
+Azure 設置，該設置還可用于爲 Insider Risk
+管理策略創建各種警報（包括發送包含受限數據的電子郵件，這無法通過試用訂閱實現），您可以使用這些策略來探索
+Purview 上的自適應保護功能。
