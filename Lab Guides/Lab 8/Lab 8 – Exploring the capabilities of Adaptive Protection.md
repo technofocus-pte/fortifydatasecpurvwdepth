@@ -41,7 +41,6 @@ generated](./media/image3.png)
 
 ![BrokenImage](./media/image5.png)
 
-BrokenImage
 
 7.  同样，您可以在 Insider risk management 下自定义所有可用策略的条件。
 
