@@ -23,7 +23,6 @@ Contoso
 
 ![BrokenImage](./media/image1.png)
 
-BrokenImage
 
 2.  运行以下命令:
 
@@ -60,7 +59,6 @@ generated](./media/image4.png)
 
 ![BrokenImage](./media/image5.png)
 
-BrokenImage
 
 7.  在 **PowerShell** 中逐个运行以下命令 以创建组织结构。
 
@@ -68,7 +66,6 @@ BrokenImage
 
 ![BrokenImage](./media/image6.png)
 
-BrokenImage
 
 `New-OrganizationSegment -Name "Sales" -UserGroupFilter "Department -eq 'Sales'"`
 
@@ -163,15 +160,12 @@ generated](./media/image15.png)
 
 ![BrokenImage](./media/image16.png)
 
-BrokenImage
 
 10. 在 **Review your settings**
     页面上，查看您为策略选择的设置以及针对您的选择的任何建议或警告。选择
     **Edit** 以更改任何策略分段和状态，或选择 **Submit** 以创建策略。
 
 ![BrokenImage](./media/image17.png)
-
-BrokenImage
 
 11. 选择 **Done** 创建 策略后。
 
@@ -186,7 +180,6 @@ generated](./media/image18.png)
 
 ![BrokenImage](./media/image1.png)
 
-BrokenImage
 
 2.  运行以下命令:
 
@@ -215,8 +208,6 @@ generated](./media/image4.png)
 `New-``InformationBarrierPolicy`` -Name "Research-Sales" -``AssignedSegment`` "Research" -SegmentsBlocked "Sales" -State Inactive`
 
 ![BrokenImage](./media/image20.png)
-
-BrokenImage
 
 6.  运行以下命令以创建名为 **Manufacturing-HRMarketing** 的 IB
     策略。当此策略处于活动状态并应用时，**Manufacturing** 部门只能与
