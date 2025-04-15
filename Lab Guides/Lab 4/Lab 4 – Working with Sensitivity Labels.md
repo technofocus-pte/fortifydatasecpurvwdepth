@@ -44,7 +44,6 @@ Ein Screenshot einer automatisch generierten Computerbeschreibung
 
 ![BrokenImage](./media/image3.png)
 
-BrokenImage
 
 5.  Geben Sie das folgende Cmdlet ein, um die neueste Version des
     SharePoint Online PowerShell-Moduls zu installieren.:
@@ -71,7 +70,6 @@ Ein Screenshot einer automatisch generierten Computerbeschreibung
 
 ![BrokenImage](./media/image6.png)
 
-BrokenImage
 
 8.  Melden Sie sich im Formular **Sign in to your account** als **Patti
     Fernandez** mit dem Benutzernamen
@@ -92,7 +90,6 @@ Ein Screenshot einer automatisch generierten Computerbeschreibung
 
 ![BrokenImage](./media/image8.png)
 
-BrokenImage
 
 11. Geben Sie das folgende Cmdlet ein, um die
     SharePoint-Administrator-URL zu erstellen:
@@ -127,14 +124,12 @@ Ein Screenshot einer automatisch generierten Computerbeschreibung
 
 ![BrokenImage](./media/image11.png)
 
-BrokenImage
 
 16. Bestätigen Sie die Änderungen mit **Y** für Ja und drücken Sie die
     Enter.
 
 ![BrokenImage](./media/image12.png)
 
-BrokenImage
 
 17. Schließen des PowerShell-Fensters.
 
@@ -338,13 +333,11 @@ Ein Screenshot einer automatisch generierten Computerbeschreibung
 
 ![BrokenImage](./media/image33.png)
 
-BrokenImage
 
 25. Wählen Sie **Save** aus.
 
 ![BrokenImage](./media/image34.png)
 
-BrokenImage
 
 26. Wählen Sie auf der Seite **Encryption** die Option **Next** aus.
 
@@ -478,7 +471,7 @@ Ein Screenshot einer automatisch generierten Computerbeschreibung
 
 ![BrokenImage](./media/image47.png)
 
-BrokenImage
+
 
 12. Wählen Sie auf der Seite **Apply a default label to documents** die
     Option **Next** aus.
@@ -588,7 +581,6 @@ generiert
 
 ![BrokenImage](./media/image56.png)
 
-BrokenImage
 
 6.  Geben Sie folgenden Inhalt in das Word-Dokument ein:
 
@@ -623,7 +615,7 @@ abgeschlossen haben.
 
 ![BrokenImage](./media/image59.png)
 
-BrokenImage
+
 
 9.  Wählen Sie das **Document – Saved** oben links im Fenster aus, geben
     Sie **HR-Document** als Dateinamen ein und drücken Sie **Enter**.
@@ -738,7 +730,6 @@ Ein Screenshot einer automatisch generierten Computerbeschreibung
 
 ![BrokenImage](./media/image67.png)
 
-BrokenImage
 
 6.  Wählen Sie auf der Seite **Define the Scope for this Label** die
     Option **Items** aus, die Datei-, E-Mail- und Besprechungselemente
@@ -746,14 +737,13 @@ BrokenImage
 
 ![BrokenImage](./media/image68.png)
 
-BrokenImage
 
 7.  Wählen Sie auf der Seite **Choose Protection Settings for Labeled
     Items** die Option **Next** aus.
 
 ![BrokenImage](./media/image69.png)
 
-BrokenImage
+
 
 8.  Legen Sie auf der Seite **Auto-Labeling for Files and Emails** die
     **Option Auto-Labeling for Files and Emails** auf aktiviert fest.
@@ -770,7 +760,6 @@ automatisch generiert
 
 ![BrokenImage](./media/image71.png)
 
-BrokenImage
 
 10. Wählen Sie im Abschnitt **Content contains** die Option Text **Add**
     und dann **Sensitive info types** aus.
@@ -795,13 +784,12 @@ Ein Screenshot einer automatisch generierten Computerbeschreibung
 
 ![BrokenImage](./media/image73.png)
 
-BrokenImage
+
 
 14. Wählen Sie **Add**.
 
 ![BrokenImage](./media/image74.png)
 
-BrokenImage
 
 15. Wählen Sie **Next** aus.
 
