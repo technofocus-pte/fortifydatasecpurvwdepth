@@ -305,14 +305,11 @@ Ein Screenshot einer Computerbeschreibung, automatisch generiert
 
 ![BrokenImage](./media/image25.png)
 
-BrokenImage
 
 7.  Bestätigen Sie die Änderung der Ausführungsrichtlinie mit **Y** für
     Ja, und drücken Sie **Enter**.
 
 ![BrokenImage](./media/image26.png)
-
-BrokenImage
 
 8.  Geben Sie das folgende Cmdlet ein, um das **Exchange Online
     PowerShell-Modul zu verwenden** und eine Verbindung mit Ihrem
@@ -321,8 +318,6 @@ BrokenImage
 `Connect-ExchangeOnline`
 
 ![BrokenImage](./media/image27.png)
-
-BrokenImage
 
 1.  Wenn **Sign In** angezeigt wird, melden Sie sich als **Patti
     Fernandez** mit dem Benutzernamen
@@ -345,7 +340,6 @@ BrokenImage
 
 ![BrokenImage](./media/image28.png)
 
-BrokenImage
 
 12. Testen Sie die Azure RMS-Vorlagen, die für die Office
     365-Nachrichtenverschlüsselung verwendet werden, mit dem folgenden
@@ -391,7 +385,7 @@ Ein Screenshot einer Computerbeschreibung, automatisch generiert
 
 ![BrokenImage](./media/image31.png)
 
-BrokenImage
+
 
 3.  Führen Sie das folgende Cmdlet aus, um die Verwendung von IDs für
     soziale Netzwerke für den Zugriff auf Nachrichten von Ihrem
@@ -409,8 +403,6 @@ Ein Computerbildschirm mit Text Beschreibung wird automatisch generiert
 
 ![BrokenImage](./media/image33.png)
 
-BrokenImage
-
 5.  Überprüfen Sie die Standardkonfiguration erneut und validieren Sie,
     der Parameter **SocialIdSignIn** ist jetzt auf **False** gesetzt.
 
@@ -421,7 +413,7 @@ BrokenImage
 
 ![BrokenImage](./media/image34.png)
 
-BrokenImage
+
 
 7.  Lassen Sie das **PowerShell-Fenster** geöffnet, und fahren Sie mit
     der nächsten Übung fort.
@@ -581,14 +573,12 @@ Text Beschreibung wird automatisch generiert
 
 ![BrokenImage](./media/image42.png)
 
-BrokenImage
 
 4.  Bestätigen Sie die Warnmeldung zum Anpassen der Vorlage mit **Y**
     für Ja und drücken Sie **Enter**.
 
 ![BrokenImage](./media/image43.png)
 
-BrokenImage
 
 1.  Ändern Sie den E-Mail-Text der Nachricht mit dem folgenden Cmdlet
 
@@ -615,7 +605,6 @@ Text Beschreibung wird automatisch generiert
 
 ![BrokenImage](./media/image46.png)
 
-BrokenImage
 
 9.  Verwenden Sie das folgende Cmdlet, um eine Nachrichtenflussregel zu
     erstellen, die die benutzerdefinierte OME-Vorlage auf alle
@@ -626,7 +615,7 @@ BrokenImage
 
 ![BrokenImage](./media/image47.png)
 
-BrokenImage
+
 
 ![Text Description automatically generated](./media/image48.png)
 
@@ -638,7 +627,7 @@ Text Beschreibung wird automatisch generiert
 
 ![BrokenImage](./media/image49.png)
 
-BrokenImage
+
 
 11. Lassen Sie **PowerShell** geöffnet.
 
@@ -687,7 +676,7 @@ automatisch generiert
 
 ![BrokenImage](./media/image51.png)
 
-BrokenImage
+
 
 7.  Wenn Sie die Nachricht lesen möchten, führen Sie die folgenden
     Schritte aus.
@@ -724,13 +713,11 @@ Sie haben die neue angepasste OME-Vorlage erfolgreich getestet.
 
 ![BrokenImage](./media/image52.png)
 
-BrokenImage
 
 4.  Wählen Sie die Registerkarte **Adaptive Protection Settings** aus,
     und aktivieren Sie die **Umschaltfläche Adaptive Protection.**
     Wählen Sie **Save** aus. ![BrokenImage](./media/image53.png)
 
-BrokenImage
 
 ## Zusammenfassung:
 
