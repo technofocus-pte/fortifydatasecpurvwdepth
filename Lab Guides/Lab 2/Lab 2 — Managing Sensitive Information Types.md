@@ -157,7 +157,6 @@ automatisch generiert
 
 ![BrokenImage](./media/image11.png)
 
-BrokenImage
 
 17. Auf der **Review Settings and Finish** Seite überprüfen Sie die
     Einstellungen und wählen Sie **Create**. Bei erfolgreicher
@@ -222,7 +221,6 @@ generiert
 
 ![BrokenImage](./media/image16.png)
 
-BrokenImage
 
 8.  In **Schema Field Name**, unter **Schema Field \#2**, geben Sie ihr
     `Birthdate`` ein`.
@@ -380,7 +378,6 @@ Hochladen der tatsächlichen Daten für den vertraulichen Informationstyp
 
 ![BrokenImage](./media/image30.png)
 
-BrokenImage
 
 3.  In **Microsoft Exact Data Match Upload Agent Setup** Assistenten,
     wählen Sie **Next**.
@@ -427,7 +424,6 @@ BrokenImage
 
 ![BrokenImage](./media/image31.png)
 
-BrokenImage
 
 7.  Schließen des Editor-Fensters.
 
@@ -437,7 +433,6 @@ BrokenImage
 
 ![BrokenImage](./media/image32.png)
 
-BrokenImage
 
 9.  Wenn das Fenster **User Account Control** geöffnet wird, wählen Sie
     **Yes** aus.
@@ -457,7 +452,6 @@ Text Beschreibung wird automatisch generiert
 
 ![BrokenImage](./media/image34.png)
 
-BrokenImage
 
 1.  Wenn das Fenster **Pick an Account** angezeigt wird, melden Sie sich
     als **Patti Fernandez** mit dem Benutzernamen
@@ -486,7 +480,6 @@ Ordners "Dokumente" auf Ihrer VM.
 
 ![BrokenImage](./media/image35.png)
 
-BrokenImage
 
 1.  Hashen Sie die Datenbankdatei, und laden Sie sie in den
     EDM-basierten Klassifizierungstyp vertraulicher Informationen hoch,
@@ -496,7 +489,6 @@ BrokenImage
 
 ![BrokenImage](./media/image36.png)
 
-BrokenImage
 
 **Anmerkung:** Wenn Sie die folgenden Fehler erhalten
 
@@ -519,7 +511,6 @@ Text Beschreibung wird automatisch generiert
 
 ![BrokenImage](./media/image38.png)
 
-BrokenImage
 
 Sie haben erfolgreich eine Datenbankdatei für einen EDM-basierten
 Klassifizierungstyp vertraulicher Informationen gehasht und hochgeladen.
@@ -606,7 +597,6 @@ generiert
 
 ![BrokenImage](./media/image42.png)
 
-BrokenImage
 
 10. Wählen Sie **Done**.
 
@@ -672,7 +662,6 @@ generated](./media/image47.png)
 
 ![BrokenImage](./media/image48.png)
 
-BrokenImage
 
 18. Lassen Sie das Browserfenster im Azure Purview-Portal geöffnet.
 
@@ -790,7 +779,6 @@ BrokenImage
 
 ![BrokenImage](./media/image57.png)
 
-BrokenImage
 
 16. Wählen Sie im linken Fensterbereich **Documents** aus, wählen Sie
     die Datei mit dem Namen *SickTestData* aus und wählen Sie **Open**.
