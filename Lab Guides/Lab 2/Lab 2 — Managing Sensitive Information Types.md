@@ -752,8 +752,6 @@ automatisch generiert
 
 ![BrokenImage](./media/image54.png)
 
-BrokenImage
-
 12. Wählen Sie **Finish** und schließen Sie die Testseite, indem Sie auf
     die Schaltfläche **X** klicken.
 
@@ -772,8 +770,6 @@ automatisch generiert
 13. Wählen Sie im rechten Seitenbereich **Test** aus.
 
 ![BrokenImage](./media/image56.png)
-
-BrokenImage
 
 15. Auf der **Upload File to Test** Seite, wählen Sie **Upload File**.
 
