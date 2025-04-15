@@ -728,7 +728,6 @@ Ein Screenshot einer automatisch generierten Computerbeschreibung
 
 ![BrokenImage](./media/image51.png)
 
-BrokenImage
 
 9.  Wählen Sie **Documents** wählen Sie im linken Fensterbereich die
     Datei mit dem Namen **SickTestData** aus, und wählen Sie **Open**.
