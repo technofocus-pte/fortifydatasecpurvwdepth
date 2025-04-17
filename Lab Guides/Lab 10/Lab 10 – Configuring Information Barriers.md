@@ -1,242 +1,248 @@
-# Lab 10 – Configuring Information Barriers
+# ラボ 10 – 情報バリアの設定
 
-## Objective:
+## 目的:
 
-Contoso has five departments: *HR*, *Sales*, *Marketing*, *Research*,
-and *Manufacturing*. In order to remain compliant with industry
-regulations, users in some departments aren't supposed to communicate
-with other departments, as listed in the following table:
+Contoso には、人事、営業、マーケティング、研究、製造の 5
+つの部門があります。業界の規制に準拠し続けるために、次の表に示すように、一部の部門のユーザーは他の部門と通信することが許可されていません。
 
-| Segment       | Can communicate with         | Can't communicate with            |
-|---------------|------------------------------|-----------------------------------|
-| HR            | Everyone                     | (no restrictions)                 |
-| Sales         | HR, Marketing, Manufacturing | Research                          |
-| Marketing     | Everyone                     | (no restrictions)                 |
-| Research      | HR, Marketing, Manufacturing | Sales                             |
-| Manufacturing | HR, Marketing                | Anyone other than HR or Marketing |
+[TABLE]
 
-For this structure, Contoso's plan includes three IB policies:
+この構造では、Contoso の計画には 3 つの IB ポリシーが含まれています。
 
-1.  An IB policy designed to prevent Sales from communicating with
-    Research
+1.  営業部門が研究部門と通信できないように設計された IB ポリシー
 
-2.  Another IB policy to prevent Research from communicating with Sales.
+2.  研究部門が営業部門と通信できないようにする別の IB ポリシー。
 
-3.  An IB policy designed to allow Manufacturing to communicate with HR
-    and Marketing only.
+3.  製造部門が HR
+    およびマーケティング部門とのみ通信できるように設計された IB
+    ポリシー。
 
-## Exercise 1 – Prerequisites
+## エクササイズ 1 – 前提条件
 
-### Task 1 – Create segment for users in your organization
+### タスク 1 – 組織内のユーザーのセグメントを作成する
 
-1.  On your VM, run **PowerShell** as an administrator.
+1\. VM 上で、管理者として PowerShell
+を実行します。![BrokenImage](./media/image1.png)
 
-![BrokenImage](./media/image1.png)
 
-2.  Run the following:
+`2. ``以下を実行します``。`
 
-```Install-Module ExchangeOnlineManagement```
+`Install-Module ``ExchangeOnlineManagement`
 
-3.  If prompted ‘**Do you want PowerShellGet to install and import the
-    NuGet provider now?**’ and ‘**Are you sure you want to install the
-    modules from 'PSGallery'?**’ type **y** and press enter.
+3.  PowerShellGet で NuGet
+    プロバイダーを今すぐインストールしてインポートしますか?」および​​「「PSGallery」からモジュールをインストールしてもよろしいですか?」というメッセージが表示されたら、y
+    と入力して Enter キーを押します。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image2.png)
 
-4.  Run the following command once the installation is done.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-```Import-Module ExchangeOnlineManagement```
+4.  インストールが完了したら、次のコマンドを実行します。
+
+`Import-Module ``ExchangeOnlineManagement`
 
 ![A screenshot of a computer Description automatically
 generated](./media/image3.png)
 
-5.  Now run the following command to connect to Exchange Online.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-```Connect-IPPSSession```
+5.  次のコマンドを実行して、Exchange Online に接続します。
+
+`Connect-``IPPSSession`
 
 ![A screenshot of a computer Description automatically
 generated](./media/image4.png)
 
-6.  Log in using the **MOD Administrator** credentials given on the home
-    page of the lab environment.
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+6.  ラボ環境のホームページに記載されている MOD
+    管理者の資格情報を使用してログインします。
 
 ![BrokenImage](./media/image5.png)
 
-7.  Run the following command one by one in the **PowerShell** to create
-    the organisation structure.
 
-```New-OrganizationSegment -Name "HR" -UserGroupFilter "Department -eq 'HR'"```
+7.  PowerShell で次のコマンドを 1 つずつ実行して、組織構造を作成します。
+
+`New-``OrganizationSegment`` -Name "HR" -``UserGroupFilter`` "Department -eq 'HR'"`
 
 ![BrokenImage](./media/image6.png)
 
-```New-OrganizationSegment -Name "Sales" -UserGroupFilter "Department -eq 'Sales'"```
 
-```New-OrganizationSegment -Name "Marketing" -UserGroupFilter "Department -eq 'Marketing'"```
+`New-OrganizationSegment -Name "Sales" -UserGroupFilter "Department -eq 'Sales'"`
 
-```New-OrganizationSegment -Name "Research" -UserGroupFilter "Department -eq 'Research'"```
+`New-OrganizationSegment -Name "Marketing" -UserGroupFilter "Department -eq 'Marketing'"`
 
-```New-OrganizationSegment -Name "Manufacturing" -UserGroupFilter "Department -eq 'Manufacturing'"```
+`New-OrganizationSegment -Name "Research" -UserGroupFilter "Department -eq 'Research'"`
 
-### Task 2 – Enable scoped directory search in Microsoft Teams
+`New-OrganizationSegment -Name "Manufacturing" -UserGroupFilter "Department -eq 'Manufacturing'"`
 
-To turn on search by name
+### タスク 2 – Microsoft Teams でスコープ ディレクトリ検索を有効にする
 
-1.  Go to Microsoft Teams admin center by going
-    to ```https://admin.teams.microsoft.com```,
-    select **Teams** \> **Teams settings**.
+名前による検索を有効にするには
+
+1.  https://admin.teams.microsoft.com にアクセスし、\[Teams\] \> \[Teams
+    settings\] を選択して、Microsoft Teams 管理センターに移動します。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image7.png)
 
-2.  Under **Search by name**, next to **Scope directory search using an
-    Exchange address book policy**, turn the toggle **On**.
-    Select **Save**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer Description automatically
+2\. \[Search by name\] の \[Scope directory search using an Exchange
+address book policy\] の横にあるトグルをオンにします。\[Save\]
+を選択します。![A screenshot of a computer Description automatically
 generated](./media/image8.png)
 
-## Exercise 2 – Create IB policies
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-### Task 1 – Block communications between segments
+## エクササイズ 2 – Create IB policies
 
-1.  Sign into the ```https://purview.microsoft.com/``` using
-    credentials for MOD Administration, given on the resources tab of
-    your environment.
+### タスク– セグメント間の通信をブロックする
 
-2.  In the left navigation pane, select **Solutions** > **Information barriers**.
+1\. 環境のリソース タブで指定された MOD
+管理の資格情報を使用して、https://purview.microsoft.com/
+にサインインします。
 
-![](./media/image9.png)
+2\. 左側のナビゲーション ウィンドウで、\[Solutions \> Information
+barriers\] を選択します。![](./media/image9.png)
 
-3.  In the sub-navigation, select **Policies**. On
-    the **Policies** page, select **Create policy** to create and
-    configure a new IB policy.
+3.  サブナビゲーションで、「Policy」を選択します。「Policy」ページで、「Create
+    policy」を選択して、新しい IB ポリシーを作成して構成します。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image10.png)
 
-4.  On the **Name** page, enter a name for the
-    policy—```Sales-Research```. Then select **Next**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+4.  \[Name\] ページで、ポリシーの名前 (Sales-Research)
+    を入力します。次に、\[Next\] を選択します。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image11.png)
 
-5.  On the **Assigned segment** page, select **Choose segment**. **On
-    Select assigned segment for this policy** pane, select Sales. Now
-    select **Add** to add the selected segment to the policy. You can
-    only select one segment.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer Description automatically
+5\. \[Assigned segment\] ページで、\[Choose segment\]
+を選択します。\[このポリシーに割り当てられたセグメントを選択\]
+ペインで、\[Sales\] を選択します。次に、\[Add\]
+を選択して、選択したセグメントをポリシーに追加します。選択できるセグメントは
+1 つだけです。![A screenshot of a computer Description automatically
 generated](./media/image12.png)
 
-6.  Select **Next**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer Description automatically
-generated](./media/image13.png)
+6\. 「Next」を選択します。![A screenshot of a computer Description
+automatically generated](./media/image13.png)
 
-7.  Under **Communication and collaboration**, select **Blocked**.
-    Select **Choose segment**, select **Research** and then
-    select **Add.**
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+7.  \[Communication and collaboration\] で、\[Blocked\]
+    を選択します。\[Choose segment\] を選択し、\[Research\]
+    を選択して、\[Add\] を選択します。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image14.png)
 
-8.  On the **Communication and collaboration** page, select the policy
-    type Blocked in the **Communication and collaboration** field.
-    Select **Next**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+8.  \[Communication and collaboration\] ページで、\[Communication and
+    collaboration\] フィールドのポリシー タイプとして \[Blocked\]
+    を選択します。\[Next\] を選択します。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image15.png)
 
-9.  On the **Policy status** page, toggle the active policy status
-    to **On**. Select **Next** to continue.
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+9.  \[Policy status\] ページで、アクティブなポリシー
+    ステータスをオンに切り替えます。\[Next\] を選択して続行します。
 
 ![BrokenImage](./media/image16.png)
 
-10. On the **Review your settings** page, review the settings you've
-    chosen for the policy and any suggestions or warnings for your
-    selections. Select **Edit** to change any of the policy segments and
-    status or select **Submit** to create the policy.
 
-![BrokenImage](./media/image17.png)
+10\. \[Review your settings\]
+ページで、ポリシーに選択した設定と、選択内容に関する提案や警告を確認します。\[Edit\]
+を選択してポリシーのセグメントとステータスを変更するか、\[Submit\]
+を選択してポリシーを作成します。![BrokenImage](./media/image17.png)
 
-11. Select **Done** once the policy is created.
 
-![A screenshot of a computer Description automatically
-generated](./media/image18.png)
+11\. ポリシーが作成されたら、「Done」を選択します。![A screenshot of a
+computer Description automatically generated](./media/image18.png)
 
-### Task 2 – Create IB Policies via PowerShell
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-1.  On your VM, run **PowerShell** as an administrator.
+### タスク 2 – PowerShell 経由で IB ポリシーを作成する
 
-![BrokenImage](./media/image1.png)
+1\. VM 上で、管理者として PowerShell
+を実行します。![Image](./media/image1.png)
 
-2.  Run the following:
+BrokenImage
 
-```Import-Module ExchangeOnlineManagement```
+2.  `以下を実行します``。`
+
+> `Import-Module ``ExchangeOnlineManagement`
 
 ![A screenshot of a computer Description automatically
 generated](./media/image19.png)
 
-3.  Now run the following command to connect to Exchange Online.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-```Connect-IPPSSession```
+3.  `次のコマンドを実行して、``Exchange Online ``に接続します。`
+
+> `Connect-``IPPSSession`
 
 ![A screenshot of a computer Description automatically
 generated](./media/image4.png)
 
-4.  Log in using the **MOD Administrator** credentials given on the
-    resources page of the lab environment.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-5.  Run the following command to create an IB policy
-    called **Research-Sales**. When this policy is active and applied,
-    it will help prevent users who are in the **Research** segment from
-    communicating with users in the **Sales** segment.
+4.  ラボ環境のリソース ページに記載されている MOD
+    管理者の資格情報を使用してログインします。
 
-```New-InformationBarrierPolicy -Name "Research-Sales" -AssignedSegment "Research" -SegmentsBlocked "Sales" -State Inactive```
+5.  次のコマンドを実行して、Research-Sales という IB
+    ポリシーを作成します。このポリシーがアクティブになって適用されると、Research
+    セグメントのユーザーが Sales
+    セグメントのユーザーと通信するのを防ぐのに役立ちます。
+
+`New-``InformationBarrierPolicy`` -Name "Research-Sales" -``AssignedSegment`` "Research" -SegmentsBlocked "Sales" -State Inactive`
 
 ![BrokenImage](./media/image20.png)
 
-6.  Run the following command to create an IB policy
-    called, **Manufacturing-HRMarketing**. When this policy is active
-    and applied, **Manufacturing** can communicate only
-    with **HR** and **Marketing**. HR and Marketing aren't restricted
-    from communicating with other segments..
 
-```New-InformationBarrierPolicy -Name "Manufacturing-HRMarketing" -AssignedSegment "Manufacturing" -SegmentsAllowed "HR","Marketing","Manufacturing" -State Inactive```
+6.  次のコマンドを実行して、Manufacturing-HRMarketing という IB
+    ポリシーを作成します。このポリシーがアクティブになって適用されている場合、製造部門は
+    HR およびマーケティング部門とのみ通信できます。HR
+    およびマーケティング部門は他のセグメントとの通信が制限されません。
+
+`New-``InformationBarrierPolicy`` -Name "Manufacturing-``HRMarketing``" -``AssignedSegment`` "Manufacturing" -SegmentsAllowed "HR","Marketing","Manufacturing" -State Inactive`
 
 ![A computer screen shot of a computer program Description automatically
 generated](./media/image21.png)
 
-7.  Sign into the ```https://purview.microsoft.com/``` using
-    credentials for **MOD Administration**, given on the home page of
-    your environment.
+コンピュータプログラムのスクリーンショット 説明は自動的に生成されます
 
-8.  In the left navigation pane, select **Information
-    barriers** \> **Policies**. On the **Policies** page. You will be
-    able to see the policies that we created.
+7\. 環境のホームページに記載されている MOD
+管理の資格情報を使用して、https://purview.microsoft.com/
+にサインインします。
 
-![](./media/image22.png)
+8\. 左側のナビゲーション ペインで、\[Information barriers \> Policies\]
+を選択します。\[Policies\]
+ページで、作成したポリシーを確認できます。![](./media/image22.png)
 
-## Exercise 3 – Apply IB policies
+## エクササイズ 3 – IB ポリシーを適用する
 
-1.  Sign into the ```https://purview.microsoft.com/``` using
-    credentials for MOD Administration, given on the resources tab of
-    your environment.
+1\. 環境のリソース タブで指定された MOD
+管理の資格情報を使用して、https://purview.microsoft.com/
+にサインインします。
 
-2.  In the left navigation pane, select **Information barriers**.
+2\. 左側のナビゲーション ウィンドウで、\[Information barriers\]
+を選択します。![](./media/image9.png)
 
-![](./media/image9.png)
+3\. サブナビゲーションで、「Policy applications」を選択します。「Apply
+all policies」を選択します。![](./media/image23.png)
 
-3.  In the sub-navigation, select **Policy applications**. Select
-    **Apply all policies**.
+**概要:**
 
-![](./media/image23.png)
-
-**Summary:**
-
-In this lab we learned how to create the segments to implement the IB
-Policies. We created different policies to create information barriers
-by allowing or blocking the communication and collaboration between
-different segments.
-
+このラボでは、IB
+ポリシーを実装するためのセグメントの作成方法を学習しました。異なるセグメント間の通信とコラボレーションを許可またはブロックすることで情報バリアを作成するためのさまざまなポリシーを作成しました。
