@@ -226,7 +226,6 @@ automatiquement
 
 ![BrokenImage](./media/image16.png)
 
-BrokenImage
 
 8.  Dans **Schema field name**, sous **Schema field name 2**, entrez
     `Birthdate`.
@@ -385,7 +384,7 @@ d'informations sensibles via l'outil EDM Upload Agent.
 
 ![BrokenImage](./media/image30.png)
 
-BrokenImage
+
 
 3.  Dans l'Assistant **Microsoft Exact Data Match Upload Agent Setup**,
     sélectionnez **Next**.
@@ -430,7 +429,7 @@ BrokenImage
 
 ![BrokenImage](./media/image31.png)
 
-BrokenImage
+
 
 7.  Fermez la fenêtre du Bloc-notes.
 
@@ -440,7 +439,7 @@ BrokenImage
 
 ![BrokenImage](./media/image32.png)
 
-BrokenImage
+
 
 9.  Lorsque la fenêtre **User Account Control** s'ouvre, sélectionnez
     **Yes**.
@@ -460,7 +459,7 @@ Description textuelle générée automatiquement
 
 ![BrokenImage](./media/image34.png)
 
-BrokenImage
+
 
 12. Lorsque la fenêtre **Pick an account** s'affiche, connectez-vous en
     tant que **Patti Fernandez** en utilisant le nom d'utilisateur
@@ -490,7 +489,7 @@ documents sur votre machine virtuelle.
 
 ![BrokenImage](./media/image35.png)
 
-BrokenImage
+
 
 14. Hachez le fichier de base de données et téléchargez-le dans le type
     d'informations sensibles de classification basé sur EDM en exécutant
@@ -498,7 +497,7 @@ BrokenImage
 
 `.\EdmUploadAgent.exe /``UploadData`` /``DataStoreName`` ``employeedb`` /``DataFile`` "C:\Users\Admin\Documents\EmployeeData.csv" /``HashLocation`` "C:\Users\Admin\Documents\" /``Schema`` "C:\Users\Admin\Documents\employeedb.xml"`![BrokenImage](./media/image36.png)
 
-BrokenImage
+
 
 **Remarque :** Si vous obtenez les erreurs suivantes
 
@@ -520,7 +519,7 @@ Description textuelle générée automatiquement
 
 ![BrokenImage](./media/image38.png)
 
-BrokenImage
+
 
 Vous avez haché et téléchargé avec succès un fichier de base de données
 pour un type d'informations sensibles de classification basé sur EDM.
@@ -608,7 +607,7 @@ automatiquement
 
 ![BrokenImage](./media/image42.png)
 
-BrokenImage
+
 
 10. Sélectionnez **Done**.
 
@@ -674,7 +673,7 @@ Une capture d'écran d'un ordinateur Description générée automatiquement
 
 ![BrokenImage](./media/image48.png)
 
-BrokenImage
+
 
 18. Laissez la fenêtre du navigateur du portail Microsoft Purview
     ouverte.
@@ -733,7 +732,7 @@ Une capture d'écran d'un ordinateur Description générée automatiquement
 
 ![BrokenImage](./media/image51.png)
 
-BrokenImage
+
 
 9.  Sélectionnez **Documents** dans le volet gauche, sélectionnez le
     fichier portant le nom **SickTestData** et sélectionnez **Open**.
@@ -756,7 +755,6 @@ automatiquement
 
 ![BrokenImage](./media/image54.png)
 
-BrokenImage
 
 12. Sélectionnez **Finish** et fermez la page de test en cliquant sur le
     **bouton X**.
@@ -774,13 +772,13 @@ automatiquement
 
 ![BrokenImage](./media/image56.png)
 
-BrokenImage
+
 
 15. Sur la page **Upload file to test**, sélectionnez **Upload file**.
 
 ![BrokenImage](./media/image57.png)
 
-BrokenImage
+
 
 16. Sélectionnez **Documents** dans le volet gauche, sélectionnez le
     fichier portant le nom *SickTestData* et sélectionnez **Open**.
