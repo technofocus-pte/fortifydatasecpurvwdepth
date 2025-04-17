@@ -1,95 +1,107 @@
-# Lab 3 – Managing Trainable Classifiers
+# ラボ 3 – トレーニング可能な分類器の管理
 
-## Objective:
+## 目的:
 
-The Contoso Ltd. tenant contains a SharePoint site collections that will be used in the future to store
-several financial related documents and reports. Because of the nature
-of these documents, you need to create a trainable classifier to
-recognize and label these files. For this purpose, you will activate
-custom trainable classifiers and create a new one in this lab.
+Contoso Ltd.
+テナントには、将来的に複数の財務関連のドキュメントやレポートを保存するために使用される
+SharePoint サイト
+コレクションが含まれています。これらのドキュメントの性質上、これらのファイルを認識してラベルを付けるトレーニング可能な分類子を作成する必要があります。この目的のために、このラボではカスタムのトレーニング可能な分類子をアクティブ化し、新しい分類子を作成します。
 
-## Exercise 1 – Creating a trainable classifier
+## エクササイズ1 – 学習可能な分類器の作成
 
-In this task, Patti will create a new trainable classifier and select
-different SharePoint sites for identifying typical data created and
-stored by Contoso Ltd.
+このタスクでは、Patti は新しいトレーニング可能な分類子を作成し、Contoso
+Ltd によって作成および保存された一般的なデータを識別するためにさまざまな
+SharePoint サイトを選択します。
 
-1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
-    to ```https://purview.microsoft.com``` and log in as **Patti
-    Fernandez** using the username ```PattiF@WWLx{TENANTPREFIX}.onmicrosoft.com```
-    and the User Password given on your resources tab.
+1.  Microsoft Edge で、新しい InPrivate
+    ウィンドウを開き、https://purview.microsoft.com
+    に移動して、ユーザー名 PattiF@WWLx{TENANTPREFIX}.onmicrosoft.com
+    とリソース タブに表示されているユーザー パスワードを使用して Patti
+    Fernandez としてログインします。
 
-2.  From the left navigation, select **Solutions** \> **Data Loss
-    Prevention**.
+2.  左側のナビゲーションから、\[Solutions\] \> \[Data Loss Prevention\]
+    を選択します。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image1.png)
 
-3. Expand **Classifiers** from the left pane. Select **Trainable
-    Classifiers** from the sub-navigation pane. Select **+ Create
-    trainable classifier** to create a new classifier.
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+3.  左側のペインから「Classifiers」を展開します。サブナビゲーション
+    ペインから「Trainable Classifiers」を選択します。「+ Create
+    trainable classifier to create a new
+    classifier」を選択して、新しい分類子を作成します。
 
 ![](./media/image2.png)
 
-4. Enter the following information on the **Name and describe your
-    trainable classifier** page:
+4.  トレーニング可能な分類子の名前と説明ページに次の情報を入力します。
 
-    - Name: ```Contoso Company Data```
+    - 名前: `Contoso Company Data`
 
-    - Description: ```Trainable classifier for company data produced and stored by Contoso Ltd.```
+    - 説明:
+      `Trainable classifier for company data produced and stored by Contoso Ltd.`
 
-7. Select **Next**.
+5.  **Next**を選択します。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image3.png)
 
-8. Select **Choose sites** to open the right side pane.
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+8.  「Choose sites」を選択して右側のペインを開きます。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image4.png)
 
-9. Select the following SharePoint sites and select **Add**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-    - Brand
+9.  次の SharePoint サイトを選択し、\[Add\] を選択します。
 
-    - Digital Initiative Public Relations
+    - ブランド
 
-    - Work
+    - デジタル イニシアチブ 広報
 
-    - Sales and Marketing
+    - 仕事
 
-    - Mark 8 Project Team
+    - セールスおよびマーケティング
+
+    - Mark 8 プロジェクト チーム
 
 ![](./media/image5.png)
 
-10. Wait until the chosen site is shown in the list and select **Next**.
+10. 選択したサイトがリストに表示されるまで待ってから、「Next」を選択します。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image6.png)
 
-11. On the **Source of the negative sample content page**, select the
-    site **Learn**, and then select **Next**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-12. Review the settings and select **Create trainable classifier**.
+11. ネガティブ サンプル コンテンツのソース ページで、サイト \[Learn\]
+    を選択し、\[Next\] を選択します。
+
+12. 設定を確認し、\[Create trainable classifier\] を選択します。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image7.png)
 
-13. When the message Your trainable classifier was created is shown,
-    select **Done**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-The documents and files in the chosen SharePoint site are now being
-analyzed, which can take up to 24 hours. Once it is ready, you can perform the following.
+13. 「Your trainable classifier was
+    created」というメッセージが表示されたら、「Done」を選択します。
 
-- Test the classifier
+選択した SharePoint
+サイト内のドキュメントとファイルが分析中です。分析には最大 24
+時間かかる場合があります。準備ができたら、次の操作を実行できます。
 
-- Review the classifier
+- 分類器をテストする
 
-- Publish the classifier
+- 分類器を確認する
 
-You can explore the already existing classifiers for further review.
+- 分類器を公開する
 
-## Summary:
+既存の分類子を調べて、さらに詳しく確認することができます。
 
-You have successfully created a custom trainable classifier that matches
-the files stored on the existing SharePoint sites of Contoso Ltd.
+## 概要:
+
+Contoso Ltd の既存の SharePoint
+サイトに保存されているファイルに一致するカスタムのトレーニング可能な分類子が正常に作成されました。
