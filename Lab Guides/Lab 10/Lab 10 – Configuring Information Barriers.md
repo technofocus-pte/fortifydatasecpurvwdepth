@@ -177,7 +177,6 @@ computer Description automatically generated](./media/image18.png)
 1\. VM 上で、管理者として PowerShell
 を実行します。![Image](./media/image1.png)
 
-BrokenImage
 
 2.  `以下を実行します``。`
 
