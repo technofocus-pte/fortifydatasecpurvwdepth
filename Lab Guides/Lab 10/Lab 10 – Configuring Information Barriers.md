@@ -1,242 +1,297 @@
-# Lab 10 – Configuring Information Barriers
+# Lab 10 – Configurazione delle barriere informative
 
-## Objective:
+## Obiettivo:
 
-Contoso has five departments: *HR*, *Sales*, *Marketing*, *Research*,
-and *Manufacturing*. In order to remain compliant with industry
-regulations, users in some departments aren't supposed to communicate
-with other departments, as listed in the following table:
+Contoso ha cinque reparti: *Risorse umane*, *Vendite*, *Marketing*,
+*Ricerca* e *Produzione*. Per rimanere conformi alle normative del
+settore, gli utenti di alcuni reparti non devono comunicare con altri
+reparti, come elencato nella tabella seguente:
 
-| Segment       | Can communicate with         | Can't communicate with            |
-|---------------|------------------------------|-----------------------------------|
-| HR            | Everyone                     | (no restrictions)                 |
-| Sales         | HR, Marketing, Manufacturing | Research                          |
-| Marketing     | Everyone                     | (no restrictions)                 |
-| Research      | HR, Marketing, Manufacturing | Sales                             |
-| Manufacturing | HR, Marketing                | Anyone other than HR or Marketing |
+[TABLE]
 
-For this structure, Contoso's plan includes three IB policies:
+Per questa struttura, il piano di Contoso include tre criteri IB:
 
-1.  An IB policy designed to prevent Sales from communicating with
-    Research
+1.  Una politica IB progettata per impedire alle vendite di comunicare
+    con la ricerca
 
-2.  Another IB policy to prevent Research from communicating with Sales.
+2.  Un'altra politica di IB per impedire a Recerca di comunicare con le
+    vendite.
 
-3.  An IB policy designed to allow Manufacturing to communicate with HR
-    and Marketing only.
+3.  Una politica IB progettata per consentire al settore Produzione di
+    comunicare solo con le risorse umane e il marketing.
 
-## Exercise 1 – Prerequisites
+## Esercizio 1 – Prerequisiti
 
-### Task 1 – Create segment for users in your organization
+### Attività 1 - Creare un segmento per gli utenti dell'organizzazione
 
-1.  On your VM, run **PowerShell** as an administrator.
+1.  Nella macchina virtuale, eseguire **PowerShell** come
+    amministratore.
 
-![BrokenImage](./media/image1.png)
+![Immagine rotta](./media/image1.png)
 
-2.  Run the following:
+Immagine rotta
 
-```Install-Module ExchangeOnlineManagement```
+2.  Eseguire le operazioni seguenti:
 
-3.  If prompted ‘**Do you want PowerShellGet to install and import the
-    NuGet provider now?**’ and ‘**Are you sure you want to install the
-    modules from 'PSGallery'?**’ type **y** and press enter.
+Install-Module ExchangeOnlineManagement
 
-![A screenshot of a computer Description automatically
-generated](./media/image2.png)
+3.  Se richiesto, viene visualizzato il messaggio ‘**Do you want
+    PowerShellGet to install and import the NuGet provider now?**’ e
+    ‘**Are you sure you want to install the modules from ‘PSGallery’?**’
+    digitare **y** e premere invio.
 
-4.  Run the following command once the installation is done.
+![Uno screenshot di un computer Descrizione generata
+automaticamente](./media/image2.png)
 
-```Import-Module ExchangeOnlineManagement```
+Uno screenshot di un computer Descrizione generata automaticamente
 
-![A screenshot of a computer Description automatically
-generated](./media/image3.png)
+4.  Eseguire il seguente comando una volta terminata l'installazione.
 
-5.  Now run the following command to connect to Exchange Online.
+Import-Module ExchangeOnlineManagement
 
-```Connect-IPPSSession```
+![Uno screenshot di un computer Descrizione generata
+automaticamente](./media/image3.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image4.png)
+Uno screenshot di un computer Descrizione generata automaticamente
 
-6.  Log in using the **MOD Administrator** credentials given on the home
-    page of the lab environment.
+5.  Ora eseguire il seguente comando per connetterti a Exchange Online.
 
-![BrokenImage](./media/image5.png)
+`Connect-IPPSSession`
 
-7.  Run the following command one by one in the **PowerShell** to create
-    the organisation structure.
+![Uno screenshot di un computer Descrizione generata
+automaticamente](./media/image4.png)
 
-```New-OrganizationSegment -Name "HR" -UserGroupFilter "Department -eq 'HR'"```
+Uno screenshot di un computer Descrizione generata automaticamente
 
-![BrokenImage](./media/image6.png)
+6.  Accedere utilizzando le **credenziali di amministratore MOD**
+    fornite nella home page dell'ambiente lab.
 
-```New-OrganizationSegment -Name "Sales" -UserGroupFilter "Department -eq 'Sales'"```
+![Immagine rotta](./media/image5.png)
 
-```New-OrganizationSegment -Name "Marketing" -UserGroupFilter "Department -eq 'Marketing'"```
+Immagine rotta
 
-```New-OrganizationSegment -Name "Research" -UserGroupFilter "Department -eq 'Research'"```
+7.  Eseguire il comando seguente uno alla volta in **PowerShell** per
+    creare la struttura organizzativa.
 
-```New-OrganizationSegment -Name "Manufacturing" -UserGroupFilter "Department -eq 'Manufacturing'"```
+`New-OrganizationSegment -Name "HR" -UserGroupFilter "Department -eq 'HR'"`
 
-### Task 2 – Enable scoped directory search in Microsoft Teams
+![Immagine rotta](./media/image6.png)
 
-To turn on search by name
+Immagine rotta
 
-1.  Go to Microsoft Teams admin center by going
-    to ```https://admin.teams.microsoft.com```,
-    select **Teams** \> **Teams settings**.
+New-OrganizationSegment -Name "Sales" -UserGroupFilter "Department -eq
+'Sales'" 
 
-![A screenshot of a computer Description automatically
-generated](./media/image7.png)
+New-OrganizationSegment -Name "Marketing" -UserGroupFilter "Department
+-eq 'Marketing'" 
 
-2.  Under **Search by name**, next to **Scope directory search using an
-    Exchange address book policy**, turn the toggle **On**.
-    Select **Save**.
+New-OrganizationSegment -Name "Research" -UserGroupFilter "Department
+-eq 'Research'" 
 
-![A screenshot of a computer Description automatically
-generated](./media/image8.png)
+New-OrganizationSegment -Name "Manufacturing" -UserGroupFilter
+"Department -eq 'Manufacturing'`"`
 
-## Exercise 2 – Create IB policies
+### Attività 2 - Abilitare la ricerca di directory con ambito in Microsoft Teams
 
-### Task 1 – Block communications between segments
+Per attivare la ricerca per nome
 
-1.  Sign into the ```https://purview.microsoft.com/``` using
-    credentials for MOD Administration, given on the resources tab of
-    your environment.
+1.  Passare all'interfaccia di amministrazione di Microsoft Teams
+    passando a `https://admin.teams.microsoft.com`, selezionare **Teams
+    \> Teams settings**.
 
-2.  In the left navigation pane, select **Solutions** > **Information barriers**.
+![Uno screenshot di un computer Descrizione generata
+automaticamente](./media/image7.png)
 
-![](./media/image9.png)
+Uno screenshot di un computer Descrizione generata automaticamente
 
-3.  In the sub-navigation, select **Policies**. On
-    the **Policies** page, select **Create policy** to create and
-    configure a new IB policy.
+2.  In **Search by name**, accanto a **Scope directory search using an
+    Exchange address book policy**, attivare l'interruttore (**On**).
+    Selezionare **Save**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image10.png)
+![Uno screenshot di un computer Descrizione generata
+automaticamente](./media/image8.png)
 
-4.  On the **Name** page, enter a name for the
-    policy—```Sales-Research```. Then select **Next**.
+Uno screenshot di un computer Descrizione generata automaticamente
 
-![A screenshot of a computer Description automatically
-generated](./media/image11.png)
+## Esercizio 2 - Creazione di policy IB
 
-5.  On the **Assigned segment** page, select **Choose segment**. **On
-    Select assigned segment for this policy** pane, select Sales. Now
-    select **Add** to add the selected segment to the policy. You can
-    only select one segment.
+### Attività 1 - Bloccare le comunicazioni tra i segmenti
 
-![A screenshot of a computer Description automatically
-generated](./media/image12.png)
+1.  Accedere al `https://purview.microsoft.com/` utilizzando le
+    credenziali per l'amministrazione MOD, fornite nella scheda delle
+    risorse dell'ambiente.
 
-6.  Select **Next**.
+2.  Nel riquadro di spostamento a sinistra, selezionare **Solutions \>
+    Information barriers**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image13.png)
+![A screenshot of a computer AI-generated content may be
+incorrect.](./media/image9.png)
 
-7.  Under **Communication and collaboration**, select **Blocked**.
-    Select **Choose segment**, select **Research** and then
-    select **Add.**
+3.  Nella navigazione secondaria selezionare **Policies**. Nella pagina
+    **Policies** selezionare **Create policy** per creare e configurare
+    una nuova policy IB.
 
-![A screenshot of a computer Description automatically
-generated](./media/image14.png)
+![Uno screenshot di un computer Descrizione generata
+automaticamente](./media/image10.png)
 
-8.  On the **Communication and collaboration** page, select the policy
-    type Blocked in the **Communication and collaboration** field.
-    Select **Next**.
+Uno screenshot di un computer Descrizione generata automaticamente
 
-![A screenshot of a computer Description automatically
-generated](./media/image15.png)
+4.  Nella pagina **Name** immettere un nome per il criterio:
+    Sales-Research. Quindi selezionare **Next**.
 
-9.  On the **Policy status** page, toggle the active policy status
-    to **On**. Select **Next** to continue.
+![Uno screenshot di un computer Descrizione generata
+automaticamente](./media/image11.png)
 
-![BrokenImage](./media/image16.png)
+Uno screenshot di un computer Descrizione generata automaticamente
 
-10. On the **Review your settings** page, review the settings you've
-    chosen for the policy and any suggestions or warnings for your
-    selections. Select **Edit** to change any of the policy segments and
-    status or select **Submit** to create the policy.
+5.  Nella pagina **Assigned segment**, seleziona **Choose segment**. In
+    riquadro **Select assigned segment for this policy**, selezionare
+    **Sales**. Selezionare ora **Add** per aggiungere il segmento
+    selezionato al criterio. È possibile selezionare un solo segmento.
 
-![BrokenImage](./media/image17.png)
+![Uno screenshot di un computer Descrizione generata
+automaticamente](./media/image12.png)
 
-11. Select **Done** once the policy is created.
+Uno screenshot di un computer Descrizione generata automaticamente
 
-![A screenshot of a computer Description automatically
-generated](./media/image18.png)
+6.  Selezionare **Next**.
 
-### Task 2 – Create IB Policies via PowerShell
+![Uno screenshot di un computer Descrizione generata
+automaticamente](./media/image13.png)
 
-1.  On your VM, run **PowerShell** as an administrator.
+Uno screenshot di un computer Descrizione generata automaticamente
 
-![BrokenImage](./media/image1.png)
+7.  In **Communication and collaboration,** selezionare **Blocked**.
+    Selezionare **Choose segment**, selezionare **Research** e quindi
+    selezionare **Add.**
 
-2.  Run the following:
+![Uno screenshot di un computer Descrizione generata
+automaticamente](./media/image14.png)
 
-```Import-Module ExchangeOnlineManagement```
+Uno screenshot di un computer Descrizione generata automaticamente
 
-![A screenshot of a computer Description automatically
-generated](./media/image19.png)
+8.  Nella pagina **Communication and collaboration,** selezionare il
+    tipo di criterio **Blocked** nel campo **Communication and
+    collaboration**. Selezionare **Next**.
 
-3.  Now run the following command to connect to Exchange Online.
+![Uno screenshot di un computer Descrizione generata
+automaticamente](./media/image15.png)
 
-```Connect-IPPSSession```
+Uno screenshot di un computer Descrizione generata automaticamente
 
-![A screenshot of a computer Description automatically
-generated](./media/image4.png)
+9.  Nella pagina **Policy status,** impostare lo stato del criterio
+    attivo su **On**. Selezionare **Next** per continuare.
 
-4.  Log in using the **MOD Administrator** credentials given on the
-    resources page of the lab environment.
+![Immagine rotta](./media/image16.png)
 
-5.  Run the following command to create an IB policy
-    called **Research-Sales**. When this policy is active and applied,
-    it will help prevent users who are in the **Research** segment from
-    communicating with users in the **Sales** segment.
+Immagine rotta
 
-```New-InformationBarrierPolicy -Name "Research-Sales" -AssignedSegment "Research" -SegmentsBlocked "Sales" -State Inactive```
+10. Nella pagina **Review your settings** esaminare le impostazioni
+    scelte per il criterio ed eventuali suggerimenti o avvisi per le
+    selezioni. Selezionare **Edit** per modificare i segmenti e lo stato
+    dei criteri oppure selezionare **Submit** per creare i criteri.
 
-![BrokenImage](./media/image20.png)
+![Immagine rotta](./media/image17.png)
 
-6.  Run the following command to create an IB policy
-    called, **Manufacturing-HRMarketing**. When this policy is active
-    and applied, **Manufacturing** can communicate only
-    with **HR** and **Marketing**. HR and Marketing aren't restricted
-    from communicating with other segments..
+Immagine rotta
 
-```New-InformationBarrierPolicy -Name "Manufacturing-HRMarketing" -AssignedSegment "Manufacturing" -SegmentsAllowed "HR","Marketing","Manufacturing" -State Inactive```
+11. Selezionare **Done** dopo aver creato il criterio.
 
-![A computer screen shot of a computer program Description automatically
-generated](./media/image21.png)
+![Uno screenshot di un computer Descrizione generata
+automaticamente](./media/image18.png)
 
-7.  Sign into the ```https://purview.microsoft.com/``` using
-    credentials for **MOD Administration**, given on the home page of
-    your environment.
+Uno screenshot di un computer Descrizione generata automaticamente
 
-8.  In the left navigation pane, select **Information
-    barriers** \> **Policies**. On the **Policies** page. You will be
-    able to see the policies that we created.
+### Attività 2 - Creare criteri IB tramite PowerShell
 
-![](./media/image22.png)
+1.  Nella macchina virtuale, eseguire **PowerShell** come
+    amministratore.
 
-## Exercise 3 – Apply IB policies
+![Immagine rotta](./media/image1.png)
 
-1.  Sign into the ```https://purview.microsoft.com/``` using
-    credentials for MOD Administration, given on the resources tab of
-    your environment.
+Immagine rotta
 
-2.  In the left navigation pane, select **Information barriers**.
+2.  Eseguire le operazioni seguenti:
 
-![](./media/image9.png)
+Import-Module ExchangeOnlineManagement
 
-3.  In the sub-navigation, select **Policy applications**. Select
-    **Apply all policies**.
+![Uno screenshot di un computer Descrizione generata
+automaticamente](./media/image19.png)
 
-![](./media/image23.png)
+Uno screenshot di un computer Descrizione generata automaticamente
 
-**Summary:**
+3.  Ora eseguire il seguente comando per connetterti a Exchange Online.
 
-In this lab we learned how to create the segments to implement the IB
-Policies. We created different policies to create information barriers
-by allowing or blocking the communication and collaboration between
-different segments.
+`Connect-IPPSSession`
 
+![Uno screenshot di un computer Descrizione generata
+automaticamente](./media/image4.png)
+
+Uno screenshot di un computer Descrizione generata automaticamente
+
+4.  Accedere utilizzando le **credenziali di amministratore MOD**
+    fornite nella pagina delle risorse dell'ambiente lab.
+
+5.  Eseguire il comando seguente per creare un criterio IB denominato
+    **Research-Sales**. Quando questo criterio è attivo e applicato,
+    consente di impedire agli utenti che si trovano nel segmento
+    **Research** di comunicare con gli utenti del segmento **Sales**.
+
+New-InformationBarrierPolicy -Name "Research-Sales" -AssignedSegment
+"Research" -SegmentsBlocked "Sales" -State Inactive
+
+![Immagine rotta](./media/image20.png)
+
+Immagine rotta
+
+6.  Eseguire il comando seguente per creare un criterio IB denominato
+    **Manufacturing-HRMarketing**. Quando questo criterio è attivo e
+    applicato, il settore **Manufacturing** può comunicare solo con
+    **HR** e **Marketing**. Le risorse umane e il marketing non sono
+    limitati dalla comunicazione con altri segmenti.
+
+New-InformationBarrierPolicy -Name "Manufacturing-HRMarketing"
+-AssignedSegment "Manufacturing" -SegmentsAllowed
+"HR","Marketing","Manufacturing" -State Inactive
+
+![Una schermata del computer di un programma per computer Descrizione
+generata automaticamente](./media/image21.png)
+
+Una schermata del computer di un programma per computer Descrizione
+generata automaticamente
+
+7.  Accedere al `https://purview.microsoft.com/` utilizzando le
+    credenziali per **MOD Administration**, fornite nella home page del
+    tuo ambiente.
+
+8.  Nel riquadro di spostamento a sinistra, selezionare **Information
+    barriers \> Policies**. Nella pagina **Policies**. Potrai vedere le
+    politiche che abbiamo creato.
+
+![A screenshot of a computer AI-generated content may be
+incorrect.](./media/image22.png)
+
+## Esercizio 3 – Applicare le politiche IB
+
+1.  Accedere al `https://purview.microsoft.com/` utilizzando le
+    credenziali per l'amministrazione MOD, fornite nella scheda delle
+    risorse dell'ambiente.
+
+2.  Nel riquadro di spostamento a sinistra, selezionare **Information
+    barriers**.
+
+![A screenshot of a computer AI-generated content may be
+incorrect.](./media/image9.png)
+
+3.  Nella navigazione secondaria, selezionare **Policy applications**.
+    Selezionare **Apply all policies**.
+
+![A screenshot of a computer AI-generated content may be
+incorrect.](./media/image23.png)
+
+**Sommario:**
+
+In questo laboratorio abbiamo imparato come creare i segmenti per
+implementare le policy IB. Abbiamo creato diverse politiche per creare
+barriere informative consentendo o bloccando la comunicazione e la
+collaborazione tra diversi segmenti.
