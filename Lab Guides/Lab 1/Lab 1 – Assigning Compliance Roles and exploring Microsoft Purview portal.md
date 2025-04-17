@@ -319,7 +319,6 @@ generated](./media/image24.png)
 
 ![BrokenImage](./media/image28.png)
 
-BrokenImage
 
 12. 12\. 次のコマンドレットを使用して、デモ パイロット ユーザー Adele
     Vance に対して Office 365 メッセージ暗号化に使用される Azure RMS
