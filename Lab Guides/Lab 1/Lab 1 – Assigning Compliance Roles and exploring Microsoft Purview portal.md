@@ -576,7 +576,6 @@ Descripción de texto generada automáticamente
 
 ![BrokenImage](./media/image43.png)
 
-BrokenImage
 
 5.  Cambie el texto del cuerpo del mensaje de correo electrónico con el
     siguiente cmdlet
