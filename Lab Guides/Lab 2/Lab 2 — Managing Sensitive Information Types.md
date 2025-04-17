@@ -1,627 +1,728 @@
-# Lab 2 — Managing Sensitive Information Types
+# 실습 2 — 중요한 정보 유형을 관리하기
 
-## Objective:
+## 목표:
 
-Contoso Ltd. previously had issues with employees accidentally sending
-out personal information from customers when working on support tickets
-in the ticketing solution.
+Contoso Ltd.는 이전에 티켓팅 솔루션에서 지원 티켓에 대해 작업할 때
+직원이 실수로 고객으로부터 개인 정보를 보내는 문제가 있었습니다.
 
-To educate users in the future, a custom sensitive information type is
-required to identify employee IDs in emails and documents, which consist
-of three uppercase characters and six numbers, using Sensitive info
-types. To lower the false positive rate, the keywords "Employee" and
-"IDs" will be used.
+향후 사용자를 교육하기 위해 중요한 정보 유형을 사용하여 3개의 대문자와
+6개의 숫자로 구성된 전자 메일 및 문서에서 직원 ID를 식별하려면 사용자
+지정 중요한 정보 유형이 필요합니다. 거짓 긍정 비율을 낮추기 위해
+"Employee" 및 "IDs" 키워드가 사용됩니다.
 
-In this Lab you will create:
+이 실습에서는 다음을 생성할 것입니다:
 
-- a new custom sensitive information type
+- 새로운 사용자 지정 중요한 정보 유형
 
-- a database for EDM-based classification
+- EDM 기반 분류를 위한 데이터베이스
 
-- keyword dictionary
+- 키워드 사전
 
-## Exercise 1 – Creating Custom Sensitive Information Types
+## 연습 1 – 사용자 지정 중요한 정보 유형을 생성하기
 
-In this exercise, you will use the **Security & Compliance Center
-PowerShell** module to create a new custom sensitive information type
-that recognizes the pattern of employee IDs near the keywords "Employee"
-and "ID".
+이 연습에서는 **Security & Compliance Center PowerShell** 모듈을
+사용하여 키워드 "Employee" 및 "ID" 근처의 직원 ID 패턴을 인식하는 새로운
+사용자 지정 중요한 정보 유형을 생성할 것입니다.
 
-1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
-    to ```https://purview.microsoft.com``` and log in as
-    **Patti Fernandez** using the
-    username ```PattiF@{TENANTPREFIX}.onmicrosoft.com``` and the User Password
-    given on your resources tab. If asked, agree to the terms and conditions and select **Get started**.
+1.  **Microsoft Edge**에서 **New InPrivate Window**를 열고
+    `https://purview.microsoft.com` 로 이동하고 사용자
+    이름`PattiF``@{TENANTPREFIX}.onmicrosoft.com` 와 리소스 탭에 제공된
+    사용자 암호를 사용하여 **Patti Fernandez**로 로그인하세요. 메시지가
+    표시되면 사용 약관에 동의하고**Get started**을 선택하세요.
 
-2.  From the left navigation, select **Solutions** \> **Data Loss
-    Prevention**.
+2.  왼쪽 탐색에서 **Solutions** \> **Data Loss Prevention**를
+    선택하세요.
 
-![](./media/image1.png) 
+![](./media/image1.png)
 
-3. Select **Classifiers** from the left pane. Select **Sensitive info
-    types** from the sub-navigation pane. Select **+Create sensitive
-    info type** to open the wizard for a new sensitive information type.
+3.  왼쪽 창에서**Classifiers** 를 선택하세요. 하위 탐색
+    창에서**Sensitive info types**를 선택하세요. 새 중요한 정보 유형에
+    대한 wizard를 열기 위해 **+Create sensitive info type**를
+    선택하세요.
 
 ![A screenshot of a computer Description automatically
+generated](./media/image2.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+4.  **Name your sensitive info type** 페이지에서 다음 정보를 입력하세요:
+
+    - **이름**: `Contoso Employee IDs`
+
+    - **설명**: `Pattern for Contoso Employee IDs.`
+
+5.  **Next**를 선택하세요.
+
+![Graphical user interface, application Description automatically
+generated](./media/image3.png)
+
+그래픽 사용자 인터페이스, 애플리케이션 설명이 자동으로 생성됩니다
+
+6.  **Define patterns for this sensitive info type** 페이지에서**Create
+    pattern**를 선택하세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image4.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+7.  오른쪽**New pattern** 창에서 **Add primary element**를
+    선택하여**Regular expression**를 선택하세요.
+
+![Graphical user interface, application, Teams Description automatically
+generated](./media/image5.png)
+
+그래픽 사용자 인터페이스, 애플리케이션, 팀 설명이 자동으로 생성됩니다
+
+8.  새 오른쪽 창에서**Add a regular expression**하여 다음을 입력하세요:
+
+    - **ID**: `Contoso IDs`
+
+    - **정규식**: `\s\[A-Z\]{``3}\``[0-9\]{``6}\``s`
+
+    - **String match** 선택
+
+9.  **Done**를 선택하세요.
+
+![Graphical user interface, application Description automatically
 generated](./media/image6.png)
 
-4. On the **Name your sensitive info type** page, enter the following
-    information:
+그래픽 사용자 인터페이스, 애플리케이션 설명이 자동으로 생성됩니다
 
-    - **Name**: ```Contoso Employee IDs```
-
-    - **Description**: ```Pattern for Contoso Employee IDs.```
-
-5. Select **Next**.
+10. 다시 오른쪽의**New pattern** 창에서**Supporting elements** 아래에서
+    **+ Add supporting elements or group of elements** 도롭다운 메뉴를
+    선택하고**Keyword list**를 선택하세요.
 
 ![Graphical user interface, application Description automatically
 generated](./media/image7.png)
 
-6. On the **Define patterns for this sensitive info type** page,
-    select **Create pattern**.
+그래픽 사용자 인터페이스, 애플리케이션 설명이 자동으로 생성됩니다
 
-![A screenshot of a computer Description automatically
+10. 새 오른쪽 창에서**Add a keyword list**하여 다음을 입력하세요:
+
+    - **ID**: `Employee ID keywords`
+
+    - **대소문자 구분 안 함**:
+
+&nbsp;
+
+    Employee
+    ID
+
+11. **Case Sensitive** 필드에서 ***Word match***에 대한 방사형을
+    선택하세요
+
+12. **Done**를 선택하세요.
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image8.png)
+
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
+
+13. New pattern 창에서 **Character proximity** 값을 ***100***자로
+    줄이세요.
+
+![Graphical user interface, text, application Description automatically
 generated](./media/image9.png)
 
-7. In the right-side **New pattern** pane, select **Add primary
-    element** and select **Regular expression**.
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
 
-![Graphical user interface, application, Teams Description automatically
-generated](./media/image10.png)
+14. **Create** 버튼을 선택하세요.
 
-8. In the new right-side pane **Add a regular expression**, enter the
-    following:
-
-    - **ID**: ```Contoso IDs```
-
-    - **Regular expression**: ```\s\[A-Z\]{3}\[0-9\]{6}\s```
-
-    - Select **String match**
-
-9. Select **Done**.
-
-![Graphical user interface, application Description automatically
-generated](./media/image11.png)
-
-10. In the right-side **New pattern** pane again, below **Supporting
-    elements**, select **+ Add supporting elements or group of
-    elements** drop-down menu and select **Keyword list**.
-
-![Graphical user interface, application Description automatically
-generated](./media/image12.png)
-
-10. In the new right-side pane **Add a keyword list**, enter the
-    following:
-
-    - **ID**: ```Employee ID keywords```
-
-    - **Case insensitive**:
-
-```
-Employee
-ID
-```
-
-11. Select the radial for ***Word match*** under the **Case
-    Sensitive** field
-
-12. Select **Done**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image13.png)
-
-13. In the New pattern windows decrease the **Character
-    proximity** value to ***100*** characters.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image14.png)
-
-14. Select the **Create** button.
-
-15. Back on the **Define patterns for this sensitive info type** page
-    select **Next**.
+15. **Define patterns for this sensitive info type** 페이지로
+    돌아가서**Next**를 선택하세요.
 
 ![Graphical user interface, text, application, Teams Description
-automatically generated](./media/image15.png)
+automatically generated](./media/image10.png)
 
-16. On the **Choose the recommended confidence level to show in
-    compliance policies** page use the default value and
-    select **Next**.
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션, Teams 설명이 자동으로
+생성됩니다
+
+16. **Choose the recommended confidence level to show in compliance
+    policies** 페이지에서 기본 값을 사용하여**Next**를 선택하세요.
+
+![BrokenImage](./media/image11.png)
+
+
+17. **Review settings and finish** 페이지에서 설정을
+    검토하고**Create**를 선택하세요. 성공적으로 생성되면**Done**를
+    선택하세요.
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image12.png)
+
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
+
+18. 브라우저 창을 열러 두세요.
+
+대문자 3개, 숫자 6개, 100자 범위 내의 키워드 'Employee' 또는 'IDs'
+패턴으로 직원 ID를 식별하는 새로운 중요한 정보 유형을 성공적으로
+생성했습니다.
+
+## 연습 2 – EDM-기반 분류 정보 유형을 생성하기
+
+추가 검색 패턴으로 직원 데이터의 데이터베이스 스키마를 사용하여 EDM 기반
+분류를 생성할 것입니다. 데이터베이스 소스 파일은 직원의 Name, Birthdate,
+StreetAddress 및 EmployeeID 데이터 필드로 형식이 지정될 것입니다.
+
+1.  **Solutions** \> **Data Loss Prevention** \> **Classifiers**를
+    선택하여**EDM classifiers**로 이동하여 **New EDM experience**를
+    끄고EDM Schema에서 새 스키마 정의를 생성하기 위해 **+ Create EDM
+    schema**를 선택하세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image13.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+2.  **Name** 필드에서 `employeedb``를`` ``입력하세요`.
+
+3.  **Description** 필드에서`Employee Database schema.`.를 입력하세요.
+
+4.  **Ignore delimiters and punctuation for all schema fields**를
+    활성화하세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image14.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+5.  **Choose delimiters and punctuation to ignore** 드롭다운을 클릭하고
+    **Hyphen**, **Period**, **Space**, **Open parenthesis** 및 **Close
+    parenthesis**를 선택하세요.
+
+![Graphical user interface, application Description automatically
+generated](./media/image15.png)
+
+그래픽 사용자 인터페이스, 애플리케이션 설명이 자동으로 생성됩니다
+
+6.  첫번째Schema 필드 이름에 `Name` 를 입력하여 **Field is searchable**
+    상자를 표시하세요.
+
+7.  하단에서 **+ Add schema data field** 선택하세요.
 
 ![BrokenImage](./media/image16.png)
 
-17. On the **Review settings and finish** page review the settings and
-    select **Create**. When successfully created select **Done**.
 
-![Graphical user interface, text, application Description automatically
+8.  **Schema field name**에서**Schema field \#2**아래에 `Birthdate`를
+    입력하세요.
+
+9.  다시 하단에서 **+ Add schema data field** 를 선택하세요.
+
+10. **Schema field name**에서 **Schema field
+    \#3**아래에`StreetAddress`를 입력하세요.
+
+11. 마지막으로 하단에서 **+ Add schema data field**를 선택하세요.
+
+12. **Schema field name**에서 **Schema field \#4**아레에 `EmployeeID`를
+    입력하세요.
+
+13. **Field is searchable**를 선택하세요.
+
+14. **Save**를 선택하세요.
+
+![Graphical user interface, application Description automatically
 generated](./media/image17.png)
 
-18. Leave the browser window open.
+그래픽 사용자 인터페이스, 애플리케이션 설명이 자동으로 생성됩니다
 
-You have successfully created a new sensitive information type to
-identify employee IDs in the pattern of three uppercase characters, six
-numbers, and the keywords 'Employee' or 'IDs' within a range of 100
-characters.
+15. 왼쪽 창에서**EDM sensitive info types**를 선택하여**EDM rule
+    package** wizard를 열기 위해 **+ Create EDM sensitive info type**를
+    선택하세요.
 
-## Exercise 2 – Creating EDM-based classification information type
+![](./media/image18.png)
 
-As an extra search pattern, you will create an EDM-based classification
-with a database schema of employee data. The database source file will
-be formatted with the following data fields of employees: Name,
-Birthdate, StreetAddress, and EmployeeID.
+16. **Define data store schema** 페이지에서 **Choose an existing EDM
+    schema**를 선택하세요.
 
-1.  Select **Solutions** \> **Data Loss Prevention** \> **Classifiers**,
-    navigate to **EDM classifiers**, switch off **New EDM experience**,
-    and from EDM Schema, select **+ Create EDM schema** to create a new
-    schema definition.
+![Graphical user interface, application Description automatically
+generated](./media/image19.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image18.png)
+그래픽 사용자 인터페이스, 애플리케이션 설명이 자동으로 생성됩니다
 
-2.  In the **Name** field, enter ```employeedb```.
+17. **employeedb** 를 선택하여**Add**를 선택하세요.
 
-3.  In the **Description** field,
-    enter ```Employee Database schema.```.
+![Graphical user interface, text, application Description automatically
+generated](./media/image20.png)
 
-4.  Enable **Ignore delimiters and punctuation for all schema fields**.
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
 
-![A screenshot of a computer Description automatically
+18. Data store schema를 검토하여**Next**를 클릭하세요.
+
+![Graphical user interface, application Description automatically
 generated](./media/image21.png)
 
-5.  Click the dropdown for **Choose delimiters and punctuation to
-    ignore** and select **Hyphen**, **Period**, **Space**, **Open
-    parenthesis** and **Close parenthesis**.
+그래픽 사용자 인터페이스, 애플리케이션 설명이 자동으로 생성됩니다
+
+19. **Define patterns for this EDM sensitive info type** 페이지에서 **+
+    Create pattern**를 선택하세요.
 
 ![Graphical user interface, application Description automatically
 generated](./media/image22.png)
 
-6.  In the first Schema field name, enter ```Name``` and mark
-    the **Field is searchable** box.
+그래픽 사용자 인터페이스, 애플리케이션 설명이 자동으로 생성됩니다
 
-7.  Select **+ Add schema data field** from the lower end.
+20. 오른쪽 **New pattern** 창에서 **Primary element**
+    필드에서***EmployeeID***를 선택하세요.
 
-![BrokenImage](./media/image23.png)
-
-8.  In **Schema field name**, below **Schema field \#2**,
-    enter ```Birthdate```.
-
-9.  Select **+ Add schema data field** from the lower end again.
-
-10. In **Schema field name**, below **Schema field \#3**,
-    enter ```StreetAddress```.
-
-11. Select **+ Add schema data field** from the lower end a last time.
-
-12. In **Schema field name**, below **Schema field \#4**,
-    enter ```EmployeeID```.
-
-13. Select **Field is searchable**.
-
-14. Select **Save**.
-
-![Graphical user interface, application Description automatically
-generated](./media/image24.png)
-
-15. Select **EDM sensitive info types** from the left pane and
-    select **+ Create EDM sensitive info type** to open the **EDM rule
-    package** wizard.
-
-![](./media/image26.png)
-
-16. On the **Define data store schema** page, select **Choose an
-    existing EDM schema**.
-
-![Graphical user interface, application Description automatically
-generated](./media/image27.png)
-
-17. Select **employeedb** and select **Add**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image28.png)
-
-18. Review the data store schema and select **Next**.
-
-![Graphical user interface, application Description automatically
-generated](./media/image29.png)
-
-19. On the **Define patterns for this EDM sensitive info type** page,
-    select **+ Create pattern**.
-
-![Graphical user interface, application Description automatically
-generated](./media/image30.png)
-
-20. On the **New pattern** pane on the right-side, in the **Primary
-    element** field, select ***EmployeeID***.
-
-21. Below **Primary element's sensitive info type**, select **Choose
-    sensitive info type**.
+21. **Primary element’s sensitive info type**아래에서 **Choose sensitive
+    info type**를 선택하세요.
 
 ![A screenshot of a pattern Description automatically
-generated](./media/image31.png)
+generated](./media/image23.png)
 
-22. In the **Search** bar, enter ***Contoso*** and press the enter key.
+Description이 자동으로 생성된 패턴의 스크린샷
 
-23. Select **Contoso Employee IDs** and select **Done**.
+22. **Search** 바에서***Contoso***를 입력하여enter 키를 입력하세요.
 
-24. Select **Done**.
+23. **Contoso Employee** IDs를 선택하여**Done**를 선택하세요.
+
+24. **Done**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image34.png)
+generated](./media/image24.png)
 
-25. Select **Next** in the **Define patterns for this EDM sensitive info
-    type** screen.
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+25. **Define patterns for this EDM sensitive info type**
+    화면에서**Next** 를 선택하세요.
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/image35.png)
+generated](./media/image25.png)
 
-26. In the **Choose the recommended confidence level and character
-    proximity** let the default value persist and select **Next**.
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
+
+26. **Choose the recommended confidence level and character
+    proximity**에서 기본값을 유지하고**Next**를 선택하세요.
 
 ![Graphical user interface, text, application, Word Description
-automatically generated](./media/image36.png)
+automatically generated](./media/image26.png)
 
-27. In the **Name and describe your EDM sensitive info type** page,
-    enter ```Contoso Employee EDM``` for the name.
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션, Word 설명이 자동으로
+생성됩니다
 
-28. In the **Description for admins** field, enter ```EDM-based sensitive information type for employee personal information.```.
-    Select **Next.**
+27. **Name and describe your EDM sensitive info type** 페이지에서
+    이름을`Contoso Employee EDM` 로 입력하세요.
+
+28. **Description for admins** 필드에서
+    `EDM-based sensitive information type for employee personal information.`.를
+    입력하여**Next**를 선택하세요**.**
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/image37.png)
+generated](./media/image27.png)
 
-29. Review the settings and select **Submit**.
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
+
+29. 설정을 검토하여**Submit**을 선택하세요.
 
 ![Graphical user interface, application Description automatically
-generated](./media/image38.png)
+generated](./media/image28.png)
 
-30. On the **Your EDM sensitive info type was created** page,
-    select **Done**.
+그래픽 사용자 인터페이스, 애플리케이션 설명이 자동으로 생성됩니다
+
+30. **Your EDM sensitive info type was created** 페이지에서 **Done**을
+    선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image40.png)
+generated](./media/image29.png)
 
-31. Leave the browser open with the Microsoft Purview portal.
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-You have successfully created a new EDM-based classification sensitive
-information type for identifying employee data from a database file
-source.
+31. Microsoft Purview 포털을 사용하여 브라우저를 열어 두세요.
 
-## Exercise 3 – Creating EDM-based classification data source
+데이터베이스 파일 원본에서 직원 데이터를 식별하기 위한 새로운 EDM 기반
+분류에 민감한 정보 유형을 성공적으로 생성했습니다.
 
-To associate the EDM-based classification with a database containing
-sensitive data, hashing and uploading the actual data for the sensitive
-information type via the EDM Upload Agent tool is required next.
+## 연습 3 – EDM 기반 분류 데이터 소스를 생성하기
 
-1.  In **Microsoft Edge**, navigate
-    to ```https://go.microsoft.com/fwlink/?linkid=2088639``` to
-    access the EDM download agent.
+EDM 기반 분류를 중요한 데이터가 포함된 데이터베이스와 연결하려면 EDM
+Upload Agent 도구를 통해 중요한 정보 유형에 대한 실제 데이터를 해시하고
+업로드해야 합니다.
 
-2.  Select **Run** to download and install the tool.
+1.  **Microsoft Edge**에서 EDM 다운로드 에이전트를 액세스하기
+    위해`https://go.microsoft.com/fwlink/?linkid=2088639` 로 이동하세요.
 
-![BrokenImage](./media/image41.png)
+2.  도구를 다운로드와 설치하기 위해**Run** 을 선택하세요.
 
-3.  In the **Microsoft Exact Data Match Upload Agent Setup** wizard,
-    select **Next**.
+![BrokenImage](./media/image30.png)
 
-    - Select **I accept the terms in the License Agreement** and
-      select **Next**.
 
-    - Do not change the default **Destination Folder** path and
-      select **Next**.
+3.  **Microsoft Exact Data Match Upload Agent Setup**
+    wizard에서**Next**를 선택하세요.
 
-    - Select **Install** to perform the installation.
+    - **I accept the terms in the License Agreement**를 선택하여
+      **Next**를 선택하세요.
 
-    - When the **User Account Control** window opens, select **Yes**.
+    - 기본 대상 **Destination Folder** 경로를 변경하지 말고 **Next**를
+      선택하세요.
 
-    - If asked to log in, log in via **Patti’s** account.
+    - 설치하기 위해**Install** 을 선택하세요.
 
-    - When the installation finishes, select **Finish**.
+    - **User Account Control** 창이 열면**Yes**를 선택하세요.
 
-    - Select the Windows symbol in the lower left to open the start
-      menu, enter **Notepad** and select **Notepad** from the start
-      menu.
+    - 로그인을 요청하면**Patti의** 계정을 통해 로그인하세요.
 
-    - Enter the following text to the first line in the notepad window ( Make sure you enter all the following three in new lines.)
+    - 설치가 왼료되면 **Finish**를 선택하세요.
 
-```
-Name,Birthdate,StreetAddress,EmployeeID
-Patti Fernandez,01.06.1980,1Main Street,CSO123456
-Christie Cline,31.01.1985,2Secondary Street,CSO654321
-```
+    - 왼쪽 아래에 있는 Windows 기호를 선택하여 시작 메뉴를
+      열고**Notepad**을 입력한 후 시작 메뉴에서**Notepad**을 선택하세요.
 
-4.  Select File and Save As: ```EmployeeData.csv```
+    - 메모장 창의 첫 번째 줄에 다음 텍스트를 입력하세요 (다음 세 줄을
+      모두 새 줄에 입력해야 합니다).
 
-5.  Select the dropdown at **Save as type:** and select **All Files
-    (*.*)**.
+&nbsp;
 
-6.  Select the dropdown at **Encoding:** and select **UTF-8** and
-    select **Save**.
+    Name,Birthdate,StreetAddress,EmployeeID
+    Patti Fernandez,01.06.1980,1Main Street,CSO123456
+    Christie Cline,31.01.1985,2Secondary Street,CSO654321
 
-![BrokenImage](./media/image43.png)
+4.  File을 선택하고: `EmployeeData.csv`로 선택하세요`.`
 
-7.  Close the Notepad window.
+5.  **Save as type:** 드롭다운을 선택하여**All Files (*.*)**를
+    선택하세요.
 
-8.  Select the windows symbol in the taskbar with the right mouse button
-    and select **Windows PowerShell (Admin)** and run as administrator.
+6.  **Encoding:** 드롭다운을 선택하여**UTF-8**를 선택하고**Save**를
+    선택하세요.
 
-![BrokenImage](./media/image44.png)
+![BrokenImage](./media/image31.png)
 
-9.  When the **User Account Control** window opens, select **Yes**.
 
-10. Navigate to the EDM Upload Agent directory:
+7.  Notepad 창을 닫으세요.
 
-```cd "C:\Program Files\Microsoft\EdmUploadAgent"```
+8.  마우스 오른쪽 버튼으로 작업 표시줄에서 windows 기호를
+    선택하고**Windows PowerShell (Admin)**을 선택하고 관리자 권한으로
+    실행하세요.
 
-![Text Description automatically generated](./media/image45.png)
+![BrokenImage](./media/image32.png)
 
-11. Authorize with your Account to upload the database to your tenant by
-    running the following cmdlet:
+9.  **User Account Control** 창이 열면**Yes**를 선택하세요.
 
-```.\EdmUploadAgent.exe /Authorize```
+10. EDM Upload Agent 디렉터리로 이동하세요:
 
-![BrokenImage](./media/image46.png)
+`cd "C:\Program Files\Microsoft\``EdmUploadAgent``"`
 
-12. When the **Pick an account** window is displayed, log in as **Patti
-    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
-    and the User Password given on your resources tab. (Or the new
-    password you reset.)
+![Text Description automatically generated](./media/image33.png)
 
-**Note**: For the next steps, please make sure that the path of the files
-resembles the path in your VM. It may be different than the instructions
-or the screenshots. In such case please change the path of your file in
-the commands accordingly.
+텍스트 설명이 자동으로 생성됩니다
 
-13. Download the database schema definition of the EDM-based
-    classification sensitive information type by running the following
-    script in PowerShell
+11. 다음 cmdlet을 실행하여 테넌트에 데이터베이스를 업로드할 수 있는
+    권한을 계정으로 부여하세요:
 
-```.\EdmUploadAgent.exe /SaveSchema /DataStoreName employeedb /OutputDir "C:\Users\Admin\Documents\"```
+`.\EdmUploadAgent.exe /Authorize`
 
-**Note**: If the last command fails, it possibly takes more time until
-the **EDM_DataUploaders** group membership is applied. It can take up to
-one hour until it is possible to download the schema file. If it fails
-proceed to the next task and return to this step later. Or check the
-path the documents folder on your VM.
+![BrokenImage](./media/image34.png)
 
-![BrokenImage](./media/image47.png)
 
-14. Hash the database file and upload it to the EDM-based classification
-    sensitive information type by running the following script in
-    PowerShell:
+12. **Pick an account**창이 표시되면 사용자 이름
+    `PattiF``@{TENANTPREFIX}.onmicrosoft.com`` `및 리소스 탭에 지정된
+    사용자 암호를 사용하여 **Patti Fernandez**로 로그인하세요. (또는
+    재설정한 새 암호)
 
-```.\EdmUploadAgent.exe /UploadData /DataStoreName employeedb /DataFile "C:\Users\Admin\Documents\EmployeeData.csv" /HashLocation "C:\Users\Admin\Documents\" /Schema "C:\Users\Admin\Documents\employeedb.xml"```
+**참고**: 다음 단계에서는 파일의 경로가 VM의 경로와 유사한지 확인하세요.
+지침이나 스크린샷과 다를 수 있습니다. 이 경우 그에 따라 명령에서 파일
+경로를 변경하세요.
 
-![BrokenImage](./media/image48.png)
+13. PowerShell에서 다음 스크립트를 실행하여 EDM 기반 분류 중요한 정보
+    유형의 데이터베이스 스키마 정의를 다운로드합니다
 
-**Note:** If you get the following errors
+`.\EdmUploadAgent.exe /``SaveSchema`` /``DataStoreName`` ``employeedb`` /``OutputDir`` "C:\Users\Admin\Documents\"`
 
-Error Type: System.IO.FileNotFoundException
+**참고**: 마지막 명령이 실패하면 **EDM_DataUploaders** 그룹 멤버십이
+적용될 때까지 시간이 더 걸릴 수 있습니다 . 스키마 파일을 다운로드할 수
+있을 때까지 최대 1시간이 걸릴 수 있습니다. 실패하면 다음 작업으로
+진행하고 나중에 이 단계로 돌아갑니다. 또는 VM의 문서 폴더 경로를
+확인합니다.
 
-Error Message: Unable to find the specified file.
+![BrokenImage](./media/image35.png)
 
-Check the path where you saved the file EmployeeData.csv
 
-![Text Description automatically generated](./media/image49.png)
+14. 데이터베이스 파일을 해시하고 PowerShell에서 다음 스크립트를 실행하여
+    EDM 기반 분류 중요한 정보 유형에 업로드하세요:
 
-15. Check the upload progress until the state changes to completed then
-    run the following PowerShell command:
+`.\EdmUploadAgent.exe /``UploadData`` /``DataStoreName`` ``employeedb`` /``DataFile`` "C:\Users\Admin\Documents\EmployeeData.csv" /``HashLocation`` "C:\Users\Admin\Documents\" /Schema "C:\Users\Admin\Documents\employeedb.xml"`
 
-```.\EdmUploadAgent.exe /GetSession /DataStoreName employeedb```
+![BrokenImage](./media/image36.png)
 
-![BrokenImage](./media/image50.png)
 
-You have successfully hashed and uploaded a database file for a
-EDM-based classification sensitive information type.
+**참고:** 다음과 같은 오류가 발생하는 경우
 
-## Exercise 4 – Creating Keyword Dictionary
+오류 유형: System.IO.FileNotFoundException
 
-Several violations of personal information leakage happened when users
-sent out emails after colleagues reported on sick leave. When that
-happened the reason for illness or disease was sent out. We do not want
-that to happen.
+오류 메시지: 지정된 파일을 찾을 수 없습니다..
 
-1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
-    to ```https://purview.microsoft.com``` and log in as **Patti
-    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
-    and the User Password given on your resources tab.
+파일 EmployeeData.csv을 저장한 경로를 확인하세요
 
-2.  From the left navigation, select **Solutions** \> **Data Loss
-    Prevention**.
+![Text Description automatically generated](./media/image37.png)
+
+텍스트 설명이 자동으로 생성됩니다
+
+15. 상태가 완료되면 변경될 때까지 업로드 진행률을 확인한 후 다음
+    PowerShell 명령을 실행하세요:
+
+`.\EdmUploadAgent.exe /``GetSession`` /``DataStoreName`` ``employeedb`
+
+![BrokenImage](./media/image38.png)
+
+
+EDM 기반 분류에 민감한 정보 유형에 대한 데이터베이스 파일을 성공적으로
+해시하고 업로드했습니다.
+
+## 연습 4 – 키워드 사전을 생성하기
+
+동료가 병가를 신고한 후 사용자가 이메일을 발송하는 과정에서 여러 건의
+개인정보 유출 사례가 발생했습니다. 그런 일이 일어났을 때 병이나 질병의
+원인을 알려 주었습니다. 우리는 그런 일이 일어나지 않기를 바랍니다.
+
+1.  **Microsoft Edge**에서**New InPrivate Window**를 열고
+    `https://purview.microsoft.com` 로 이동하여 사용자 이름
+    `PattiF``@{TENANTPREFIX}.onmicrosoft.com` 및 리소스 탭에 제공괸
+    사용자 암호를 사용하여 **Patti Fernandez**로 로그인하세요.
+
+2.  왼쪽 탐색에서**Solutions** \> **Data Loss Prevention**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image1.png)
 
-3.  Select **Classifiers** from the left pane. Select **Sensitive info
-    types** from the sub-navigation pane. Select **+Create sensitive
-    info type** to open the wizard for a new sensitive information type.
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+3.  왼쪽 창에서**Classifiers**를 선택하세요. 하위 탐색 창에서**Sensitive
+    info types**를 선택하세요. **+Create sensitive info type** 를
+    선택하여 새 중요한 정보 유형에 대한 wizard를 여세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image6.png)
+generated](./media/image2.png)
 
-4.  On the **Name your sensitive info type** page, enter the following:
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-    - Name: ```Contoso Diseases List```
+4.  **Name your sensitive info type** 페이지에서 다음을 입력하세요:
 
-    - Description: ```List of possible diseases of employees.```
+    - Name: `Contoso Diseases List`
 
-![Graphical user interface, application, Teams Description automatically
-generated](./media/image51.png)
-
-5.  Select **Next**.
-
-6.  On the **Define patterns for this sensitive info type** page,
-    select **+ Create pattern**.
+    - Description: `List of possible diseases of employees.`
 
 ![Graphical user interface, application, Teams Description automatically
-generated](./media/image52.png)
+generated](./media/image39.png)
 
-7.  Select the dropdown field below **Primary element** and
-    select **Keyword dictionary**.
+그래픽 사용자 인터페이스, 애플리케이션, 팀 설명이 자동으로 생성됩니다
+
+5.  **Next**를 선택하세요.
+
+6.  **Define patterns for this sensitive info type** 페이지에서 **+
+    Create pattern**를 선택하세요.
+
+![Graphical user interface, application, Teams Description automatically
+generated](./media/image40.png)
+
+그래픽 사용자 인터페이스, 애플리케이션, 팀 설명이 자동으로 생성됩니다
+
+7.  **Primary element** 아래의 드롭다운 필드롤 선택하고**Keyword
+    dictionary**를 선택하세요.
 
 ![Graphical user interface, application Description automatically
+generated](./media/image41.png)
+
+그래픽 사용자 인터페이스, 애플리케이션 설명이 자동으로 생성됩니다
+
+8.  **Add a keyword dictionary** 페이지에서`Diseases Dictionary`라는
+    이름을 입력하세요.
+
+9.  **Keywords** 영역에서 다음 키워드를 각각 별도의 줄에 입력하세요
+
+&nbsp;
+
+    flu
+    influenza
+    cold
+    bronchitis
+    otitis
+
+![BrokenImage](./media/image42.png)
+
+
+
+10. **Done**를 선택하세요.
+
+11. **Supporting elements** 아래에서**+ Add supporting elements or group
+    of elements** 드롭다운을 선택하고 키워드 사전에 대한 지원을 추가하기
+    위해**keyword list**을 선택하세요.
+
+![Graphical user interface, application Description automatically
+generated](./media/image43.png)
+
+그래픽 사용자 인터페이스, 애플리케이션 설명이 자동으로 생성됩니다
+
+12. **Add a keyword list** 페이지에서**ID** 필드에`Employee absence` 를
+    입력하세요. **Case insensitive**상자에 다음 키워드를 각각 별도의
+    줄에 입력하세요
+
+&nbsp;
+
+    employee
+    absence
+    reason
+
+![Graphical user interface, application Description automatically
+generated](./media/image44.png)
+
+그래픽 사용자 인터페이스, 애플리케이션 설명이 자동으로 생성됩니다
+
+13. **Done**을 선택하세요.
+
+14. **New pattern** 페이지에서 구성을 검토하여**Create**를 선택하세요.
+
+![Graphical user interface, application Description automatically
+generated](./media/image45.png)
+
+그래픽 사용자 인터페이스, 애플리케이션 설명이 자동으로 생성됩니다
+
+15. **Define patterns for this sensitive info type**에서**Next**을
+    선택하세요.
+
+![Graphical user interface, application, Teams Description automatically
+generated](./media/image46.png)
+
+그래픽 사용자 인터페이스, 애플리케이션, 팀 설명이 자동으로 생성됩니다
+
+16. **Choose the recommended confidence level to show in compliance
+    policies**에서 기본값을 유지하고**Next**를 선택하세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image47.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+17. **Review settings and finish** 페이지에서 설정을
+    검토하여**Create**를 선택하세요. 프로세스가 완료되면**Done**을
+    선택하세요.
+
+![BrokenImage](./media/image48.png)
+
+
+
+18. Microsoft Purview 포털의 브라우저 창을 열어 두세요.
+
+키워드 사전을 기반으로 새로운 중요한 정보 유형을 성공적으로 생성하고 더
+많은 키워드를 추가하여 가양성 비율을 줄였습니다. 다음 작업을 진행합니다.
+
+## 연습 5 – 사용자 지정 Sensitive Information Types작업하기
+
+사용자 지정 Sensitive Information Types은 정책에서 사용하기 전에 항상
+테스트해야 하며 그렇지 않으면 오작동하는 사용자 지정 검색 패턴으로 인해
+데이터 손실이나 누출이 발생할 수 있습니다.
+
+1.  왼쪽 아래에 있는Windows 기호를 선택하여 시작 메뉴를
+    열고**Notepad**을 입력한 후 시작 메뉴에서**Notepad** 을 선택하세요.
+
+2.  메모장 창에 다음 텍스트를 입력하세요.
+
+`Employee Patti Fernandez EMP123456 is on absence because of the flu/influenza`
+
+3.  **File**을 선택하여 `SickTestData` 로 저장을**Save**을 선택하세요.
+
+4.  Notepad 창을 닫으세요.
+
+5.  **Microsoft Edge**에서 Microsoft Purview 포털 탭을 여전히 열랴
+    있어야 합니다. 그러면 그것을 선택하고 다음 단계로 진행하세요.
+    닫았다면 새 탭에서 `https://purview.microsoft.com`. 로 이동하세요.
+    사용자 이름 `PattiF``@{TENANTPREFIX}.onmicrosoft.com` 와 리소스 탭에
+    제공된 사용자 암호를 사용하여**Patti Fernandez**로 로그인하세요.
+
+6.  왼쪽 창에서**Solutions** \> **Data Loss Prevention**를
+    선택하고**Classifiers** 아래의**Sensitive info types**를 선택하세요.
+    오른쪽 상단의**Search** 상자에***Contoso***를 입력하여**Enter**를
+    입력하세요. 오른쪽 창을 열기 위해**Contoso Employee IDs** 를
+    선택하세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image49.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+7.  오른쪽 창에서**Test**를 선택하세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image50.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+8.  **Upload file to test** 페이지에서**Upload file**을 선택하세요.
+
+![BrokenImage](./media/image51.png)
+
+
+
+9.  왼쪽 창에서**Documents**를 선택하고**SickTestData** 라는 이름의
+    파일을 선택하고**Open**를 선택하세요.
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image52.png)
+
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
+
+10. 분석을 시작하기 위해**Test** 을 선택하세요.
+
+![Graphical user interface, text, application Description automatically
 generated](./media/image53.png)
 
-8.  In the **Add a keyword dictionary** page enter the
-    name ```Diseases Dictionary```.
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
 
-9.  In the **Keywords** area enter the following keywords, each into a
-    separate line
-
-```
-flu
-influenza
-cold
-bronchitis
-otitis
-```
+11. **Match results** 페이지에서 검색된 일치 항목을 검토하세요.
 
 ![BrokenImage](./media/image54.png)
 
-10.  Select **Done**.
 
-11. Below **Supporting elements**, select **+ Add supporting elements or
-    group of elements** drop-down and select **keyword list** to add
-    additional support for the keyword dictionary.
 
-![Graphical user interface, application Description automatically
+12. **Finish**를 선택하여**X** 버튼을 클릭하여 테스트 페이지를 닫으세요.
+
+![Graphical user interface, text, application Description automatically
 generated](./media/image55.png)
 
-12. In the **Add a keyword list** page enter ```Employee absence``` in
-    the **ID** field. In the **Case insensitive** box, enter the
-    following keywords, each into a separate line	
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
 
-```
-employee
-absence
-reason
-```
+13. **Data classification** 페이지로 돌아가서 이름이**Contoso Diseases
+    List**인Sensitive Information Type을 선택하세요.
 
-![Graphical user interface, application Description automatically
-generated](./media/image56.png)
+14. 오른쪽 창에서 **Test**를 선택하세요.
 
-13. Select **Done**.
+![BrokenImage](./media/image56.png)
 
-14. In the **New pattern** page, review the configuration and
-    select **Create**.
 
-![Graphical user interface, application Description automatically
-generated](./media/image57.png)
 
-15. In the **Define patterns for this sensitive info
-    type** select **Next**.
+15. **Upload file to test** 페이지에서**Upload file**를 선택하세요.
 
-![Graphical user interface, application, Teams Description automatically
+![BrokenImage](./media/image57.png)
+
+
+16. 왼쪽 창에서**Documents**를 선택하여 *SickTestData*라는 이름의 파일을
+    선택하고 **Open**를 선택하세요.
+
+17. 분석을 시작하기 위해**Test** 를 선택하세요.
+
+![Graphical user interface, text, application Description automatically
 generated](./media/image58.png)
 
-16. In the **Choose the recommended confidence level to show in
-    compliance policies** let the default value persist and
-    select **Next**.
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
 
-![A screenshot of a computer Description automatically
-generated](./media/image59.png)
-
-17. In the **Review settings and finish** page, review your settings and
-    select **Create**. When the process is complete select **Done**.
-
-![BrokenImage](./media/image60.png)
-
-18. Leave the browser window in the Microsoft Purview portal open.
-
-You have successfully created a new sensitive information type based on
-a keyword dictionary and added more keywords to decrease the false
-positive rate. Proceed with the next task.
-
-## Exercise 5 – Working with custom Sensitive Information Types
-
-Custom Sensitive information types should always be tested before using
-them in policies otherwise data loss or leakage may occur due to a
-malfunctioning custom search pattern.  
-
-1.  Select the Windows symbol in the lower left to open the start menu,
-    enter **Notepad** and select **Notepad** from the start menu.
-
-2.  Enter the following text to the notepad window
-
-```Employee Patti Fernandez EMP123456 is on absence because of the flu/influenza```
-
-3.  Select **File** and Save As ```SickTestData``` and select **Save**.
-
-4.  Close the Notepad window.
-
-5.  In **Microsoft Edge**, the Microsoft Purview portal tab should still
-    be open. If so, select it and proceed to the next step. If you
-    closed it, then in a new tab, navigate
-    to ```https://purview.microsoft.com```. Log in as **Patti
-    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
-    and the User Password given on your resources tab.
-
-6.  In the left navigation pane select **Solutions** \> **Data Loss
-    Prevention**, then select the **Sensitive info types** under
-    **Classifiers** . In the **Search** box from the upper right side
-    and enter ***Contoso*** and press **Enter**. Select **Contoso Employee
-    IDs** to open the right side pane.
-
-![A screenshot of a computer Description automatically
-generated](./media/image61.png)
-
-7.  Select **Test** from the right-side pane.
-
-![A screenshot of a computer Description automatically
-generated](./media/image63.png)
-
-8.  On the **Upload file to test** page, select **Upload file**.
-
-![BrokenImage](./media/image65.png)
-
-9. Select **Documents** from the left pane, select the file with the
-    name **SickTestData** and select **Open**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image66.png)
-
-10. Select **Test** to start the analysis.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image67.png)
-
-11. On the **Match results** page, review the found match.
-
-![BrokenImage](./media/image68.png)
-
-12. Select **Finish** and close the test page by clicking
-    the **X** button.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image69.png)
-
-13. Back on the **Data classification** page, select the Sensitive
-    Information Type with the name **Contoso Diseases List**.
-
-14. In the right side pane, select **Test**.
-
-![BrokenImage](./media/image71.png)
-
-15. On the **Upload file to test** page, select **Upload file**.
-
-![BrokenImage](./media/image72.png)
-
-16. Select **Documents** from the left pane, select the file with the
-    name *SickTestData* and select **Open**.
-
-17. Select **Test** to start the analysis.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image74.png)
-
-18. On the **Match results** page, review the found match. When done
-    review select **Finish**.
+18. **Match results** 페이지에서 찾은 일치 항목 검토하세요. 검토가
+    완료되면**Finish**을 선택하세요.
 
 ![Graphical user interface, application Description automatically
-generated](./media/image75.png)
+generated](./media/image59.png)
 
-## Summary:
+그래픽 사용자 인터페이스, 애플리케이션 설명이 자동으로 생성됩니다
 
-You have successfully tested the two custom sensitive information types
-and validated the search pattern recognizes the desired patterns. You
-have finished the creation of sensitive information types and can
-proceed with the next exercise.
+## 요약:
+
+두 가지 사용자 지정 sensitive information types을 성공적으로 테스트하고
+검색 패턴이 원하는 패턴을 인식하는지 확인했습니다. Sensitive information
+types생성했으며 다음 연습을 진행할 수 있습니다.
