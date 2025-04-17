@@ -1,855 +1,829 @@
-# Lab 7 – Configuring Insider Risk Management
+# 실습 7 – Insider Risk Management 구성하기
 
-## Objective:
+## 목표:
 
-In this lab we will learn how to configure Insider Risk Management using
-the Insider Risk Management Policies. We will use the Sensitive Info
-Types that we created in Lab 2 and DLP policies that we created in Lab 5
-to create policies which will secure the organisation against risky
-browser usage or any data theft or leaks.
+이 실습에서는 Insider Risk Management 정책을 사용하여Insider Risk
+Management를 구성하는 방법을 알아볼 것입니다. 실습 2에서 생성한the
+Sensitive Info Type과 실습 5에서 생성한 DLP 정책을 사용하여 위험한
+브라우저 사용이나 데이터 도난이나 유출로부터 조직을 보호하는 정책을
+생성할 것입니다.
 
-To do this we will create an infrastructure in Azure that will represent
-the devices in an organisation. We will learn how to onboard those
-devices in Azure AD and Intune, and install an MDM agent on them, so
-that they can be used to get the alerts from those machines.
+이를 위해 Azure에서 조직의 장치를 나타내는 인프라를 생성할 것입니다.
+Azure AD 및 Intune에서 해당 장치을 온보딩하고 MDM 에이전트를 설치하여
+해당 컴퓨터에서 경고를 가져오는 데 사용할 수 있도록 하는 방법을 알아볼
+것입니다.
 
-## Exercise 1: Synchronize the VM clock
+## 연습 1: VM 시계를 동기화하기
 
-1.  After logging into the VM, select the windows icon. Then search
-    for **Date and time**, and select **Date and time settings**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId21.jpg)
-
-A screenshot of a computer Description automatically generated
-
-2.  On the Settings screen that opens up, click on the **Sync
-    now** under Additional settings.
+1.  VM에 로그인한 후windows 아이콘을 선택하세요. **Date and time**를
+    검색하여 **Date and time settings**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId24.jpg)
+generated](./media/image1.jpg)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-3.  This takes care of synchronizing the time just in case the automatic
-    synchronization does not work.
+2.  설정 화면이 열리면 Additional setting에서 **Sync now**를 클릭하세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image2.jpg)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+3.  이렇게 하면 자동 동기화가 작동하지 않는 경우를 대비하여 시간을
+    동기화하세요.
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId27.png)
+medium confidence](./media/image3.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+컴퓨터 화면의 스크린샷: 설명이 중간 신뢰도로 자동으로 생성됩니다
 
-## Exercise 2: Create Insider Risk Management policies.
+## 연습 2: Insider Risk Management 정책을 생성하기
 
-### Prerequisites
+### 필수 구성 요소
 
-#### Step 1 – Add users to Insider risk management role group
+#### 1 단계 – 사용자를Insider risk management 역할 그룹에 추가하기
 
-1.  If the Microsoft Purview portal is open continue to step 2,
-    otherwise, open the `https://purview.microsoft.com` and log in with
-    the **MOD Administrator** credentials.
+1.  Microsoft Purview 포털이 열려 있으면 2 단계를 진행하세요. 그렇지
+    않으면 the `https://purview.microsoft.com`를 열고**MOD
+    Administrator** 자격 증명으로 로그인하세요.
 
-![](./media/rId31.png)
+![](./media/image4.png)
 
-2.  In the navigation select **Settings**, and select **Role groups**
-    under **Role groups**, select **Insider Risk Management**. Then
-    select **Edit**. On the side pane, again select **Edit**
+2.  탐색에서**Settings**를 선택하고**Role groups**를 선택하세요. **Role
+    groups**에서 **Insider Risk Management**를 선택하세요. **Edit**를
+    선택하세요. 옆창에서**Edit**를 다시 선택하세요.
 
-![](./media/rId34.png)
+![](./media/image5.png)
 
-3.  On the **Edit Members of the role group** page, select **Choose
-    users**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId37.png)
-
-A screenshot of a computer Description automatically generated
-
-4.  Select the checkbox near **MOD Admin**,
-    **Patti**, **Megan** and **Alex**. Then choose **Select**.
-
-![](./media/rId40.png)
-
-5.  Then select **Next**.
+3.  **Edit Members of the role group** 페이지에서 **Choose users**를
+    선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId43.png)
+generated](./media/image6.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-6.  Select **Save** to add the users to the role group.
+4.  **MOD Admin**, **Patti**, **Megan** 및**Alex** 근처의 있는 확인란을
+    선택하세요. **Select**를 선택하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/rId46.png)
+![](./media/image7.png)
 
-A screenshot of a computer Description automatically generated
-
-7.  Select **Done** to complete the steps.
+5.  **Next**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId49.png)
+generated](./media/image8.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-#### Step 2 – Enable insider risk analytics insights
-
-1.  In the Microsoft Purview portal. Navigate to **Settings**, go
-    to **Insider risk management**. Go to **Analytics**, and enable the
-    radio button, and click on **Save**.
-
-![](./media/rId53.png)
-
-#### Step 3 – Onboarding a device
-
-In this deployment scenario, you’ll onboard devices that hasn’t been
-onboarded yet, and you just want to detect insider risk activities on
-Windows 10 devices.
-
-We need to register our device/VM in Microsoft Entra ID as a
-prerequisite to creating any Insider Risk Policy.
-
-1.  Open windows **Setting** on your VM.
+6.  사용자를 역할 그룹에 추가하기 위해 **Save**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId57.png)
+generated](./media/image9.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-2.  Go to **Accounts** \> **Access work or school**. On the **Access
-    work or school** page, click on **Connect**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId60.png)
-
-A screenshot of a computer Description automatically generated
-
-3.  In the **Set up a work or school account** prompt, click on **Join
-    this device to Microsoft Entra ID**.
-
-![](./media/rId63.png)
-
-4.  In the sign in prompt, sign in with **MOD
-    Administrator** credentials given on the resources tab of your lab
-    environment. 
+7.  단계를 완료하기 위해 **Done**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId66.png)
+generated](./media/image10.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+#### 2단계 – Insider risk analytics 인사이트를 활성화하기
+
+1.  Microsoft Purview 포털에서 **Settings**로 이동하고 **Insider risk
+    management**를 이돌하세요. **Analytics**로 이동하여 라디오 버튼을
+    활성화하고 **Save**를 선택하세요.
+
+![](./media/image11.png)
+
+#### 3 단계 – 디바이스를 온보딩하기
+
+이 배포 시나리오에서는 아직 온보딩되지 않은 장치를 온보딩하고 Windows 10
+장치에서 내보자 위험 활동을 검색하려고 합니다.
+
+Insider Risk Policy을 생성하기 위한 필수 구성 요소로 Microsoft Entra
+ID에 장치/VM을 등록해야 합니다.
+
+1.  VM에서 windows **Setting**를 여세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image12.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+2.  **Accounts** \> **Access work or school**로 이동하세요. **Access
+    work or school** 페이지에서 **Connect**를 클릭하세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image13.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+3.  **Set up a work or school account** 프롬픝에서 **Join this device to
+    Microsoft Entra ID**를 클릭하세요.
+
+![](./media/image14.png)
+
+4.  로그인 프롬프트에 실습 환경의 리소스 탭에 제공된 **MOD
+    Administrator** 자격 증명으로 로그인하세요. 
+
+![A screenshot of a computer Description automatically
+generated](./media/image15.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
 ![Graphical user interface, application, PowerPoint Description
-automatically generated](./media/rId69.png)
+automatically generated](./media/image16.png)
 
-Graphical user interface, application, PowerPoint Description
-automatically generated
+그래픽 사용자 인터페이스, 애플리케이션, PowerPoint 설명이 자동으로
+생성됩니다.
 
-5.  Press **Join** in the prompt **Make sure this is your
-    organisation**.
+5.  프롬프트: **Make sure this is your organization**에서**Join**를
+    누르세요.
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/rId72.png)
+generated](./media/image17.png)
 
-Graphical user interface, text, application Description automatically
-generated
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
 
-6.  Once done you will see a confirmation window **You’re all set!**.
-    Click on **Done**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId75.png)
-
-A screenshot of a computer Description automatically generated
-
-7.  Again go to **Accounts** \> **Access work or school**. On
-    the **Access work or school** page, click on **Connect**.
+6.  완료되면 확인 창이**You’re all set!** 표시됩니다. **Done**를
+    클릭하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId60.png)
+generated](./media/image18.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-8.  In the **Set up a work or school account** prompt, use the MOD admin
-    credentials to log in.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId80.png)
-
-A screenshot of a computer Description automatically generated
-
-9.  On the **Setting up your device** page, select **Got it**.
+7.  **Accounts** \> **Access work or school**로 다시 이동하세요.
+    **Access work or school** 페이지에서 **Connect**를 클릭하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId83.png)
+generated](./media/image13.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-10. Now go to **windows settings** \> **Accounts** \> **Access work or
-    school** \> **Connected to Contoso MDM** \> **Info** \> **Sync**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId86.png)
-
-A screenshot of a computer Description automatically generated
+8.  **Set up a work or school account** 프롬프트에서 MOD admin 자격
+    증명을 사용하여 로그인하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId89.png)
+generated](./media/image19.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-11. Click on the windows symbol on your VM. Select the
-    user **Admin** and select **Sign out**.
+9.  **Setting up your device** 페이지에서 **Got it**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId92.png)
+generated](./media/image20.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-12. On the user screen select **Other user**.
+10. **Windows settings** \> **Accounts** \> **Access work or school** \>
+    **Connected to Contoso MDM** \> **Info** \> **Sync**로 이동하세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image21.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+![A screenshot of a computer Description automatically
+generated](./media/image22.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+11. VM에서 windows 기호를 클릭하세요. 사용자 **Admin**를 선택하여**Sign
+    out**를 선택하세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image23.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+12. 사용자 화면에서 **Other user**를 선택하세요.
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId95.png)
+medium confidence](./media/image24.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+컴퓨터 화면의 스크린샷: 설명이 중간 신뢰도로 자동으로 생성됩니다
 
-13. Enter your O365 credentials given on the home page of your lab
-    environment and log into the VM as **MOD Administrator**.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId98.png)
-
-A screenshot of a computer Description automatically generated with
-medium confidence
-
-14. Close the windows settings app. Sign in to 
-    `https://purview.microsoft.com` using your **MOD
-    Administrator** account on your Lab VM.
-
-15. Select **Settings** \> **Device onboarding** \> **Devices**.
-
-![](./media/rId101.png)
-
-16. Click on **Turn on Device onboarding**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId104.png)
-
-A screenshot of a computer Description automatically generated
-
-17. From the **Settings** \> **Device onboarding** \> **Onboarding**.
-    Click on **Download package**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId107.png)
-
-A screenshot of a computer Description automatically generated
-
-18. Right click the file and **Extract all…** .
+13. 실습 환경의 홈 페이지에서 제공된 O365 자격 증명을 입력하고 **MOD
+    Administrator**로 VM에 로그인하세요.
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId110.png)
+medium confidence](./media/image25.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+컴퓨터 화면의 스크린샷: 설명이 중간 신뢰도로 자동으로 생성됩니다
+
+14. Windows 설정 앱을 닫으세요. 실습 VM에서 **MOD Administrator** 계정을
+    사용하여 to  `https://purview.microsoft.com`에 로그인하세요.
+
+15. **Settings** \> **Device onboarding** \> **Devices**를 선택하세요.
+
+![](./media/image26.png)
+
+16. **Turn on Device onboarding**를 클릭하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId113.png)
+generated](./media/image27.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-19. Once done open the folder and run the file
-    with **Administrator** rights.
+17. **Settings** \> **Device onboarding** \> **Onboarding**에서
+    **Download package**를 클릭하세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image28.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+18. 파일을 마우스 오른쪽 버튼으로 클릭하고 **Extract all…**를
+    선택하세요.
+
+![A screenshot of a computer Description automatically generated with
+medium confidence](./media/image29.png)
+
+컴퓨터 화면의 스크린샷: 설명이 중간 신뢰도로 자동으로 생성됩니다
+
+![A screenshot of a computer Description automatically
+generated](./media/image30.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+19. 완료되면 폴더를 열고 **Administrator** 권한으로 파일을 실행하세요.
 
 ![A computer screen with a computer screen Description automatically
-generated](./media/rId116.png)
+generated](./media/image31.png)
 
-A computer screen with a computer screen Description automatically
-generated
+컴퓨터 화면 설명이 자동으로 생성된 컴퓨터 화면이 있는 컴퓨터 화면
 
-20. Click on **More info**.
+20. Click on **More info**를 클릭하세요.
 
 ![Graphical user interface, application Description automatically
-generated](./media/rId119.png)
+generated](./media/image32.png)
 
-Graphical user interface, application Description automatically
-generated
+그래픽 사용자 인터페이스, 애플리케이션 설명이 자동으로 생성됩니다
 
-21. Click on **Run anyway**.
-
-![A screenshot of a computer error Description automatically
-generated](./media/rId122.png)
-
-A screenshot of a computer error Description automatically generated
-
-22. In the Command Prompt, press **Y** and press enter to confirm and
-    continue when prompted.
+21. **Run anyway**를 클릭하세요.
 
 ![A screenshot of a computer error Description automatically
-generated](./media/rId125.png)
+generated](./media/image33.png)
 
-A screenshot of a computer error Description automatically generated
+컴퓨터 오류 설명의 스크린샷 자동으로 생성됩니다
 
-23. You will receive a message that the device is onboarded. In the
-    Command Prompt once you get the message, **Press any key to continue
-    …**, press any key.
+22. 명령 프롬프트에서 **Y**를 누르고 Enter 키를 눌러 확인하고 메시지가
+    표시되면 계속하세요.
 
-24. Once the Command Prompt is closed, open Command Prompt in
-    administrator mode to run a detection test and at the prompt, copy
-    and run the command below. The Command Prompt window will close
-    automatically.
+![A screenshot of a computer error Description automatically
+generated](./media/image34.png)
+
+컴퓨터 오류 설명의 스크린샷 자동으로 생성됩니다
+
+23. 장치가 온보딩되었다는 메시지가 표시됩니다. Command Prompt에서
+    메시지가 In **Press any key to continue …**가 표시되면 아무 키를
+    누르세요.
+
+24. Once the Command Prompt가 닫히면 관리자 모드에서 Command Prompt를
+    열어 감지 테스트를 실행하고 프롬프트에서 아래 명령을 복사하여
+    실행하세요. Command Prompt 창이 자동적으로 닫힙니다.
 
 `powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden $ErrorActionPreference= 'silentlycontinue';(New-ObjectSystem.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe','C:\test-WDATP-test\invoice.exe');Start-Process 'C:\test-WDATP-test\invoice.exe'`
 
-![Text Description automatically generated](./media/rId128.png)
+![Text Description automatically generated](./media/image35.png)
 
-Text Description automatically generated
+텍스트 설명이 자동으로 생성됩니다
 
-25. Open the **settings** by clicking on the settings in the navigation
-    and choose **Devices Onboarding** \> **Devices**.
+25. 탐색에서 설정을 클릭하여 **settings**을 열고**Devices Onboarding**
+    \> **Devices**를 선택하세요.
 
-**Note:** While it usually takes about 60 seconds for device onboarding
-to be enabled, please allow up to 30 minutes.
+**참고:** 장치 온보딩을 활성화하는 데 일반적으로 약 60초가 걸리지안 최대
+30분까지 걸릴 수 있습니다.
 
-26. You will be able to check the **Devices** list. The list will be
-    empty until you onboard devices, once done, you will be able to see
-    your VMs listed as the onboarded device.
+26. **Devices** 목록을 확인할 수 있습니다. 장치를 온보딩할 때까지 목록이
+    비어있으며 완료되면 VM이 온보딩된 장치로 나열되는 것을 볼 수
+    있습니다.
 
-### Task 1: Creating an organisation wide policy to detect and score Risky Browser Usage
+### 작업 1: Risky Browser Usage을 감지하고 점수를 매기기 위한 조직 차원의 정책을 생성하기
 
-#### Step 1 – Create a new policy
+#### 1 단계 – 새로운 정책을 생성하기
 
-1.  If you closed the browser window in the previous task, open
-    the `https://purview.microsoft.com` and log in with the Admin
-    credentials.
+1.  이전 작업에서 브라우저 창을 닫은 경우
+    the `https://purview.microsoft.com` 열고 Admin 자격 증명으로
+    로그인하세요.
 
-2.  Go to **Insider Risk Management** and select the **Policies** tab.
-    Select **Create policy** to open the policy wizard.
+2.  **Insider Risk Management**로 이동하여**Policies** 탭을 선택하세요.
+    정책 wizard을 열기 위해**Create policy**를 선택하세요.
 
-![](./media/rId133.png)
+![](./media/image36.png)
 
-3.  On the **Choose a policy template** page, choose **Risky browser
-    usage (preview)**, under **Risky browser usage (preview)**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId136.png)
-
-A screenshot of a computer Description automatically generated
-
-4.  Make sure that all the prerequisites are met.
+3.  **Choose a policy template** 페이지에서**Risky browser usage
+    (preview)**에서**Risky browser usage (preview)**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId139.png)
+generated](./media/image37.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-5.  Select **Next** to continue.
+4.  모든 사전 요구 사항이 충족되었는지 확인하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId142.png)
+generated](./media/image38.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-6.  On the **Name and description** page, complete the following fields:
+5.  계속하기 위해**Next**를 선택하세요.
 
-    - Name (required): `Risky usage of browser`
+![A screenshot of a computer Description automatically
+generated](./media/image39.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+6.  **Name and description** 페이지에서 다음 필드를 완료하세요:
+
+    - Name (필수): `Risky usage of browser`
 
     - Description
-      (optional): `This is a test policy for the risky browser usage.`
+      (선택적): `This is a test policy for the risky browser usage.`
 
-7.  Select **Next** to continue.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/rId145.png)
-
-Graphical user interface, text, application Description automatically
-generated
-
-8.  On the **Choose users, groups, & adaptive scopes** page,
-    select **All users, groups, & adaptive scopes**. Select **Next** to
-    continue.
-
-9.  On the **Exclude users and groups** page, select **Next**.
-
-10. On the **Decide whether to prioritize** page, select **I don’t want
-    to specify priority content right now** (you’ll be able to do this
-    after the policy is created). Select **Next** to continue.
+7.  계속하기 위해 **Next**를 선택하세요.
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/rId148.png)
+generated](./media/image40.png)
 
-Graphical user interface, text, application Description automatically
-generated
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
 
-11. On the **Triggers for this policy** page, select **Turn on
-    indicators**.
+8.  **Choose users, groups, & adaptive scopes** 페이지에서 **All users,
+    groups, & adaptive scopes**를 선택하세요. 계속하기 위해 **Next**를
+    선택하세요.
+
+9.  **Exclude users and groups** 페이지에서 **Next**를 선택하세요.
+
+10. **Decide whether to prioritize** 페이지에서**I don’t want to specify
+    priority content right now**를 선택하세요 (정책을 생성한 후 이
+    작업을 수행할 수 있습니다). 계속하기 위해 **Next**를 선택하세요.
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image41.png)
+
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
+
+11. **Triggers for this policy** 페이지에서**Turn on indicators**를
+    선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId151.png)
+generated](./media/image42.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-12. On **Choose indicators to turn on**, select **Select all under Risky
-    browsing indicators (preview)**, and uncheck rest of the boxes.
+12. **Choose indicators to turn on**에서**Select all under Risky
+    browsing indicators (preview)**를 선택하고 나머지 상자의 선택을
+    취소하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId154.png)
+generated](./media/image43.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-13. Scroll down and select **Save**.
+13. 아래로 스크롤하여**Save**를 선택하세요.
 
-14. On **Triggers for this policy**, under **Select which activities
-    will trigger this policy**. Select all the options and click
-    on **Next**.
+14. **Triggers for this policy**의**Select which activities will trigger
+    this policy**에서 모든 옵션을 선택하고**Next**를 클릭하세요.
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/rId157.png)
+generated](./media/image44.png)
 
-Graphical user interface, text, application Description automatically
-generated
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+**생성됩니다**
 
-15. On **Triggering thresholds for this policy** page, select **Use
-    custom thresholds (Recommended)**, change all the thresholds to
-    **1** per day and then select **Next**.
+15. **Triggering thresholds for this policy** 페이지에서**Use custom
+    thresholds (Recommended)**를 선택하여 모든 임계값을 하루에**1**로
+    변경하고**Next**를 선택하세요.
 
 ![Graphical user interface, application Description automatically
-generated](./media/rId160.png)
+generated](./media/image45.png)
 
-Graphical user interface, application Description automatically
-generated
-
-![A screenshot of a computer Description automatically
-generated](./media/rId163.png)
-
-A screenshot of a computer Description automatically generated
-
-16. On **indicators** page, select **Next**.
+그래픽 사용자 인터페이스, 애플리케이션 설명이 자동으로 생성됩니다
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId166.png)
+generated](./media/image46.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-17. On **Decide whether to use default or custom indicator thresholds**,
-    select **Use default thresholds for all indicators**, then
-    select **Next**.
+16. **Indicators** 페이지에서**Next**를 선택하세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image47.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+17. **Decide whether to use default or custom indicator thresholds**에서
+    **Use default thresholds for all indicators**를 선택하여**Next**를
+    선택하세요.
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/rId169.png)
+generated](./media/image48.png)
 
-Graphical user interface, text, application Description automatically
-generated
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
 
-18. On **Review settings and finish**, select **Submit**.
+18. **Review settings and finish**에서**Submit**를 선택하세요.
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/rId172.png)
+generated](./media/image49.png)
 
-Graphical user interface, text, application Description automatically
-generated
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
 
-19. On **Your policy was created**, select **Done**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId175.png)
-
-A screenshot of a computer Description automatically generated
-
-20. Keep the tab open and continue to the next task.
-
-#### Step 2 – Score the policy
-
-1.  Click on the new policy named **Risky usage of browser**.
-    Select **Start scoring activity for users**.
+19. **Your policy was created**에서 **Done**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId179.png)
+generated](./media/image50.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-2.  In the **Reason** field in the **Add users to multiple
-    policies** pane, type **Testing the policy**.
+20. 탭을 열어 두고 다음 작업을 계속하세요.
+
+#### 2 단계 – 정책 점수 매기기
+
+1.  **Risky usage of browser**라는 정책을 클릭하세요. **Start scoring
+    activity for users**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId182.png)
+generated](./media/image51.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-3.  In the **This should last for (choose between 5 and 30
-    days)** field, select **10** days.
+2.  **Reason** 필드의**Add users to multiple
+    policies** 창에서**Testing the policy**를 입력하세요.
 
-4.  Use the **Search user to add to policies** field. Add **MOD Admin**.
-    Then click on **Start scoring activity**.
+![A screenshot of a computer Description automatically
+generated](./media/image52.png)
 
-5.  Once you get the confirmation that you have started **Scoring
-    activity for 1 users**, click **Close**.
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+3.  **This should last for (choose between 5 and 30 days)** 필드에
+    **10** 일을 선택하세요.
+
+4.  **Search user to add to policies** 필드를 사용하세요. **MOD
+    Admin**를 추가하세요. **Start scoring activity**를 클릭하세요.
+
+5.  **Scoring activity for 1 users** 활동을 시작했다는 확인릏 받으면
+    **Close**를 클릭하세요.
 
 ![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId185.png)
+with medium confidence](./media/image53.png)
 
-A screenshot of a computer screen Description automatically generated
-with medium confidence
+컴퓨터 화면의 스크린샷: 설명이 중간 신뢰도로 자동으로 생성됩니다
 
-### Task 2: Data theft by departing users
+### 작업 2: 퇴사하는 사용자에 의한 데이터 도난
 
-#### Step 1 – Create a new policy
+#### 1 단계 – 새로운 정책을 생성하기
 
-1.  If you closed the browser window in the previous task, open
-    the `https://purview.microsoft.com` and log in with the admin
-    credentials.
+1.  이전 작업에서 브라우저 창을 닫은
+    경우 `https://purview.microsoft.com` 열고 관리자 자격 증명으로
+    로그인하세요.
 
-2.  Go to **Insider Risk Management** and select the **Policies** tab.
-    Select **Create policy** to open the policy wizard.
+2.  **Insider Risk Management**로 이동하여 **Policies** 탭을 선택하세요.
+    정책wizard을 열기 위해 **Create policy**를 선택하세요.
 
-![](./media/rId133.png)
+![](./media/image36.png)
 
-3.  On the Choose a policy template page, choose Data theft by departing
-    users, under Data theft. Select Next to continue.
+3.  Choose a policy template 페이징에서Data theft의 Data theft by
+    departing users를 선택하세요. 계속하려면 Next을 선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId192.png)
+generated](./media/image54.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-4.  On the **Name and description** page, complete the following fields:
+4.  **Name and description** 페이지에서 다음 필드를 완료하세요:
 
-    - Name (required): `Data theft by a user`
+    - Name (필수): `Data theft by a user`
 
     - Description
-      (optional): `This is a test policy for the preventing data theft.`
+      (선택적): `This is a test policy for the preventing data theft.`
 
-5.  Select **Next** to continue.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId195.png)
-
-A screenshot of a computer Description automatically generated
-
-6.  On the **Choose users, groups, & adaptive scopes** page,
-    select **All users, groups, & adaptive scopes**. Select **Next** to
-    continue.
-
-7.  On the **Exclude users, groups, & adaptive scopes** page, select
-    **Next**.
-
-8.  On the **Decide whether to prioritize** page, select **I want to
-    specify priority content**. Select the check box for **Sensitivity
-    labels** and **Sensitive info types**. Select **Next** to continue.
-
-![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId198.png)
-
-A screenshot of a computer screen Description automatically generated
-with medium confidence
-
-9.  On the **Sensitivity labels to prioritize** page, select **Add or
-    edit sensitivity labels**. On the flyout pane,
-    select **Internal/Employee data (HR)** and select **Add**. Then
-    click **Next**.
-
-![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId201.png)
-
-A screenshot of a computer screen Description automatically generated
-with medium confidence
-
-10. On the **Sensitive info types to prioritize** page, select **Add or
-    edit sensitive info types**. On the flyout pane, search for and
-    select **Credit Card Number**, **Contoso Employee ID** and **Contoso
-    Employee EDM**. Select **Add**. Then click **Next**.
+5.  계속하려면 Next을 선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId204.png)
+generated](./media/image55.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-11. On **Decide whether to score only activity with priority content**,
-    select **Get alerts for all activity**. Select **Next**.
+6.  **Choose users, groups, & adaptive scopes** 페이지에서 **All users,
+    groups, & adaptive scopes**를 선택하세요. 계속하려면 **Next**을
+    선택하세요.
+
+7.  **Exclude users, groups, & adaptive scopes** 페이지에서 **Next**을
+    선택하세요.
+
+8.  **Decide whether to prioritize** 페이지에서 **I want to specify
+    priority content**를 선택하세요. **Sensitivity
+    labels** 및 **Sensitive info types**의 확인란을 선택하세요.
+    계속하려면 **Next**을 선택하세요.
 
 ![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId207.png)
+with medium confidence](./media/image56.png)
 
-A screenshot of a computer screen Description automatically generated
-with medium confidence
+컴퓨터 화면의 스크린샷: 설명이 중간 신뢰도로 자동으로 생성됩니다
 
-12. On triggers for this policy page, select the default and then
-    select Next.
+9.  **Sensitivity labels to prioritize** 페이지에서 **Add or edit
+    sensitivity labels**를 선택하세요. 플라이아웃
+    창에서 **Internal/Employee data (HR)**를 선택하여**Add**를
+    선택하세요. **Next**를 클릭하세요.
+
+![A screenshot of a computer screen Description automatically generated
+with medium confidence](./media/image57.png)
+
+컴퓨터 화면의 스크린샷: 설명이 중간 신뢰도로 자동으로 생성됩니다
+
+10. **Sensitive info types to prioritize** 페이지에서 **Add or edit
+    sensitive info types**를 선택하세요. 플라이아웃 창에서 **Credit Card
+    Number**, **Contoso Employee ID** 및**Contoso Employee EDM**를
+    검색하고 선택하세요.  **Add**를 선택하세요. **Next**를 클릭하세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image58.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+11. **Decide whether to score only activity with priority content**에서
+    **Get alerts for all activity**를 선택하세요. **Next**를 선택하세요.
+
+![A screenshot of a computer screen Description automatically generated
+with medium confidence](./media/image59.png)
+
+컴퓨터 화면의 스크린샷: 설명이 중간 신뢰도로 자동으로 생성됩니다
+
+12. Triggers for this policy 페이지에서default를 선택하여 Next를
+    선택하세요.
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId210.png)
+medium confidence](./media/image60.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+컴퓨터 화면의 스크린샷: 설명이 중간 신뢰도로 자동으로 생성됩니다
 
-13. On **Indicators** page, select **Turn on indicators** from the
-    prompt.
+13. **Indicators** 페이지에서 프롬프트에서 **Turn on indicators**를
+    선택하세요.
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId213.png)
+medium confidence](./media/image61.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+컴퓨터 화면의 스크린샷: 설명이 중간 신뢰도로 자동으로 생성됩니다
 
-14. Select **Select all under Office indicators** and click **Save**.
+14. **Select all under Office indicators**를 선택하여**Save**를
+    클릭하세요.
 
 ![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId216.png)
+with medium confidence](./media/image62.png)
 
-A screenshot of a computer screen Description automatically generated
-with medium confidence
+컴퓨터 화면의 스크린샷: 설명이 중간 신뢰도로 자동으로 생성됩니다
 
-15. Select all the options and click on **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId219.png)
-
-A screenshot of a computer Description automatically generated
-
-16. On **Detection options** page, select the default and then
-    select **Next**.
+15. 모든 옵션을 선택하고**Next**를 클릭하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId222.png)
+generated](./media/image63.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-17. On **indicators** page, select **Next**.
+16. **Detection options** 페이지에서default를 선택하여 **Next**를
+    선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId166.png)
+generated](./media/image64.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-18. On **Decide whether to use default or custom indicator thresholds**,
-    select **Customise thresholds**, use **1**, **2**, and **3** events
-    for each stage respectively then select Next.
+17. **Indicators** 페이지에서 **Next**를 선택하세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image47.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+18. **Decide whether to use default or custom indicator thresholds**에서
+    **Customise thresholds**를 선택하여 각 단계에 대해 각각**1**, **2**,
+    및 **3**개의 이벤트를 사용한 후 Next를 선택하세요.
 
 ![A screenshot of a computer screen Description automatically
-generated](./media/rId227.png)
+generated](./media/image65.png)
 
-A screenshot of a computer screen Description automatically generated
+컴퓨터 화면의 스크린샷 설명이 자동으로 생성됩니다
 
-19. On **Review settings and finish**, select **Submit**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId230.png)
-
-A screenshot of a computer Description automatically generated
-
-20. On **Your policy was created**, select **Done**.
+19. **Review settings and finish**에서 **Submit**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId233.png)
+generated](./media/image66.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-21. Keep the tab open and continue to the next task.
-
-#### Step 2 – Score the policy
-
-1.  Click on the new policy named **Data theft by a user**.
-    Select **Start scoring activity for users**.
+20. **Your policy was created**에서 **Done**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId237.png)
+generated](./media/image67.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-2.  In the **Reason field in the Add users to multiple policies** pane,
-    type **Testing the policy**.
+21. 탭을 열어 두고 다음 작업을 계속하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/rId182.png)
+#### 2 단계 – 정책 점수 매기기
 
-A screenshot of a computer Description automatically generated
-
-3.  In the **This should last for (choose between 5 and 30
-    days)** field, select **10** days.
-
-4.  Use the **Search user to add to policies** field. Add **MOD Admin**.
-    Then click on **Start scoring activity**.
-
-5.  Once you get the confirmation that you have started **Scoring
-    activity for 1 users**, click **Close**.
+1.  **Data theft by a user**이라는 새 정잭을 클릭하세요. **Start scoring
+    activity for users**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId242.png)
+generated](./media/image68.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-### Task 3: Data leaks by users
-
-#### Step 1 – Create a new policy
-
-1.  If you closed the browser window in the previous task, open
-    the `https://purview.microsoft.com` and log in with admin
-    credentials.
-
-2.  Go to **Insider Risk Management** and select the **Policies** tab.
-    Select **Create policy** to open the policy wizard.
+2.  **Reason field in the Add users to multiple
+    policies** 창에서 **Testing the policy**를 입력하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId133.png)
+generated](./media/image52.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-3.  On the **Choose a policy template** page, choose **Data leaks**,
-    under **Data leaks**. Select **Next** to continue.
+3.  **This should last for (choose between 5 and 30
+    days)** 필드에서 **10**일을 선택하세요.
+
+4.  **Search user to add to policies** 필드를 사용하세요. **MOD
+    Admin**를 추가하세요. **Start scoring activity**를 클릭하세요.
+
+5.  **Scoring activity for 1 users** 활동을 시작했다는 확인을
+    받으면 **Close**를 클릭하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId249.png)
+generated](./media/image69.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-4.  On the **Name and description** page, complete the following fields:
+### 작업 3: 사용자에 의한 데이터 유출
 
-    - Name (required): `Data leaks by a user`
+#### 1단계 – 새로운 정책을 생성하기
+
+1.  이전 작업에서 브라우저 창을 닫은 경우`https://purview.microsoft.com`
+    를 열고 관리자 자격 증명으로 로그인하세요.
+
+2.  **Insider Risk Management**로 이동하고 **Policies** 탭을 선택하세요.
+    정책 wizard을 열기 위해**Create policy**를 선택하세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image36.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+3.  **Choose a policy template** 페이지의 **Data leaks**에서 **Data
+    leaks**를 선택하세요. 계속하려면 **Next**을 선택하세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image70.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+4.  **Name and description** 페이지에서 다음 필드를 완료하세요:
+
+    - Name (필수): `Data leaks by a user`
 
     - Description
-      (optional): `This is a test policy for preventing data leaks.`
+      (선택적): `This is a test policy for preventing data leaks.`
 
-5.  Select **Next** to continue.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId252.png)
-
-A screenshot of a computer Description automatically generated
-
-6.  On the **Choose users and groups** page, select **Include all users
-    and groups**. Select **Next** to continue.
+5.  계속하려면 **Next**을 선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId255.png)
+generated](./media/image71.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-7.  On the **Exclude users and groups** page, select **Next**.
+6.  **Choose users and groups** 페이지에서**Include all users and
+    groups**를 선탯하세요. 계속하려면 **Next**을 선택하세요.
 
-8.  On the **Decide whether to prioritize** page, select **I want to
-    specify priority content**. Select the check box for **SharePoint
-    sites**, **Sensitivity labels** and **Sensitive info types**.
-    Select **Next** to continue.
+![A screenshot of a computer Description automatically
+generated](./media/image72.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+7.  **Exclude users and groups** 페이지에서 **Next**를 선택하세요.
+
+8.  **Decide whether to prioritize** 페이지에서**I want to specify
+    priority content**를 선택하세요. **SharePoint sites**, **Sensitivity
+    labels** 및 **Sensitive info types**의 확인란을 선택하세요.
+    계속하려면 **Next**을 선택하세요.
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId258.png)
+medium confidence](./media/image73.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+컴퓨터 화면의 스크린샷: 설명이 중간 신뢰도로 자동으로 생성됩니다
 
-9.  On the **SharePoint sites to prioritize** page, select **Add or edit
-    SharePoint sites**. On the flyout pane,
-    select `https://{TENANTPREFIX}.sharepoint.com/sites/ContosoWeb1` and
-    select **Add**. Then click **Next**.
+9.  **SharePoint sites to prioritize** 페이지에서**Add or edit
+    SharePoint sites**를 선택하세요. 플라이아웃
+    창에서`https://{TENANTPREFIX}.sharepoint.com/sites/ContosoWeb1` 를
+    선택하고**Add**를 선택하세요. **Next**를 클릭하세요.
 
-10. On the **Sensitivity labels to prioritize** page, select **Add or
-    edit sensitivity labels**. On the flyout pane,
-    select **Internal/Employee data (HR)** and select **Add**. Then
-    click **Next**.
+10. **Sensitivity labels to prioritize** 페이지에서**Add or edit
+    sensitivity labels**를 선택하세요. 플라이아웃
+    창에서**Internal/Employee data (HR)**를 선택하여**Add**를
+    선택하세요. **Next**를 선택하세요.
 
 ![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId201.png)
+with medium confidence](./media/image57.png)
 
-A screenshot of a computer screen Description automatically generated
-with medium confidence
+컴퓨터 화면의 스크린샷: 설명이 중간 신뢰도로 자동으로 생성됩니다
 
-11. On the **Sensitive info types to prioritize** page, select **Add or
-    edit sensitive info types**. On the flyout pane, search for and
-    select **Credit Card Number**, **Contoso Employee ID** and **Contoso
-    Employee EDM**. Select **Add**. Then click **Next**.
+11. **Sensitive info types to prioritize** 페이지에서**Add or edit
+    sensitive info types**를 선택하세요. 플라이아웃 창에서**Credit Card
+    Number**, **Contoso Employee ID** 및**Contoso Employee EDM**를
+    검색하고 선택하세요.  **Add**를 선택하세요. **Next**를 클릭하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId204.png)
+generated](./media/image58.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-12. On **Decide whether to score only activity with priority content**,
-    select **Get alerts for all activity**. Select **Next**.
+12. **Decide whether to score only activity with priority content**에서
+    **Get alerts for all activity**를 선택하세요. **Next**를 선택하세요.
 
 ![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId207.png)
+with medium confidence](./media/image59.png)
 
-A screenshot of a computer screen Description automatically generated
-with medium confidence
+컴퓨터 화면의 스크린샷: 설명이 중간 신뢰도로 자동으로 생성됩니다
 
-13. On **Triggers for this policy** page, select Radio
-    button near **User performs an exfiltration activity**. Under select
-    which activities will trigger this policy, select all the available
-    options especially **Download content from SharePoint**. and then
-    select **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId267.png)
-
-A screenshot of a computer Description automatically generated
-
-14. On **Triggering thresholds for this policy**, select **Use custom
-    thresholds**. Set every threshold to **1** and select **Next**.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId270.png)
-
-A screenshot of a computer Description automatically generated with
-medium confidence
-
-15. Select the default settings on the **Indicators** page and
-    select **Next**.
-
-16. On **Decide whether to use default or custom indicator thresholds**,
-    select **Customise thresholds**, use **1**, **2**, and **3** events
-    for each stage respectively then select **Next**.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId273.png)
-
-A screenshot of a computer Description automatically generated with
-medium confidence
-
-17. On **Review settings and finish**, select **Submit**.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId276.png)
-
-A screenshot of a computer Description automatically generated with
-medium confidence
-
-18. On **Your policy was created**, select **Done**.
+13. **Triggers for this policy** 페이지에서**User performs an
+    exfiltration activity** 근처의 라디오 버튼을 선택하세요. Select
+    which activities will trigger this policy에서 사용 가능한 모든 옵션
+    특히 **Download content from SharePoint**를 선택하세요. **Next**를
+    선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId279.png)
+generated](./media/image74.png)
 
-A screenshot of a computer Description automatically generated
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-19. Keep the tab open and continue to the next task.
-
-#### Step 2 – Score the policy
-
-1.  Click on the new policy named **Data leaks by a user**.
-    Select **Start scoring activity for users**.
+14. **Triggering thresholds for this policy**에서**Use custom
+    thresholds**를 선택하세요. 모든 임계값을 **1**로 설정하고**Next**를
+    선택하세요.
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId283.png)
+medium confidence](./media/image75.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+컴퓨터 화면의 스크린샷: 설명이 중간 신뢰도로 자동으로 생성됩니다
 
-2.  In the **Reason field in the Add users to multiple policies** pane,
-    type Testing the policy. In the **This should last for (choose
-    between 5 and 30 days)** field, select **10** days. Use the **Search
-    user to add to policies** field. Add **MOD Admin**. Then click
-    on **Start scoring activity**.
+15. **Indicators** 페이지의 기본 설정을 선택하여 **Next**를 선택하세요.
 
-3.  Once you get the confirmation that you have started **Scoring
-    activity for 1 user**, click **Close**.
+16. **Decide whether to use default or custom indicator thresholds**에서
+    **Customise thresholds**를 선택하고 각 단계에 대해 각각**1**, **2**,
+    및 **3**개의 이벤트를 사용한 후 **Next**를 선택하세요.
 
-You have successfully created the Insider risk management policies.
+![A screenshot of a computer Description automatically generated with
+medium confidence](./media/image76.png)
 
-## Summary:
+컴퓨터 화면의 스크린샷: 설명이 중간 신뢰도로 자동으로 생성됩니다
 
-In this lab we explored setting up Insider Risk Management from
-end-to-end. With your own subscription and licenses, you can also use
-this lab guide to create an Azure setup that can also be used to create
-various alerts (which includes sending emails with restricted data,
-which is not possible from a trial subscription) for the Insider Risk
-management policies which you can use to explore the Adaptive Protection
-feature on Purview.
+17. **Review settings and finish**에서**Submit**를 선택하세요.
+
+![A screenshot of a computer Description automatically generated with
+medium confidence](./media/image77.png)
+
+컴퓨터 화면의 스크린샷: 설명이 중간 신뢰도로 자동으로 생성됩니다
+
+18. **Your policy was created**에서 **Done**를 선택하세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image78.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+19. 탭을 열어 두고 다음 작업을 계속하세요.
+
+#### 2 단계 – 정책 점수 매기기
+
+1.  **Data leaks by a user**라는 새 정책을 클릭하세요. Select **Start
+    scoring activity for users**를 선택하세요.
+
+![A screenshot of a computer Description automatically generated with
+medium confidence](./media/image79.png)
+
+컴퓨터 화면의 스크린샷: 설명이 중간 신뢰도로 자동으로 생성됩니다
+
+2.  **Reason field in the Add users to multiple policies** 창에서
+    Testing the policy를 클릭하세요. **This should last for (choose
+    between 5 and 30 days)** 필드에서 **10**일을 선택하세요. **Search
+    user to add to policies** 필드를 사용하세요. **MOD Admin**를
+    사용하세요. **Start scoring activity**를 클릭하세요.
+
+3.  **Scoring activity for 1 user** 활동을 시작했다는 확인을
+    받으면**Close**를 클릭하세요.
+
+Insider risk management 정책을 성공적으로 생성했습니다.
+
+## 요약:
+
+이 실습에서는end-to-end에서 Insider Risk Management를 설정하는 방법을
+살펴봤습니다. 사용자 고유의 구독 및 라이선스가 있으면 이 실습 가이드를
+사용하여 Purview에서 Adaptive Protection 기능을 탐색하는 데 사용할 수
+있는 Insider Risk management 정책에 대한 다양한 경고 (평가판 구독에서는
+사용할 수 없는 제한된 데이터가 포함된 이메일 보내기 포함)를 생성하는
+데에도 사용할 수 있는 Azure 설정을 생성할 수 있습니다.
