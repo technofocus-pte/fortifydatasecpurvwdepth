@@ -1,315 +1,413 @@
-# Lab 9 – Configuring Communication Compliance
+# Lab 9 – Konfigurieren der Kommunikationscompliance
 
-## Objective:
+## Ziel:
 
-In this lab you will configure a compliance policy to detect any
-sensitive information being communicated by the users in your
-organisation. You will use the sensitive info types created in the
-earlier lab, to detect the employee health data or employee IDs being
-communicated through Emails.
+In diesem Lab konfigurieren Sie eine Konformitätsrichtlinie, um
+vertrauliche Informationen zu erkennen, die von den Benutzern in Ihrer
+Organisation kommuniziert werden. Sie verwenden die Typen vertraulicher
+Informationen, die im vorherigen Lab erstellt wurden, um die
+Gesundheitsdaten der Mitarbeiter oder die Mitarbeiter-IDs zu erkennen,
+die über E-Mails übermittelt werden.
 
-## Exercise 1 – Enabling permissions for communication compliance
+## Übung 1 – Aktivieren von Berechtigungen für die Kommunikationscompliance
 
-In this task you will assign users to specific role groups to segment
-communication compliance access and responsibilities among different
-users in your organization.
+In dieser Aufgabe weisen Sie Benutzer bestimmten Rollengruppen zu, um
+Kommunikation, Compliance, Zugriff und Zuständigkeiten zwischen
+verschiedenen Benutzern in Ihrer Organisation zu segmentieren.
 
-1.  If the Microsoft Purview portal is open continue to step 2,
-    otherwise, open the ```https://purview.microsoft.com``` and log
-    in with the **MOD Administrator** credentials.
+1.  Wenn das Azure Purview-Portal geöffnet ist, fahren Sie mit Schritt 2
+    fort, andernfalls öffnen Sie das
+    `https://purview.microsoft.com, `und melden Sie sich mit den
+    Anmeldeinformationen des **MOD-Administrators** an.
 
-2.  In the navigation select **Settings**, and select **Role**
-    **groups** under **Role groups**, select **Communication
-    Compliance**. Then select **Edit**. On the side pane, again select
-    **Edit**.
+&nbsp;
+
+1.  Wählen Sie in der Navigation **Settings** aus, und wählen Sie unter
+    Role Groups die Option **Role Groups** aus, wählen Sie
+    **Communication Compliance** aus. Wählen Sie dann **Edit** aus.
+    Wählen Sie im Seitenbereich erneut **Edit** aus.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image1.png)
 
-3.  On the **Edit members of the role group** select **Choose Users**.
+*Ein Screenshot einer automatisch generierten Computerbeschreibung.*
+
+3.  Wählen Sie in der **Edit members of the role group** die Option
+    **Choose Users** aus**.**
+
+![A screenshot of a computer Description automatically
+generated](./media/image2.png)
+
+*Ein Screenshot einer automatisch generierten Computerbeschreibung.*
+
+4.  Stellen Sie sicher, dass Sie **MOD-Administrator**, **Megan Bowen**
+    und **Patti Fernandez** auswählen. Wählen Sie dann **Select**.
+
+![](./media/image3.png)
+
+5.  Wählen Sie **Next** aus.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image4.png)
 
-4.  Make sure to select **MOD Administrator**, **Megan Bowen**, and
-    **Patti Fernandez**. Then choose **Select**.
+Ein Screenshot einer automatisch generierten Computerbeschreibung.
 
-![](./media/image7.png)
-
-5.  Select **Next**.
+6.  Wählen Sie **Save** aus, um die Benutzer der Rollengruppe
+    hinzuzufügen. Wählen Sie **Done** aus, um die Schritte
+    abzuschließen.
 
 ![A screenshot of a computer Description automatically
+generated](./media/image5.png)
+
+Ein Screenshot einer automatisch generierten Computerbeschreibung. ![A
+screenshot of a computer Description automatically
+generated](./media/image6.png)
+
+Ein Screenshot einer automatisch generierten Computerbeschreibung.
+
+## Übung 2 – Einrichten von Gruppen für die Kommunikationscompliance
+
+In der Richtlinie verwenden Sie E-Mail-Adressen, um Einzelpersonen oder
+Personengruppen zu identifizieren. Um die Einrichtung zu vereinfachen,
+können Sie Gruppen für Personen erstellen, deren Kommunikation überprüft
+wird, und Gruppen für Personen, die diese Kommunikation überprüfen.
+
+Sie können PowerShell verwenden, um eine Verteilergruppe für eine
+globale Kommunikationskonformitätsrichtlinie für die zugewiesene Gruppe
+zu konfigurieren. Auf diese Weise können Sie Nachrichten für Tausende
+von Benutzern mit einer einzigen Richtlinie erkennen und die Richtlinie
+zur Einhaltung der Kommunikation aktualisieren, wenn neue Mitarbeiter
+Ihrer Organisation beitreten.
+
+1.  Öffnen Sie **PowerShell** im Administratormodus.
+
+2.  Geben Sie das folgende Cmdlet ein, um das **Exchange Online
+    PowerShell-Modul** zu verwenden und eine Verbindung mit Ihrem
+    Mandanten herzustellen:
+
+`Connect-ExchangeOnline`
+
+![Text Description automatically generated](./media/image7.png)
+
+Text Beschreibung wird automatisch generiert
+
+3.  Wenn das Sign In Fenster angezeigt wird, melden Sie sich als
+    **MOD-Administrator** an.
+
+![BrokenImage](./media/image8.png)
+
+
+4.  Erstellen Sie eine dedizierte Verteilergruppe für Ihre globale
+    Kommunikationskonformitätsrichtlinie mit den folgenden
+    Eigenschaften:
+
+    - **MemberDepartRestriction = Closed**. Stellt sicher, dass Benutzer
+      sich nicht selbst aus der Verteilergruppe entfernen können.
+
+    - **MemberJoinRestriction = Closed**. Stellt sicher, dass Benutzer
+      sich nicht selbst zur Verteilergruppe hinzufügen können.
+
+    - **ModerationEnabled = True**. Stellt sicher, dass alle
+      Nachrichten, die an diese Gruppe gesendet werden,
+      genehmigungspflichtig sind und dass die Gruppe nicht für die
+      Kommunikation außerhalb der Konfiguration der
+      Kommunikationskonformitätsrichtlinie verwendet wird.
+
+`New-DistributionGroup -Name "Communication Compliance Group Contoso" -Alias "CCG_Contoso" -MemberDepartRestriction 'Closed' -MemberJoinRestriction 'Closed' -ModerationEnabled $true`
+
+![BrokenImage](./media/image9.png)
+
+
+**Anmerkung:** Sie können ein **Exchange Custom Attribute** wie im
+**folgenden Befehl hinzufügen**, um Benutzer nachzuverfolgen, die der
+Richtlinie für die Kommunikationscompliance in Ihrer Organisation
+hinzugefügt wurden.
+
+`Set-DistributionGroup -Identity "Communication Compliance Group Contoso"-CustomAttribute1 "MonitoredCommunication"`
+
+![A screen shot of a computer Description automatically
 generated](./media/image10.png)
 
-6.  Select **Save** to add the users to the role group.
-    Select **Done** to complete the steps.
+*Ein Screenshot einer automatisch generierten Computerbeschreibung.*
 
-![A screenshot of a computer Description automatically
-generated](./media/image12.png)
+5.  Führen Sie das folgende PowerShell-Skript nach einem wiederkehrenden
+    Zeitplan aus, um Benutzer zur Richtlinie für die
+    Kommunikationscompliance hinzuzufügen:
+
+&nbsp;
+
+    $Mbx = (Get-Mailbox -RecipientTypeDetails UserMailbox -ResultSize Unlimited -Filter {CustomAttribute9 -eq $Null})
+    $i = 0
+    ForEach ($M in $Mbx)
+    {
+    Write-Host "Adding" $M.DisplayName
+    Add-DistributionGroupMember -Identity "Communication Compliance Group Contoso" -Member $M.DistinguishedName -ErrorAction SilentlyContinue
+    Set-Mailbox -Identity $M.Alias -CustomAttribute1 "MonitoredCommunication"
+    $i++
+    }
+    Write-Host $i "Mailboxes added to supervisory review distribution group."
+
+![BrokenImage](./media/image11.png)
+
+
+**Anmerkung:** Dieses Skript soll nach jedem bestimmten Intervall
+ausgeführt werden. Ab sofort können Sie die Verteilerliste unter Aktive
+Teams und Gruppen im Microsoft 365 Admin Center sehen.
+
+Wenn Sie auf den Gruppennamen klicken, können Sie alle Benutzer sehen,
+die auf der Registerkarte Mitglieder aufgelistet sind.
+
+![BrokenImage](./media/image12.png)
+
+
+## Übung 3 – Erstellen einer Kommunikationscompliancerichtlinie
+
+1.  Wenn das Microsoft Purview-Complianceportal geöffnet ist, fahren Sie
+    mit Schritt 2 fort, andernfalls öffnen Sie das
+    `https://purview.microsoft.com, `und melden Sie sich als
+    **MOD-Administrator** an.
+
+&nbsp;
+
+1.  Wählen Sie im Azure Purview-Portal die Option **Solutions** \>
+    **Communication compliance** aus.
+
+&nbsp;
+
+1.  Wählen Sie in der Unternavigation die Option **Policy** aus. Wählen
+    Sie dann **Create Policy** aus.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image13.png)
 
-## Exercise 2 – Setting up groups for communication compliance
+*Ein Screenshot einer automatisch generierten Computerbeschreibung.*
 
-In the policy, you'll use email addresses to identify individuals or
-groups of people. To simplify your setup, you can create groups for
-people who have their communication reviewed and groups for people who
-review those communications.
+4.  Wählen Sie **Custom Policy** aus der Dropdown-Liste aus.
 
-You can use PowerShell to configure a distribution group for a global
-communication compliance policy for the assigned group. This enables you
-to detect messages for thousands of users with a single policy and keep
-the communication compliance policy updated as new employees join your
-organization.
+![](./media/image14.png)
 
-1.  Open **PowerShell** in administrator mode.
+5.  Auf der Name your DLP policy Seite, geben Sie
+    `My first communication compliance policy` im **Name** Feld ein und
+    `This is a policy to test communication compliance` im
+    **Description** Feld ein. Wählen Sie dann **Next** aus.
 
-2.  Enter the following cmdlet to use the **Exchange Online
-    PowerShell** module and connect to your tenant:
+![Graphical user interface, text, application Description automatically
+generated](./media/image15.png)
 
-```Connect-ExchangeOnline```
+Grafische Benutzeroberfläche, Text, Anwendung Beschreibung wird
+automatisch generiert
 
-![Text Description automatically generated](./media/image14.png)
+1.  Behalten Sie auf der Seite **Choose supervised users and reviewers**
+    die restlichen Standardeinstellungen bei, und fügen Sie unter
+    Überprüfungen **Patti Fernandez** hinzu. Klicken Sie dann auf
+    **Next**.
 
-3.  When the **Sign in** window is displayed, sign in as **MOD
-    Administrator**.
+![A screenshot of a computer Description automatically
+generated](./media/image16.png)
 
-![BrokenImage](./media/image15.png)
+*Ein Screenshot einer automatisch generierten Computerbeschreibung.*
 
-4.  Create a dedicated distribution group for your global communication
-    compliance policy with the following properties:
+7.  Auf der **Communications** Seite, aktivieren Sie alle Kästchen unter
+    **Microsoft 365 Locations** und klicken Sie auf **Next**.
 
-    - **MemberDepartRestriction = Closed**. Ensures that users can't
-      remove themselves from the distribution group.
-
-    - **MemberJoinRestriction = Closed**. Ensures that users can't add
-      themselves to the distribution group.
-
-    - **ModerationEnabled = True**. Ensures that all messages sent to
-      this group are subject to approval and that the group isn't being
-      used to communicate outside of the communication compliance policy
-      configuration.
-
-```New-DistributionGroup -Name "Communication Compliance Group Contoso" -Alias "CCG_Contoso" -MemberDepartRestriction 'Closed' -MemberJoinRestriction 'Closed' -ModerationEnabled $true```
-
-![BrokenImage](./media/image16.png)
-
-**Note:** You can add an **Exchange Custom Attribute** as in
-the **following command** to track users added to the communication
-compliance policy in your organization.
-
-```Set-DistributionGroup -Identity "Communication Compliance Group Contoso"-CustomAttribute1 "MonitoredCommunication"```
-
-![A screen shot of a computer Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image17.png)
 
-5.  Run the following PowerShell script on a recurring schedule to add
-    users to the communication compliance policy:
+*Ein Screenshot einer automatisch generierten Computerbeschreibung.*
 
-```
-$Mbx = (Get-Mailbox -RecipientTypeDetails UserMailbox -ResultSize Unlimited -Filter {CustomAttribute9 -eq $Null})
-$i = 0
-ForEach ($M in $Mbx)
-{
-Write-Host "Adding" $M.DisplayName
-Add-DistributionGroupMember -Identity "Communication Compliance Group Contoso" -Member $M.DistinguishedName -ErrorAction SilentlyContinue
-Set-Mailbox -Identity $M.Alias -CustomAttribute1 "MonitoredCommunication"
-$i++
-}
-Write-Host $i "Mailboxes added to supervisory review distribution group."
-```
+1.  Wählen Sie unter **Choose conditions and review percentage** die
+    Option **Add condition** aus, und wählen Sie in der Dropdownliste
+    die Option **Content contains any of these sensitive info types**
+    aus.
 
-![BrokenImage](./media/image18.png)
+![A screenshot of a computer screen Description automatically
+generated](./media/image18.png)
 
-**Note:** This script is supposed to be run after every particular
-interval. As of now you will be able to see the Distribution list under
-Active teams & Groups in Microsoft 365 admin center.
+*Ein Screenshot einer automatisch generierten Computerbeschreibung.*
 
-If you click on the group name, you will be able to see all the users
-listed under members tab.
+1.  Wählen Sie im Feld **Content contains any of these sensitive info
+    types** die Option **Add** aus, klicken Sie auf **Sensitive info
+    types**, und suchen Sie nach **Contoso**. Aktivieren Sie die
+    Kontrollkästchen für alle Typen vertraulicher Informationen, die wir
+    in früheren Labs erstellt haben. Klicken Sie dann auf **Add.**
 
-![BrokenImage](./media/image19.png)
+![Graphical user interface, text, application Description automatically
+generated](./media/image19.png)
 
-## Exercise 3 – Creating a communication compliance policy
+Grafische Benutzeroberfläche, Text, Anwendung Beschreibung wird
+automatisch generiert
 
-1.  If the Microsoft Purview compliance portal is open continue to step
-    2, otherwise, open the ```https://purview.microsoft.com``` and
-    log in as **MOD Administrator**.
+1.  Aktivieren Sie unter **Bedingungen und Überprüfungsprozentsatz
+    auswählen** das Kontrollkästchen neben **Use OCR to extract text
+    from images**, legen Sie **den Review percentage to 100%**, fest,
+    und klicken Sie dann auf **Next**.
 
-2.  In the Microsoft Purview portal, select **Soltions** \>
-    **Communication compliance**.
+![Graphical user interface, application Description automatically
+generated](./media/image20.png)
 
-3.  Select from the sub-navigation, select **Policy**. Then select
-    **Create policy**.
+Grafische Benutzeroberfläche, Anwendung Beschreibung wird automatisch
+generiert
+
+11. Wählen Sie auf der Seite **Review and finish** die Option **Create
+    Policy** aus.
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image21.png)
+
+Grafische Benutzeroberfläche, Text, Anwendung Beschreibung wird
+automatisch generiert
+
+12. Die Seite **Your policy was created** wird mit Richtlinien
+    angezeigt, wann die Richtlinie aktiviert wird und welche
+    Kommunikationen erfasst werden.
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image22.png)
+
+Grafische Benutzeroberfläche, Text, Anwendung Beschreibung wird
+automatisch generiert
+
+## Übung 4 – Bearbeiten einer Kommunikationscompliancerichtlinie
+
+1.  Wenn das Microsoft Purview-Complianceportal geöffnet ist, fahren Sie
+    mit Schritt 2 fort, andernfalls öffnen Sie die
+    `https://purview.microsoft.com,` und melden Sie sich als
+    **MOD-Administrator** an.
+
+&nbsp;
+
+1.  Wechseln Sie im Azure Purview-Portal zu **Settings** \>
+    **Communication compliance** \> **Policies**, wählen Sie die drei
+    Punkte neben **My first communication compliance policy** aus, und
+    wählen Sie **Edit** aus.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image23.png)
 
-4.  Select **Custom policy** from the drop down.
+*Ein Screenshot einer automatisch generierten Computerbeschreibung.*
 
-![](./media/image25.png)
-
-5.  On the Name your DLP policy page, type ```My first communication compliance policy``` in the **Name** field and ```This is a policy to test communication compliance``` in the **Description** field. Select **Next**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image26.png)
-
-6.  On the **Choose supervised users and reviewers** page, keep rest of
-    the default settings and under reviews add **Patti Fernandez**. Then
-    click on **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image28.png)
-
-7.  On the **communications** page, check all the boxes
-    under **Microsoft 365 locations** and click on **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image30.png)
-
-8.  On the **Choose conditions and review percentage**, select **Add
-    condition**, from the drop down, select **Content contains any of
-    these sensitive info types**.
-
-![A screenshot of a computer screen Description automatically
-generated](./media/image32.png)
-
-9.  In the **Content contains any of these sensitive info types** box,
-    select **Add**, click on **Sensitive info types**, and search
-    for **contoso**. Check the boxes for all the sensitive info types we
-    created in earlier labs. Then click **Add**
+3.  Lassen Sie das Feld **Name and describe your policy** leer und
+    klicken Sie auf **Next**.
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/image33.png)
+generated](./media/image24.png)
 
-10. On **Choose conditions and review percentage**, check the box
-    beside **Use OCR to extract text from images**, set **Review
-    percentage to 100%**, and then click on **Next**.
+Grafische Benutzeroberfläche, Text, Anwendung Beschreibung wird
+automatisch generiert
 
-![Graphical user interface, application Description automatically
-generated](./media/image34.png)
-
-11. On **Review and finish** page, select **Create policy**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image35.png)
-
-12. The **Your policy was created** page is displayed with guidelines on
-    when policy will be activated and which communications will be
-    captured.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image36.png)
-
-## Exercise 4 – Editing a communication compliance policy
-
-1.  If the Microsoft Purview compliance portal is open continue to step
-    2, otherwise, open the ```https://purview.microsoft.com``` and
-    log in as **MOD Administrator**.
-
-2.  In the Microsoft Purview portal, go to **Settings** \>
-    **Communication compliance** \> **Policies**, select the three dots
-    near **My first communication compliance policy** and
-    select **Edit**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image37.png)
-
-3.  Leave the **Name and describe your policy** blank and
-    click **Next**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image39.png)
-
-4.  On **Choose supervised user and reviewers** and under **Supervised
-    users and groups**, select the **Select users** button.
+1.  Wählen Sie unter **Choose supervised user and reviewers** und unter
+    **Supervised users and groups** die Schaltfläche **Select users**
+    aus.
 
 ![Graphical user interface, application, Teams Description automatically
-generated](./media/image40.png)
+generated](./media/image25.png)
 
-5.  In the **Start typing to find users or groups**, search
-    for **Communication** and select **Communication Compliance Groups
-    Contoso**.
+Grafische Benutzeroberfläche, Anwendung, Teams Beschreibung automatisch
+generiert
 
-![](./media/image42.png)
+1.  Suchen Sie unter **Start typing to find users or groups**, suchen
+    Sie nach **Communication,** und wählen Sie **Communication
+    Compliance Groups Contoso** aus.
 
-6.  On Choose supervised user and reviewers under Reviewers add MOD
-    Administrator to the Reviewers.
+![](./media/image26.png)
+
+6.  Auf Choose supervised user und reviewers unter Reviewers fügen Sie
+    MOD-Administrator zu den Reviewers hinzu.
 
 ![Graphical user interface, application, Teams Description automatically
-generated](./media/image44.png)
+generated](./media/image27.png)
 
-7.  Select **Next** till you reach **Review and finish** page.
+Grafische Benutzeroberfläche, Anwendung, Teams Beschreibung automatisch
+generiert
 
-8.  Click on **Save**.
+7.  Wählen Sie **Next** aus, bis Sie die Seite **Review and Finish**
+    erreichen.
 
-## Exercise 5 – Creating notice templates and configure user anonymization
+8.  Klicken Sie auf **Save**.
 
-1.  In the Microsoft Purview portal, select Settings from the top right
-    corner and the select **Communication compliance**.
+## Übung 5 – Erstellen von Hinweisvorlagen und Konfigurieren der Benutzeranonymisierung
 
-![](./media/image45.png)
+1.  Wählen Sie im Azure Purview-Portal in der oberen rechten Ecke
+    Einstellungen aus, und wählen Sie dann **Communication compliance**
+    aus.
 
-2.  Select the **Privacy** tab. To enable anonymization, make
-    sure **Show anonymized versions of usernames** is selected.
-    Select **Save**.
+![](./media/image28.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image48.png)
-
-3.  Navigate to the **Notice templates** tab and then select **Create
-    notice template**.
-
-![](./media/image49.png)
-
-4.  On the **Modify a notice template** page, complete the following
-    fields:
-
-    - Template name (required): ```Sample Notice```
-
-    - Send from (required): Select **Patti Fernandez** by
-      typing **Patti** and selecting the name from the drop down.
-
-    - Cc (optional): Select **MOD** **administrator** by
-      typing **MOD** and selecting the name from the drop down.
-
-    - Subject (required): ```Your communication violets company Communication compliance policy.```
-
-    - Message body (required): ```Please note this for future reference and provide an acceptable justification for your current communication. ```
-
-5.  Select **Create** to create and save the notice template.
+1.  Wählen Sie die Registerkarte **Privacy** aus. Um die Anonymisierung
+    zu aktivieren, stellen Sie sicher, dass **Show anonymized versions
+    of usernames** ausgewählt ist. Wählen Sie **Save** aus.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image52.png)
+generated](./media/image29.png)
 
-## Exercise 6 – Testing your communication compliance policy
+*Ein Screenshot einer automatisch generierten Computerbeschreibung*
 
-In the trial account you will not have the privilege to send any email
-but you can check out the following steps to understand how to test the
-policy when you have your own licenses. You can perform steps but your
-mail will not be able to reach the receiver from your current tenant.
+3.  Navigieren Sie zur Registerkarte **Notice templates** und wählen Sie
+    dann **Create** **Notice templates** aus.
 
-1.  Open outlook by going
-    to ```https://outlook.office365.com/mail/```and sign in with the
-    username ```adelev@{TENANTPREFIX}.onmicrosoft.com``` and the User
-    Password.
+![](./media/image30.png)
 
-2.  Send an email to your personal email account with the following
-    message body.
+4.  Füllen Sie auf der Seite **Modify a notice template** die folgenden
+    Felder aus:
 
-Message body: ```Employee Patti Fernandez EMP123456 is on absence because of the flu/influenza```
+    - Name der Vorlage (erforderlich): `Sample Notice`
 
-**Note** Email messages can take approximately 24 hours to fully process
-in a policy. Communications in Microsoft Teams, Yammer, and third-party
-platforms can take approximately 48 hours to fully process in a policy.
+    1.  Senden von (erforderlich): Wählen Sie **Patti Fernandez** aus,
+        indem Sie **Patti** eingeben und den Namen aus der
+        Dropdown-Liste auswählen.
 
-Sign in to ```https://purview.microsoft.com/``` as **Patti
-Fernandez**. Navigate to **Communication compliance** \> **Alerts** to
-view the alerts for your policies after 24 hours.
+    - Cc (optional): Wählen Sie **MOD-Administrator** aus, indem Sie
+      **MOD** eingeben und den Namen aus der Dropdown-Liste auswählen.
 
-**Summary:**
+    - Betreff
+      (erforderlich): `Your communication violets company Communication compliance policy.`
 
-In this lab we learned how to enable the permissions for communication
-compliance, create the policies, manage them and then create notice
-templates and configure user anonymization.
+    - Nachrichtentext
+      (erforderlich): `Please note this for future reference and provide an acceptable justification for your current communication.`
+
+5.  Wählen Sie **Create** aus, um die Hinweisvorlage zu erstellen und zu
+    speichern.
+
+![A screenshot of a computer Description automatically
+generated](./media/image31.png)
+
+## *Ein Screenshot einer automatisch generierten Computerbeschreibung* 
+
+## Übung 6 – Testen Ihrer Kommunikationscompliancerichtlinie
+
+Im Testkonto haben Sie nicht die Berechtigung, E-Mails zu senden, aber
+Sie können die folgenden Schritte ausführen, um zu verstehen, wie Sie
+die Richtlinie testen können, wenn Sie über Ihre eigenen Lizenzen
+verfügen. Sie können Schritte ausführen, aber Ihre E-Mail kann den
+Empfänger Ihres aktuellen Mieters nicht erreichen.
+
+1.  Öffnen Sie Outlook, indem Sie zu
+    `https://outlook.office365.com/mail/ `wechseln und sich mit dem
+    Benutzernamen `adelev@{TENANTPREFIX``}. onmicrosoft.com` und dem
+    Benutzerkennwort anmelden.
+
+&nbsp;
+
+1.  Senden Sie eine E-Mail an Ihr persönliches E-Mail-Konto mit dem
+    folgenden Nachrichtentext.
+
+Message
+body: `Employee Patti Fernandez EMP123456 is on absence because of the flu/influenza`
+
+**Anmerkung:** Es kann ungefähr 24 Stunden dauern, bis
+E-Mail-Nachrichten in einer Richtlinie vollständig verarbeitet werden.
+Die Kommunikation in Microsoft Teams, Yammer und Plattformen von
+Drittanbietern kann etwa 48 Stunden dauern, bis sie vollständig in einer
+Richtlinie verarbeitet wird.
+
+Melden Sie sich in `https://purview.microsoft.com/` als **Patti
+Fernandez** an. Navigieren Sie zu **Communication
+compliance** \> **Alerts**, um die Warnungen für Ihre Richtlinien nach
+24 Stunden anzuzeigen.
+
+**Zusammenfassung:**
+
+In diesem Lab haben wir gelernt, wie Sie die Berechtigungen für die
+Kommunikationscompliance aktivieren, die Richtlinien erstellen,
+verwalten und dann Benachrichtigungsvorlagen erstellen und die
+Benutzeranonymisierung konfigurieren.
