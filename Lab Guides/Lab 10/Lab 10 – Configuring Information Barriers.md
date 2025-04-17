@@ -28,7 +28,7 @@ Para esta estructura, el plan de Contoso incluye tres políticas de IB:
 
 ![BrokenImage](./media/image1.png)
 
-BrokenImage
+
 
 2.  Ejecute lo siguiente:
 
@@ -71,7 +71,6 @@ automáticamente
 
 ![BrokenImage](./media/image5.png)
 
-BrokenImage
 
 7.  Ejecute el siguiente commando uno por uno en **PowerShell** para
     crear la esctructura organizativa.
@@ -80,7 +79,6 @@ BrokenImage
 
 ![BrokenImage](./media/image6.png)
 
-BrokenImage
 
 `New-OrganizationSegment -Name "Sales" -UserGroupFilter "Department -eq 'Sales'"`
 
@@ -190,7 +188,6 @@ automáticamente
 
 ![BrokenImage](./media/image16.png)
 
-BrokenImage
 
 10. En la página **Review your settings**, revise la configuración que
     ha elegido para la política y cualquier sugerencia o advertencia
@@ -200,7 +197,7 @@ BrokenImage
 
 ![BrokenImage](./media/image17.png)
 
-BrokenImage
+
 
 11. Seleccione **Done** una vez creada la política.
 
@@ -216,7 +213,7 @@ automáticamente
 
 ![BrokenImage](./media/image1.png)
 
-BrokenImage
+
 
 2.  Ejecute lo siguiente:
 
@@ -251,7 +248,7 @@ automáticamente
 
 ![BrokenImage](./media/image20.png)
 
-BrokenImage
+
 
 6.  Ejecute el siguiente commando para crear una política de IB llamada,
     **Manufacturing-HRMarketing**. Cuando esta política esté active y se
