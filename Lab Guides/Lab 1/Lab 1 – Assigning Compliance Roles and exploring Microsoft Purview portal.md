@@ -1,7 +1,6 @@
-Atelier 1 – Attribution de rôles de conformité et exploration du portail
-Microsoft Purview
+# Atelier 1 – Attribution de rôles de conformité et exploration du portail 
+# Microsoft Purview
 
-Objectif :
 
 Dans cet atelier, nous créons des utilisateurs et leur attribuons des
 rôles, des équipes et des groupes appropriés dans le Centre
