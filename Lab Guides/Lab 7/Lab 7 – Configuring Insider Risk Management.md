@@ -1,855 +1,908 @@
-# Lab 7 – Configuring Insider Risk Management
+# Laboratório 7 – Configurando o Insider Risk Management
 
-## Objective:
+## Objetivo:
 
-In this lab we will learn how to configure Insider Risk Management using
-the Insider Risk Management Policies. We will use the Sensitive Info
-Types that we created in Lab 2 and DLP policies that we created in Lab 5
-to create policies which will secure the organisation against risky
-browser usage or any data theft or leaks.
+Neste laboratório, aprenderemos como configurar o Insider Risk
+Management usando as Políticas de Insider Risk Management. Usaremos os
+Tipos de Informações Confidenciais que criamos no Laboratório 2 e as
+políticas de DLP que criamos no Laboratório 5 para criar políticas que
+protegerão a organização contra o uso arriscado do navegador ou qualquer
+roubo ou vazamento de dados.
 
-To do this we will create an infrastructure in Azure that will represent
-the devices in an organisation. We will learn how to onboard those
-devices in Azure AD and Intune, and install an MDM agent on them, so
-that they can be used to get the alerts from those machines.
+Para fazer isso, criaremos uma infraestrutura no Azure que representará
+os dispositivos em uma organização. Aprenderemos como integrar esses
+dispositivos no Azure AD e no Intune e instalar um agente MDM neles,
+para que eles possam ser usados para obter os alertas dessas máquinas.
 
-## Exercise 1: Synchronize the VM clock
+## Exercício 1: Sincronizar o relógio da VM
 
-1.  After logging into the VM, select the windows icon. Then search
-    for **Date and time**, and select **Date and time settings**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId21.jpg)
-
-A screenshot of a computer Description automatically generated
-
-2.  On the Settings screen that opens up, click on the **Sync
-    now** under Additional settings.
+1.  Depois de fazer login na VM, selecione o ícone do Windows. Em
+    seguida, procure por **Date and time**, e selecione **Date and time
+    settings**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId24.jpg)
+generated](./media/image1.jpg)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-3.  This takes care of synchronizing the time just in case the automatic
-    synchronization does not work.
+2.  Na tela Settings que se abre, clique em **Sync now** em Additional
+    settings.
+
+![A screenshot of a computer Description automatically
+generated](./media/image2.jpg)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+3.  Isso sincroniza a hora caso a sincronização automática não
+    funcionar.
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId27.png)
+medium confidence](./media/image3.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+Uma captura de tela de uma descrição de computador gerada
+automaticamente com confiança média
 
-## Exercise 2: Create Insider Risk Management policies.
+## Exercício 2: Criar políticas de Insider Risk Management.
 
-### Prerequisites
+### Pré-requisitos
 
-#### Step 1 – Add users to Insider risk management role group
+#### Etapa 1 - Adicionar usuários ao grupo de Insider risk management
 
-1.  If the Microsoft Purview portal is open continue to step 2,
-    otherwise, open the `https://purview.microsoft.com` and log in with
-    the **MOD Administrator** credentials.
+> 1\. Se o portal Microsoft Purview estiver aberto, vá para a etapa 2;
+> caso contrário, abra o portal  `https://purview.microsoft.com` e faça
+> login com as credenciais de **MOD Administrator**.
 
-![](./media/rId31.png)
+![](./media/image4.png)
 
-2.  In the navigation select **Settings**, and select **Role groups**
-    under **Role groups**, select **Insider Risk Management**. Then
-    select **Edit**. On the side pane, again select **Edit**
+2.  Na navegação, selecione **Settings** e grupos de funções. Em **Role
+    groups**, selecione **Insider Risk Management**. Em seguida,
+    selecione **Edit**. No painel lateral, selecione novamente **Edit**
 
-![](./media/rId34.png)
+![](./media/image5.png)
 
-3.  On the **Edit Members of the role group** page, select **Choose
+3.  Na página **Edit Members of the role group**, selecione **Choose
     users**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId37.png)
+generated](./media/image6.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-4.  Select the checkbox near **MOD Admin**,
-    **Patti**, **Megan** and **Alex**. Then choose **Select**.
+4.  Marque a Caixa de seleção próxima a **MOD Admin**,
+    **Patti**, **Megan** e **Alex**. Em seguida, selecione **Select**.
 
-![](./media/rId40.png)
+![](./media/image7.png)
 
-5.  Then select **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId43.png)
-
-A screenshot of a computer Description automatically generated
-
-6.  Select **Save** to add the users to the role group.
+5.  Em seguida, selecione **Next**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId46.png)
+generated](./media/image8.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-7.  Select **Done** to complete the steps.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId49.png)
-
-A screenshot of a computer Description automatically generated
-
-#### Step 2 – Enable insider risk analytics insights
-
-1.  In the Microsoft Purview portal. Navigate to **Settings**, go
-    to **Insider risk management**. Go to **Analytics**, and enable the
-    radio button, and click on **Save**.
-
-![](./media/rId53.png)
-
-#### Step 3 – Onboarding a device
-
-In this deployment scenario, you’ll onboard devices that hasn’t been
-onboarded yet, and you just want to detect insider risk activities on
-Windows 10 devices.
-
-We need to register our device/VM in Microsoft Entra ID as a
-prerequisite to creating any Insider Risk Policy.
-
-1.  Open windows **Setting** on your VM.
+6.  Selecione **Save** para adicionar os usuários ao grupo de funções.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId57.png)
+generated](./media/image9.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-2.  Go to **Accounts** \> **Access work or school**. On the **Access
-    work or school** page, click on **Connect**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId60.png)
-
-A screenshot of a computer Description automatically generated
-
-3.  In the **Set up a work or school account** prompt, click on **Join
-    this device to Microsoft Entra ID**.
-
-![](./media/rId63.png)
-
-4.  In the sign in prompt, sign in with **MOD
-    Administrator** credentials given on the resources tab of your lab
-    environment. 
+7.  Selecione **Done** para concluir as etapas.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId66.png)
+generated](./media/image10.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+#### Etapa 2 - Habilitar insights de análise de risco interno
+
+1.  No portal Microsoft Purview. Navegue até **Settings**, vá para o
+    **Insider risk management**. Vá para **Analytics**, ative o botão de
+    opção e clique em **Save**.
+
+![](./media/image11.png)
+
+#### Etapa 3 - Integração de um dispositivo
+
+Nesse cenário de implementação, você integrará dispositivos que ainda
+não foram integrados e deseja apenas detectar atividades de risco
+internas em dispositivos Windows 10.
+
+Precisamos registrar nosso dispositivo/VM no Microsoft Entra ID como um
+pré-requisito para criar qualquer política de risco interno.
+
+1.  Abra o Windows **Setting** em sua VM.
+
+![A screenshot of a computer Description automatically
+generated](./media/image12.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+2.  Vá para **Accounts** \> **Access work or school**. Na
+    página **Access work or school**, clique em **Connect**.
+
+![A screenshot of a computer Description automatically
+generated](./media/image13.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+3.  No prompt **Set up a work or school account**, clique em **Join this
+    device to Microsoft Entra ID**.
+
+![](./media/image14.png)
+
+4.  No prompt de login, faça login com as credenciais de **MOD
+    Administrator** fornecidas na guia de recursos do seu ambiente de
+    laboratório. 
+
+![A screenshot of a computer Description automatically
+generated](./media/image15.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
 ![Graphical user interface, application, PowerPoint Description
-automatically generated](./media/rId69.png)
+automatically generated](./media/image16.png)
 
-Graphical user interface, application, PowerPoint Description
-automatically generated
+Interface gráfica do usuário, aplicativo, Descrição do PowerPoint gerada
+automaticamente
 
-5.  Press **Join** in the prompt **Make sure this is your
+5.  Pressione **Join** no prompt **Make sure this is your
     organisation**.
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/rId72.png)
+generated](./media/image17.png)
 
-Graphical user interface, text, application Description automatically
-generated
+Interface gráfica do usuário, texto e descrição do aplicativo gerada
+automaticamente
 
-6.  Once done you will see a confirmation window **You’re all set!**.
-    Click on **Done**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId75.png)
-
-A screenshot of a computer Description automatically generated
-
-7.  Again go to **Accounts** \> **Access work or school**. On
-    the **Access work or school** page, click on **Connect**.
+6.  Depois de concluído, você verá uma janela de confirmação **You’re
+    all set!** Clique em **Done**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId60.png)
+generated](./media/image18.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-8.  In the **Set up a work or school account** prompt, use the MOD admin
-    credentials to log in.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId80.png)
-
-A screenshot of a computer Description automatically generated
-
-9.  On the **Setting up your device** page, select **Got it**.
+7.  Vá novamente para **Accounts** \> **Access work or school**. Na
+    página **Access work or school**, clique em **Connect**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId83.png)
+generated](./media/image13.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-10. Now go to **windows settings** \> **Accounts** \> **Access work or
-    school** \> **Connected to Contoso MDM** \> **Info** \> **Sync**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId86.png)
-
-A screenshot of a computer Description automatically generated
+8.  No prompt **Set up a work or school account**, use as credenciais de
+    MOD admin credentials para fazer login.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId89.png)
+generated](./media/image19.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-11. Click on the windows symbol on your VM. Select the
-    user **Admin** and select **Sign out**.
+9.  Na página **Setting up your device**, selecione **Got it**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId92.png)
+generated](./media/image20.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-12. On the user screen select **Other user**.
+10. Agora, vá para **windows settings** \> **Accounts** \> **Access work
+    or school** \> **Connected to Contoso MDM** \> **Info** \> **Sync**.
+
+![A screenshot of a computer Description automatically
+generated](./media/image21.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+![A screenshot of a computer Description automatically
+generated](./media/image22.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+11. Clique no símbolo do Windows em sua VM. Selecione o
+    usuário **Admin** e selecione **Sign out**.
+
+![A screenshot of a computer Description automatically
+generated](./media/image23.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+12. Na tela do usuário, selecione **Other user**.
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId95.png)
+medium confidence](./media/image24.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+Uma captura de tela de uma descrição de computador gerada
+automaticamente com confiança média
 
-13. Enter your O365 credentials given on the home page of your lab
-    environment and log into the VM as **MOD Administrator**.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId98.png)
-
-A screenshot of a computer Description automatically generated with
-medium confidence
-
-14. Close the windows settings app. Sign in to 
-    `https://purview.microsoft.com` using your **MOD
-    Administrator** account on your Lab VM.
-
-15. Select **Settings** \> **Device onboarding** \> **Devices**.
-
-![](./media/rId101.png)
-
-16. Click on **Turn on Device onboarding**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId104.png)
-
-A screenshot of a computer Description automatically generated
-
-17. From the **Settings** \> **Device onboarding** \> **Onboarding**.
-    Click on **Download package**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId107.png)
-
-A screenshot of a computer Description automatically generated
-
-18. Right click the file and **Extract all…** .
+13. Digite suas credenciais do O365 fornecidas na página inicial do seu
+    ambiente de laboratório e faça login na VM como **MOD
+    Administrator**.
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId110.png)
+medium confidence](./media/image25.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+Uma captura de tela de uma descrição de computador gerada
+automaticamente com confiança média
+
+14. Feche o aplicativo de configurações do Windows. Faça login em
+    `https://purview.microsoft.com` usando sua conta de **MOD
+    Administrator** em sua VM de laboratório.
+
+15. Selecione **Settings** \> **Device onboarding** \> **Devices**.
+
+![](./media/image26.png)
+
+16. Clique em **Turn on Device onboarding**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId113.png)
+generated](./media/image27.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-19. Once done open the folder and run the file
-    with **Administrator** rights.
+17. Em **Settings** \> **Device onboarding** \> **Onboarding**. Clique
+    em **Download package**.
+
+![A screenshot of a computer Description automatically
+generated](./media/image28.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+18. Clique com o botão direito do mouse no arquivo e **Extract all…** .
+
+![A screenshot of a computer Description automatically generated with
+medium confidence](./media/image29.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente com confiança média
+
+![A screenshot of a computer Description automatically
+generated](./media/image30.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+19. Quando terminar, abra a pasta e execute o arquivo com direitos de
+    **Administrator.**
 
 ![A computer screen with a computer screen Description automatically
-generated](./media/rId116.png)
+generated](./media/image31.png)
 
-A computer screen with a computer screen Description automatically
-generated
+Uma tela de computador com uma descrição de tela de computador gerada
+automaticamente
 
-20. Click on **More info**.
+20. Clique em **More info**.
 
 ![Graphical user interface, application Description automatically
-generated](./media/rId119.png)
+generated](./media/image32.png)
 
-Graphical user interface, application Description automatically
-generated
+Interface gráfica do usuário, descrição do aplicativo gerada
+automaticamente
 
-21. Click on **Run anyway**.
-
-![A screenshot of a computer error Description automatically
-generated](./media/rId122.png)
-
-A screenshot of a computer error Description automatically generated
-
-22. In the Command Prompt, press **Y** and press enter to confirm and
-    continue when prompted.
+21. Clique em **Run anyway**.
 
 ![A screenshot of a computer error Description automatically
-generated](./media/rId125.png)
+generated](./media/image33.png)
 
-A screenshot of a computer error Description automatically generated
+Uma captura de tela de um erro de computador Gerada automaticamente
 
-23. You will receive a message that the device is onboarded. In the
-    Command Prompt once you get the message, **Press any key to continue
-    …**, press any key.
+22. No prompt de comando, pressione **Y** e pressione Enter para
+    confirmar e continuar quando solicitado.
 
-24. Once the Command Prompt is closed, open Command Prompt in
-    administrator mode to run a detection test and at the prompt, copy
-    and run the command below. The Command Prompt window will close
-    automatically.
+![A screenshot of a computer error Description automatically
+generated](./media/image34.png)
+
+Interface gráfica do usuário, texto e descrição do aplicativo gerada
+automaticamente
+
+23. Você receberá uma mensagem informando que o dispositivo está
+    integrado. No prompt de comando, assim que você receber a
+    mensagem, **Press any key to continue …**, pressione qualquer tecla.
+
+24. Quando o prompt de comando estiver fechado, abra o prompt de comando
+    no administrator mode para executar um teste de detecção e, no
+    prompt, copie e execute o comando abaixo. A janela do prompt de
+    comando será fechada automaticamente.
 
 `powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden $ErrorActionPreference= 'silentlycontinue';(New-ObjectSystem.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe','C:\test-WDATP-test\invoice.exe');Start-Process 'C:\test-WDATP-test\invoice.exe'`
 
-![Text Description automatically generated](./media/rId128.png)
+![Text Description automatically generated](./media/image35.png)
 
-Text Description automatically generated
+Descrição do texto gerada automaticamente
 
-25. Open the **settings** by clicking on the settings in the navigation
-    and choose **Devices Onboarding** \> **Devices**.
+25. Abra as **settings** clicando nas configurações na navegação e
+    escolha **Devices Onboarding** \> **Devices**.
 
-**Note:** While it usually takes about 60 seconds for device onboarding
-to be enabled, please allow up to 30 minutes.
+**Observação:** Embora normalmente demore cerca de 60 segundos para que
+a integração do dispositivo seja ativada, aguarde até 30 minutos.
 
-26. You will be able to check the **Devices** list. The list will be
-    empty until you onboard devices, once done, you will be able to see
-    your VMs listed as the onboarded device.
+26. Você poderá verificar a lista de **Devices**. A lista estará vazia
+    até que você integre os dispositivos. Quando isso for feito, você
+    poderá ver suas VMs listadas como o dispositivo integrado.
 
-### Task 1: Creating an organisation wide policy to detect and score Risky Browser Usage
+### Tarefa 1: Criação de uma política em toda a organização para detectar e classificar o uso arriscado do navegador
 
-#### Step 1 – Create a new policy
+#### Etapa 1 - Criar uma nova política
 
-1.  If you closed the browser window in the previous task, open
-    the `https://purview.microsoft.com` and log in with the Admin
-    credentials.
+1.  e você fechou a janela do navegador na tarefa anterior, abra o
+    site `https://purview.microsoft.com` e faça login com as credenciais
+    de administrador.
 
-2.  Go to **Insider Risk Management** and select the **Policies** tab.
-    Select **Create policy** to open the policy wizard.
+2.  Vá para **Insider Risk Management** e selecione a guia **Policies**.
+    Selecione **Create policy** para abrir o assistente de políticas.
 
-![](./media/rId133.png)
+![](./media/image36.png)
 
-3.  On the **Choose a policy template** page, choose **Risky browser
-    usage (preview)**, under **Risky browser usage (preview)**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId136.png)
-
-A screenshot of a computer Description automatically generated
-
-4.  Make sure that all the prerequisites are met.
+3.  Na página **Choose a policy template**, selecione **Risky browser
+    usage (preview)**, em **Risky browser usage (preview)**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId139.png)
+generated](./media/image37.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-5.  Select **Next** to continue.
+4.  Certifique-se de que todos os pré-requisitos sejam atendidos.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId142.png)
+generated](./media/image38.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-6.  On the **Name and description** page, complete the following fields:
+5.  Selecione **Next** para continuar.
+
+![A screenshot of a computer Description automatically
+generated](./media/image39.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+6.  Na página **Name and description**, preencha os seguintes campos:
 
     - Name (required): `Risky usage of browser`
 
     - Description
       (optional): `This is a test policy for the risky browser usage.`
 
-7.  Select **Next** to continue.
+7.  Selecione **Next** para continuar.
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/rId145.png)
+generated](./media/image40.png)
 
-Graphical user interface, text, application Description automatically
-generated
+Interface gráfica do usuário, texto e descrição do aplicativo gerada
+automaticamente
 
-8.  On the **Choose users, groups, & adaptive scopes** page,
-    select **All users, groups, & adaptive scopes**. Select **Next** to
-    continue.
+8.  Na página **Choose users, groups, & adaptive scopes**,
+    selecione **All users, groups, & adaptive scopes**.
+    Selecione **Next** para continuar.
 
-9.  On the **Exclude users and groups** page, select **Next**.
+9.  Na página **Exclude users and groups**, selecione **Next**.
 
-10. On the **Decide whether to prioritize** page, select **I don’t want
-    to specify priority content right now** (you’ll be able to do this
-    after the policy is created). Select **Next** to continue.
+10. Na página **Decide whether to prioritize**, selecione **I don’t want
+    to specify priority content right now** (você poderá fazer isso
+    depois que a política for criada). Selecione **Next** para
+    continuar.
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/rId148.png)
+generated](./media/image41.png)
 
-Graphical user interface, text, application Description automatically
-generated
+Interface gráfica do usuário, texto e descrição do aplicativo gerada
+automaticamente
 
-11. On the **Triggers for this policy** page, select **Turn on
+11. Na página **Triggers for this policy**, selecione **Turn on
     indicators**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId151.png)
+generated](./media/image42.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-12. On **Choose indicators to turn on**, select **Select all under Risky
-    browsing indicators (preview)**, and uncheck rest of the boxes.
+12. Em **Choose indicators to turn on**, selecione **Select
+    all under Risky browsing indicators (preview)**, e desmarque as
+    demais caixas.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId154.png)
+generated](./media/image43.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-13. Scroll down and select **Save**.
+13. Role até o final e selecione **Save**.
 
-14. On **Triggers for this policy**, under **Select which activities
-    will trigger this policy**. Select all the options and click
-    on **Next**.
+14. Em **Triggers for this policy**, na seção **Select which activities
+    will trigger this policy**. Selecione todas as opções e clique
+    em **Next**.
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/rId157.png)
+generated](./media/image44.png)
 
-Graphical user interface, text, application Description automatically
-generated
+Interface gráfica do usuário, texto, descrição do aplicativo gerada
+automaticamente
 
-15. On **Triggering thresholds for this policy** page, select **Use
-    custom thresholds (Recommended)**, change all the thresholds to
-    **1** per day and then select **Next**.
+15. Na página **Triggering thresholds for this policy**, selecione **Use
+    custom thresholds (Recommended)**, altere todos os limites para
+    **1** por dia e, em seguida, selecione **Next**.
 
 ![Graphical user interface, application Description automatically
-generated](./media/rId160.png)
+generated](./media/image45.png)
 
-Graphical user interface, application Description automatically
-generated
-
-![A screenshot of a computer Description automatically
-generated](./media/rId163.png)
-
-A screenshot of a computer Description automatically generated
-
-16. On **indicators** page, select **Next**.
+Interface gráfica do usuário, texto e descrição do aplicativo gerada
+automaticamente
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId166.png)
+generated](./media/image46.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-17. On **Decide whether to use default or custom indicator thresholds**,
-    select **Use default thresholds for all indicators**, then
-    select **Next**.
+16. Na página **indicators**, selecione **Next**.
+
+![A screenshot of a computer Description automatically
+generated](./media/image47.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+17. Em **Decide whether to use default or custom indicator thresholds**,
+    selecione **Use default thresholds for all indicators** e, em
+    seguida, selecione **Next**.
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/rId169.png)
+generated](./media/image48.png)
 
-Graphical user interface, text, application Description automatically
-generated
+Interface gráfica do usuário, texto e descrição do aplicativo gerada
+automaticamente
 
-18. On **Review settings and finish**, select **Submit**.
+18. Em **Review settings and finish**, selecione **Submit**.
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/rId172.png)
+generated](./media/image49.png)
 
-Graphical user interface, text, application Description automatically
-generated
+Interface gráfica do usuário, texto e descrição do aplicativo gerada
+automaticamente
 
-19. On **Your policy was created**, select **Done**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId175.png)
-
-A screenshot of a computer Description automatically generated
-
-20. Keep the tab open and continue to the next task.
-
-#### Step 2 – Score the policy
-
-1.  Click on the new policy named **Risky usage of browser**.
-    Select **Start scoring activity for users**.
+19. Em **Your policy was created**, selecione **Done**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId179.png)
+generated](./media/image50.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-2.  In the **Reason** field in the **Add users to multiple
-    policies** pane, type **Testing the policy**.
+20. Mantenha a guia aberta e prossiga para a próxima tarefa.
+
+#### Etapa 2 - Pontuação da política
+
+1.  Clique na nova política denominada **Risky usage of browser**.
+    Selecione **Start scoring activity for users**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId182.png)
+generated](./media/image51.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-3.  In the **This should last for (choose between 5 and 30
-    days)** field, select **10** days.
+2.  No campo **Reason**, no painel **Add users to multiple policies**,
+    digite **Testing the policy**.
 
-4.  Use the **Search user to add to policies** field. Add **MOD Admin**.
-    Then click on **Start scoring activity**.
+![A screenshot of a computer Description automatically
+generated](./media/image52.png)
 
-5.  Once you get the confirmation that you have started **Scoring
-    activity for 1 users**, click **Close**.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+3.  No campo **This should last for (choose between 5 and 30 days)** ,
+    selecione **10** dias.
+
+4.  Use o campo **Search user to add to policies**. Adicione o **MOD
+    Admin**. Em seguida, clique em **Start scoring activity**.
+
+5.  Depois de receber a confirmação de que iniciou a atividade **Scoring
+    activity for 1 users**, clique em **Close**.
 
 ![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId185.png)
+with medium confidence](./media/image53.png)
 
-A screenshot of a computer screen Description automatically generated
-with medium confidence
+Uma captura de tela de um computador. Descrição gerada automaticamente
+com confiança média
 
-### Task 2: Data theft by departing users
+### Tarefa 2: Roubo de dados por usuários que estão se desligando
 
-#### Step 1 – Create a new policy
+#### Etapa 1 - Criar uma nova política
 
-1.  If you closed the browser window in the previous task, open
-    the `https://purview.microsoft.com` and log in with the admin
-    credentials.
+1.  Se você fechou a janela do navegador na tarefa anterior, abra o site
+    the `https://purview.microsoft.com` e faça login com as credenciais
+    de administrado.
 
-2.  Go to **Insider Risk Management** and select the **Policies** tab.
-    Select **Create policy** to open the policy wizard.
+2.  Vá para **Insider Risk Management** e selecione a guia **Policies**.
+    Selecione **Create policy** para abrir o assistente de políticas.
 
-![](./media/rId133.png)
+![](./media/image36.png)
 
-3.  On the Choose a policy template page, choose Data theft by departing
-    users, under Data theft. Select Next to continue.
+3.  Na página Choose a policy template, escolha Data theft by departing
+    users, em Data theft. Selecione Next para continuar.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId192.png)
+generated](./media/image54.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-4.  On the **Name and description** page, complete the following fields:
+4.  Na página **Name and description**, preencha os seguintes campos:
 
     - Name (required): `Data theft by a user`
 
     - Description
       (optional): `This is a test policy for the preventing data theft.`
 
-5.  Select **Next** to continue.
+5.  Selecione **Next** para continuar.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId195.png)
+generated](./media/image55.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-6.  On the **Choose users, groups, & adaptive scopes** page,
-    select **All users, groups, & adaptive scopes**. Select **Next** to
-    continue.
+6.  Na página **Choose users, groups, & adaptive scopes**, selecione
+    **All users, groups, & adaptive scopes**. Selecione **Next** para
+    continuar.
 
-7.  On the **Exclude users, groups, & adaptive scopes** page, select
+7.  Na página **Exclude users, groups, & adaptive scopes**, selecione
     **Next**.
 
-8.  On the **Decide whether to prioritize** page, select **I want to
-    specify priority content**. Select the check box for **Sensitivity
-    labels** and **Sensitive info types**. Select **Next** to continue.
+8.  Na página **Decide whether to prioritize**, selecione **I want to
+    specify priority content**. Marque a caixa de seleção de
+    **Sensitivity labels** e **Sensitive info types**.
+    Selecione **Next** para continuar.
 
 ![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId198.png)
+with medium confidence](./media/image56.png)
 
-A screenshot of a computer screen Description automatically generated
-with medium confidence
+Uma captura de tela de um computado. Descrição gerada automaticamente
+com confiança média
 
-9.  On the **Sensitivity labels to prioritize** page, select **Add or
-    edit sensitivity labels**. On the flyout pane,
-    select **Internal/Employee data (HR)** and select **Add**. Then
-    click **Next**.
+9.  Na página **Sensitivity labels to prioritize**, selecione **Add or
+    edit sensitivity labels**. No painel suspenso,
+    selecione **Internal/Employee data (HR)** e selecione **Add**. Em
+    seguida, clique em **Next**.
 
 ![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId201.png)
+with medium confidence](./media/image57.png)
 
-A screenshot of a computer screen Description automatically generated
-with medium confidence
+Uma captura de tela de um computador. Descrição gerada automaticamente
+com confiança média
 
-10. On the **Sensitive info types to prioritize** page, select **Add or
-    edit sensitive info types**. On the flyout pane, search for and
-    select **Credit Card Number**, **Contoso Employee ID** and **Contoso
-    Employee EDM**. Select **Add**. Then click **Next**.
+10. Na página **Sensitivity labels to prioritize**, selecione **Add or
+    edit sensitivity labels**. No painel suspenso, procure e selecione
+    **Credit Card Number**, **Contoso Employee ID** e **Contoso Employee
+    EDM**. Selecione **Add**. Em seguida, clique em **Next**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId204.png)
+generated](./media/image58.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-11. On **Decide whether to score only activity with priority content**,
-    select **Get alerts for all activity**. Select **Next**.
+11. Em **Decide whether to score only activity with priority content**,
+    selecione **Get alerts for all activity**. Selecione **Next**.
 
 ![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId207.png)
+with medium confidence](./media/image59.png)
 
-A screenshot of a computer screen Description automatically generated
-with medium confidence
+Uma captura de tela de um computador. Descrição gerada automaticamente
+com confiança média
 
-12. On triggers for this policy page, select the default and then
-    select Next.
+12. Na página de acionadores para esta política, selecione o padrão e,
+    em seguida, selecione Next.
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId210.png)
+medium confidence](./media/image60.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+Uma captura de tela de um computador. Descrição gerada automaticamente
+com confiança média
 
-13. On **Indicators** page, select **Turn on indicators** from the
+13. Na página **Indicators**, selecione **Turn on indicators** no
     prompt.
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId213.png)
+medium confidence](./media/image61.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+Uma captura de tela de um computador. Descrição gerada automaticamente
+com confiança média
 
-14. Select **Select all under Office indicators** and click **Save**.
+14. Selecione **Select all under Office indicators** e clique
+    em **Save**.
 
 ![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId216.png)
+with medium confidence](./media/image62.png)
 
-A screenshot of a computer screen Description automatically generated
-with medium confidence
+Uma captura de tela de um computador. Descrição gerada automaticamente
+com confiança média
 
-15. Select all the options and click on **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId219.png)
-
-A screenshot of a computer Description automatically generated
-
-16. On **Detection options** page, select the default and then
-    select **Next**.
+15. Selecione todas as opções e clique em **Next**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId222.png)
+generated](./media/image63.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-17. On **indicators** page, select **Next**.
+16. Na página **Detection options**, selecione o padrão e, em seguida,
+    selecione **Next**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId166.png)
+generated](./media/image64.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+17. Na página **indicators**, selecione **Next**.
+
+![A screenshot of a computer Description automatically
+generated](./media/image47.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
 18. On **Decide whether to use default or custom indicator thresholds**,
-    select **Customise thresholds**, use **1**, **2**, and **3** events
-    for each stage respectively then select Next.
+    selecione **Customise thresholds**, use **1**, **2**, e **3**
+    eventos para cada etapa, respectivamente, e selecione Next.
 
 ![A screenshot of a computer screen Description automatically
-generated](./media/rId227.png)
+generated](./media/image65.png)
 
-A screenshot of a computer screen Description automatically generated
+Uma captura de tela de um computador. Descrição gerada automaticamente
 
-19. On **Review settings and finish**, select **Submit**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId230.png)
-
-A screenshot of a computer Description automatically generated
-
-20. On **Your policy was created**, select **Done**.
+19. Em **Review settings and finish**, selecione **Submit**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId233.png)
+generated](./media/image66.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-21. Keep the tab open and continue to the next task.
-
-#### Step 2 – Score the policy
-
-1.  Click on the new policy named **Data theft by a user**.
-    Select **Start scoring activity for users**.
+20. Em **Your policy was created**, selecione **Done**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId237.png)
+generated](./media/image67.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-2.  In the **Reason field in the Add users to multiple policies** pane,
-    type **Testing the policy**.
+21. Mantenha a guia aberta e prossiga para a próxima tarefa.
 
-![A screenshot of a computer Description automatically
-generated](./media/rId182.png)
+#### Etapa 2 - Pontuação da política
 
-A screenshot of a computer Description automatically generated
-
-3.  In the **This should last for (choose between 5 and 30
-    days)** field, select **10** days.
-
-4.  Use the **Search user to add to policies** field. Add **MOD Admin**.
-    Then click on **Start scoring activity**.
-
-5.  Once you get the confirmation that you have started **Scoring
-    activity for 1 users**, click **Close**.
+1.  Clique na nova política denominada **Data theft by a user**.
+    Selecione **Start scoring activity for users**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId242.png)
+generated](./media/image68.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-### Task 3: Data leaks by users
-
-#### Step 1 – Create a new policy
-
-1.  If you closed the browser window in the previous task, open
-    the `https://purview.microsoft.com` and log in with admin
-    credentials.
-
-2.  Go to **Insider Risk Management** and select the **Policies** tab.
-    Select **Create policy** to open the policy wizard.
+2.  No painel **Reason for scoring activity**, digite **Testing the
+    policy**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId133.png)
+generated](./media/image52.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-3.  On the **Choose a policy template** page, choose **Data leaks**,
-    under **Data leaks**. Select **Next** to continue.
+3.  No campo **This should last for (choose between 5 and 30 days)**,
+    selecione **10** dias.
+
+4.  Use o campo **Search user to add to policies**. Adicione o **MOD
+    Admin**. Em seguida, clique em **Start scoring activity**.
+
+5.  Depois de receber a confirmação de que iniciou a **Scoring activity
+    for 1 users**, clique em **Close**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId249.png)
+generated](./media/image69.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-4.  On the **Name and description** page, complete the following fields:
+### Tarefa 3: Vazamento de dados pelos usuários
+
+#### Etapa 1 - Criar uma nova política
+
+1.  Se você fechou a janela do navegador na tarefa anterior, abra a
+    Janela do site `https://purview.microsoft.com` e faça login com as
+    credenciais de administrador.
+
+2.  Vá para **Insider Risk Management** e selecione a guia **Policies**.
+    Selecione **Create policy** para abrir o assistente de políticas.
+
+![A screenshot of a computer Description automatically
+generated](./media/image36.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+3.  Na página **Choose a policy template**, selecione **Data leaks**, em
+    **Data leaks**. Selecione **Next** para continuar.
+
+![A screenshot of a computer Description automatically
+generated](./media/image70.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+4.  Na página **Name and description**, preencha os seguintes campos:
 
     - Name (required): `Data leaks by a user`
 
     - Description
       (optional): `This is a test policy for preventing data leaks.`
 
-5.  Select **Next** to continue.
+5.  Selecione **Next** para continuar.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId252.png)
+generated](./media/image71.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-6.  On the **Choose users and groups** page, select **Include all users
-    and groups**. Select **Next** to continue.
+6.  Na página **Choose users and groups**, selecione **Include all users
+    and groups**. Selecione **Next** para continuar.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId255.png)
+generated](./media/image72.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-7.  On the **Exclude users and groups** page, select **Next**.
+7.  Na página **Exclude users and groups**, selecione **Next**.
 
-8.  On the **Decide whether to prioritize** page, select **I want to
-    specify priority content**. Select the check box for **SharePoint
-    sites**, **Sensitivity labels** and **Sensitive info types**.
-    Select **Next** to continue.
+8.  Na página **Decide whether to prioritize**, selecione **I want to
+    specify priority content**. Marque a caixa de seleção para sites do
+    **SharePoint sites**, **Sensitivity labels** e **Sensitive info
+    types**. Selecione **Next** para continuar.
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId258.png)
+medium confidence](./media/image73.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+Uma captura de tela de uma descrição de computador gerada
+automaticamente com confiança média
 
-9.  On the **SharePoint sites to prioritize** page, select **Add or edit
-    SharePoint sites**. On the flyout pane,
-    select `https://{TENANTPREFIX}.sharepoint.com/sites/ContosoWeb1` and
-    select **Add**. Then click **Next**.
+9.  Na página **SharePoint sites to prioritize**, selecione **Add or
+    edit SharePoint sites**. No painel suspenso, selecione o site,
+    `https://{TENANTPREFIX}.sharepoint.com/sites/ContosoWeb1` e
+    selecione **Add**. Em seguida, clique em **Next**.
 
-10. On the **Sensitivity labels to prioritize** page, select **Add or
-    edit sensitivity labels**. On the flyout pane,
-    select **Internal/Employee data (HR)** and select **Add**. Then
-    click **Next**.
-
-![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId201.png)
-
-A screenshot of a computer screen Description automatically generated
-with medium confidence
-
-11. On the **Sensitive info types to prioritize** page, select **Add or
-    edit sensitive info types**. On the flyout pane, search for and
-    select **Credit Card Number**, **Contoso Employee ID** and **Contoso
-    Employee EDM**. Select **Add**. Then click **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId204.png)
-
-A screenshot of a computer Description automatically generated
-
-12. On **Decide whether to score only activity with priority content**,
-    select **Get alerts for all activity**. Select **Next**.
+10. Na página **Sensitivity labels to prioritize**, selecione **Add or
+    edit sensitivity labels**. No painel suspenso,
+    selecione **Internal/Employee data (HR)** e selecione **Add**. Em
+    seguida, clique em **Next**.
 
 ![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId207.png)
+with medium confidence](./media/image57.png)
 
-A screenshot of a computer screen Description automatically generated
-with medium confidence
+Uma captura de tela de um computador. Descrição gerada automaticamente
+com confiança média
 
-13. On **Triggers for this policy** page, select Radio
-    button near **User performs an exfiltration activity**. Under select
-    which activities will trigger this policy, select all the available
-    options especially **Download content from SharePoint**. and then
-    select **Next**.
+11. Na página **Sensitivity labels to prioritize**, selecione **Add or
+    edit sensitivity labels**. No painel suspenso, procure e selecione
+    **Credit Card Number**, **Contoso Employee ID** e **Contoso Employee
+    EDM**. Selecione **Add**. Em seguida, clique em **Next**
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId267.png)
+generated](./media/image58.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-14. On **Triggering thresholds for this policy**, select **Use custom
-    thresholds**. Set every threshold to **1** and select **Next**.
+12. Em **Decide whether to score only activity with priority content**,
+    selecione **Get alerts for all activity**. Selecione **Next**.
+
+![A screenshot of a computer screen Description automatically generated
+with medium confidence](./media/image59.png)
+
+A screenshot of a computer screen Description automatically generated
+com confiança média
+
+13. Na página **Triggers for this policy**, selecione o botão de opção
+    próximo a **User performs an exfiltration activity**. Em select
+    which activities will trigger this policy, selecione todas as opções
+    disponíveis, especialmente **Download content from SharePoint** e,
+    em seguida, selecione **Next**.
+
+![A screenshot of a computer Description automatically
+generated](./media/image74.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+14. Em **Triggering thresholds for this policy**, selecione **Use custom
+    thresholds**. Defina cada limite como **1** e selecione **Next**.
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId270.png)
+medium confidence](./media/image75.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+Uma captura de tela de uma descrição de computador gerada
+automaticamente com confiança média
 
-15. Select the default settings on the **Indicators** page and
-    select **Next**.
+15. Selecione as configurações padrão na página **Indicators,** e
+    selecione **Next**.
 
 16. On **Decide whether to use default or custom indicator thresholds**,
-    select **Customise thresholds**, use **1**, **2**, and **3** events
-    for each stage respectively then select **Next**.
+    selecione **Customise thresholds**, use **1**, **2**, e **3**
+    eventos para cada etapa, respectivamente, e selecione Next.
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId273.png)
+medium confidence](./media/image76.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+Uma captura de tela de uma descrição de computador gerada
+automaticamente com confiança média
 
-17. On **Review settings and finish**, select **Submit**.
+17. Em **Review settings and finish**, selecione **Submit**.
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId276.png)
+medium confidence](./media/image77.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+Uma captura de tela de uma descrição de computador gerada
+automaticamente com confiança média
 
-18. On **Your policy was created**, select **Done**.
+18. Em **Your policy was created**, selecione **Done**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId279.png)
+generated](./media/image78.png)
 
-A screenshot of a computer Description automatically generated
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-19. Keep the tab open and continue to the next task.
+19. Mantenha a guia aberta e prossiga para a próxima tarefa.
 
-#### Step 2 – Score the policy
+#### Etapa 2 - Pontuação da política
 
-1.  Click on the new policy named **Data leaks by a user**.
-    Select **Start scoring activity for users**.
+1.  Clique na nova política denominada **Data leaks by a user**.
+    Selecione **Start scoring activity for users**
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId283.png)
+medium confidence](./media/image79.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+Uma captura de tela de uma descrição de computador gerada
+automaticamente com confiança média
 
-2.  In the **Reason field in the Add users to multiple policies** pane,
-    type Testing the policy. In the **This should last for (choose
-    between 5 and 30 days)** field, select **10** days. Use the **Search
-    user to add to policies** field. Add **MOD Admin**. Then click
-    on **Start scoring activity**.
+2.  No campo **This should last for (choose between 5 and 30 days)** ,
+    selecione **10** dias. Use o campo **Search user to add to
+    policies**. Adicione o **MOD Admin**. Em seguida, clique em **Start
+    scoring activity**. Depois de receber a confirmação de que iniciou a
+    atividade **Scoring activity for 1 users**, clique em **Close.**
 
-3.  Once you get the confirmation that you have started **Scoring
-    activity for 1 user**, click **Close**.
+Você criou com sucesso as políticas de Insider risk management.
 
-You have successfully created the Insider risk management policies.
+## Resumo:
 
-## Summary:
-
-In this lab we explored setting up Insider Risk Management from
-end-to-end. With your own subscription and licenses, you can also use
-this lab guide to create an Azure setup that can also be used to create
-various alerts (which includes sending emails with restricted data,
-which is not possible from a trial subscription) for the Insider Risk
-management policies which you can use to explore the Adaptive Protection
-feature on Purview.
+Neste laboratório, exploramos a configuração do Insider Risk Management
+de ponta a ponta. Com sua própria assinatura e licenças, você também
+pode usar este guia de laboratório para criar uma configuração do Azure
+que também pode ser usada para criar vários alertas (o que inclui o
+envio de e-mails com dados restritos, o que não é possível com uma
+assinatura de avaliação) para as políticas do Insider Risk Management,
+que podem ser usadas para explorar o recurso Proteção adaptativa no
+Purview.
