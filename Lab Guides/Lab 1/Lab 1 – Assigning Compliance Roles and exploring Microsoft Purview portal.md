@@ -1,565 +1,257 @@
-# Lab 1 – Assigning Compliance Roles and exploring Microsoft Purview portal
-
-## Objective:
-
-In this lab we create users and assign them appropriate roles, teams, and groups in the Office 365 admin center to represent an organisation—Contoso.
-
-We also assign the following to the Users:
-
-- Trial for compliance Assessments
-
-Later, we will test **Microsoft 365 built-in Office 365 Message Encryption (OME)**.
-
-Firstly we will modify the default template to ensure that no social IDs
-dialog is displayed for external recipients when receiving a message
-protected with Office 365 Message Encryption from users of the
-organisation that we set up.
-
-Then we will create a new custom OME configuration and create a
-transport rule to apply the OME configuration to all mails sent from our
-finance department.
-
-## Exercise 1 - Managing Compliance Roles
-
-In this exercise we will be activating all the trial licenses required
-for implementing security with Microsoft Purview.
-
-### Task 1 – Adding Manager role to an existing user.
-
-1.  Log into the VM with the account details provided with your lab.
-
-2.  Log in to the Microsoft 365 admin center ```https://admin.microsoft.com``` using Administrative Username and Administrative Password.
-
-3.  From the left pane, select **Users** \> **Active users**, and click on the first user **Adele Vance**.
-
-![](./media/image16.png)
-
-4.  Under **Manager**, Click **Edit manager**.
-
-![](./media/image18.png)
-
-5.  Remove the current manager and type **Patti** in the search box. Select **Patti Fernandez**. Click **Save Changes**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image20.png)
-
-6.  Change the manager to **Patti Fernandez** for all the following users.
-
-- Adele Vance
-
-- Christie Cline
-
-- Megan Bowen
-
-7.  For Patti Fernandez, add **MOD Administrator** as the manager.
-
-### Task 2 – Adding a Compliance Administrator
-
-1.  Select the user **Patti Fernandez**, under **Account**, scroll
-    to **Roles** and click on **Manage roles**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image23.png)
-
-2.  Once the **Roles** pane opens, check the radio button near **Admin
- center access**, and expand **Show all by category.**
-
-![A screenshot of a computer Description automatically
-generated](./media/image24.png)
-
-3.  Scroll to **Security & compliance**, check the box
- beside **Compliance Administrator**, and click on **Save changes**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image26.png)
-
-4. Close the pane, stay on the same page, and continue to the next task.
-
-### Task 3 – Creating teams and groups in Microsoft admin center
-
-1.  Now expand **Teams & groups**, select **Active teams & groups** and
- click on **Add a Microsoft 365 group** under **Teams & Microsoft 365
- groups**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image28.png)
-
-2.  For name use ```Contoso Finance Team```, and for description
- use ```This team handles finance.```, and then click
- on **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image29.png)
-
-3.  On the **Assign Owners** page, click on **Assign owners**, check the
- box besides **Adele Vance**, and click on **Add(1)**. Click
- on **Next**.
-
-![](./media/image31.png)
-
-4.  On the **Add members** page add **Adele Vance**, and **Christie Cline** as members,
- click **Next**. On the **Add members** page, select **Next**.
-
-5.  For group email address use ```contosofinance``` and then
- click **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image33.png)
-
-6.  Click on **Create group**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image35.png)
-
-7.  Once done, click on **Close**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image37.png)
-
-8. On the **Active teams & groups page**, select **Security
- groups** tab. Select **Add a security group.**
-
-![A screenshot of a computer Description automatically
-generated](./media/image42.png)
-
-9. Repeat the steps to create another group with the following
- information.
-
-- On the **Set up the basics**, enter the following to
-  the **Name** field: ```EDM_DataUploaders```. In the Description
-  field, enter ```People who will upload data for EDM```.
-
-- Select **Next**.
-
-- On the **Settings** page, select **Next**.
-
-- On the **Review and finish adding group** page, review your settings
-  and select **Create group**.
-
-- When the **New group created** page is shown, select the close button. Now select the newly created
-  **EDM_DataUploaders** group from the list.
-
-- Under members tab, select **View all and manage owners**, and add **Patti Fernandez** and
-  **Christie Cline**.
-
-- Similarly add add **Patti Fernandez** and
-  **Christie Cline** as the members.
-
-![A screenshot of a computer Description automatically
-generated](./media/image44.png)
-
-### Task 4 – Enabling trial for compliance Assessments
-
-1.  Log in to the Purview Portal ```https://purview.microsoft.com``` using **Administrative Username** and **Administrative Password**.
-
-2.  If a welcome window is displayed, agree to the terms and
- select **Get started** and close it.
-
-![](./media/image49.png)
-
-3.  Scroll down and under Trials and recommendations, select **View all
- trials and recommendations**.
-
-![](./media/image50.png)
-
-4.  On the **Microsoft Purview trials and recommendations** page, go
- to **Compliance assessments**, under **Purview and Priva
- trials** and select **Try now**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image52.png)
-
-5. Click on **Start Trials**.
-
-![](./media/image54.png)
-
-Note: It might take up to 2 hours for the changes to take effect. Sign
-in again to see the new features. In the meantime, continue with next
-steps.
-
-6. From the navigation bar select **Solutions** \> **Audit**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image56.png)
-
-7. On the **Audit** page, select **Start recording user and admin
- activity** to activate audit logging.
-
-![A screenshot of a search engine Description automatically
-generated](./media/image57.png)
-
-## Exercise 2 - Managing Office 365 Message Encryption
-
-The first setting **Patti Fernandez** needs to configure and test
-with their pilot team is the **Microsoft 365 built-in** **Office 365
-Message Encryption (OME)**. For this purpose, he will modify the default
-template and create a new branding template, that will be assigned to
-one of the pilot users. The pilot users will then test the OME
-functionality with their accounts.
-
-### Task 1 – Verifying Azure RMS functionality
-
-In this task, you will install the **Exchange Online PowerShell** module
-and verify the correct Azure RMS functionality of your tenant.
-
-1.  Open an **elevated PowerShell** window by selecting the Windows
-    button with the right mouse button and then run **Windows
-    PowerShell** as administrator.
-
-![A screenshot of a computer Description automatically
-generated](./media/image60.png)
-
-2.  Confirm the **User Account Control** window with **Yes**.
-
-3.  Enter the following cmdlet to install the latest Exchange Online
-    PowerShell module version:
-
-```Install-Module ExchangeOnlineManagement```
-
-![A computer screen with text on it Description automatically
-generated](./media/image61.png)
-
-4.  Confirm the **NuGet** provider security dialog with **Y** for Yes and
-    press **Enter**. This process may take some seconds to complete.
-
-![A computer screen with white text Description automatically
-generated](./media/image62.png)
-
-5.  Confirm the Untrusted repository security dialog with **Y** for Yes
-    and press **Enter**. This process may take some seconds to complete.
-
-![A computer screen with white text Description automatically
-generated](./media/image63.png)
-
-6.  Enter the following cmdlet to change your execution policy and
-    press **Enter**
-
-```Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser```
-
-![BrokenImage](./media/image64.png)
-
-7.  Confirm the Execution Policy Change with  **Y** for Yes and
-    press **Enter**.
-
-![BrokenImage](./media/image65.png)
-
-8.  Enter the following cmdlet to use the **Exchange Online
-    PowerShell** module and connect to your tenant:
-
-```Connect-ExchangeOnline```
-
-![BrokenImage](./media/image66.png)
-
-9. When the **Sign in** window is displayed, sign in as **Patti
-    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com``` and
-    the User Password given on your resources tab. (replace {TENANTPREFIX} with your tenant prefix given on the
-    resources tab)
-
-10. Verify Azure RMS and IRM is activated in your tenant by using the
-    following cmdlet and press **Enter**:
-
-```Get-IRMConfiguration | fl AzureRMSLicensingEnabled```
-
-11. When **AzureRMSLicensingEnabled** result is **True**, Azure RMS is
-    activated for your tenant. Continue with the next step.
-
-![BrokenImage](./media/image68.png)
-
-12. Test the Azure RMS templates used for Office 365 Message Encryption
-    against the demo pilot user **Adele Vance** by using the following
-    cmdlet (replace {TENANTPREFIX} with your tenant prefix given on the
-    resources tab)
-
-```Test-IRMConfiguration -Sender adelev@{TENANTPREFIX}.onmicrosoft.com -Recipient adelev@{TENANTPREFIX}.onmicrosoft.com```
-
-13. Verify all tests are in the status PASS and no errors are shown.
-
-![Screenshot](./media/image69.png)
-
-14. Leave the **PowerShell** window open.
-
-You have successfully installed the Exchange Online PowerShell module,
-connected to your tenant, and verified the correct functionality of
-Azure RMS.
-
-### Task 2 – Modifying default OME template
-
-Next, there is a requirement in your organization to restrict trust for
-foreign identity providers, such as Google or Facebook. Because these
-social IDs are activated by default for accessing messages protected
-with OME, you need to deactivate the use of social IDs for all users in
-your organization.
-
-1.  Run the following cmdlet to view the default OME configuration:
-
-```Get-OMEConfiguration -Identity "OME Configuration" |fl```
-
-![A screen shot of a computer Description automatically
-generated](./media/image70.png)
-
-2.  Review the settings and confirm that
-    the **SocialIdSignIn** parameter is set to **True**.
-
-![BrokenImage](./media/image71.png)
-
-3.  Run the following cmdlet to restrict the use of social IDs for
-    accessing messages from your tenant protected with OME:
-
-```Set-OMEConfiguration -Identity "OME Configuration" -SocialIdSignIn:$false```
-
-![A computer screen with text on it Description automatically
-generated](./media/image72.png)
-
-4.  Confirm the warning message for customizing the default template
-    with **Y** for Yes and press Enter.
-
-![BrokenImage](./media/image73.png)
-
-5.  Check the default configuration again and validate,
-    the **SocialIdSignIn** parameter is now set to **False**.
-
-```Get-OMEConfiguration -Identity "OME Configuration" |fl```
-
-6.  Notice the result should show the **SocialIDSignIn** is set
-    to **False**.
-
-![BrokenImage](./media/image74.png)
-
-7.  Leave the **PowerShell window** open and proceed to next
-    exercise.
-
-You have successfully deactivated the usage of foreign identity
-providers, such as Google and Facebook in Office 365 Message Encryption.
-
-### Task 3 – Testing Modified OME template
-
-You must confirm that no social IDs dialog is displayed for external
-recipients when receiving a message protected with Office 365 Message
-Encryption from users of your tenant and they need to use the OTP at any
-time accessing the encrypted content.
-
-1.  In **Microsoft Edge**, open a **New InPrivate Window** and navigate
-    to ```https://outlook.office.com``` and log into Outlook on the web
-    with the username ```AdeleV@{TENANTPREFIX}.onmicrosoft.com``` and the User
-    Password given on your resources tab.
-
-2.  On the **Stay signed in?** dialog box, select the **Don’t show this
-    again** checkbox and then select **No**.
-
-3.  Select **Save** in the **Save password** dialog, to save the pilot
-    users password in your browser.
-
-4.  If a **Translate page from…** window is shown, select the arrow down
-    and select **Never translate from…**.
-
-5.  Select **New mail** from the upper left side part of Outlook on the
-    web.
-
-![Graphical user interface, text, application, Word Description
-automatically generated](./media/image76.png)
-
-6.  In the **To** line enter your personal or other third-party email
-    address that is not in the tenant domain.
-    Enter ```Secret Message``` to the subject line
-    and ```My super-secret message.``` to the body.
-
-![Graphical user interface, text, application, Word Description
-automatically generated](./media/image77.png)
-
-7.  From the top pane go to **Options** pane, select **Encrypt** to
-    encrypt the message. If you do not find the option, select the **3 dots (…)** at the top right, then from the dropdown select **Encrypt**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image78.png)
-
-8.  Once you've successfully encrypted the message, you should see a
-    notice that says "**Encrypt: This message is encrypted. Recipients
-    can't remove encryption.**"
-
-![A screenshot of a computer screen Description automatically
-generated](./media/image79.png)
-
-9. Select **Send** to send the message.
-
-![Graphical user interface, text, email Description automatically
-generated](./media/image80.png)
-
-**Note**: In the trial account you may or may not have the privilege to send any email and your mail may not be able to
-reach the receiver from your current tenant.
-But your email goes through, you can check out the following steps to test the
-template.
-
-10. Sign in to your personal email account and open the message from
-    Adele Vance. If you sent this email to a Microsoft account (like
-    @outlook.com) the encryption may be processed automatically and you
-    will see the message automatically.
-
-**Note**: If you sent the email to another email service like
-(@gmail.com), you may have to perform the next steps to process the
-encryption and read the message. You may need to check your junk or spam
-folder for the message.
-
-11. Select **Read the message**.
-
-12. Without having social IDs activated, there is no button to
-    authenticate with your Google account.
-
-13. Select **Sign in with a One-time passcode** to receive a limited
-    time passcode.
-
-14. Go to your personal email portal and open the message with
-    subject **Your one-time passcode to view the message**.
-
-15. Copy the passcode, paste it in to the OME portal and
-    select **Continue**.
-
-16. Review the encrypted message.
-
-You have successfully tested the modified default OME template with
-deactivated social IDs.
-
-### Task 4 – Creating custom branding template
-
-Protected messages sent by your organizations finance department require
-a special branding, including customized introduction and body texts and
-a Disclaimer link in the footer. The finance messages shall also expire
-after seven days. In this task, you will create a new custom OME
-configuration and create a transport rule to apply the OME configuration
-to all mails sent from the finance department.
-
-1.  In the PowerShell window that we left open with Exchange Online
-    connected. run the following cmdlet to create a new OME
-    configuration:
-
-```New-OMEConfiguration -Identity "Finance Department" -ExternalMailExpiryInDays 7```
-
-![Text Description automatically generated](./media/image82.png)
-
-2.  Confirm the warning message for customizing the template
-    with **Y** for Yes and press **Enter**.
-
-![Text Description automatically generated](./media/image83.png)
-
-3.  Change the introduction text message with the following cmdlet
-
-```Set-OMEConfiguration -Identity "Finance Department" -IntroductionText "from Contoso Ltd. finance department has sent you a secure message."```
-
-![BrokenImage](./media/image84.png)
-
-4.  Confirm the warning message for customizing the template
-    with **Y** for Yes and press **Enter**.
-
-![BrokenImage](./media/image85.png)
-
-5.  Change the body email text of the message with the following cmdlet
-
-```Set-OMEConfiguration -Identity "Finance Department" -EmailText "Encrypted message sent from Contoso Ltd. finance department. Handle the content responsibly."```
-
-6.  Confirm the warning message for customizing the template
-    with **Y** for Yes and press **Enter**.
-
-![Text Description automatically generated](./media/image86.png)
-
-7.  Change the disclaimer URL to point to Contoso's privacy statement
-    site
-
-```Set-OMEConfiguration -Identity "Finance Department" -PrivacyStatementURL "https://contoso.com/privacystatement.html"```
-
-![Text Description automatically generated](./media/image87.png)
-
-8.  Confirm the warning message for customizing the template
-    with **Y** for Yes and press **Enter**.
-
-![BrokenImage](./media/image88.png)
-
-9.  Use the following cmdlet to create a mail flow rule, which applies
-    the custom OME template to all messages sent from the Contoso
-    finance team. This process may take a few seconds to complete.
-
-```New-TransportRule -Name "Encrypt all mails from Contoso Finance team" -FromScope InOrganization -FromMemberOf "Contoso Finance Team" -ApplyRightsProtectionCustomizationTemplate "Finance Department" -ApplyRightsProtectionTemplate Encrypt```
-
-![BrokenImage](./media/image89.png)
-
-![Text Description automatically generated](./media/image90.png)
-
-10. Type the following cmdlet to verify changes.
-
-```Get-OMEConfiguration -Identity "Finance Department" | Format-List```
-
-![BrokenImage](./media/image91.png)
-
-11. Leave the **PowerShell** open.
-
-You have successfully created a new transport rule that applies the
-custom OME template automatically, when a member of the finance
-department sends a message to external recipients.
-
-### Task 5 – Testing the custom branding template
-
-To validate the new custom OME configuration, you need to use the
-account of Christie Cline, who is a member of the finance team. In the
-trial account you will not have the privilege to send any email but you
-can check out the following steps to understand how to test the template
-when you have your own licenses. You can perform step 1 - 4 but your
-mail may not be able to reach the receiver from your current trial tenant.
-
-1.  In **Microsoft Edge**, open a **New InPrivate Window** and navigate
-    to ```https://outlook.office.com``` and log into Outlook on the web
-    with the username ```ChristieC@{TENANTPREFIX}.onmicrosoft.com``` and the
-    User Password given on the resources tab.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image92.png)
-
-2.  Select **New message** from the upper left side part of Outlook on
-    the web.
-
-3.  In the **To** line enter your personal or other third-party email
-    address that is not in the tenant domain.
-    Enter ```Finance Report``` to the subject line and
-    enter ```Secret finance information. ``` to the body.
-
-4.  Select **Send** to send the message.
-
-5.  Sign in to the email account you used above and open the message
-    from Christie Cline.
-
-6.  You should see a message from **Christie Cline** that looks like the
-    image below. Select **Read the message**.
-
-![BrokenImage](./media/image93.png)
-
-7.  If you want to read the message, perform the following steps.
-
-    1.  Click on **Read the message**. Select **Sign in with a One-time
-    passcode** to receive a limited time passcode.
-
-    2.  Go to your personal email portal and open the message with
-    subject **Your one-time passcode to view the message**.
-
-    3.  Copy the passcode, paste it in to the OME portal and
-    select **Continue**.
-
-    4.  Review the encrypted message with custom branding.
-
-You have successfully tested the new customized OME template.
-
-## Exercise 3 – Enabling Adaptive Protection 
-
-1.	In Microsoft Edge, navigate to ```https://purview.microsoft.com``` and log into the perview portal as **MOD Administrator**.
-
-2.	From the left navigation pane, select **Solutioons** \> **Insider risk management** \> **Adaptive Protection**. Then select **Dashboard**. Select **Quick setup**.
+Lab 1 - Assegnazione dei ruoli di conformità ed esplorazione del portale Microsoft Purview
+Obiettivo:
+In questo lab vengono creati utenti e assegnati loro ruoli, team e gruppi appropriati nell'interfaccia di amministrazione di Office 365 per rappresentare un'organizzazione, ovvero Contoso.
+Agli Utenti assegniamo inoltre:
+•	Prova per le valutazioni di conformità
+Successivamente, testeremo  Microsoft 365 built-in Office 365 Message Encryption (OME).
+In primo luogo, modificheremo il modello predefinito per garantire che non venga visualizzata alcuna finestra di dialogo Social ID per i destinatari esterni quando si riceve un messaggio protetto con la crittografia dei messaggi di Office 365 dagli utenti dell'organizzazione configurata. 
+Quindi creeremo una nuova configurazione OME personalizzata e creeremo una regola di trasporto per applicare la configurazione OME a tutte le e-mail inviate dal nostro reparto finanziario.
+Esercizio 1 - Gestione dei ruoli di conformità
+In questo esercizio verranno attivate tutte le licenze di valutazione necessarie per l'implementazione della sicurezza con Microsoft Purview.
+Attività 1 – Aggiunta del ruolo di Manager a un utente esistente.
+1.	Accedere alla macchina virtuale con i dettagli dell'account forniti con il lab.
+2.	Accedere all'interfaccia di amministrazione di Microsoft 365 https://admin.microsoft.com utilizzando il nome utente e la password amministrativi.
+3.	Nel riquadro di sinistra, selezionare Users > Active users e fare clic sul primo utente Adele Vance.
  
-3.	It will show a message saying we are setting things up. It will take 72 hours to enable it. We will use this in the 8th lab where we explore Adaptive Protection feature.
-
-![BrokenImage](./media/image94.png)
+4.	In Manager, fare clic su Edit manager.
  
-4.	Select **Adaptive Protection settings** tab and switch on the **Adaptive Protection** toggle button. Select **Save**.
+5.	Rimuovere l'attuale manager e digitare Patti nella casella di ricerca. Selezionare Patti Fernandez. Fare clic su Save Changes.
+ 
+Uno screenshot di un computer Descrizione generata automaticamente
+6.	Cambiare il manager in Patti Fernandez per tutti i seguenti utenti.
+•	Adele Vance
+•	Christie Cline
+•	Megan Bowen
+7.	Per Patti Fernandez, aggiungere MOD Administrator come manager.
+Attività 2 - Aggiunta di un amministratore della conformità
+1.	Selezionare l'utente Patti Fernandez, alla voce Account, scorrere fino a Roles e cliccare su Manage roles.
+ 
+Uno screenshot di un computer Descrizione generata automaticamente
+2.	Dopo l'apertura del riquadro Roles, selezionare il pulsante di opzione accanto Admin center access ed espandere Show all by category.  
 
-![BrokenImage](./media/image95.png)
+ 
+Uno screenshot di un computer Descrizione generata automaticamente
+3.	Scorrere fino a Security & compliance, selezionare la casella accanto a Compliance Administrator e fare clic su Save changes.
+ 
+Uno screenshot di un computer Descrizione generata automaticamente
+4.	Chiudere il riquadro, rimanere sulla stessa pagina e continuare con l'attività successiva. 
+Attività 3 - Creazione di team e gruppi in Microsoft admin center
+1.	Ora espandere Teams & groups, selezionare Active teams & groups e fare clic su Add a Microsoft 365 group in Teams & Microsoft 365 groups.
 
-## Summary:
+ 
+Uno screenshot di un computer Descrizione generata automaticamente
+2.	Per il nome utilizzare Contoso Finance Team e per la descrizione utilizzare This team handles finance., quindi fare clic su Next.
 
-In this lab we successfully replicated an organisation in our admin
-center, assigned appropriate licenses and learnt how to use Microsoft
-365 built-in Office 365 Message Encryption (OME).
+ 
+Uno screenshot di un computer Descrizione generata automaticamente
+3.	Nella pagina Assign Owners, fare clic su Assign owners, selezionare la casella accanto ad Adele Vance e fare clic su Add(1). Fare clic su Next. 
+ 
+4.	Nella pagina Add members,  aggiungere Adele Vance e Christie Cline come membri, fare clic su Next. Nella  pagina Add members, selezionare Next. 
+5.	Per l'indirizzo di posta elettronica del gruppo, usare contosofinance e quindi fare clic su Next.
+ 
+Uno screenshot di un computer Descrizione generata automaticamente
+6.	Fare clic su Create group.
+
+ 
+Uno screenshot di un computer Descrizione generata automaticamente
+7.	Al termine, fare clic su Close.
+ 
+Uno screenshot di un computer Descrizione generata automaticamente
+8.	Nella pagina Active teams & groups, selezionare  la scheda Security groups. Selezionare Add a security group.
+
+ 
+Uno screenshot di un computer Descrizione generata automaticamente
+9.	Ripetere i passaggi per creare un altro gruppo con le seguenti informazioni.
+1.	In Set up the basics, immettere quanto segue nel  campo Name: EDM_DataUploaders. Nel campo Description, immettere People who will upload data for EDM.
+•	Selezionare Next.
+•	Nella pagina Settings, selezionare Next. 
+•	Nella pagina Review and finish adding group, controllare le impostazioni e selezionare Create group.
+•	Quando viene visualizzata la pagina New group created, selezionare il pulsante di chiusura. Ora selezionare il  gruppo di EDM_DataUploaders appena creato  dall'elenco. 
+•	Nella scheda Members, selezionare View all and manage owners e aggiungere Patti Fernandez e Christie Cline.
+•	Allo stesso modo aggiungere Patti Fernandez e Christie Cline come membri.
+ 
+Uno screenshot di un computer Descrizione generata automaticamente
+Attività 4 - Abilitazione della prova per le valutazioni di conformità
+1.	Accedere al portale di Purview https://purview.microsoft.com usando Administrative Username e  Administrative Password.
+2.	Se viene visualizzata una finestra di benvenuto, accettare le condizioni e selezionare Get started e chiudila. 
+ 
+3.	Scorrere verso il basso e in Trials and recommendations, selezionare View all trials and recommendations.
+ 
+4.	Nella  pagina Microsoft Purview trials and recommendations, passare a Compliance assessments, in Purview and Priva trials e selezionare Try now.
+ 
+Uno screenshot di un computer Descrizione generata automaticamente
+5.	Fare clic su Start Trials.
+ 
+Nota: potrebbero essere necessarie fino a 2 ore prima che le modifiche abbiano effetto. Accedere di nuovo per vedere le nuove funzionalità. Nel frattempo, continuare con i passaggi successivi.
+6.	Dalla barra di navigazione, selezionare Solutions > Audit.
+ 
+Uno screenshot di un computer Descrizione generata automaticamente
+7.	Nella pagina Audit, selezionare Start recording user and admin activity per attivare la registrazione di controllo.
+ 
+Uno screenshot di un motore di ricerca Descrizione generata automaticamente
+Esercizio 2 - Gestione della crittografia dei messaggi di Office 365
+La prima impostazione che Patti Fernandez deve configurare e testare con il team pilot è Microsoft 365 built-in Office 365 Message Encryption (OME). A tale scopo, modificherà il modello predefinito e creerà un nuovo modello di branding, che verrà assegnato a uno degli utenti pilot. Gli utenti pilot testeranno quindi la funzionalità OME con i propri account. 
+Attività 1 - Verifica della funzionalità di Azure RMS
+In questa attività verrà installato il modulo Exchange Online PowerShell e verrà verificata la corretta funzionalità di Azure RMS del tenant.
+1.	Aprire una finestra di elevated PowerShell selezionando il pulsante Windows con il tasto destro del mouse e quindi eseguire Windows PowerShell come amministratore.
+ 
+Uno screenshot di un computer Descrizione generata automaticamente
+2.	Confermare la finestra User Account Control con Yes.
+3.	Immettere il cmdlet seguente per installare la versione più recente del modulo Exchange Online PowerShell: 
+Install-Module ExchangeOnlineManagement 
+ 
+Lo schermo di un computer con del testo Descrizione generata automaticamente
+4.	Confermare la finestra di dialogo di sicurezza del provider NuGet con Y per Yes e premere Enter. Il completamento di questo processo potrebbe richiedere alcuni secondi. 
+ 
+Lo schermo di un computer con testo bianco Descrizione generata automaticamente
+5.	Confermare la finestra di dialogo di sicurezza del repository non attendibile con Y per Yes e premere Enter. Il completamento di questo processo potrebbe richiedere alcuni secondi.
+ 
+Lo schermo di un computer con testo bianco Descrizione generata automaticamente 
+6.	Immettere il cmdlet seguente per modificare i criteri di esecuzione e premere Enter
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+ 
+Immagine rotta
+7.	Confermare Execution Policy Change con Y per Sì e premere Enter.
+ 
+Immagine rotta
+8.	Immettere il cmdlet seguente per usare il modulo Exchange Online PowerShell e connettersi al tenant:
+Connect-ExchangeOnline
+ 
+Immagine rotta
+9.	Quando viene visualizzata la finestra di Sign in, accedere come Patti Fernandez utilizzando il nome utente PattiF@{TENANTPREFIX}.onmicrosoft.com e la User Password specificata nella scheda delle risorse. (sostituire {TENANTPREFIX} con il prefisso del tenant specificato nella scheda delle risorse) 
+10.	Verificare che Azure RMS e IRM siano attivati nel tenant usando il cmdlet seguente e premere Enter: 
+Get-IRMConfiguration | fl AzureRMSLicensingEnabled
+11.	Quando il risultato AzureRMSLicensingEnabled è True, Azure RMS viene attivato per il tenant. Continuare con il passaggio successivo.
+
+ 
+Immagine rotta
+12.	Testare i modelli di Azure RMS usati per la crittografia dei messaggi di Office 365 con l'utente pilot demo Adele Vance usando il cmdlet seguente (sostituire {TENANTPREFIX} con il prefisso del tenant specificato nella scheda delle risorse)
+Test-IRMConfiguration -Sender adelev@{TENANTPREFIX}.onmicrosoft.com -Recipient adelev@{TENANTPREFIX}.onmicrosoft.com
+13.	Verificare che tutti i test siano nello stato PASS e che non vengano visualizzati errori.
+ 
+Immagine dello schermo
+14.	Lasciare aperta la finestra di PowerShell.
+Il modulo Exchange Online PowerShell è stato installato correttamente, si è connesso al tenant e è stata verificata la corretta funzionalità di Azure RMS.
+Attività 2 - Modifica del modello OME predefinito
+Successivamente, nell'organizzazione è necessario limitare l'attendibilità per i provider di identità esterni, ad esempio Google o Facebook. Poiché questi ID di social networking sono attivati per impostazione predefinita per l'accesso ai messaggi protetti con OME, è necessario disattivare l'uso degli ID di social networking per tutti gli utenti dell'organizzazione.
+1.	Eseguire il cmdlet seguente per visualizzare la configurazione OME predefinita:
+Get-OMEConfiguration -Identity "OME Configuration" |fl
+ 
+Una schermata di un computer Descrizione generata automaticamente
+2.	Esaminare le impostazioni e verificare che il parametro SocialIdSignIn sia impostato su True.
+ 
+Immagine rotta
+3.	Eseguire il cmdlet seguente per limitare l'uso degli ID social per l'accesso ai messaggi dal tenant protetto con OME:
+Set-OMEConfiguration -Identity "OME Configuration" -SocialIdSignIn:$false
+ 
+Lo schermo di un computer con del testo Descrizione generata automaticamente
+4.	Confermare il messaggio di avviso per la personalizzazione del modello predefinito con Y per Sì e premere Enter.
+ 
+Immagine rotta
+5.	Controllare nuovamente la configurazione predefinita e convalidare, il parametro SocialIdSignIn è ora impostato su False.
+Get-OMEConfiguration -Identity "OME Configuration" |fl
+6.	Si noti che il risultato dovrebbe mostrare che SocialIDSignIn è impostato su False.
+ 
+Immagine rotta
+7.	Lasciare aperta la finestra di PowerShell e procedere con l'esercizio successivo.
+L'utilizzo di provider di identità stranieri, come Google e Facebook, è stato disattivato con successo in Office 365 Message Encryption.
+Task 3 - Test del modello OME modificato
+È necessario verificare che non venga visualizzata alcuna finestra di dialogo degli ID di social networking per i destinatari esterni quando si riceve un messaggio protetto con la crittografia dei messaggi di Office 365 dagli utenti del tenant e che questi debbano usare la OTP in qualsiasi momento per accedere al contenuto crittografato.
+1.	In Microsoft Edge, aprire New InPrivate Window e passare a https://outlook.office.com e accedere a Outlook sul Web con il nome utente AdeleV@{TENANTPREFIX}.onmicrosoft.com e la password utente specificata nella scheda delle risorse.
+2.	Nella finestra di dialogo Stay signed in?, selezionare la casella di controllo Don’t show this again e quindi selezionare No.
+3.	Selezionare Save nella  finestra di dialogo Save password per salvare la password dell'utente pilot nel browser.
+4.	Se viene visualizzato il messaggio Translate page from… viene mostrata, selezionare la freccia verso il basso e selezionare Never translate from….
+5.	Selezionare New mail nella parte in alto a sinistra di Outlook sul Web.
+ 
+Interfaccia utente grafica, testo, applicazione, descrizione Word generata automaticamente
+6.	Nella riga To immettere l'indirizzo di posta elettronica personale o di altre terze parti che non si trova nel dominio del tenant. Inserire Secret Message nella riga dell'oggetto e My super-secret message. al corpo. 
+ 
+Interfaccia utente grafica, testo, applicazione, descrizione Word generata automaticamente
+7.	Dal riquadro superiore passare al riquadro Options, selezionare Encrypt per crittografare il messaggio. Se non trovi l'opzione, seleziona i 3 punti (...) in alto a destra, quindi dal menu a discesa selezionare Encrypt. 
+ 
+Uno screenshot di un computer Descrizione generata automaticamente
+8.	Dopo aver crittografato correttamente il messaggio, dovresti vedere un avviso che dice “Encrypt: This message is encrypted. Recipients can’t remove encryption.”
+ 
+Uno screenshot dello schermo di un computer Descrizione generata automaticamente
+9.	Selezionare Send per inviare il messaggio.
+ 
+Interfaccia utente grafica, testo, e-mail Descrizione generata automaticamente
+Nota: nell'account di prova potresti avere o meno il privilegio di inviare qualsiasi messaggio di posta elettronica e la tua posta potrebbe non essere in grado di raggiungere il destinatario dal tuo attuale inquilino. Ma la tua email va a buon fine, puoi controllare i seguenti passaggi per testare il modello.
+10.	Accedere al tuo account di posta elettronica personale e aprire il messaggio di Adele Vance. Se hai inviato questo messaggio di posta elettronica a un account Microsoft (ad esempio @outlook.com), la crittografia potrebbe essere elaborata automaticamente e il messaggio verrà visualizzato automaticamente.
+Nota: se hai inviato l'e-mail a un altro servizio di posta elettronica come (@gmail.com), potrebbe essere necessario eseguire i passaggi successivi per elaborare la crittografia e leggere il messaggio. Potrebbe essere necessario controllare la cartella della posta indesiderata o dello spam per il messaggio.
+11.	Selezionare Read the message.
+12.	Senza aver attivato gli ID social, non c'è alcun pulsante per autenticarsi con il tuo account Google. 
+13.	Selezionare Sign in with a One-time passcode per ricevere un passcode a tempo limitato.
+14.	Andare al tuo portale di posta elettronica personale e aprire il messaggio con oggetto Your one-time passcode to view the message.
+15.	Copiare il passcode, incollarlo nel portale OME e selezionare Continue.
+16.	Esaminare il messaggio crittografato. 
+Il modello OME predefinito modificato è stato testato correttamente con gli ID social disattivati.
+Attività 4 - Creazione di un modello di branding personalizzato
+I messaggi protetti inviati dal reparto finanziario della tua organizzazione richiedono un marchio speciale, che includa testi personalizzati per l'introduzione e il corpo e un link di esclusione di responsabilità nel piè di pagina. Anche i messaggi finanziari scadono dopo sette giorni. In questa attività verrà creata una nuova configurazione OME personalizzata e verrà creata una regola di trasporto per applicare la configurazione OME a tutti i messaggi inviati dal reparto finanziario.
+1.	Nella finestra di PowerShell che abbiamo lasciato aperta con Exchange Online connesso. Eseguire il cmdlet seguente per creare una nuova configurazione OME:
+New-OMEConfiguration -Identity "Finance Department" -ExternalMailExpiryInDays 7
+ 
+Descrizione del testo generata automaticamente
+2.	Confermare il messaggio di avviso per la personalizzazione del modello con Y per Sì e premere Enter.
+ 
+Descrizione del testo generata automaticamente
+3.	Modificare il messaggio di testo introduttivo con il cmdlet seguente
+Set-OMEConfiguration -Identity "Finance Department" -IntroductionText "from Contoso Ltd. finance department has sent you a secure message."
+ 
+Immagine rotta
+4.	Confermare il messaggio di avviso per la personalizzazione del modello con Y per Sì e premere Enter.
+ 
+Immagine rotta
+5.	Modificare il corpo del testo dell'e-mail del messaggio con il cmdlet seguente
+Set-OMEConfiguration -Identity "Finance Department" -EmailText "Encrypted message sent from Contoso Ltd. finance department. Handle the content responsibly."
+6.	Confermare il messaggio di avviso per la personalizzazione del modello con Y per Sì e premere Enter.
+ 
+Descrizione del testo generata automaticamente
+7.	Modificare l'URL della dichiarazione di non responsabilità in modo che punti al sito dell'informativa sulla privacy di Contoso
+Set-OMEConfiguration -Identity "Finance Department" -PrivacyStatementURL "https://contoso.com/privacystatement.html"
+ 
+Descrizione del testo generata automaticamente
+8.	Confermare il messaggio di avviso per la personalizzazione del modello con Y per Sì e premere Enter.
+ 
+Immagine rotta
+9.	Usare il cmdlet seguente per creare una regola del flusso di posta, che applica il modello OME personalizzato a tutti i messaggi inviati dal team finanziario di Contoso. Il completamento di questo processo potrebbe richiedere alcuni secondi.
+New-TransportRule -Name "Encrypt all mails from Contoso Finance team" -FromScope InOrganization -FromMemberOf "Contoso Finance Team" -ApplyRightsProtectionCustomizationTemplate "Finance Department" -ApplyRightsProtectionTemplate Encrypt
+ 
+
+Descrizione del testo generata automaticamente
+10.	Digitare il cmdlet seguente per verificare le modifiche.
+Get-OMEConfiguration -Identity "Finance Department" | Format-List
+ 
+Immagine rotta
+11.	Lasciare aperto PowerShell.
+È stata creata una nuova regola di trasporto che applica automaticamente il modello OME personalizzato quando un membro del reparto finanziario invia un messaggio a destinatari esterni.
+Attività 5 - Test del modello di branding personalizzato
+Per convalidare la nuova configurazione OME personalizzata, è necessario utilizzare l'account di Christie Cline, che è un membro del team finanziario. Nell'account di prova non avrai il privilegio di inviare alcuna e-mail, ma puoi controllare i seguenti passaggi per capire come testare il modello quando hai le tue licenze. È possibile eseguire i passaggi da 1 a 4, ma la posta potrebbe non essere in grado di raggiungere il destinatario dal tenant di valutazione corrente.
+1.	In Microsoft Edge aprire New InPrivate Window e passare a https://outlook.office.com e accedere a Outlook sul Web con il nome utente ChristieC@{TENANTPREFIX}.onmicrosoft.com e la password utente specificata nella scheda delle risorse.
+ 
+Interfaccia utente grafica, testo, applicazione Descrizione generata automaticamente
+2.	Selezionare New message nella parte in alto a sinistra di Outlook sul Web.
+3.	Nella riga To immettere l'indirizzo di posta elettronica personale o di altre terze parti che non si trova nel dominio del tenant. Immettere Finance Report nella riga dell'oggetto e immettere Secret finance information. al corpo. 
+4.	Selezionare Send per inviare il messaggio.
+5.	Accedere all'account e-mail che hai utilizzato sopra e aprire il messaggio di Christie Cline. 
+6.	Dovresti vedere un messaggio di Christie Cline che assomiglia all'immagine qui sotto. Selezionare Read the message.
+ 
+Immagine rotta
+7.	Se si desidera leggere il messaggio, eseguire la procedura seguente.
+1.	Fare clic su Read the message. Selezionare Sign in with a One-time passcode per ricevere un passcode a tempo limitato.
+2.	Andare al tuo portale di posta elettronica personale e aprire il messaggio con oggetto Your one-time passcode to view the message.
+3.	Copiare il passcode, incollarlo nel portale OME e selezionare Continue.
+4.	Esaminare il messaggio crittografato con il branding personalizzato. 
+Il nuovo modello OME personalizzato è stato testato con successo.
+Esercizio 3 – Abilitazione della protezione adattiva
+1.	In Microsoft Edge, vai a https://purview.microsoft.com e accedere al portale Perview come MOD Administrator.
+2.	Nel riquadro di spostamento a sinistra selezionare Solutions > Insider risk management > Adaptive Protection. Quindi selezionare Dashboard. Selezionare Quick setup.
+3.	Mostrerà un messaggio che dice che stiamo configurando le cose. Ci vorranno 72 ore per abilitarlo. Lo useremo nell'8° laboratorio in cui esploreremo la funzione di protezione adattiva. 
+ 
+Immagine rotta
+4.	Selezionare  la scheda Adaptive Protection settings e attivare l' interruttore Adaptive Protection. Selezionare Save.
+ 
+Immagine rotta
+Sommario:
+In questo lab abbiamo replicato con successo un'organizzazione nell'interfaccia di amministrazione, assegnato le licenze appropriate e appreso come usare la crittografia dei messaggi di Office 365 incorporata in Microsoft 365.
+
