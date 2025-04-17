@@ -1,601 +1,767 @@
-# Lab 6 – Creating and Managing DLP Policies
+# Lab 6 – Erstellen und Verwalten von DLP-Richtlinien
 
-## Objective:
+## Ziel:
 
-You are Patti Fernandez, the newly hired Compliance Administrator for
-Contoso Ltd. tasked to configure the company's Microsoft 365 tenant for
-data loss prevention. Contoso Ltd. is a company that offers driving
-instruction in the United States and you need to make sure that
-sensitive customer information does not leave the organization.
+Sie sind Patti Fernandez, die neu eingestellte
+Compliance-Administratorin für Contoso Ltd., die damit beauftragt ist,
+den Microsoft 365-Mandanten des Unternehmens für die Verhinderung von
+Datenverlust zu konfigurieren. Contoso Ltd. ist ein Unternehmen, das
+Fahrunterricht in den USA anbietet, und Sie müssen sicherstellen, dass
+vertrauliche Kundeninformationen die Organisation nicht verlassen.
 
-## Exercise 1 – Creating DLP Policies
+## Übung 1 – Erstellen von DLP-Richtlinien
 
-### Task 1 – Creating a DLP policy in test mode
+### Aufgabe 1 – Erstellen einer DLP-Richtlinie im Testmodus
 
-In this exercise, you will create a Data Loss Prevention policy in the
-Microsoft Purview portal to protect sensitive data from being shared by
-users. The DLP Policy that you create will inform your users if they
-want to share content that contains Credit Card information and allow
-them to provide a justification for sending this information. The policy
-will be implemented in test mode because you do not want the block
-action to affect your users yet.
+In dieser Übung erstellen Sie eine Richtlinie zur Verhinderung von
+Datenverlust im Azure Purview-Portal, um vertrauliche Daten vor der
+Freigabe durch Benutzer zu schützen. Die DLP-Richtlinie, die Sie
+erstellen, informiert Ihre Benutzer, wenn sie Inhalte freigeben möchten,
+die Kreditkarteninformationen enthalten, und ermöglicht es ihnen, eine
+Begründung für das Senden dieser Informationen anzugeben. Die Richtlinie
+wird im Testmodus implementiert, da Sie noch nicht möchten, dass sich
+die Blockierungsaktion auf Ihre Benutzer auswirkt.
 
-1.  In **Microsoft Edge**, navigate
-    to ```https://purview.microsoft.com``` and make sure you are
-    logged into the **Microsoft Purview** portal as **Patti Fernandez**.
+1.  Navigieren Sie in **Microsoft
+    Edge**` zu https://purview.microsoft.com,  und stellen Sie sicher,`` ``dass Sie `beim
+    **Microsoft Purview-Portal** als **Patti Fernandez** angemeldet
+    sind.
 
-2.  In the **Microsoft Purview** portal, in the left navigation pane,
-    select  **Solutions** \> **Data loss prevention**.
+2.  Wählen Sie im **Azure Purview-Portal** im linken Navigationsbereich
+    **Solutions** \> **Data loss prevention** aus.
 
 ![](./media/image1.png)
 
-3.  Under **Data loss prevention**, select **Policies**, and then
-    select **+Create policy** to start the wizard for creating a new
-    data loss prevention policy.
+Wählen Sie unter **Data Loss Prevention** die Option **Policies**, und
+dann **+Create Policy** aus, um den Assistenten zum Erstellen einer
+neuen Richtlinie zur Verhinderung von Datenverlust zu starten.
+
+![](./media/image2.png)
+
+4.  Scrollen Sie auf der Seite **Start with a template or create a
+    custom policy** nach unten, und wählen Sie unter **Categories** die
+    Option **Custom policy** und unter **Custom** die Option
+    Benutzerdefinierte **Regulations** aus. Standardmäßig sollten beide
+    Optionen bereits ausgewählt sein, wählen Sie **Next.**
 
 ![](./media/image3.png)
 
-4.  On the **Start with a template or create a custom policy** page,
-    scroll down and select **Custom** under **Categories** and **Custom
-    policy** under **Regulations**. By default, both options should
-    already be selected , select **Next**.
+5.  Geben Sie auf der **Seite Name Ihrer DLP-Richtlinie** den Text
+    `Kreditkarten-DLP-Richtlinie` in das Feld **Name** ein und
+    `schützen Sie Kreditkartennummern vor der Freigabe``.` Im Feld
+    Beschreibung. Wählen Sie **Next** aus.
 
-![](./media/image6.png)
+![A screenshot of a computer Description automatically
+generated](./media/image4.png)
 
-5.  On the **Name your DLP policy** page,
-    type ```Credit Card DLP Policy``` in the **Name** field
-    and ```Protect credit card numbers from being shared.``` in
-    the **Description** field. Select **Next**.
+*Ein Screenshot einer automatisch generierten Computerbeschreibung*
+
+6.  Wählen Sie auf der Seite **Assign Admin Units** die Option **Next**
+    aus.
+
+7.  Stellen Sie auf der Seite **Choose locations to apply the policy**
+    sicher, dass die Option **Teams chat and channel messages**
+    aktiviert ist und alle anderen Optionen deaktiviert sind, und wählen
+    Sie **Next** aus.
+
+![A screenshot of a computer Description automatically
+generated](./media/image5.png)
+
+*Ein Screenshot einer automatisch generierten Computerbeschreibung*
+
+8.  Wählen Sie auf der Seite **Define Policy Settings** die Option
+    **Create or Customize Advanced DLP Rules** aus**,** und klicken Sie
+    dann auf **Next**.
+
+![A screenshot of a computer Description automatically
+generated](./media/image6.png)
+
+*Ein Screenshot einer automatisch generierten Computerbeschreibung*
+
+1.  Wählen Sie auf der Seite **Erweiterte DLP-Regeln anpassen** die
+    Option +**Create rule** aus.
+
+![A screenshot of a computer Description automatically
+generated](./media/image7.png)
+
+Ein Screenshot einer automatisch generierten Computerbeschreibung
+
+10. Geben Sie auf der Seite **Create rule**
+    Kreditkarteninformationen` in`` ``da``s`` `Feld **Name** ein.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image8.png)
 
-6.  On the **Assign admin units** page, select **Next**.
+Ein Screenshot einer automatisch generierten Computerbeschreibung
 
-7.  On the **Choose locations to apply the policy** page, make sure that
-    the **Teams chat and channel messages** option is enabled and all of
-    the other options are disabled and select **Next**.
+1.  Wählen Sie unter **Conditions** auf der Seite **Create Rule** die
+    Option **+ Add Condition** aus, und wählen Sie im Dropdownmenü
+    **Content is shared from Microsoft 365** aus.
+
+![](./media/image9.png)
+
+12. Wählen Sie im neuen Abschnitt **Content is shared from Microsoft
+    365** die Option **with people outside my organization** aus.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image10.png)
 
-8.  On the **Define policy settings** page, select **Create or customize
-    advanced DLP rules** and select **Next**.
+Ein Screenshot einer automatisch generierten Computerbeschreibung
+
+13. Wählen Sie **+ Add Condition** und wählen Sie dann **Content
+    Contains** aus dem Dropdown-Menü.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image12.png)
+generated](./media/image11.png)
 
-9.  On the **Customize advanced DLP rules** page, select **+ Create
-    rule**.
+Ein Screenshot einer automatisch generierten Computerbeschreibung
+
+14. In neuen **Content Contains** Bereich, wählen Sie **Add** und wählen
+    Sie **Sensitive Info Types** aus dem Dropdown-Menü.
+
+![](./media/image12.png)
+
+15. Auf der **Sensitive Info Types** Seite, wählen Sie **Credit Card
+    Number** und wählen Sie **Add** aus.
+
+![](./media/image13.png)
+
+16. Auf der **Create Rule** Seite, wählen Sie **+ Add an action** und
+    dann wählen Sie **Restrict access or encrypt the content in
+    Microsoft 365 locations** aus.
+
+![](./media/image14.png)
+
+17. Aktivieren Sie das Kästchen vor **Restrict access or encrypt the
+    content in Microsoft 365 locations** und wählen Sie dann **Block
+    only people outside your organization** aus.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image14.png)
+generated](./media/image15.png)
 
-10. On the **Create rule** page, type ```Credit card information``` in the **Name** field.
+Ein Screenshot einer automatisch generierten Computerbeschreibung
+
+18. Auf der **Create Rule** Seite, im **User Notifications** Abschnitt,
+    Wählen Sie den Schalter, um ihn in die Position On zu versetzen.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image16.png)
 
-11. Under **Conditions** on the **Create rule** page, select **+ Add
-    condition** and select **Content is shared from Microsoft 365** from
-    the dropdown menu.
+Ein Screenshot einer automatisch generierten Computerbeschreibung
+
+19. Auf der **Create Rule** Seite, im **User Overrides** Abschnitt,
+    unter **Allow Overrides from M365 Services**, aktivieren Sie das
+    Kontrollkästchen **Allow Overrides from M365 Services. Allows Users
+    in Exchange, SharePoint, OneDrive and Teams to Override Policy
+    Restrictions.**
+
+![](./media/image17.png)
+
+**Anmerkung**: Sollten Sie nicht das Kontrollkästchen **Allow overrides
+from M365 services** sehen, aktivieren Sie das Kontrollkästchen **Notify
+users in Office 365 with a policy tip** welchen Sie auf der **Create
+Rule** Seite unter dem **User notification** \> **Microsoft 365
+services** aus dem vorherigen Schritt befindet. Aktivieren Sie dann das
+Kontrollkästchen **Allow overrides from M365 services. Allows users in
+Exchange,** **SharePoint, OneDrive and Teams to override policy
+restrictions.**
+
+20. Aktivieren Sie das Kontrollkästchen **Require a business
+    justification to override**.
 
 ![](./media/image18.png)
 
-12. In the new **Content is shared from Microsoft 365** section, select
-    the **with people outside my organization** option.
+21. Im **Incident reports** Abschnitt, in **Use this severity level in
+    admin alerts and reports** Dropdown, wählen Sie **Low** aus.
+
+![](./media/image19.png)
+
+22. Wählen Sie **Save**, wählen Sie dann **Next**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image19.png)
+generated](./media/image20.png)
 
-13. Select **+ Add Condition** and then select **Content contains** from
-    the dropdown menu.
+Ein Screenshot einer automatisch generierten Computerbeschreibung
+
+23. Auf **Test or turn on the policy** Seite wählen Sie **Run the policy
+    in simulation mode** und wählen Sie **Show policy tips while in test
+    mode** aus.
+
+![](./media/image21.png)
+
+24. Wählen Sie **Submit,** so erstellen Sie die Richtlinie.
+
+![](./media/image22.png)
+
+25. Sobald die Richtlinie erstellt wurde, wählen Sie **Done** aus.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image22.png)
+generated](./media/image23.png)
 
-14. In the new **Content contains** area, select **Add** and
-    select **Sensitive info types** from the dropdown menu.
+Ein Screenshot einer automatisch generierten Computerbeschreibung
+
+Sie haben jetzt eine DLP-Richtlinie erstellt, die in Microsoft
+Teams-Chats und -Kanälen nach Kreditkartennummern sucht und es Benutzern
+ermöglicht, eine geschäftliche Begründung für die Außerkraftsetzung der
+Richtlinie anzugeben.
+
+### Aufgabe 2 – Ändern einer DLP-Richtlinie
+
+In dieser Aufgabe ändern Sie die vorhandene DLP-Richtlinie, die Sie im
+vorherigen Schritt erstellt haben, um auch E-Mails auf
+Kreditkarteninformationen zu überprüfen und Benutzer zu informieren,
+wenn sie diesen Inhalt in einer E-Mail freigeben möchten.
+
+1.  In **Microsoft Edge**, navigieren Sie zu
+    `https://purview.microsoft.com` und stellen Sie sicher, dass Sie
+    beim **Microsoft Purview-Portal** als **Patti Fernandez** angemeldet
+    sind.
+
+2.  Im **Microsoft Purview** Portal, wählen Sie im linken
+    Navigationsbereich die Option **Solutions** \> **Data Loss
+    Prevention**.
+
+![](./media/image1.png)
+
+3.  Unter **Data loss prevention**, wählen Sie **Policies**, und wählen
+    Sie dann die Richtlinie mit dem Namen **Credit Card DLP Policy** und
+    wählen Sie dann **Edit policy**(pencil icon) so öffnen Sie den
+    Richtlinien-Assistenten.
 
 ![](./media/image24.png)
 
-15. On the **Sensitive info types** page, select **Credit Card
-    Number** and select **Add**.
+4.  Auf der **Name your DLP policy** und **Assign admin units** Seite,
+    wählen Sie **Next** aus.
+
+5.  Auf der **Choose locations to apply the policy** Seite, aktivieren
+    Sie **Exchange email** Option und wählen dann **Next** bis Sie die
+    **Review and finish** Seite erreichen. Stellen Sie sicher, dass die
+    restlichen Speicherorte deaktiviert sind.
+
+![](./media/image25.png)
+
+6.  Wählen Sie **Submit** aus, um die Änderung zu übernehmen, die Sie in
+    der Richtlinie vorgenommen haben.
 
 ![](./media/image26.png)
 
-16. On the **Create rule** page, select **+ Add an action** and
-    select **Restrict access or encrypt the content in Microsoft 365
-    locations**.
-
-![](./media/image28.png)
-
-17. Check the box in front of **Restrict access or encrypt the content
-    in Microsoft 365 locations** and then select **Block only people
-    outside your organization**.
+7.  Sobald die Richtlinie aktualisiert wurde, wählen Sie **Done** aus.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image29.png)
+generated](./media/image27.png)
 
-18. On the **Create rule** page, in the **User notifications** section,
-    select the switch to put it in the **On** position.
+Ein Screenshot einer automatisch generierten Computerbeschreibung
+
+Sie haben nun eine vorhandene DLP-Richtlinie geändert und die
+Speicherorte geändert, an denen nach Inhalten gesucht wird.
+
+### Aufgabe 3 – Erstellen einer DLP-Richtlinie in PowerShell
+
+In dieser Aufgabe verwenden Sie PowerShell, um eine DLP-Richtlinie zu
+erstellen, um die Contoso EmployeeIDs zu schützen und zu verhindern,
+dass sie in Exchange freigegeben werden. Benutzer werden darüber
+informiert, dass sie versuchen, vertrauliche Daten freizugeben, und
+werden am Senden der E-Mail gehindert, wenn sie Contoso EmployeeIDs
+enthält.
+
+1.  Wählen Sie im Startmenü **Windows PowerShell**.
+
+&nbsp;
+
+1.  Geben Sie im PowerShell-Fenster
+
+`Connect-IPPSSession`` ein`
+
+und melden Sie sich dann als **Patti Fernandez** an**.**
+
+![Text Description automatically generated](./media/image28.png)
+
+Text Beschreibung wird automatisch generiert
+
+Anmerkung: Wenn ein Fehler angezeigt wird, versuchen Sie, zuerst die
+folgenden Befehle nacheinander auszuführen, und führen Sie dann den
+Schritt erneut aus.
+
+`Install-Module ExchangeOnlineManagement`
+
+`Import-Module ExchangeOnlineManagement`
+
+Wenn ein Fehler angezeigt wird, versuchen Sie, die folgenden Befehle
+zuerst nacheinander auszuführen, und führen Sie dann den Schritt erneut
+aus. Wenn weiterhin ein Fehler auftritt, laden Sie die folgende Datei
+herunter und installieren Sie sie, bevor Sie fortfahren.
+`https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/PowerShell-7.4.0-win-x64.msi`
+
+3.  Geben Sie den folgenden Befehl in PowerShell ein, um eine
+    DLP-Richtlinie zu erstellen, die alle Exchange-Postfächer überprüft:
+
+`New-DlpCompliancePolicy -Name "EmployeeID DLP Policy" -Comment "This policy blocks sharing of Employee IDs" -ExchangeLocation All`
+
+![BrokenImage](./media/image29.png)
+
+4.  Geben Sie den folgenden Befehl in PowerShell ein, um der
+    DLP-Richtlinie, die Sie im vorherigen Schritt erstellt haben, eine
+    DLP-Regel hinzuzufügen:
+
+`New-DlpComplianceRule -Name "EmployeeID DLP rule" -Policy "EmployeeID DLP Policy" -BlockAccess $\\true -ContentContainsSensitiveInformation @{Name="Contoso Employee IDs"}`
+
+![Text Description automatically generated](./media/image30.png)
+
+Text Beschreibung wird automatisch generiert
+
+5.  Verwenden Sie den folgenden Befehl, um die **EmployeeID DLP Rule**
+    zu überprüfen:
+
+`Get-DLPComplianceRule -Identity "EmployeeID DLP rule"`
+
+![Text Description automatically generated](./media/image31.png)
+
+Text Beschreibung wird automatisch generiert
+
+Sie haben jetzt eine DLP-Richtlinie erstellt, die mithilfe von
+PowerShell nach Contoso EmpoloyeeIDs in Exchange sucht.
+
+### Aufgabe 4 – Aktivieren einer Richtlinie im Testmodus
+
+In dieser Aufgabe aktivieren Sie die DLP-Richtlinie für
+Kreditkarteninformationen, die Sie im Testmodus erstellt haben, damit
+sie ihre Schutzmaßnahmen erzwingt.
+
+1.  Navigieren Sie in **Microsoft
+    Edge**` zu https://purview.microsoft.com,und stellen Sie sicher, dass Sie`` `beim
+    **Microsoft Purview-Portal** als **Patti Fernandez** angemeldet
+    sind.
+
+2.  Wählen Sie im **Azure Purview-Portal** im linken Navigationsbereich
+    **Solutions** \> **Data Loss Prevention** aus.
+
+![](./media/image1.png)
+
+1.  Unter **Data Loss Prevention**, wählen Sie **Policies**, und wählen
+    Sie dann die Richtlinie mit dem Namen **Credit Card DLP Policy** aus
+    und wählen Sie dann **Edit Policy**(pencil icon), um den
+    Richtlinien-Assistenten zu öffnen.
+
+![](./media/image24.png)
+
+4.  Wählen Sie **Next** bis Sie die **Test or turn on the policy** Seite
+    sehen und wählen Sie dann **Turn the policy on immediately** aus.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image32.png)
 
-19. On the **Create rule** page, in the **User overrides** section,
-    under the **Allow overrides from M365 services**, check the
-    box **Allow overrides from M365 services. Allows users in
-    Exchange, SharePoint, OneDrive and Teams to override policy
-    restrictions.**
+Ein Screenshot einer automatisch generierten Computerbeschreibung
 
-![](./media/image34.png)
+5.  Wählen Sie **Next**, und wählen Sie dann **Submit**, um die
+    Richtlinie zu aktivieren.
 
-**Note**: If you were not able to select the check box of **Allow
-overrides from M365 services**, enable the check box of **Notify users
-in Office 365 with a policy tip** which can be found on the **Create
-rule** page under the **User notification** > **Microsoft 365
-services** section from the previous step. Then select the check box
-of **Allow overrides from M365 services. Allows users in Exchange,**
-**SharePoint, OneDrive and Teams to override policy restrictions.**
+![](./media/image33.png)
 
-20. Check the box **Require a business justification to override**.
+6.  Sobald die Richtlinie aktualisiert wurde, wählen Sie **Done** aus.
+
+![A screenshot of a computer Description automatically
+generated](./media/image34.png)
+
+Ein Screenshot einer automatisch generierten Computerbeschreibung
+
+Sie haben die DLP-Richtlinie erfolgreich aktiviert. Wenn die Richtlinie
+einen Versuch erkennt, Kreditkarteninformationen freizugeben, blockiert
+sie nun den Versuch und ermöglicht es den Benutzern, eine geschäftliche
+Begründung anzugeben, um die Blockierungsaktion außer Kraft zu setzen.
+
+## Übung 2 – Verwalten von DLP-Richtlinien
+
+### Aufgabe 1 – Ändern der Richtlinienpriorität
+
+Nachdem Sie zwei DLP-Richtlinien erstellt haben, möchten Sie
+sicherstellen, dass die restriktivere Richtlinie mit einer höheren
+Priorität als die weniger restriktive Richtlinie verarbeitet wird. Aus
+diesem Grund möchten Sie die DLP-Richtlinie "EmployeeID" in die höhere
+Priorität verschieben.
+
+1.  Navigieren Sie in **Microsoft
+    Edge**` zu https://purview.microsoft.com,und stellen Sie sicher, dass Si``e`
+    beim **Microsoft Purview-Portal** als **Patti Fernandez** angemeldet
+    sind.
+
+&nbsp;
+
+3.  Wählen Sie im **Azure Purview-Portal** im linken Navigationsbereich
+    **Solutions** \> **Data loss prevention** aus.
+
+![](./media/image1.png)
+
+3.  Unter **Data Loss Prevention**, wählen Sie **Policies**, und wählen
+    Sie dann die Richtlinie mit dem Namen **Credit Card DLP Policy** und
+    wählen Sie dann **Edit Policy** (pencil icon) aus, so öffnen Sie den
+    Richtlinien-Assistenten.
+
+![](./media/image24.png)
+
+4.  Wählen Sie **Move to top** aus.
 
 ![](./media/image35.png)
 
-21. In the **Incident reports** section, in the **Use this severity
-    level in admin alerts and reports** dropdown, select **Low**.
+5.  Im **Data loss prevention** Fenster, wählen Sie **Refresh** und
+    überprüfen Sie die Priorität in der Spalte **Order** der
+    Richtlinientabelle.
 
-![](./media/image38.png)
+![](./media/image36.png)
 
-22. Select **Save**, then select **Next**.
+Sie haben die Priorität Ihrer DLP-Richtlinien erfolgreich geändert. Wenn
+beide Richtlinien mit demselben Inhalt übereinstimmen, wird die Aktion
+der Richtlinie mit höherer Priorität erzwungen.
+
+### Aufgabe 2 – Aktivieren der Dateiüberwachung in Microsoft 365 Defender
+
+Sie möchten Dateirichtlinien in **Microsoft 365 Defender verwenden**, um
+Dateien an Ihren OneDrive- und SharePoint Online-Speicherorten zu
+schützen. Bevor Sie eine Dateirichtlinie erstellen können, müssen Sie
+die Dateiüberwachung aktivieren, damit Microsoft 365 Defender Dateien in
+Ihrer Organisation überprüfen kann.
+
+1.  Öffnen Sie **Microsoft Edge**, navigieren Sie zu
+    https://security.microsoft.com,
+    `und melden Sie sich beim Microsoft 365 Defender-Portal als `**MOD-Administrator**
+    an.
+
+&nbsp;
+
+1.  Wählen Sie in der Navigation **Cloud Apps System** \> **Files
+    Settings** \> **Cloud Apps** aus dem Menü aus.
+
+![](./media/image37.png)
+
+3.  Wählen Sie dann **Enable file monitoring**. Wählen Sie **Files**
+    unter **Information Protection** aus.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image40.png)
+generated](./media/image38.png)
 
-23. On the **Test or turn on the policy** page select **Run the policy
-    in simulation mode** and select **Show policy tips while in test mode**.
+Ein Screenshot einer automatisch generierten Computerbeschreibung
 
-![](./media/image42.png)
+4.  Wählen Sie das **Enable File Monitoring** Kontrollkästchen und
+    wählen Sie dann **Save** wenn es nicht bereits markiert ist.
 
-24. Select **Submit** to create the policy.
+![A screenshot of a computer Description automatically
+generated](./media/image39.png)
 
-![](./media/image44.png)
+Ein Screenshot einer automatisch generierten Computerbeschreibung
 
-25. Once the policy is created select **Done**.
+Sie haben die Dateiüberwachung in Microsoft Defender für Cloud Apps
+erfolgreich aktiviert und können jetzt Dateien mithilfe von
+Dateirichtlinien auf vertrauliche Inhalte scannen.
+
+### Aufgabe 3 – Erstellen einer Dateirichtlinie für Microsoft 365 Defender
+
+In dieser Aufgabe möchten Sie eine Dateirichtlinie in Microsoft 365
+Defender erstellen, um Dateien in OneDrive und SharePoint Online zu
+überprüfen und Dateien mit Kreditkarteninformationen automatisch unter
+Quarantäne zu stellen, wenn sie freigegeben werden.
+
+1.  Öffnen Sie **Microsoft Edge**, navigieren Sie zu
+    https://security.microsoft.com,
+    `und melden Sie sich beim Microsoft 365 Defender-Portal als `**MOD-Administrator**
+    an.
+
+&nbsp;
+
+1.  Wählen Sie in der Navigation unter **System** die Option
+    **Settings** aus, und wählen Sie im Menü **Cloud-Apps** aus.
+
+![](./media/image37.png)
+
+3.  Unter **Information Protection** \> **Microsoft Information
+    Protection**, stellen Sie sicher das **Automatically scan new files
+    for sensitivity labels from Microsoft Purview Protection and content
+    inspection warnings** ausgewählt ist, sollte es nicht schon
+    ausgewählt sein. Klicken Sie auf **Save**.
+
+4.  Unter **Inspect Protected Files**, klicken Sie auf **Grant
+    Permission**.
+
+![](./media/image40.png)
+
+5.  Wenn Sie dazu aufgefordert werden, melden Sie sich mit der
+    **MOD-Administrator-ID** an und klicken Sie auf dem nächsten
+    Bildschirm auf Accept.
+
+&nbsp;
+
+1.  Wählen Sie in der Unternavigation **Connected apps** \> **App
+    Connectors** aus. Stellen Sie sicher, dass **Microsoft 365**
+    hinzugefügt wurde.
+
+![](./media/image41.png)
+
+- Wenn nicht, wählen Sie **Connect an app** aus, und fügen Sie die App
+  hinzu. Unter **Select Office 365 Components**, aktivieren Sie alle
+  Kontrollkästchen und klicken Sie dann auf **Connect Office 365**.
+
+- Wenn die Meldung **Office 365 was successfully connected**, schließen
+  Sie das Feld.
+
+7.  Im **Microsoft 365 Defender** Portal, im linken Navigationsbereich,
+    erweitern Sie **Cloud apps** \> **Policies** und wählen Sie **Policy
+    management** aus.
+
+8.  Erweitern Sie auf der Seite **Policies** die Option **+ Create
+    Policiy**, und wählen Sie dann **File policy** aus.
+
+![A screenshot of a computer Description automatically
+generated](./media/image42.png)
+
+Ein Screenshot einer automatisch generierten Computerbeschreibung
+
+9.  Geben Sie auf der Seite **Create File policy** den Namen
+    `Credit Card Information for files` im **Policy Name** Feld ein, und
+    geben Sie `Protect credit card numbers from being shared in files.`
+    in das **Description** Feld ein.
+
+![Graphical user interface, application Description automatically
+generated](./media/image43.png)
+
+Grafische Benutzeroberfläche, Anwendung Beschreibung wird automatisch
+generiert
+
+10. Behalten Sie die **Policy Severity** auf **Low** (ein leuchtendes
+    Symbol) und stellen Sie sicher, dass die **Category** auf **DLP**
+    festgelegt ist. Für eine Dateirichtlinie sollte dies die
+    Standardeinstellung sein.
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image44.png)
+
+Grafische Benutzeroberfläche, Text, Anwendung Beschreibung wird
+automatisch generiert
+
+1.  Erweitern Sie im Bereich **Dateien, die allen folgenden Inhalten
+    entsprechen**, das Dropdown-Menü **Public (Internet), External,
+    Public** und fügen Sie **Internal** hinzu.
+
+![Graphical user interface, application Description automatically
+generated](./media/image45.png)
+
+Grafische Benutzeroberfläche, Anwendung Beschreibung wird automatisch
+generiert
+
+1.  Wählen Sie unter Anwenden auf im Dropdown-Menü **Inspection Method**
+    die Option **Data Classification Service** aus.
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image46.png)
+
+Grafische Benutzeroberfläche, Text, Anwendung Beschreibung wird
+automatisch generiert
+
+**Anmerkung:** Wenn der **Data Classification Service** noch nicht in
+der Dropdown-Liste angezeigt wird, wählen Sie ab sofort **None** aus.
+Sobald Sie fertig sind, kommen Sie nach einiger Zeit zurück zu
+**Policies** \> **Policy management** \> **All Policies** \> **Search
+for name: Credit card** \> **Select Credit Card Information for files**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image47.png)
 
-You have now created a DLP policy that scans for Credit Card numbers in
-Microsoft Teams chats and channels and allows users to provide a
-business justification to override the policy.
+Ein Screenshot einer automatisch generierten Computerbeschreibung
 
-### Task 2 – Modifying a DLP policy
+13. Wählen Sie **Data Classification Service** aus der Dropdown-Liste
+    von **Inspection Method** aus.
 
-In this task, you will modify the existing DLP policy you created in the
-previous step to also scan e-mails for Credit Card information and
-inform users if they want to share this content in an e-mail.
+![A screenshot of a computer Description automatically generated with
+medium confidence](./media/image48.png)
 
-1.  In **Microsoft Edge**, navigate
-    to ```https://purview.microsoft.com``` and make sure you are
-    logged into the **Microsoft Purview** portal as **Patti Fernandez**.
+Ein Screenshot einer Computerbeschreibung, die automatisch mit mittlerer
+Zuverlässigkeit generiert wird
 
-2.  In the **Microsoft Purview** portal, in the left navigation pane,
-    select **Solutions** \> **Data loss prevention**.
+1.  Klicken Sie im Feld **Choose inspection type...** Dropdown-Menü,
+    wählen Sie **Sensitive information type...**.
 
-![](./media/image1.png)
+![Graphical user interface, text, application Description automatically
+generated](./media/image49.png)
 
-3.  Under **Data loss prevention**, select **Policies**, and then select
-    the policy named **Credit Card DLP Policy** and then select **Edit
-    policy**(pencil icon) to open the policy wizard.
+Benutzeroberfläche, Text, Anwendung Beschreibung wird automatisch
+generiert
 
-![](./media/image48.png)
+15. In **Select a Sensitive Information Type** Dialogfeld, wählen Sie
+    **Credit Card Number**, wählen Sie dann **Done** in der oberen
+    rechten Ecke.
 
-4.  On the **Name your DLP policy** and **Assign admin units** page,
-    select **Next**.
+![Graphical user interface, website Description automatically
+generated](./media/image50.png)
 
-5.  On the **Choose locations to apply the policy** page, enable
-    the **Exchange email** option and then select **Next** until you
-    reach the **Review and finish** page. Make sure that the rest of
-    the locations are disabled.
+Grafische Benutzeroberfläche, Website-Beschreibung wird automatisch
+generiert
 
-![](./media/image51.png)
-
-6. Select **Submit** to apply the change you made in the policy.
-
-![](./media/image53.png)
-
-7. Once the policy is updated select **Done**.
+16. Aktivieren Sie unter Alerts das Kontrollkästchen **Create an alert
+    for each matching file** erstelllen und überprüfen Sie Ihre
+    Optionen. Behalten Sie die Standardeinstellungen bei, indem Sie als
+    **Save as default settings** auswählen.
 
 ![A screenshot of a computer Description automatically
+generated](./media/image51.png)
+
+Ein Screenshot einer automatisch generierten Computerbeschreibung
+
+1.  Erweitern Sie im Abschnitt **Governance Actions** die Option
+    **Microsoft OneDrive for Business,** und wählen Sie In **Put in user
+    quarantine** aus.
+
+![A screenshot of a computer Description automatically
+generated](./media/image52.png)
+
+Ein Screenshot einer automatisch generierten Computerbeschreibung
+
+1.  Erweitern Sie im Abschnitt **Governance Actions** die Option
+    **Microsoft SharePoint Online,** und wählen Sie In **Put in User
+    Quarantine** aus.
+
+![A screenshot of a computer Description automatically
+generated](./media/image53.png)
+
+Ein Screenshot einer automatisch generierten Computerbeschreibung
+
+19. Wählen Sie **Create** am Ende der Seite aus.
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image54.png)
+
+Grafische Benutzeroberfläche, Text, Anwendung Beschreibung wird
+automatisch generiert
+
+1.  Wählen Sie oben rechts das **Profile picture** des
+    MOD-Administrators aus, wählen Sie neben dem Zahnrad **Sign out**
+    aus und schließen Sie dann den Browser.
+
+Sie haben jetzt eine Dateirichtlinie erstellt, die in OneDrive und
+SharePoint gespeicherte Dateien kontinuierlich nach
+Kreditkarteninformationen durchsucht und unter Quarantäne stellt, wenn
+sie in Ihrer Organisation freigegeben sind.
+
+### Aufgabe 4 – Erstellen einer DLP-Richtlinie für Power Platform
+
+Ihr Unternehmen verwendet Power Automate Flows, um Daten zwischen
+SharePoint Online und Salesforce auszutauschen. In dieser Aufgabe
+erstellen Sie eine DLP-Richtlinie für Power Platform, die es Ihren
+vorhandenen Flows ermöglicht, weiterhin zu funktionieren, aber die
+Erstellung von Flows verhindert, die Daten zwischen SharePoint Online
+und Apps freigeben, die als nicht geschäftlich definiert sind.
+
+1.  Navigieren Sie in **Microsoft Edge** zu
+    `https://admin.powerplatform.microsoft.com` und melden Sie sich beim
+    Power Platform Admin Center als **MOD-Administrator an**.
+
+&nbsp;
+
+1.  Wählen Sie im **Power Platform Admin Center** im linken
+    Navigationsbereich das Dropdown-Menü für **Policies** und dann
+    **Data Policies** aus.
+
+![](./media/image55.png)
+
+3.  Wählen Sie auf der Seite **Data Policies** die Option **+ New
+    Policy** aus.
+
+![Graphical user interface, application, Teams Description automatically
 generated](./media/image56.png)
 
-You have now modified an existing DLP policy and changed the locations
-it scans for content.
+Grafische Benutzeroberfläche, Anwendung, Teams Beschreibung automatisch
+generiert
 
-### Task 3 – Creating a DLP policy in PowerShell
+1.  Geben Sie auf der Seite **Name your policy** den Namen
+    `"Mandantenweite SharePoint-Richtlinie`" ein, und wählen Sie dann
+    **Next** aus.
 
-In this task, you use PowerShell to create a DLP policy to protect the
-Contoso EmployeeIDs and prevent them from being shared in Exchange.
-Users will be informed that they are attempting to share sensitive data
-and are blocked from sending the e-mail if it includes Contoso
-EmployeeIDs.
+![Graphical user interface, text, application Description automatically
+generated](./media/image57.png)
 
-1.  In the start menu, select **Windows PowerShell**.
+Grafische Benutzeroberfläche, Text, Anwendung Beschreibung wird
+automatisch generiert
 
-2.  In the **PowerShell** window, enter
+1.  Über die **Non-Business| Default** Registerkarte Standard, wählen
+    Sie **SharePoint** und **Salesforce** und dann oben auf der Seite
+    **Move to Business** aus.
 
-```Connect-IPPSSession```
+![](./media/image58.png)
 
-and then sign in as **Patti Fernandez.**
+1.  Wählen Sie auf der Seite **Assign connectors** die Registerkarte
+    **Business** aus, um sicherzustellen, dass sowohl SharePoint als
+    auch Salesforce jetzt angezeigt werden.
 
-![Text Description automatically generated](./media/image57.png)
+![Graphical user interface, application Description automatically
+generated](./media/image59.png)
 
-Note: If it shows error try running the following commands one by one
-first and then execute the step again.
+Grafische Benutzeroberfläche, Anwendung Beschreibung wird automatisch
+generiert
 
-```Install-Module ExchangeOnlineManagement```
+7.  Wählen Sie zweimal **Next** aus.
 
-```Import-Module ExchangeOnlineManagement```
+![Graphical user interface, application Description automatically
+generated](./media/image60.png)
 
-If it shows error try running the following commands one by one first
-and then execute the step again. If you still face any error, download
-the following file and install it before proceeding further.
-```https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/PowerShell-7.4.0-win-x64.msi```
+Grafische Benutzeroberfläche, Anwendung Beschreibung wird automatisch
+generiert
 
-3.  Enter the following command into PowerShell to create a DLP policy
-    that scans all Exchange mailboxes:
+![Graphical user interface, text, application Description automatically
+generated](./media/image61.png)
 
-```New-DlpCompliancePolicy -Name "EmployeeID DLP Policy" -Comment "This policy blocks sharing of Employee IDs" -ExchangeLocation All```
+Grafische Benutzeroberfläche, Text, Anwendung Beschreibung wird
+automatisch generiert
 
-![BrokenImage](./media/image58.png)
+8.  Auf der **Define scope** Seite, wählen Sie **Add all Environments**,
+    und wählen Sie dann **Next** aus.
 
-4.  Enter the following command into PowerShell to add a DLP rule to the
-    DLP policy you created in the previous step:
+![Graphical user interface, text, application Description automatically
+generated](./media/image62.png)
 
-```New-DlpComplianceRule -Name "EmployeeID DLP rule" -Policy "EmployeeID DLP Policy" -BlockAccess $\\true -ContentContainsSensitiveInformation @{Name="Contoso Employee IDs"}```
+Grafische Benutzeroberfläche, Text, Anwendung Beschreibung wird
+automatisch generiert
 
-![Text Description automatically generated](./media/image59.png)
-
-5.  Use the following command to review the **EmployeeID DLP rule**:
-
-```Get-DLPComplianceRule -Identity "EmployeeID DLP rule"```
-
-![Text Description automatically generated](./media/image60.png)
-
-You have now created a DLP Policy that scans for Contoso EmpoloyeeIDs in
-Exchange by using PowerShell.
-
-### Task 4 – Activating a policy in test mode
-
-In this task, you will activate the credit card information DLP policy
-you created in test mode so it enforces its protective actions.
-
-1.  In **Microsoft Edge**, navigate
-    to ```https://purview.microsoft.com``` and make sure you are
-    logged into the **Microsoft Purview** portal as **Patti Fernandez**.
-
-2.  In the **Microsoft Purview** portal, in the left navigation pane,
-    select **Solutions** \> **Data loss prevention**.
-
-![](./media/image1.png)
-
-3.  Under **Data loss prevention**, select **Policies**, and then select
-    the policy named **Credit Card DLP Policy** and then select **Edit
-    policy**(pencil icon) to open the policy wizard.
-
-![](./media/image48.png)
-
-4.  Select **Next** until you reach the **Test or turn on the
-    policy** page and select **Turn the policy on immediately**.
+1.  Überprüfen Sie auf der Seite **Review and Create Policy** Ihre
+    Richtlinieneinstellungen, und wählen Sie dann **Create Policies**
+    aus.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image63.png)
 
-5. Select **Next**, then select **Submit** to activate the policy.
+*Ein Screenshot einer automatisch generierten Computerbeschreibung*
 
-![](./media/image66.png)
+Sie haben jetzt eine Power Platform DLP-Richtlinie erstellt, die
+verhindert, dass Benutzer Flows erstellen, die einen SharePoint Online
+Connector und einen Connector enthalten, der nicht Salesforce ist.
 
-6. Once the policy is updated select **Done**.
+## Übung 3 – Aktivieren des adaptiven Schutzes
 
-![A screenshot of a computer Description automatically
-generated](./media/image68.png)
+1.  Navigieren Sie in **Microsoft Edge** zu
+    `https://purview.microsoft.com,`und melden Sie sich beim
+    Purview-Portal als **MOD-Administrator an**.
 
-You have successfully activated the DLP Policy. If the policy detects an
-attempt to share credit card information, it will now block the attempt
-and allow the users to provide a business justification to override the
-block action.
+2.  Wählen Sie im linken Navigationsbereich **Solutions** \> **Insider
+    Risk Management** \> **Adaptive protection** \> **Dashboard** aus.
+    Wählen Sie **Quick setup**.
 
-## Exercise 2 – Managing DLP Policies
-
-### Task 1 – Modifying policy priority
-
-After creating two DLP policies, you want to make sure that the more
-restrictive policy is processed at a higher priority than the less
-restrictive policy. For this reason, you want to move the EmployeeID DLP
-Policy into the higher priority.
-
-1.  In **Microsoft Edge**, navigate
-    to ```https://purview.microsoft.com``` and make sure you are
-    logged into the **Microsoft Purview** portal as **Patti Fernandez**.
-
-2.  In the **Microsoft Purview** portal, in the left navigation pane,
-    select **Solutions** \> **Data loss prevention**.
-
-![](./media/image1.png)
-
-3.  Under **Data loss prevention**, select **Policies**, and then select
-    the policy named **Credit Card DLP Policy** and then select **Edit
-    policy** (pencil icon) to open the policy wizard. 
-
-![](./media/image48.png)
-
-4.  Select **Move to top**.
-
-![](./media/image71.png)
-
-5.  In the **Data loss prevention** window, select **Refresh** and
-    review the priority in the **Order** column of the policy table.
-
-![](./media/image73.png)
-
-You successfully modified the priority of your DLP policies. If bothtwo
-policies match the same content the action of the higher priority policy
-will be enforced.
-
-### Task 2 – Enabling file monitoring in Microsoft 365 Defender
-
-You want to use file policies in **Microsoft 365 Defender** to protect
-files in your OneDrive and SharePoint Online locations. Before you can
-create a file policy, you need to enable file monitoring so Microsoft
-365 Defender can scan files in your organization.
-
-1.  Open **Microsoft Edge** and navigate
-    to ```https://security.microsoft.com``` and log into the
-    Microsoft 365 Defender portal as **MOD Administrator**.
-
-2.  In the navigation select **Cloud appsSystem** \> **Files Settings** \> **Cloud apps** from the menu.
-
-![](./media/image80.png)
-
-3. Then select **Enable file monitoring**.Select **Files** under **Information Protection**.
+3.  Es wird eine Meldung angezeigt, die besagt, dass wir die Dinge
+    einrichten. Es dauert 72 Stunden, bis es aktiviert ist. Wir werden
+    dies im letzten Lab verwenden, in dem wir die Funktion des
+    **Adaptive Protection** untersuchen.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image75.png)
+generated](./media/image64.png)
 
-4.  Select the **Enable file monitoring** checkbox and then
-    select **Save** if it is not already marked.
+*Ein Screenshot einer automatisch generierten Computerbeschreibung*
 
-![A screenshot of a computer Description automatically
-generated](./media/image78.png)
-
-You successfully enabled file monitoring in Microsoft Defender for Cloud
-Apps and can now scan files for sensitive content using file policies.
-
-### Task 3 – Creating File Policy for Microsoft 365 Defender
-
-In this task, you want to create a file policy in Microsoft 365 Defender
-to scan files in OneDrive and SharePoint Online and automatically
-quarantine files containing credit card information if they are shared.
-
-1.  Open **Microsoft Edge** and navigate
-    to ```https://security.microsoft.com``` and log into the
-    Microsoft 365 Defender portal as **MOD Administrator**.
-
-2.  In the navigation select **Settings** under **System**, and
-    select **Cloud apps** from the menu.
-
-![](./media/image80.png)
-
-3.  Under **Information Protection** \> **Microsoft Information
-    Protection**, make sure **Automatically scan new files for
-    sensitivity labels from Microsoft Purview Protection and content
-    inspection warnings** is selected, if not select it. Click on
-    **Save**.
-
-4.  Under **Inspect protected files**, click on **Grant Permission**.
-
-![](./media/image82.png)
-
-5.  If asked, Sign in using **MOD Administrator’s** ID and click
-    on **Accept** on the next screen.
-
-6.  In the sub navigation, select **Connected apps** \> **App
-    Connectors**. Make sure **Microsoft 365** is added.
-
-![](./media/image84.png)
-
-- If not, select **Connect an app**, and add the app. Under **Select
-  Office 365 components**, select all the check boxes and then click
-  on **Connect Office 365**.
-
-- Once you see the message **Office 365 was successfully connected**,
-  close the box.
-
-7.  In the **Microsoft 365 Defender** portal, in the left navigation
-    pane, expand **Cloud apps** > **Policies** and select **Policy management**.
-
-8.  On the **Policies** page, expand **+ Create policy** and then
-    select **File policy**.
+4.  Wählen Sie die Registerkarte **Adaptive Protection settings** und
+    aktivieren Sie die Umschaltfläche **Adaptive Protection**. Wählen
+    Sie dann **Save** aus.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image87.png)
+generated](./media/image65.png)
 
-9.  On the **Create file policy** page,
-    type ```Credit Card Information for files``` in the **Policy
-    name** field, and type ```Protect credit card numbers from being shared in files.``` in the **Description** field.
+## *Ein Screenshot einer automatisch generierten Computerbeschreibung* 
 
-![Graphical user interface, application Description automatically
-generated](./media/image88.png)
+## Zusammenfassung:
 
-10. Keep the **Policy Severity** on **Low** (one lighted icon) and make
-    sure the **Category** is set to **DLP**. For a file policy, this
-    should be the default.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image89.png)
-
-11. In the **Files matching all of the following** area, expand the
-    dropdown menu **Public (Internet), External, Public** and
-    add **Internal**.
-
-![Graphical user interface, application Description automatically
-generated](./media/image90.png)
-
-12. Under Apply to in the **Inspection Method** dropdown menu,
-    select **Data Classification Service**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image91.png)
-
-**Note:** If you do not see the **Data Classification Service** in the
-drop down yet, select **None** as of now. Once done come back after some
-time to **Policies** \> **Policy management** \> **All Policies** \> **Search
-for name: Credit card** \> **Select Credit Card Information for files**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image92.png)
-
-13. Select **Data Classification Service** from the dropdown
-    of **Inspection method**.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/image93.png)
-
-14. In the **Choose inspection type…** dropdown menu, select **Sensitive
-    information type…**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image95.png)
-
-15. In the **Select a sensitive information type** dialog,
-    select **Credit Card Number**, then select **Done** in the upper
-    right corner.
-
-![Graphical user interface, website Description automatically
-generated](./media/image96.png)
-
-16. Under **Alerts**, check the **Create an alert for each matching
-    file** checkbox and review your options. Keep the settings at the
-    default by selecting **Save as default settings**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image99.png)
-
-17. In the **Governance actions** section, expand **Microsoft OneDrive
-    for Business** and select **Put in user quarantine**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image101.png)
-
-18. In the **Governance actions** section, expand **Microsoft SharePoint
-    Online** and select **Put in user quarantine**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image102.png)
-
-19. Select **Create** at the bottom of the page.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image104.png)
-
-20. Select the **Profile picture** of the MOD Admin in the top right and
-    select **Sign out** next to the cogwheel, then close the browser.
-
-You have now created a file policy that will continuously scan files
-saved in OneDrive and SharePoint for credit card information and
-quarantine them if they are shared inside your organization.
-
-### Task 4 – Creating a DLP Policy for Power Platform
-
-Your company uses Power Automate flows to share data between SharePoint
-Online and SalesForce. In this task, you will create a DLP policy for
-Power Platform that allows your existing flows to keep working, but
-prevents the creation of flows that will share data between SharePoint
-Online and Apps defined as non-business.
-
-1.  In **Microsoft Edge**, navigate
-    to ```https://admin.powerplatform.microsoft.com``` and log into
-    the Power Platform admin center as **MOD Administrator**.
-
-2.  In the **Power Platform admin center**, in the left navigation pane,
-    select the drop-down for **Policies** and then select **Data
-    policies**.
-
-![](./media/image107.png)
-
-3.  On the **Data policies** page, select **+ New Policy**.
-
-![Graphical user interface, application, Teams Description automatically
-generated](./media/image108.png)
-
-4.  On the **Name your policy** page, type ```Tenant-wide SharePoint Policy```, then select **Next**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image109.png)
-
-5.  On the **Non-business | Default** tab,
-    select **SharePoint** and **Salesforce**, then select **Move to
-    Business** at the top of the page.
-
-![](./media/image111.png)
-
-6.  In the **Assign connectors** page, select the **Business** tab to
-    make sure both SharePoint and Salesforce now appear.
-
-![Graphical user interface, application Description automatically
-generated](./media/image112.png)
-
-7.  Select **Next** twice.
-
-![Graphical user interface, application Description automatically
-generated](./media/image113.png)
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image114.png)
-
-8.  On the **Define scope** page, select **Add all environments**, then
-    select **Next**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image115.png)
-
-9.  On the **Review and create policy** page, review your policy
-    settings, then select **Create policy**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image116.png)
-
-You have now created a Power Platform DLP policy that prevents users
-from creating flows involving a SharePoint Online Connector and any
-connector that is not Salesforce.
-
-## Exercise 3 – Enabling Adaptive Protection
-
-1.  In **Microsoft Edge**, navigate
-    to ```https://purview.microsoft.com``` and log into the purview
-    portal as **MOD Administrator**.
-
-2.  From the left navigation pane, select **Solutions** \> **Insider
-    Risk Management** \> **Adaptive protection** \>
-    **Dashboard**. Select **Quick setup**.
-
-3.  It will show a message saying we are setting things up. It will take
-    72 hours to enable it. We will use this in the last lab where we
-    explore **Adaptive Protection** feature.
-
-![A screenshot of a computer Description automatically
-generated](./media/image118.png) 
-
-4.  Select **Adaptive Protection settings** tab and switch
-    on the **Adaptive Protection** toggle button. Select **Save**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image120.png)
-
-## Summary:
-
-In this lab we learned how to create new DLP policies, enabling file
-protection and managing the DLP policies. We also learned how to enable
-Adoptive Protection which we will explore in lab later on.
+In dieser Übung haben wir gelernt, wie Sie neue DLP-Richtlinien
+erstellen, den Dateischutz aktivieren und die DLP-Richtlinien verwalten.
+Wir haben auch gelernt, wie man den Adoptivschutz aktiviert, den wir
+später im Lab untersuchen werden.
