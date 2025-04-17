@@ -316,7 +316,8 @@ automatiquement*
 >   
 > ![BrokenImage](./media/image24.png)  
 >   
->
+
+
 7.  Confirmez la modification de la politique d’exécution avec **Y**
     pour Oui et appuyez sur **Enter**.
 
@@ -395,6 +396,7 @@ automatiquement*
 
 > ![BrokenImage](./media/image30.png)
 
+*BrokenImage*
 
 3.  Exécutez l'applet de commande suivante pour restreindre
     l'utilisation des ID sociaux pour l'accès aux messages de votre
@@ -414,7 +416,7 @@ automatiquement*
 
 ![BrokenImage](./media/image32.png)
 
-
+*BrokenImage*
 
 5.  Vérifiez à nouveau la configuration par défaut et validez, le
     paramètre **SocialIdSignIn** est maintenant défini sur **False**.
@@ -426,7 +428,7 @@ Get-OMEConfiguration -Identity "OME Configuration" |fl
 
 ![BrokenImage](./media/image33.png)
 
-
+*BrokenImage*
 
 7.  Laissez la fenêtre **PowerShell** ouverte et passez à l'exercice
     suivant.
@@ -582,14 +584,14 @@ Set-OMEConfiguration -Identity "Finance Department" -IntroductionText
 "from Contoso Ltd. finance department has sent you a secure
 message."![BrokenImage](./media/image41.png)
 
-
+*BrokenImage*
 
 4.  Confirmez le message d'avertissement pour la personnalisation du
     modèle avec **Y** pour Oui et appuyez sur **Enter**.
 
 ![BrokenImage](./media/image42.png)
 
-
+*BrokenImage*
 
 5.  Modifiez le corps du texte de l'e-mail du message à l'aide de
     l'applet de commande suivante
@@ -620,6 +622,7 @@ Description textuelle générée automatiquement
 
 ![BrokenImage](./media/image45.png)
 
+*BrokenImage*
 
 9.  Utilisez l'applet de commande suivante pour créer une règle de flux
     de messagerie, qui applique le modèle OME personnalisé à tous les
@@ -633,6 +636,7 @@ New-TransportRule -Name "Encrypt all mails from Contoso Finance team"
 
 ![BrokenImage](./media/image46.png)
 
+*BrokenImage*
 
 *Description textuelle générée automatiquement*
 
@@ -642,7 +646,7 @@ Get-OMEConfiguration -Identity "Finance Department" | Format-List
 
 ![BrokenImage](./media/image47.png)
 
-
+*BrokenImage*
 
 11. Laissez le **PowerShell** ouvert.
 
@@ -691,7 +695,7 @@ automatiquement*
 
 ![BrokenImage](./media/image49.png)
 
-
+*BrokenImage*
 
 7.  Si vous souhaitez lire le message, procédez comme suit.
 
@@ -728,13 +732,13 @@ Exercice 3 – Activation de la protection adaptative
 
 ![BrokenImage](./media/image50.png)
 
-
+*BrokenImage*
 
 4.  Sélectionnez l’onglet **Adaptive Protection settings** et activez le
     bouton bascule **Adaptive Protection**. Sélectionnez **Save**.
 
 ![BrokenImage](./media/image51.png)  
-
+*BrokenImage  
   
 *Résumé :
 
