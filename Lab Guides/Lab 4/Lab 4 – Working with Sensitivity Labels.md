@@ -1,249 +1,321 @@
-# Lab 4 – Working with Sensitivity Labels
+# Laboratório 4 – Trabalhando com rótulos de confidencialidade
 
-## Objective:
+## Objetivo:
 
-In this lab you will assume the role of Patti Fernandez, a System
-Administrator for Contoso Ltd. Your organization is based in
-Rednitzhembach, Germany and is currently implementing a sensitivity plan
-to ensure that all employee documents in the HR department have been
-marked with a sensitivity label as part of your organizations
-information protection policies.
+Neste laboratório, você assumirá a função Patti Fernandez, um
+administrador de sistemas da Contoso Ltd. Sua organização está sediada
+em Rednitzhembach, Alemanha, e atualmente está implementando um plano de
+sensibilidade para garantir que todos os documentos dos funcionários do
+departamento de RH sejam marcados com um rótulo de sensibilidade como
+parte das políticas de proteção de informações da sua organização.
 
-## Exercise 1 – Enabling support for sensitivity labels
+## Exercíco 1 – Habilitando o suporte para rótulo de confidencialidade
 
-In this task, you will install the MSOnline module and the SharePoint
-Online PowerShell module and enable support for sensitivity labels on
-your tenant.
+Nesta tarefa, você instalará o módulo MSOnline e o módulo do SharePoint
+Online PowerShell e habilitará o suporte para rótulos de sensibilidade
+em seu locatário.
 
-1.  Select the windows symbol in the taskbar with the right mouse button
-    and select **Windows PowerShell (Admin)** and run as administrator.
+1.  Selecione o símbolo do Windows na barra de tarefas com o botão
+    direito do mouse e selecione **Windows PowerShell (Admin)** e run as
+    administrator.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image1.png)
 
-2.  Confirm the **User Account Control** window with **Yes** and press
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+2.  Confirme a janela **User Account Control** com **Yes** e pressione
     Enter.
 
-3.  Enter the following cmdlet to install the latest Microsoft Online
-    PowerShell module version:
+3.  Digite o seguinte cmdlet para instalar a versão mais recente do
+    módulo do Microsoft Online PowerShell:
 
-```Install-Module -Name MSOnline```
+`Install-Module -Name ``MSOnline`
 
 ![A screenshot of a computer Description automatically
 generated](./media/image2.png)
 
-4.  Confirm the NuGet security dialog and the Untrusted repository
-    security dialog with Y for Yes and press Enter. This may take a
-    while to complete processing.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+4.  Confirme a caixa de diálogo de segurança do NuGet e a caixa de
+    diálogo de segurança do repositório não confiável com **Y** para Sim
+    e pressione Enter. O processamento pode demorar um pouco para ser
+    concluído.
 
 ![BrokenImage](./media/image3.png)
 
-5.  Enter the following cmdlet to install the latest SharePoint Online
-    PowerShell module version:
+Imagem interrompida
 
-```Install-Module -Name Microsoft.Online.SharePoint.PowerShell```
+5.  Digite o seguinte cmdlet para instalar a versão mais recente do
+    módulo do SharePoint Online PowerShell:
+
+`Install-Module -Name ``Microsoft.Online.SharePoint.PowerShell`
 
 ![A screenshot of a computer Description automatically
 generated](./media/image4.png)
 
-6.  Confirm the Untrusted repository security dialog with **Y** for Yes
-    and press Enter.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+6.  Confirme a caixa de diálogo de segurança do Untrusted repository com
+    **Y** para Sim e pressione Enter.
 
 ![A screenshot of a computer screen Description automatically
 generated](./media/image5.png)
 
-7.  Enter the following cmdlet to connect to the Microsoft Online
-    service:
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-```Connect-MsolService```
+7.  Digite o seguinte cmdlet para se conectar ao serviço Microsoft
+    Online:
+
+`Connect-``MsolService`
 
 ![BrokenImage](./media/image6.png)
 
-8.  In the **Sign in to your account** form, log in as **Patti
-    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
-    and the User Password given on your resources tab.
+Imagem interrompida
+
+8.  No formulário **Sign in to your account**, faça login como **Patti
+    Fernandez** usando o nome de usuário
+    `PattiF@{TENANTPREFIX}.onmicrosoft.com` e a senha de usuário
+    fornecida na guia Recursos.
 
 ![A screenshot of a computer screen Description automatically
 generated](./media/image7.png)
 
-9.  After signing in, go the **PowerShell window**.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-10. Enter the following cmdlet to get the domain:
+9.  Depois de fazer login, vá para a **janela do** **PowerShell**.
 
-```$domain = get-msoldomain```
+10. Digite o seguinte cmdlet para obter o domínio:
+
+`$domain = get-``msoldomain`
 
 ![BrokenImage](./media/image8.png)
 
-11. Enter the following cmdlet to create the SharePoint admin url:
+Imagem interrompida
 
-```$adminurl = "https://" + $domain.Name.split('.')[0] + "-admin.sharepoint.com"```
+11. Digite o seguinte cmdlet para criar a url de administrador do
+    SharePoint:
+
+`$``adminurl`` = "https://" + $``domain.Name.split``('.')[0] + "-admin.sharepoint.com"`
 
 ![A screenshot of a computer screen Description automatically
 generated](./media/image9.png)
 
-12. Enter the following cmdlet to sign in to the SharePoint Online admin
-    center:
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-```Connect-SPOService -url $adminurl```
+12. Digite o seguinte cmdlet para fazer login no centro de administração
+    do SharePoint Online:
+
+`Connect-``SPOService`` -``url`` $``adminurl`
 
 ![A screenshot of a computer screen Description automatically
 generated](./media/image10.png)
 
-13. In the **Sign in to your account** form, log in as **MOD
-    Administrator** using the credentials provided in the resources tab
-    of your lab environment.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-14. After signing in, select the PowerShell window.
+13. No formulário **Sign in to your account** faça login como **MOD
+    Administrator** usando as credenciais fornecidas na guia resources
+    do seu ambiente de laboratório.
 
-15. Enter the following cmdlet to enable support for sensitivity labels:
+14. Depois de fazer login, selecione a janela do PowerShell.
 
-```Set-SPOTenant -EnableAIPIntegration $true```
+15. Digite o seguinte cmdlet para habilitar o suporte aos rótulos de
+    confidencialidade:
+
+`Set-``SPOTenant`` -``EnableAIPIntegration`` $true`
 
 ![BrokenImage](./media/image11.png)
 
-16. Confirm the changes with **Y** for Yes and press Enter.
+Imagem interrompida
+
+16. Confirme as alterações com **Y** para Sim e pressione Enter.
 
 ![BrokenImage](./media/image12.png)
 
-17. Close the **PowerShell** window.
+Imagem interrompida
 
-You have successfully enabled support for sensitivity labels with Teams
-and SharePoint sites.
+17. Feche a janela do **PowerShell**.
 
-## Exercise 2 – Creating Sensitivity Labels
+Você ativou com sucesso o suporte a rótulos de confidencialidade com
+sites do Teams e do SharePoint.
 
-In this task, your HR department has requested a sensitivity label to
-apply to HR employee documents. You will create a sensitivity label for
-Internal documents and a sublabel for the HR department.
+## Exercício 2 - Criando rótulos de confidencialidade
 
-1.  In **Microsoft Edge** navigate to
-    ```https://purview.microsoft.com``` and log in as **Patti
-    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
-    and the User Password given on your resources tab.
+Nesta tarefa, seu departamento de RH solicitou um rótulo de
+confidencialidade para aplicar aos documentos de funcionários do RH.
+Você criará um rótulo de confidencialidade para documentos internos e um
+sub-rótulo para o departamento de RH.
 
-2.  In the Microsoft Purview portal, on the left navigation pane, select
-    **Solutions** \> **Information Protection**.
+1.  No **Microsoft Edge**, navegue até `https://purview.microsoft.com` e
+    faça login com **Patti Fernandez** usando o nome de usuário
+    `PattiF@{TENANTPREFIX}.onmicrosoft.com` e a senha de usuário
+    fornecida na guia de recursos.
+
+2.  No portal Microsoft Purview, no painel de navegação esquerdo,
+    selecione **Solutions** \> **Information Protection**.
 
 ![](./media/image13.png)
 
-3.  From the sub-navigation select **Sensitivity Labels** \>
-    **Create Labels**.
+3.  Na subnavegação, selecione **Sensitivity Labels** \> **Create
+    Labels**.
 
-![](./media/image15.png)
+![](./media/image14.png)
 
-4.  The **New sensitivity label** wizard will start. On the **Label**
-    **details** page for the **Name**, **Description for
-    admins** and **Description for users**, enter the following
-    information:
+4.  O assistente de **New sensitivity label** será iniciado. Na página
+    **Label** **details** para o **Name**, **Description for admins** e
+    **Description for users,** digite as seguintes informações:
 
-    - Name: ```Internal```
+    - Name: `Internal`
 
-    - Display name: ```Internal```
+    - Display name: `Internal`
 
-    - Description for users: ```Internal sensitivity label```
+    - Description for users: `Internal sensitivity label`
 
-    - Description for admins: ```Internal sensitivity label for Contoso.```
+    - Description for admins: `Internal sensitivity label for Contoso.`
 
 ![Graphical user interface, text, application, email Description
-automatically generated](./media/image16.png)
+automatically generated](./media/image15.png)
 
-5.  Select **Next**.
+Interface gráfica do usuário, texto, aplicativo e descrição de e-mail
+gerada automaticamente
+
+5.  Selecione **Next**.
 
 ![Graphical user interface, text, application Description automatically
+generated](./media/image16.png)
+
+Interface gráfica do usuário, texto, aplicativo e descrição gerada
+automaticamente
+
+6.  Na página **Define the scope for this label**, selecione a opção
+    **Items**, que protege e-mails, arquivos e itens do Power BI.
+    Desmarque a caixa próxima a **Meetings**.
+
+![A screenshot of a computer Description automatically
 generated](./media/image17.png)
 
-6.  On the **Define the scope for this label** page, select the
-    option **Items** which protects emails, files, and Power BI items.
-    Uncheck the box near **Meetings**.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+7.  Selecione **Next**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image18.png)
 
-7.  Select **Next**.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+8.  Na página **Choose protection settings for labeled items**,
+    selecione **Next**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image19.png)
 
-8.  On the **Choose protection settings for labeled items** page,
-    select **Next**.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+9.  Na página **Auto-labeling** de arquivos e e-mails, selecione
+    **Next**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image20.png)
 
-9. On the **Auto-labeling** for files and emails page, select **Next**.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+10. Na página **Define protection settings for groups and sites**,
+    selecione **Next**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image21.png)
 
-10. On the **Define protection settings for groups and sites** page,
-    select **Next**.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-![A screenshot of a computer Description automatically
-generated](./media/image22.png)
-
-11. On the **Auto-labeling for schematized data assets
-    (preview)** page, select **Next**.
+11. Na página **Auto-labeling for schematized data assets (preview)**,
+    selecione **Next**.
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/image23.png)
+generated](./media/image22.png)
 
-12. On the **Review your settings and finish** page, select **Create
+Interface gráfica do usuário, texto, aplicativo e descrição gerada
+automaticamente
+
+12. Na página **Review your settings and finish**, selecione **Create
     label**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image24.png)
+generated](./media/image23.png)
 
-13. The label will be created and when complete a message will
-    display: **Your sensitivity label was created**
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-14. Select **Don’t create a policy yet** and then select **Done**.
+13. O rótulo será criado e, quando concluído, uma mensagem será exibida:
+    **Your sensitivity label was created**
+
+14. Selecione **Don’t create a policy yet** e, em seguida, selecione
+    **Done**.
 
 ![A screenshot of a computer screen Description automatically
-generated](./media/image25.png)
+generated](./media/image24.png)
 
-15. On the **Information protection** page, highlight (without
-    selecting) the newly created **Internal** label and select the
-    vertical **…**.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-16. Select the **+ Add sub label** from the drop-down menu.
+15. Na página **Information protection**, destaque (sem selecionar) o
+    rótulo **Internal** recém-criado e selecione a opção vertical **…**.
+
+16. Selecione **+ Add sub label** no menu suspenso.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image26.png)
+generated](./media/image25.png)
 
-17. The **New sensitivity label** wizard will start. On the **Label
-    details** page, enter the following information:
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-    - Name: ```Employee data (HR)```
+17. O assistente de **New sensitivity label** será iniciado. Na página
+    **Label details**, insira as seguintes informações:
 
-    - Display name: ```Employee data (HR)```
+    - Name: `Employee data (HR)`
 
-    - Description for users: ```This HR label is the default label for all specified documents in the HR Department.```
+    - Display name: `Employee data (HR)`
 
-    - Description for admins: ```This label is created in consultation with Ms.Jones (Head of HR department). Contact her, when you want to change settings of the label.```
+    - Description for users:
+      `This HR label is the default label for all specified documents in the HR Department.`
+
+    - Description for admins:
+      `This label is created in consultation with Ms.Jones (Head of HR department). Contact her, when you want to change settings of the label.`
+
+![](./media/image26.png)
+
+18. Selecione **Next**.
+
+![](./media/image27.png)
+
+19. Na página **Define the scope for this label**, selecione a opção
+    **Items** que protege e-mails, arquivos e reuniões. Selecione
+    **Next**.
 
 ![](./media/image28.png)
 
-18. Select **Next**.
+20. Na página **Choose protection settings for labeled items**,
+    selecione a opção **Control Access**. Selecione **Next**.
+
+![](./media/image29.png)
+
+21. Na página **Access Control**, selecione **Configure access control
+    ettings**.
 
 ![](./media/image30.png)
 
-19. On the **Define the scope for this label** page, select the
-    option **Items** which protects emails, files, and Meetings.
-    Select **Next**.
-
-![](./media/image32.png)
-
-20. On the **Choose protection settings for labeled items** page, select
-    the **Control Access** option. Select **Next**.
-
-![](./media/image34.png)
-
-21. On **Access Control** page, select **Configure
-    access control ettings**.
-
-![](./media/image36.png)
-
-22. Enter the following information into the encryption settings:
+22. Insira as seguintes informações nas configurações de criptografia:
 
     - Assign permissions now or let users decide?: **Assign permissions
       now**
@@ -252,477 +324,644 @@ generated](./media/image26.png)
 
     - Allow offline access: **Only for a number of days**
 
-    - Users have offline access to the content for this many
-      days: **15**
+    - Users have offline access to the content for this many days:
+      **15**
+
+![A screenshot of a computer Description automatically
+generated](./media/image31.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+23. Selecione o link **Assign permissions**.
+
+![A screenshot of a computer Description automatically
+generated](./media/image32.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+24. No painel **Assign permissions** selecione a opção **+ Add any
+    authenticated users**.
+
+![BrokenImage](./media/image33.png)
+
+Imagem interrompida
+
+25. Selecione **Save**.
+
+![BrokenImage](./media/image34.png)
+
+Imagem interrompida
+
+26. Na página **Encryption**, selecione **Next**.
+
+![A screenshot of a computer Description automatically
+generated](./media/image35.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+27. Na página **Auto-labeling for files and emails**, selecione
+    **Next**.
+
+![A screenshot of a computer Description automatically
+generated](./media/image36.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+28. Na página **Define protection settings for groups and sites**,
+    selecione **Next**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image37.png)
 
-23. Select the **Assign permissions** link.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+29. Na página **Auto-labeling for schematized data assests (preview)**,
+    selecione **Next**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image38.png)
 
-24. On the **Assign permissions** pane, select the **+ Add any
-    authenticated users**.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-![BrokenImage](./media/image39.png)
-
-25. Select **Save**.
-
-![BrokenImage](./media/image40.png)
-
-26. On the **Encryption** page, select **Next**.
+30. Na página **Review your settings and finish**, selecione **Create
+    label**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image41.png)
+generated](./media/image39.png)
 
-27. On the **Auto-labeling for files and emails** page, select **Next**.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+31. O rótulo será criado e, quando concluído, será exibida uma mensagem
+    **Your sensitivity label was created**.
+
+32. Selecione **Don’t create a policy yet** e, em seguida, selecione
+    **Done**.
+
+![A screenshot of a computer screen Description automatically
+generated](./media/image40.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+1.  Mantenha a guia aberta para continuar na próxima tarefa.
+
+Você criou com sucesso um rótulo de confidencialidade para as políticas
+internas da sua organização e um sub-rótulo de confidencialidade para o
+departamento de Recursos Humanos (RH).
+
+## Exercício 3 - Publicação de rótulos de sensibilidade
+
+Agora você publicará o rótulo de confidencialidade interno e de RH para
+que os rótulos de confidencialidade publicados fiquem disponíveis para
+os usuários de RH aplicarem aos seus documentos de RH.
+
+1.  No **Microsoft Edge,** navegue até `https://purview.microsoft.com` e
+    faça login como **Patti Fernandez** usando o nome de usuário
+    `PattiF@{TENANTPREFIX}.onmicrosoft.com` e a senha de usuário
+    fornecida na guia de recursos.
+
+2.  No portal Microsoft Purview, no painel de navegação esquerdo,
+    selecione **Solutions** \> **Information Protection**.
+
+![](./media/image13.png)
+
+3.  Na subnavegação, selecione **Sensitivity Labels** \> **Publish
+    Labels**.
+
+![](./media/image41.png)
+
+4.  O assistente para publicar rótulos de confidencialidade será
+    iniciado.
+
+5.  Na página **Choose sensitivity labels to publish**, selecione o link
+    **Choose sensitivity labels to publish**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image42.png)
 
-28. On the **Define protection settings for groups and sites** page,
-    select **Next**.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+6.  Uma barra lateral chamada **Sensitivity labels to publish**
+    aparecerá à direita.
+
+7.  Marque as caixas de seleção **Internal** e **Internal/Employee Data
+    (HR)**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image43.png)
 
-29. On the **Auto-labeling for schematized data assests
-    (preview)** page, select **Next**.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+8.  Selecione **Add**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image44.png)
 
-30. On the **Review your settings and finish** page, select **Create
-    label**.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+9.  Na página **Choose sensitivity labels to publish**, selecione
+    **Next**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image45.png)
 
-31. The label will be created and when complete a message will
-    display **Your sensitivity label was created**.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-32. Select **Don’t create a policy yet** and then select **Done**.
+10. Na página **Publish to users and groups page**, selecione **Next**.
 
-![A screenshot of a computer screen Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image46.png)
 
-33. Keep the tab open to continue to the next task.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-You have successfully created a sensitivity label for your organizations
-internal policies and a sensitivity sublabel for the Human Resources
-(HR) department.
+11. Na página de **Policy settings**, selecione **Next**.
 
-## Exercise 3 – Publishing Sensitivity Labels
+![BrokenImage](./media/image47.png)
 
-You will now publish the Internal and HR sensitivity label so that the
-published sensitivity labels will be available for the HR users to apply
-to their HR documents.
+Imagem interrompida
 
-1.  In **Microsoft Edge** navigate to
-    ```https://purview.microsoft.com``` and log in as **Patti
-    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
-    and the User Password given on your resources tab.
-
-2.  In the Microsoft Purview portal, on the left navigation pane, select
-    **Solutions** \> **Information Protection**.
-
-![](./media/image13.png)
-
-3.  From the sub-navigation select **Sensitivity Labels** \> **Publish Labels**.
-
-![](./media/image48.png)
-
-4.  The publish sensitivity labels wizard will start.
-
-5.  On the **Choose sensitivity labels to publish** page, select
-    the **Choose sensitivity labels to publish** link.
+12. Na página **Apply a default label to documents**, selecione
+    **Next**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image49.png)
+generated](./media/image48.png)
 
-6.  A side bar called **Sensitivity labels to publish** will appear on
-    the right.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-7.  Select the **Internal** and **Internal/Employee Data
-    (HR)** checkboxes.
+13. Na página **Apply a default label to emails**, selecione **Next**.
 
-![A screenshot of a computer Description automatically
+14. Em **Default settings for meetings and calendar events**, selecione
+    **Next**.
+
+15. Na página **Default settings for Fabric and Power BI content**,
+    selecione **Next**.
+
+16. Na página **Name your policy**, insira as seguintes informações:
+
+    - Name: `Internal HR employee data`
+
+    - Enter a description for your sensitivity label policy:
+      `This HR label is to be applied to internal HR employee data.`
+
+![Graphical user interface, text, application, email Description
+automatically generated](./media/image49.png)
+
+Interface gráfica do usuário, texto, aplicativo e descrição de e-mail
+gerada automaticamente
+
+17. Selecione **Next**.
+
+![Graphical user interface, text, application Description automatically
 generated](./media/image50.png)
 
-8. Select **Add**.
+Interface gráfica do usuário, texto, aplicativo e descrição gerada
+automaticamente
 
-![A screenshot of a computer Description automatically
+18. Na página **Review and finish**, selecione **Submit**.
+
+![Graphical user interface, text, application Description automatically
 generated](./media/image51.png)
 
-9. On the **Choose sensitivity labels to publish** page,
-    select **Next**.
+Interface gráfica do usuário, texto, aplicativo e descrição gerada
+automaticamente
+
+19. A política será criada e, quando concluída, uma mensagem exibirá
+    **New policy created**.
+
+20. Selecione **Done e prossiga para a próxima tarefa sem fechar a
+    janela**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image52.png)
 
-10. On the **Publish to users and groups page**, select **Next**.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-![A screenshot of a computer Description automatically
+Você publicou com êxito os rótulos de confidencialidade internos e de
+RH. Observe que pode levar até 24 horas para que as alterações sejam
+replicadas para todos os usuários e serviços.
+
+## Exercício 4 – Trabalhando com rótulos de confidencialidade
+
+Nesta tarefa, você criará rótulos de confidencialidade nos e-mails do
+Outlook e no Word. O documento criado será armazenado no OneDrive e
+enviado a um funcionário do RH por e-mail.
+
+1.  Navegue até `https://portal.office.com` e faça login como **Patti
+    Fernandez**.
+
+2.  Se uma mensagem **Get your work done with Office 365** for exibida,
+    feche-a.
+
+![Graphical user interface Description automatically
+generated](./media/image53.png)
+
+Interface gráfica do usuário. Descrição gerada automaticamente.
+
+3.  Selecione o símbolo do **Microsoft Word** no lado esquerdo do painel
+    para abrir o Word Online.
+
+![Graphical user interface, website Description automatically
 generated](./media/image54.png)
 
-11. On the **Policy settings** page, select **Next**.
+Interface gráfica do usuário. Descrição do site gerada automaticamente
 
-![BrokenImage](./media/image55.png)
+4.  Selecione **New blank document** para criar um novo documento.
 
-12. On the **Apply a default label to documents** page, select **Next**.
+![Graphical user interface, website Description automatically
+generated](./media/image55.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image56.png)
+Interface gráfica do usuário. Descrição do site gerada automaticamente
 
-13. On the **Apply a default label to emails** page, select **Next**.
+5.  Se a mensagem **Your privacy options** for exibida, feche-a
+    selecionando **Close**.
 
-14. On the **Default settings for meetings and calendar events**,
-    select **Next**.
+![BrokenImage](./media/image56.png)
 
-15. On the **Default settings for Fabric and Power BI content** page,
-    select **Next**.
+Imagem interrompida
 
-16. On the **Name your policy** page, enter the following information:
+6.  Digite o seguinte conteúdo no documento do Word:
 
-    - Name: ```Internal HR employee data```
+`Important HR employee document.`
 
-    - Enter a description for your sensitivity label
-      policy: ```This HR label is to be applied to internal HR employee data.```
+![Graphical user interface, application, Word Description automatically
+generated](./media/image57.png)
 
-![Graphical user interface, text, application, email Description
-automatically generated](./media/image59.png)
+Interface gráfica do usuário, texto, aplicativo e Word Descrição gerada
+automaticamente
 
-17. Select **Next**.
+7.  Selecione **Sensitivity** no painel superior para abrir o menu
+    suspenso.
 
-![Graphical user interface, text, application Description automatically
+![Graphical user interface, application, Word Description automatically
+generated](./media/image58.png)
+
+Interface gráfica do usuário, texto, aplicativo e Word Descrição gerada
+automaticamente
+
+8.  Selecione **Internal** \> **Employee data (HR)** para aplicar o
+    rótulo.
+
+**Observação**: Lembre-se de que o script executado na tarefa 1 deste
+exercício ativou os rótulos de confidencialidade no Word para seu
+locatário. Às vezes, pode levar uma hora para que essa ativação seja
+realizada no Microsoft Word online. Se você não ver o menu Rótulos de
+confidencialidade no Word, talvez seja necessário retornar a este
+laboratório mais tarde ou certificar-se de que concluiu corretamente a
+tarefa 1 deste exercício.
+
+![BrokenImage](./media/image59.png)
+
+Imagem interrompida
+
+9.  Selecione o **Document – Saved** no canto superior esquerdo da
+    janela, digite **HR Document** no File Name e pressione a tecla
+    **Enter**.
+
+![Graphical user interface, application, Word Description automatically
 generated](./media/image60.png)
 
-18. On the **Review and finish** page, select **Submit**.
+Interface gráfica do usuário, texto, aplicativo e Word Descrição gerada
+automaticamente
+
+10. Feche a guia Word para retornar à guia **Office 365**. Selecione o
+    símbolo do **Outlook** no painel do lado esquerdo para abrir **o
+    Outlook** na web.
 
 ![Graphical user interface, text, application Description automatically
 generated](./media/image61.png)
 
-19. The policy will be created and when complete a message will
-    display **New policy created**.
+Interface gráfica do usuário, texto, aplicativo e descrição gerada
+automaticamente
 
-20. Select **Done and proceed to next task without closing the window**.
+11. Se for exibida uma mensagem de boas-vindas, feche-a selecionando o
+    **X**.
+
+12. No Outlook na web, selecione **New message** **(Nova mensagem)** no
+    canto superior esquerdo da janela.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image62.png)
 
-You have successfully published the Internal and HR sensitivity labels.
-Note that it can take up to 24 hours for changes to replicate to all
-users and services.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-## Exercise 4 – Working with Sensitivity Labels
+13. No campo **To,** digite o nome: **Adele** e selecione **Adele
+    Vance** no menu suspenso.
 
-In this task, you will create sensitivity labels in Word and Outlook
-emails. The document created will be stored in OneDrive and sent to an
-HR employee via email.
+![](./media/image63.png)
 
-1.  Navigate to ```https://portal.office.com``` and log in as
-    **Patti Fernandez**.
+14. No campo assusto, digite: `Employee data for HR`.
 
-2.  If a **Get your work done with Office 365** message is shown, close
-    it.
+15. Na mensagem de e-mail (o painel de conteúdo grande na parte inferior
+    da página), insira a seguinte mensagem:
 
-![Graphical user interface Description automatically
-generated](./media/image63.png)
+&nbsp;
 
-3.  Select the **Microsoft Word** symbol from the left side pane to open
-    Word Online.
+    DearMs. Adele,
+    Please find attached the important HR employee document.
+    Kind regards,
+    Patti Fernandez
 
-![Graphical user interface, website Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image64.png)
 
-4.  Select **New blank document** to create a new document.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-![Graphical user interface, website Description automatically
-generated](./media/image65.png)
+16. Selecione o **paperclip symbol** no menu inferior.
 
-5.  If a **Your privacy options** message is shown, close it with
-    selecting **Close**.
+![](./media/image65.png)
 
-![BrokenImage](./media/image66.png)
+17. Selecione o documento **HR Document.docx** abaixo de **Suggested
+    attachments** para anexar o documento.
 
-6.  Enter the following contents into the word document:
+18. Selecione **Send** para enviar a mensagem de e-mail com o documento
+    anexado.
 
-```Important HR employee document.```
+19. Deixe a janela do navegador aberta.
 
-![Graphical user interface, application, Word Description automatically
-generated](./media/image67.png)
+Você criou com sucesso um documento do Word de RH com um rótulo de
+confidencialidade, que foi salvo em seu OneDrive. Em seguida, você
+enviou o documento por e-mail para um membro da equipe de RH, no qual o
+e-mail também foi definido com um rótulo de confidencialidade.
 
-7.  Select **Sensitivity** from the top pane to open the dropdown menu.
+Na conta de teste, observe que você poderá enviar o e-mail, mas ele será
+devolvido e não chegará ao destinatário do seu locatário atual.
 
-![Graphical user interface, application, Word Description automatically
-generated](./media/image68.png)
+## Exercício 5 – Configuração de rotulagem automática
 
-8.  Select **Internal** \> **Employee data (HR)** to apply the label.
+Nesta tarefa, você criará um **Sensitivity Label** que rotulará
+automaticamente documentos e e-mails que contenham informações
+relacionadas ao **European General Data Protection Regulation (GPDR)**.
 
-**Note**: Be aware, the script you ran in task 1 of this exercise
-activated sensitivity labels in Word for your tenant. It can sometimes
-take an hour for that activation to be realized in Microsoft Word
-online. If you don't see the Sensitivity label menu in Word, you may
-need to return to this lab later or make sure you properly completed
-task 1 of this exercise.
+1.  No **Microsoft Edge**, a guia do portal Microsoft Purview ainda deve
+    estar aberta.
+
+2.  Você deve estar conectado ao portal como **Patti Fernandez**.
+
+3.  Em **Information protection**, selecione **Label**, destaque (sem
+    selecionar) o rótulo **Internal** existente e selecione os três
+    pontos. Selecione o item de menu **+ Create sublabel**.
+
+![A screenshot of a computer Description automatically
+generated](./media/image66.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+4.  O assistente de **New sensitivity label** será iniciado. Na página
+    **label details,** digite as seguintes informações:
+
+    - Name: `GDPR Germany`
+
+    - Display name: `GDPR Germany`
+
+    - Description for users:
+      `This document or email contains data related to the European General Data Protection Regulation(GPDR) for the region Germany.`
+
+    - Description for admins:
+      `This label is auto applied to German GDPR documents.`
+
+5.  Selecione **Next**.
+
+![BrokenImage](./media/image67.png)
+
+Imagem interrompida
+
+6.  Na página **Define the scope for this label** selecione a opção
+    **Items** que protege arquivos, e-mails e reuniões. Em seguida,
+    selecione **Next**.
+
+![BrokenImage](./media/image68.png)
+
+Imagem interrompida
+
+7.  Na página **Choose protection settings for labeled items** selecione
+    **Next**.
 
 ![BrokenImage](./media/image69.png)
 
-9. Select the **Document – Saved** in the upper left of the window,
-    enter **HR Document** as the File Name and press **Enter** key.
+Imagem interrompida
 
-![Graphical user interface, application, Word Description automatically
-generated](./media/image70.png)
-
-10. Close the word tab to return to the **Office 365** tab. Select
-    the **Outlook** symbol from the left side pane to
-    open **Outlook** on the web.
+8.  Na página **Auto-labeling for files and emails** defina a opção
+    **Auto-labeling for files and emails** como ativada.
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/image71.png)
+generated](./media/image70.png)
 
-11. If a welcome message is shown, close it with selecting the **X**.
+Interface gráfica do usuário, texto, aplicativo e descrição gerada
+automaticamente
 
-12. In Outlook on the web, select **New message** from the upper left of
-    the window.
+9.  Na seção **Detect content that matches these conditions** selecione
+    **+Add condition** e, em seguida, selecione **Content contains**.
+
+![BrokenImage](./media/image71.png)
+
+Imagem interrompida
+
+10. Na seção **Content contains**, selecione **Add** e depois selecione
+    **Sensitive info types**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image72.png)
 
-13. In the **To** field enter the name: **Adele** and select **Adele
-    Vance** from the drop-down list.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-![](./media/image74.png)
+11. Um painel de **Sensitive info types** será exibido à direita.
 
-14. In the subject field, enter: ```Employee data for HR```.
+12. No painel de pesquisa **Search for sensitive info types**, digite a
+    seguinte informação:
 
-15. Within the email message (the large content panel at the bottom of
-    the page), insert the following message:
+`German`
 
-```
-DearMs. Adele,
-Please find attached the important HR employee document.
-Kind regards,
-Patti Fernandez
-```
+13. Pressione a tecla Enter no teclado, e os resultados exibirão os
+    sensitivity info types relacionados à Alemanha. Pressione a caixa de
+    seleção **Select all**.
+
+![BrokenImage](./media/image73.png)
+
+Imagem interrompida
+
+14. Selecione **Add**.
+
+![BrokenImage](./media/image74.png)
+
+Imagem interrompida
+
+15. Selecione **Next**.
+
+![A screenshot of a computer Description automatically
+generated](./media/image75.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+16. Na página **Define protection settings for groups and sites**,
+    selecione **Next**.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image76.png)
 
-16. Select the **paperclip symbol** from the bottom menu.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-![](./media/image78.png)
+17. Na página **Auto-labeling for schematized data assests (preview)**,
+    selecione **Next**.
 
-17. Select the **HR Document.docx** below **Suggested attachments** to
-    attach the document.
+18. Se for redirecionado para a página **Default settings for Fabric and
+    Power BI content page**, selecione **Next**.
 
-18. Select **Send** to send out the email message with attached
-    document.
+19. Na página **Review your settings and finish**, selecione **Create
+    label**.
 
-19. Leave the browser window open.
+20. O rótulo será criado e, quando concluído, será exibida uma mensagem:
+    **Your sensitivity label was created**. Nas próximas etapas,
+    selecione **Don’t create a policy yet**. Em seguida, selecione
+    **Done**.
 
-You have successfully created an HR Word document with a sensitivity
-label, which was saved onto your OneDrive. You then emailed to document
-to a staff member where the email was also set with a sensitivity
-label.
+![Graphical user interface, text, application, Word Description
+automatically generated](./media/image77.png)
 
-In the trial account, note that you will be able to send the mail but it
-will bounce back and will not be able to reach the receiver from your
-current tenant.
+Interface gráfica do usuário, texto, aplicativo e Word Descrição gerada
+automaticamente
 
-## Exercise 5 – Configuring Auto Labelling
+21. No menu de subnavegação, selecione **Sensitivity Labels** \>
+    **Publish Labels**.
 
-n this task, you will create a **Sensitivity Label** that will auto
-label documents and emails found to contain information related to
-the **European General Data Protection Regulation (GPDR)**.
+![](./media/image41.png)
 
-1.  In **Microsoft Edge**, the Microsoft Purview portal tab should still
-    be open.
+22. O **assistente Publish Sensitivity Labels** será iniciado.
 
-2.  You should be logged into the portal as **Patti Fernandez**.
+![Graphical user interface, text, application, Word Description
+automatically generated](./media/image78.png)
 
-3.  Under the **Information protection**, select **Label**, highlight
-    (without selecting) the existing **Internal** label, and select the
-    three dots. Select the **+ Create sublabel** menu item.
+Interface gráfica do usuário, texto, aplicativo e Word Descrição gerada
+automaticamente
+
+23. Na página **Choose sensitivity labels to publish**, selecione o link
+    **Choose sensitivity labels to publish**.
 
 ![A screenshot of a computer Description automatically
+generated](./media/image79.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+24. Um painel lateral chamado **Sensitivity labels to publish**
+    aparecerá à direita.
+
+![Graphical user interface, application, Word Description automatically
+generated](./media/image80.png)
+
+Interface gráfica do usuário, texto, aplicativo e Word Descrição gerada
+automaticamente
+
+25. Marque as caixas de seleção **Internal** e **Internal/GDPR Germany**
+    e selecione **Add**.
+
+![Graphical user interface, application, Word Description automatically
 generated](./media/image81.png)
 
-4.  The **New sensitivity label** wizard will start. On the **label
-    details** page, enter the following information:
+Interface gráfica do usuário, texto, aplicativo e Word Descrição gerada
+automaticamente
 
-    - Name: ```GDPR Germany```
+26. Na página **Choose sensitivity Labels to publish**, selecione
+    **Next**.
 
-    - Display name: ```GDPR Germany```
+![Graphical user interface, text, application, Word Description
+automatically generated](./media/image82.png)
 
-    - Description for users: ```This document or email contains data related to the European General Data Protection Regulation(GPDR) for the region Germany.```
+Interface gráfica do usuário, texto, aplicativo e Word Descrição gerada
+automaticamente
 
-    - Description for admins: ```This label is auto applied to German GDPR documents.```
+27. Na página **Publish to users and groups**, selecione **Next**.
 
-5.  Select **Next**.
+![Graphical user interface, text, application Description automatically
+generated](./media/image83.png)
 
-![BrokenImage](./media/image82.png)
+Interface gráfica do usuário, texto, aplicativo e descrição gerada
+automaticamente
 
-6.  On the **Define the scope for this label** page, select the
-    option **Items** which protects Files, Emails, and Meetings items.
-    Then select **Next**.
+28. Na página de **Policy settings**, selecione **Next**.
 
-![BrokenImage](./media/image83.png)
+![Graphical user interface, text, application, Word Description
+automatically generated](./media/image84.png)
 
-7.  On the **Choose protection settings for labeled items** page,
-    select **Next**.
+Interface gráfica do usuário, texto, aplicativo e Word Descrição gerada
+automaticamente
 
-![BrokenImage](./media/image84.png)
-
-8.  On the **Auto-labeling for files and emails** page, set
-    the **Auto-labeling for files and emails** to enabled.
+29. Na página **Apply a default label to documents**, selecione
+    **Next**.
 
 ![Graphical user interface, text, application Description automatically
 generated](./media/image85.png)
 
-9.  In the **Detect content that matches these conditions** section,
-    select **+Add condition** and then select **Content contains**.
+Interface gráfica do usuário, texto, aplicativo e descrição gerada
+automaticamente
 
-![BrokenImage](./media/image86.png)
+30. Na página **Apply a default label to emails**, selecione **Next**.
 
-10. In **Content contains** section select the **Add** text and then
-    select **Sensitive info types**.
+31. Nas **Default settings for meetings and calendar events**, selecione
+    **Next**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image87.png)
+32. Na **Default settings for Fabric and Power BI content page**,
+    selecione **Next**.
 
-11. A **Sensitive info types** panel will be displayed on the right.
+33. Na página **Name your policy**, digite as seguintes informações:
 
-12. In the **Search for sensitive info types** search panel, enter the
-    following information:
+    - Name: `GDPR Germany policy`
 
-```German```
+    - Enter a description for your sensitivity label policy:
+      `This auto apply sensitivity labels policy is for the GDPR region of Germany.`
 
-13. Press the enter key on your keyboard, the results will display sensitivity info
-    types related to Germany. Press the **Select all** check box.
-
-![BrokenImage](./media/image88.png)
-
-14. Select **Add**.
-
-![BrokenImage](./media/image89.png)
-
-15. Select **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image90.png)
-
-16. On the **Define protection settings for groups and sites** page,
-    select **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image91.png)
-
-17. On the **Auto-labeling for schematized data assets
-    (preview)** page, select **Next**.
-
-18. If redirected to the **Default settings for Fabric and Power BI content page** page,
-    select **Next**.
-
-19. On the **Review your settings and finish** page, select **Create
-    label**.
-
-20. The label will be created and when complete a message will
-    display: **Your sensitivity label was created**. Under next steps, select **Don't create a policy yet**. Then
-    select **Done**.
-
-![Graphical user interface, text, application, Word Description
-automatically generated](./media/image93.png)
-
-21. From the sub-navigation select **Sensitivity Labels** \> **Publish
-    Labels**.
-
-![](./media/image48.png)
-
-22. The **Publish sensitivity labels wizard** will start.
-
-![Graphical user interface, text, application, Word Description
-automatically generated](./media/image94.png)
-
-23. On the **Choose sensitivity labels to publish** page, select the **Choose
-    sensitivity labels to publish** link.
-
-![A screenshot of a computer Description automatically
-generated](./media/image95.png)
-
-24. A side bar called **Sensitivity labels to publish** will appear on
-    the right.
-
-![Graphical user interface, application, Word Description automatically
-generated](./media/image96.png)
-
-25. Select the **Internal** and **Internal/GDPR Germany** checkbox and
-    select **Add**.
-
-![Graphical user interface, application, Word Description automatically
-generated](./media/image97.png)
-
-26. On the **Choose sensitivity labels to publish** page,
-    select **Next**.
-
-![Graphical user interface, text, application, Word Description
-automatically generated](./media/image98.png)
-
-27. On the **Publish to users and groups** page, select **Next**.
+34. Selecione **Next**.
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/image99.png)
+generated](./media/image86.png)
 
-28. On the **Policy settings** page, select **Next**.
+Interface gráfica do usuário, texto, aplicativo e descrição gerada
+automaticamente
 
-![Graphical user interface, text, application, Word Description
-automatically generated](./media/image100.png)
-
-29. On the **Apply a default label to documents** page, select **Next**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image101.png)
-
-30. On the **Apply a default label to emails** page, select **Next**.
-
-31. On the **Default settings for meetings and calendar events**,
-    select **Next**.
-
-32. On the **Default settings for Fabric and Power BI content page**,
-    select **Next**.
-
-33. On the **Name your policy** page, enter the following information:
-
-    - Name: ```GDPR Germany policy```
-
-    - Enter a description for your sensitivity label
-      policy: ```This auto apply sensitivity labels policy is for the GDPR region of Germany.```
-
-34. Select **Next**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image104.png)
-
-35. On the **Review and finish** page, select **Submit**.
+35. Na página **Review and finish**, selecione **Submit**.
 
 ![Graphical user interface, application Description automatically
-generated](./media/image105.png)
+generated](./media/image87.png)
 
-36. The policy will be created and when complete a message will
-    display, **New policy created**.
+Interface gráfica do usuário, texto, aplicativo e Word Descrição gerada
+automaticamente
 
-37. Select **Done**.
+36. A política será criada e, quando concluída, será exibida a mensagem
+    **New policy created**.
+
+37. Selecione **Done**.
 
 ![Graphical user interface, text, application, Word Description
-automatically generated](./media/image106.png)
+automatically generated](./media/image88.png)
 
-## Summary:
+Interface gráfica do usuário, texto, aplicativo e Word Descrição gerada
+automaticamente
 
-You have successfully created and published an auto apply sensitivity
-label for GDPR documents in the region Germany.
+## Resumo:
 
-Be aware that it can take up to 24 hours for auto applied sensitivity
-labels to be applied, this duration will be longer when applied to more
-than 25,000 documents (that is, the daily limit).
+Você criou e publicou com sucesso um rótulo de confidencialidade de
+aplicação automática para documentos do GDPR na região da Alemanha.
+
+Esteja ciente de que pode levar até 24 horas para que os rótulos de
+confidencialidade aplicados automaticamente sejam aplicados; essa
+duração será maior quando aplicados a mais de 25.000 documentos (ou
+seja, o limite diário).
