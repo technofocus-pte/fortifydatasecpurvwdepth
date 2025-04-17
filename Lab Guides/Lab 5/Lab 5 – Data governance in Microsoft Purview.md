@@ -1,84 +1,125 @@
-# Lab 5 – Data governance in Microsoft Purview
+# Atelier 5 – Gouvernance des données dans Microsoft Purview
 
-To understand the features of Unified Catalog (earlier Data Catalog) follow the given steps.
+Pour comprendre les fonctionnalités Unified Catalog (anciennement Data
+Catalog), suivez les étapes indiquées.
 
-1.  Open the ```https://app.powerbi.com/```.
+1.  Ouvrez le `https://app.powerbi.com/`.
 
-2.  Sign in to the Power BI portal using the admin credentials
-    provided with your lab environment.
+2.  Connectez-vous au portail Power BI à l'aide des informations
+    d'identification d'administrateur fournies avec votre environnement
+    de laboratoire.
 
-3.  Select **Settings** \> **Microsoft Purview hub (preview)**.
+3.  Sélectionnez **Settings \> Microsoft Purview hub (preview).**
 
-![A screenshot of a computer Description automatically
-generated](./media/image2.png)
+![Une capture d'écran d'un ordinateur Description générée
+automatiquement](./media/image1.png)
 
-4. Select **Data Catalog**.
+Une capture d'écran d'un ordinateur Description générée automatiquement
 
-![A screenshot of a computer Description automatically
-generated](./media/image27.png)
+4.  Sélectionnez **Data Catalog**.
 
-5. You will be redirected to the new Microsoft Purview portal. If asked, agree to the terms and conditions and select **Get started**.
+![Une capture d'écran d'un ordinateur Description générée
+automatiquement](./media/image2.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image28.png)
- 
-6. Under **Getting started tutorial** select **View all tasks**.
+Une capture d'écran d'un ordinateur Description générée automatiquement
 
-![A screenshot of a computer Description automatically
-generated](./media/image29.png)
+5.  Vous serez redirigé vers le nouveau portail Microsoft Purview. Si
+    vous y êtes invité, acceptez les conditions générales et
+    sélectionnez **Get started**.
 
-7. Select step 1 - **Set up roles and permissions**.
+![Une capture d'écran d'un ordinateur Description générée
+automatiquement](./media/image3.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image3.png)
+Une capture d'écran d'un ordinateur Description générée automatiquement
 
-8.  Select the window with the click through tutorial.
+6.  Sous **Getting started tutorial**, sélectionnez **View all tasks**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image4.png)
+![Une capture d'écran d'un ordinateur Description générée
+automatiquement](./media/image4.png)
 
-9.  You will see a pop up with the introduction - Select **get started**.
+Une capture d'écran d'un ordinateur Description générée automatiquement
 
-![A screenshot of a computer Description automatically
-generated](./media/image5.png)
+7.  Sélectionnez l'étape 1 - **Set up roles and permissions**.
 
-10.  You will be pointed to the fields on screen and guided through the steps with the explanation.
+![Une capture d'écran d'un ordinateur Description générée
+automatiquement](./media/image5.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image6.png)
+Une capture d'écran d'un ordinateur Description générée automatiquement
 
-11.  Complete the tutorial. Once done you can either explore more fields, or resume the demo again. Once done, close the tab and move on to the next steps.
+8.  Sélectionnez la fenêtre avec le tutoriel cliquable.
 
-12. in a new tab, Open the ```https://app.powerbi.com/```.
+![Une capture d'écran d'un ordinateur Description générée
+automatiquement](./media/image6.png)
 
-13.  Sign in to the Power BI portal using the admin credentials
-    provided with your lab environment.
+Une capture d'écran d'un ordinateur Description générée automatiquement
 
-14.  Select **Settings** \> **Microsoft Purview hub (preview)**.
+9.  Une fenêtre contextuelle s'affiche avec l'introduction :
+    Sélectionnez **get started**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image2.png)
+![Une capture d'écran d'un ordinateur Description générée
+automatiquement](./media/image7.png)
 
-!5. Select **Data Catalog**.
+Une capture d'écran d'un ordinateur Description générée automatiquement
 
-![A screenshot of a computer Description automatically
-generated](./media/image27.png)
+10. Vous serez dirigé vers les champs à l'écran et guidé à travers les
+    étapes avec l'explication.
 
-16. You will be redirected to the new Microsoft Purview portal. If asked, agree to the terms and conditions and select **Get started**.
+![Une capture d'écran d'un ordinateur Description générée
+automatiquement](./media/image8.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image28.png)
- 
-17. Under **Getting started tutorial** select **View all tasks**.
+Une capture d'écran d'un ordinateur Description générée automatiquement
 
-![A screenshot of a computer Description automatically
-generated](./media/image29.png)
+11. Terminez le tutoriel. Une fois cela fait, vous pouvez soit explorer
+    d'autres champs, soit reprendre la démo. Une fois cela fait, fermez
+    l'onglet et passez aux étapes suivantes.
 
-18. Select step 2 - **Set up roles and permissions**.
+12. Dans un nouvel onglet, ouvrez le `https://app.powerbi.com/`.
 
-![A screenshot of a computer Description automatically
-generated](./media/image7.png)
+13. Connectez-vous au portail Power BI à l'aide des informations
+    d'identification d'administrateur fournies avec votre environnement
+    de laboratoire.
 
-19. Follow through the tutorial. Similarly you can explore all 10 tasks available in the pane.
+14. Sélectionnez **Settings \> Microsoft Purview hub (preview).**
 
-Note: There may be some difference in the current **Microsoft Purview** ```https://purview.microsoft.com/``` portal and the portal in the tutorial as the current portal is undergoing the changes as per Microsoft announcements.
+![Une capture d'écran d'un ordinateur Description générée
+automatiquement](./media/image1.png)
+
+Une capture d'écran d'un ordinateur Description générée automatiquement
+
+!5. Sélectionnez **Data Catalog**.
+
+![Une capture d'écran d'un ordinateur Description générée
+automatiquement](./media/image2.png)
+
+Une capture d'écran d'un ordinateur Description générée automatiquement
+
+16. Vous serez redirigé vers le nouveau portail Microsoft Purview. Si
+    vous y êtes invité, acceptez les conditions générales et
+    sélectionnez **Get started**.
+
+![Une capture d'écran d'un ordinateur Description générée
+automatiquement](./media/image3.png)
+
+Une capture d'écran d'un ordinateur Description générée automatiquement
+
+17. Sous **Getting started tutorial**, sélectionnez **View all tasks**.
+
+![Une capture d'écran d'un ordinateur Description générée
+automatiquement](./media/image4.png)
+
+Une capture d'écran d'un ordinateur Description générée automatiquement
+
+18. Sélectionnez l'étape 2 - **Set up roles and permissions**.
+
+![Une capture d'écran d'un ordinateur Description générée
+automatiquement](./media/image9.png)
+
+Une capture d'écran d'un ordinateur Description générée automatiquement
+
+19. Suivez le tutoriel. De même, vous pouvez explorer les 10 tâches
+    disponibles dans le volet.
+
+Remarque : Il peut y avoir une certaine différence entre le portail
+**Microsoft Purview** `https://purview.microsoft.com/` actuel et le
+portail du didacticiel, car le portail actuel subit les modifications
+conformément aux annonces Microsoft.
