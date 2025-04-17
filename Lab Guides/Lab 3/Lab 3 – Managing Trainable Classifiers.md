@@ -1,95 +1,114 @@
-# Lab 3 – Managing Trainable Classifiers
+# Atelier 3 – Gestion des classifieurs entraînables
 
-## Objective:
+## Objectif :
 
-The Contoso Ltd. tenant contains a SharePoint site collections that will be used in the future to store
-several financial related documents and reports. Because of the nature
-of these documents, you need to create a trainable classifier to
-recognize and label these files. For this purpose, you will activate
-custom trainable classifiers and create a new one in this lab.
+Le locataire Contoso Ltd. contient des collections de sites SharePoint
+qui seront utilisées à l'avenir pour stocker plusieurs documents et
+états financiers. En raison de la nature de ces documents, vous devez
+créer un classifieur pouvant être entraîné pour reconnaître et étiqueter
+ces fichiers. À cette fin, vous allez activer des classifieurs
+personnalisés pouvant être entraînés et en créer un nouveau dans cet
+atelier.
 
-## Exercise 1 – Creating a trainable classifier
+## Exercice 1 – Création d'un classifieur pouvant être entraîné
 
-In this task, Patti will create a new trainable classifier and select
-different SharePoint sites for identifying typical data created and
-stored by Contoso Ltd.
+Dans cette tâche, Patti va créer un classifieur pouvant être entraîné et
+sélectionner différents sites SharePoint pour identifier les données
+typiques créées et stockées par Contoso Ltd.
 
-1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
-    to ```https://purview.microsoft.com``` and log in as **Patti
-    Fernandez** using the username ```PattiF@WWLx{TENANTPREFIX}.onmicrosoft.com```
-    and the User Password given on your resources tab.
+1.  Dans **Microsoft Edge**, ouvrez **New InPrivate Window**, accédez à
+    `https://purview.microsoft.com` et connectez-vous en tant que
+    **Patti Fernandez** à l'aide du nom d'utilisateur
+    `PattiF@``WWLx``{``TENANTPREFIX``}.onmicrosoft.com` et du mot de
+    passe utilisateur indiqué dans votre onglet ressources.
 
-2.  From the left navigation, select **Solutions** \> **Data Loss
-    Prevention**.
+2.  Dans le volet de navigation gauche, sélectionnez **Solutions** \>
+    **Data Loss Prevention**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image1.png)
+![Une capture d'écran d'un ordinateur Description générée
+automatiquement](./media/image1.png)
 
-3. Expand **Classifiers** from the left pane. Select **Trainable
-    Classifiers** from the sub-navigation pane. Select **+ Create
-    trainable classifier** to create a new classifier.
+Une capture d'écran d'un ordinateur Description générée automatiquement
+
+3.  Développez **Classifiers** dans le volet gauche. Sélectionnez
+    **Trainable Classifiers** dans le sous-volet de navigation.
+    Sélectionnez **+ Create trainable classifier** pour créer un
+    classifieur.
 
 ![](./media/image2.png)
 
-4. Enter the following information on the **Name and describe your
-    trainable classifier** page:
+4.  Entrez les informations suivantes sur la page **Name and describe
+    your trainable classifier**
 
-    - Name: ```Contoso Company Data```
+    - Name: `Contoso Company Data`
 
-    - Description: ```Trainable classifier for company data produced and stored by Contoso Ltd.```
+    - Description:
+      `Trainable classifier for company data produced and stored by Contoso Ltd``.`
 
-7. Select **Next**.
+5.  Sélectionnez **Next**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image3.png)
+![Une capture d'écran d'un ordinateur Description générée
+automatiquement](./media/image3.png)
 
-8. Select **Choose sites** to open the right side pane.
+Une capture d'écran d'un ordinateur Description générée automatiquement
 
-![A screenshot of a computer Description automatically
-generated](./media/image4.png)
+8.  Sélectionnez **Choose sites** pour ouvrir le volet latéral droit.
 
-9. Select the following SharePoint sites and select **Add**.
+![Une capture d'écran d'un ordinateur Description générée
+automatiquement](./media/image4.png)
 
-    - Brand
+Une capture d'écran d'un ordinateur Description générée automatiquement
 
-    - Digital Initiative Public Relations
+9.  Sélectionnez les sites SharePoint suivants, puis **Add**.
 
-    - Work
+    - Marque
 
-    - Sales and Marketing
+    - Relations publiques de l'initiative numérique
 
-    - Mark 8 Project Team
+    - Travail
+
+    - Ventes et marketing
+
+    - Équipe du projet Mark 8
 
 ![](./media/image5.png)
 
-10. Wait until the chosen site is shown in the list and select **Next**.
+10. Attendez que le site choisi s'affiche dans la liste et sélectionnez
+    **Next**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image6.png)
+![Une capture d'écran d'un ordinateur Description générée
+automatiquement](./media/image6.png)
 
-11. On the **Source of the negative sample content page**, select the
-    site **Learn**, and then select **Next**.
+Une capture d'écran d'un ordinateur Description générée automatiquement
 
-12. Review the settings and select **Create trainable classifier**.
+11. Sur la **Source of the negative sample content page**, sélectionnez
+    le site **Learn**, puis sélectionnez **Next**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image7.png)
+12. Vérifiez les paramètres et sélectionnez **Create trainable
+    classifier**.
 
-13. When the message Your trainable classifier was created is shown,
-    select **Done**.
+![Une capture d'écran d'un ordinateur Description générée
+automatiquement](./media/image7.png)
 
-The documents and files in the chosen SharePoint site are now being
-analyzed, which can take up to 24 hours. Once it is ready, you can perform the following.
+Une capture d'écran d'un ordinateur Description générée automatiquement
 
-- Test the classifier
+13. Lorsque le message Votre classifieur entraînable a été créé
+    s'affiche, sélectionnez **Done**.
 
-- Review the classifier
+Les documents et les fichiers du site SharePoint choisi sont en cours
+d'analyse, ce qui peut prendre jusqu'à 24 heures. Une fois qu'il est
+prêt, vous pouvez effectuer les opérations suivantes.
 
-- Publish the classifier
+- Tester le classifieur
 
-You can explore the already existing classifiers for further review.
+- Examiner le classifieur
 
-## Summary:
+- Publier le classifieur
 
-You have successfully created a custom trainable classifier that matches
-the files stored on the existing SharePoint sites of Contoso Ltd.
+Vous pouvez explorer les classifieurs déjà existants pour un examen plus
+approfondi.
+
+## Résumé :
+
+Vous avez créé un classifieur apprit personnaliser qui correspond aux
+fichiers stockés sur les sites SharePoint existants de Contoso Ltd.
