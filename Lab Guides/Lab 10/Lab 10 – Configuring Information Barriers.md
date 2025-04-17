@@ -72,7 +72,6 @@ Ein Screenshot einer automatisch generierten Computerbeschreibung.
 
 ![BrokenImage](./media/image5.png)
 
-BrokenImage
 
 1.  Führen Sie den folgenden Befehl nacheinander in der **PowerShell**
     aus, um die Organisationsstruktur zu erstellen.
@@ -81,7 +80,6 @@ BrokenImage
 
 ![BrokenImage](./media/image6.png)
 
-BrokenImage
 
 `New-OrganizationSegment -Name "Sales" -UserGroupFilter "Department -eq 'Sales'"`
 
@@ -198,7 +196,6 @@ BrokenImage
 
 ![BrokenImage](./media/image17.png)
 
-BrokenImage
 
 11. Wählen Sie **Done** aus, sobald die Richtlinie erstellt wurde.
 
@@ -215,7 +212,6 @@ Ein Screenshot einer automatisch generierten Computerbeschreibung.
 
 ![BrokenImage](./media/image1.png)
 
-BrokenImage
 
 2.  Führen Sie Folgendes aus:
 
@@ -251,7 +247,6 @@ Ein Screenshot einer automatisch generierten Computerbeschreibung.
 
 ![BrokenImage](./media/image20.png)
 
-BrokenImage
 
 1.  Führen Sie den folgenden Befehl aus, um eine IB-Richtlinie mit dem
     Namen **Manufacturing-HRMarketing** zu erstellen. Wenn diese
