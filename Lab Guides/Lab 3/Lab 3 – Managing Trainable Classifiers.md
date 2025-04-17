@@ -1,54 +1,60 @@
-# Lab 3 – Managing Trainable Classifiers
+# 실습 3 – Trainable Classifiers 관리하기
 
-## Objective:
+## 목표:
 
-The Contoso Ltd. tenant contains a SharePoint site collections that will be used in the future to store
-several financial related documents and reports. Because of the nature
-of these documents, you need to create a trainable classifier to
-recognize and label these files. For this purpose, you will activate
-custom trainable classifiers and create a new one in this lab.
+Contoso Ltd. 테넌트에는 나중에 여러 재무 관련 문서 및 보고서를 저장하는
+데 사용될 SharePoint 사이트 모음이 포함되어 있습니다. 이러한 문서의
+특성으로 인해 이러한 파일을 인식하고 레이블을 지정하기 위해 학습 가능한
+classifier를 생성해야 합니다. 이를 위해 사용자 지정 학습 가능한
+classifier를 활성화하고 이 실습에서 새 classifier를 생성할 것입니다.
 
-## Exercise 1 – Creating a trainable classifier
+## 연습 1 – Trainable classifier 생성하기
 
-In this task, Patti will create a new trainable classifier and select
-different SharePoint sites for identifying typical data created and
-stored by Contoso Ltd.
+이 작업에서는 Patti는 trainable classifier를 생성하고 Contoso Ltd에서
+생성하고 저장한 일반적인 데이터를 식별하기 위해 다른 SharePoint 사이트를
+선택할 것입니다.
 
-1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
-    to ```https://purview.microsoft.com``` and log in as **Patti
-    Fernandez** using the username ```PattiF@WWLx{TENANTPREFIX}.onmicrosoft.com```
-    and the User Password given on your resources tab.
+1.  **Microsoft Edge**에서 **New InPrivate Window**를
+    열고`https://purview.microsoft.com` 로 이동하고 사용자
+    이름`PattiF@WWLx``{TENANTPREFIX}.onmicrosoft.com` 및 리소스 탭에
+    제공된 사용자 암호를 사용하여 **Patti Fernandez** 로 로그인하세요.
 
-2.  From the left navigation, select **Solutions** \> **Data Loss
-    Prevention**.
+2.  왼쪽 탐색에서**Solutions** \> **Data Loss Prevention**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image1.png)
 
-3. Expand **Classifiers** from the left pane. Select **Trainable
-    Classifiers** from the sub-navigation pane. Select **+ Create
-    trainable classifier** to create a new classifier.
+컴퓨터 설명의 스크린샷 자동으로 생성됨
+
+3.  왼쪽 창에서 **Classifiers**를 확장하세요. 하위 탐색
+    창에서**Trainable Classifiers** 를 선택하세요. 새 classifier를
+    생성하기 위해 **+ Create trainable classifier**를 선택하세요.
 
 ![](./media/image2.png)
 
-4. Enter the following information on the **Name and describe your
-    trainable classifier** page:
+4.  **Name and describe your trainable classifier** 페이지에서 다음
+    정보를 입력하세요:
 
-    - Name: ```Contoso Company Data```
+    - 이름: `Contoso Company Data`
 
-    - Description: ```Trainable classifier for company data produced and stored by Contoso Ltd.```
+    - 설명:
+      `Trainable classifier for company data produced and stored by Contoso Ltd.`
 
-7. Select **Next**.
+5.  **Next**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image3.png)
 
-8. Select **Choose sites** to open the right side pane.
+컴퓨터 설명의 스크린샷 자동으로 생성됨
+
+8.  오른쪽 창을 열기 위해**Choose sites**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image4.png)
 
-9. Select the following SharePoint sites and select **Add**.
+컴퓨터 설명의 스크린샷 자동으로 생성됨
+
+9.  다음SharePoint 사이트를 선택하여**Add**를 선택하세요.
 
     - Brand
 
@@ -62,34 +68,39 @@ generated](./media/image4.png)
 
 ![](./media/image5.png)
 
-10. Wait until the chosen site is shown in the list and select **Next**.
+10. 선택한 사이트가 목록에 표시될 때까지 기다렸다가**Next**를
+    선택하세요.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image6.png)
 
-11. On the **Source of the negative sample content page**, select the
-    site **Learn**, and then select **Next**.
+컴퓨터 설명의 스크린샷 자동으로 생성됨
 
-12. Review the settings and select **Create trainable classifier**.
+11. **Source of the negative sample content page**에서**Learn** 사이트를
+    선택하여**Next**를 선택하세요.
+
+12. 설정을 검토하여**Create trainable classifier**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image7.png)
 
-13. When the message Your trainable classifier was created is shown,
-    select **Done**.
+컴퓨터 설명의 스크린샷 자동으로 생성됨
 
-The documents and files in the chosen SharePoint site are now being
-analyzed, which can take up to 24 hours. Once it is ready, you can perform the following.
+13. Your trainable classifier was created 메시지가 표시되면 **Done**를
+    선택하세요.
 
-- Test the classifier
+현재 선택한 SharePoint 사이트의 문서 및 파일을 분석하고 있으며 최대
+24시간이 걸릴 수 있습니다. 준비가 되면 다음을 수행할 수 있습니다.
 
-- Review the classifier
+- Classifier를 테스트하기
 
-- Publish the classifier
+- Classifier를 검토하기
 
-You can explore the already existing classifiers for further review.
+- Classifier를 게시하기
 
-## Summary:
+추가 검토를 위해 이미 존재하는 classifier를 탐색할 수 있습니다.
 
-You have successfully created a custom trainable classifier that matches
-the files stored on the existing SharePoint sites of Contoso Ltd.
+## 요약:
+
+Contoso Ltd.의 기존 SharePoint 사이트에 저장된 파일과 일치하는 사용자
+지정 trainable classifier를 성공적으로 생성했습니다.
