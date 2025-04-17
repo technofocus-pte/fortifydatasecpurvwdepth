@@ -1,855 +1,754 @@
-# Lab 7 – Configuring Insider Risk Management
+# ラボ 7 – インサイダーリスク管理の設定
 
-## Objective:
+## 目的:
 
-In this lab we will learn how to configure Insider Risk Management using
-the Insider Risk Management Policies. We will use the Sensitive Info
-Types that we created in Lab 2 and DLP policies that we created in Lab 5
-to create policies which will secure the organisation against risky
-browser usage or any data theft or leaks.
+このラボでは、インサイダー リスク管理ポリシーを使用してインサイダー
+リスク管理を構成する方法を学習します。ラボ 2
+で作成した機密情報の種類とラボ 5 で作成した DLP
+ポリシーを使用して、危険なブラウザーの使用やデータの盗難や漏洩から組織を保護するポリシーを作成します。
 
-To do this we will create an infrastructure in Azure that will represent
-the devices in an organisation. We will learn how to onboard those
-devices in Azure AD and Intune, and install an MDM agent on them, so
-that they can be used to get the alerts from those machines.
+これを行うには、組織内のデバイスを表すインフラストラクチャを Azure
+に作成します。これらのデバイスを Azure AD と Intune にオンボードし、MDM
+エージェントをインストールして、それらのマシンからアラートを取得できるようにする方法を学習します。
 
-## Exercise 1: Synchronize the VM clock
+## エクササイズ1: VMクロックを同期する
 
-1.  After logging into the VM, select the windows icon. Then search
-    for **Date and time**, and select **Date and time settings**.
+1\. VM にログインした後、Windows
+アイコンを選択します。次に、日付と時刻を検索し、日付と時刻の設定を選択します。![A
+screenshot of a computer Description automatically
+generated](./media/image1.jpg)
 
-![A screenshot of a computer Description automatically
-generated](./media/rId21.jpg)
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-A screenshot of a computer Description automatically generated
+2\. 開いた「Settings」画面で、「Additional settings」の「Sync
+now」をクリックします。![A screenshot of a computer Description
+automatically generated](./media/image2.jpg)
 
-2.  On the Settings screen that opens up, click on the **Sync
-    now** under Additional settings.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer Description automatically
-generated](./media/rId24.jpg)
-
-A screenshot of a computer Description automatically generated
-
-3.  This takes care of synchronizing the time just in case the automatic
-    synchronization does not work.
+3.  自動同期が機能しない場合に備えて、時刻の同期が行われます。
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId27.png)
+medium confidence](./media/image3.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-## Exercise 2: Create Insider Risk Management policies.
+## エクササイズ2: インサイダー リスク管理ポリシーを作成します。
 
-### Prerequisites
+### 前提条件
 
-#### Step 1 – Add users to Insider risk management role group
+#### ステップ 1 – Insider リスク管理役割グループにユーザーを追加する
 
-1.  If the Microsoft Purview portal is open continue to step 2,
-    otherwise, open the `https://purview.microsoft.com` and log in with
-    the **MOD Administrator** credentials.
+1.  Microsoft Purview ポータルが開いている場合は手順 2
+    に進みます。そうでない場合は、https://purview.microsoft.com
+    を開き、MOD ADMINISTRATORの資格情報でログインします。
 
-![](./media/rId31.png)
+![](./media/image4.png)
 
-2.  In the navigation select **Settings**, and select **Role groups**
-    under **Role groups**, select **Insider Risk Management**. Then
-    select **Edit**. On the side pane, again select **Edit**
+2.  ナビゲーションで設定を選択し、役割グループの下の「Role
+    groups」を選択し、「Insider Risk
+    Management」を選択します。次に「Edit」を選択します。サイドペインで再度「Edit」を選択します。
 
-![](./media/rId34.png)
+![](./media/image5.png)
 
-3.  On the **Edit Members of the role group** page, select **Choose
-    users**.
+3\.
+役割グループのメンバーの編集ページで、ユーザーの選択を選択します。![A
+screenshot of a computer Description automatically
+generated](./media/image6.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/rId37.png)
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-A screenshot of a computer Description automatically generated
+4\. MOD Admin、Patti、Megan、Alex
+の横にあるチェックボックスをオンにします。次に、\[Select\]
+を選択します。![](./media/image7.png)
 
-4.  Select the checkbox near **MOD Admin**,
-    **Patti**, **Megan** and **Alex**. Then choose **Select**.
+5\. 次に「Next」を選択します。![A screenshot of a computer Description
+automatically generated](./media/image8.png)
 
-![](./media/rId40.png)
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-5.  Then select **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId43.png)
-
-A screenshot of a computer Description automatically generated
-
-6.  Select **Save** to add the users to the role group.
+6.  \[Save\] を選択して、ユーザーをロール グループに追加します。
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId46.png)
+generated](./media/image9.png)
 
-A screenshot of a computer Description automatically generated
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-7.  Select **Done** to complete the steps.
+7\. 「Done」を選択して手順を完了します。![A screenshot of a computer
+Description automatically generated](./media/image10.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/rId49.png)
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-A screenshot of a computer Description automatically generated
+#### ステップ2 – インサイダーリスク分析の洞察を有効にする
 
-#### Step 2 – Enable insider risk analytics insights
+1.  Microsoft Purview ポータルで、\[Settings\] に移動し、\[Insider
+    リスク管理\] に移動します。\[Analytics\] に移動してラジオ
+    ボタンを有効にし、\[Save\] をクリックします。
 
-1.  In the Microsoft Purview portal. Navigate to **Settings**, go
-    to **Insider risk management**. Go to **Analytics**, and enable the
-    radio button, and click on **Save**.
+![](./media/image11.png)
 
-![](./media/rId53.png)
+#### ステップ3 – デバイスのオンボーディング
 
-#### Step 3 – Onboarding a device
+この展開シナリオでは、まだオンボードされていないデバイスをオンボードし、Windows
+10 デバイスでインサイダー リスク アクティビティを検出するだけです。
 
-In this deployment scenario, you’ll onboard devices that hasn’t been
-onboarded yet, and you just want to detect insider risk activities on
-Windows 10 devices.
+インサイダー リスク ポリシーを作成するための前提条件として、デバイス/VM
+を Microsoft Entra ID に登録する必要があります。
 
-We need to register our device/VM in Microsoft Entra ID as a
-prerequisite to creating any Insider Risk Policy.
+1\. VM で Windows 設定を開きます。![A screenshot of a computer
+Description automatically generated](./media/image12.png)
 
-1.  Open windows **Setting** on your VM.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer Description automatically
-generated](./media/rId57.png)
+2\. \[Accounts \> Access work or school\] に移動します。\[Access work or
+school\] ページで、\[Connect\] をクリックします。![A screenshot of a
+computer Description automatically generated](./media/image13.png)
 
-A screenshot of a computer Description automatically generated
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-2.  Go to **Accounts** \> **Access work or school**. On the **Access
-    work or school** page, click on **Connect**.
+3\. 「Set up a work or school account」プロンプトで、「Join this device
+to Microsoft Entra ID」をクリックします。![](./media/image14.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/rId60.png)
-
-A screenshot of a computer Description automatically generated
-
-3.  In the **Set up a work or school account** prompt, click on **Join
-    this device to Microsoft Entra ID**.
-
-![](./media/rId63.png)
-
-4.  In the sign in prompt, sign in with **MOD
-    Administrator** credentials given on the resources tab of your lab
-    environment. 
-
-![A screenshot of a computer Description automatically
-generated](./media/rId66.png)
-
-A screenshot of a computer Description automatically generated
+4\. サインイン プロンプトで、ラボ環境のリソース タブに指定されている MOD
+Administratorの資格情報を使用してサインインします。![A screenshot of a
+computer Description automatically generated](./media/image15.png)
 
 ![Graphical user interface, application, PowerPoint Description
-automatically generated](./media/rId69.png)
+automatically generated](./media/image16.png)
 
-Graphical user interface, application, PowerPoint Description
-automatically generated
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-5.  Press **Join** in the prompt **Make sure this is your
-    organisation**.
+グラフィカルユーザーインターフェイス、アプリケーション、PowerPointの説明が自動的に生成されます
 
-![Graphical user interface, text, application Description automatically
-generated](./media/rId72.png)
+5\.
+これがあなたの組織であることを確認するプロンプトで「Join」を押します。![Graphical
+user interface, text, application Description automatically
+generated](./media/image17.png)
 
-Graphical user interface, text, application Description automatically
-generated
+グラフィカルユーザーインターフェイス、テキスト、アプリケーションの説明が自動的に生成されます
 
-6.  Once done you will see a confirmation window **You’re all set!**.
-    Click on **Done**.
+6\.
+完了すると、確認ウィンドウが表示されます。これで設定は完了です。\[Done\]
+をクリックします。![A screenshot of a computer Description automatically
+generated](./media/image18.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/rId75.png)
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-A screenshot of a computer Description automatically generated
+7\. もう一度、\[Accounts \> Access work or school\]
+に移動します。\[Access work or school\] ページで、\[Connect\]
+をクリックします。![A screenshot of a computer Description automatically
+generated](./media/image13.png)
 
-7.  Again go to **Accounts** \> **Access work or school**. On
-    the **Access work or school** page, click on **Connect**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer Description automatically
-generated](./media/rId60.png)
+8\. 「Set up a work or school account」プロンプトで、MOD
+ADMINISTRATORの資格情報を使用してログインします。![A screenshot of a
+computer Description automatically generated](./media/image19.png)
 
-A screenshot of a computer Description automatically generated
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-8.  In the **Set up a work or school account** prompt, use the MOD admin
-    credentials to log in.
+9\. 「Setting up your device」ページで、「Got it」を選択します。![A
+screenshot of a computer Description automatically
+generated](./media/image20.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/rId80.png)
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-A screenshot of a computer Description automatically generated
-
-9.  On the **Setting up your device** page, select **Got it**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId83.png)
-
-A screenshot of a computer Description automatically generated
-
-10. Now go to **windows settings** \> **Accounts** \> **Access work or
-    school** \> **Connected to Contoso MDM** \> **Info** \> **Sync**.
+10\. 次に、windows settings \> Accounts \> Access work or school \>
+Connected to Contoso MDM \> Info \> Syncに移動します。![A screenshot of
+a computer Description automatically generated](./media/image21.png)
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId86.png)
+generated](./media/image22.png)
 
-A screenshot of a computer Description automatically generated
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer Description automatically
-generated](./media/rId89.png)
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-A screenshot of a computer Description automatically generated
+11\. VM 上の Windows
+シンボルをクリックします。ユーザー管理者を選択し、\[Sign out\]
+を選択します。![A screenshot of a computer Description automatically
+generated](./media/image23.png)
 
-11. Click on the windows symbol on your VM. Select the
-    user **Admin** and select **Sign out**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer Description automatically
-generated](./media/rId92.png)
+12\. ユーザー画面で「Other users」を選択します。![A screenshot of a
+computer Description automatically generated with medium
+confidence](./media/image24.png)
 
-A screenshot of a computer Description automatically generated
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-12. On the user screen select **Other user**.
+13. ラボ環境のホームページに記載されている O365 資格情報を入力し、MOD
+    ADMINISTRATORとして VM にログインします。
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId95.png)
+medium confidence](./media/image25.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-13. Enter your O365 credentials given on the home page of your lab
-    environment and log into the VM as **MOD Administrator**.
+14\. Windows 設定アプリを閉じます。ラボ VM で MOD
+ADMINISTRATORアカウントを使用して https://purview.microsoft.com
+にサインインします。
 
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId98.png)
+15\. \[Settings \> Device onboarding \> Devices\]
+を選択します。![](./media/image26.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+16\. 「Turn on Device onboarding」をクリックします。![A screenshot of a
+computer Description automatically generated](./media/image27.png)
 
-14. Close the windows settings app. Sign in to 
-    `https://purview.microsoft.com` using your **MOD
-    Administrator** account on your Lab VM.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-15. Select **Settings** \> **Device onboarding** \> **Devices**.
+17\. 「Settings \> Device onboarding \> Onboarding」から、「Download
+package」をクリックします。![A screenshot of a computer Description
+automatically generated](./media/image28.png)
 
-![](./media/rId101.png)
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-16. Click on **Turn on Device onboarding**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId104.png)
-
-A screenshot of a computer Description automatically generated
-
-17. From the **Settings** \> **Device onboarding** \> **Onboarding**.
-    Click on **Download package**.
+18\. ファイルを右クリックして「Extract all…」を選択します。![A
+screenshot of a computer Description automatically generated with medium
+confidence](./media/image29.png)
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId107.png)
+generated](./media/image30.png)
 
-A screenshot of a computer Description automatically generated
+コンピュータのスクリーンショットの説明は中程度の確信度で自動的に生成されました
 
-18. Right click the file and **Extract all…** .
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId110.png)
-
-A screenshot of a computer Description automatically generated with
-medium confidence
-
-![A screenshot of a computer Description automatically
-generated](./media/rId113.png)
-
-A screenshot of a computer Description automatically generated
-
-19. Once done open the folder and run the file
-    with **Administrator** rights.
+19. 完了したら、フォルダーを開き、管理者権限でファイルを実行します。
 
 ![A computer screen with a computer screen Description automatically
-generated](./media/rId116.png)
+generated](./media/image31.png)
 
-A computer screen with a computer screen Description automatically
-generated
+コンピュータ画面とコンピュータ画面の説明が自動的に生成されます
 
-20. Click on **More info**.
+20\. 「More info」をクリックします。![Graphical user interface,
+application Description automatically generated](./media/image32.png)
 
-![Graphical user interface, application Description automatically
-generated](./media/rId119.png)
+グラフィカルユーザーインターフェイス、アプリケーションの説明は自動的に生成されます
 
-Graphical user interface, application Description automatically
-generated
+21\. とにかく「Run」をクリックします。![A screenshot of a computer error
+Description automatically generated](./media/image33.png)
 
-21. Click on **Run anyway**.
+コンピュータエラーのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer error Description automatically
-generated](./media/rId122.png)
+22\. コマンド プロンプトで、Y キーを押して Enter
+キーを押して確認し、プロンプトが表示されたら続行します。![A screenshot
+of a computer error Description automatically
+generated](./media/image34.png)
 
-A screenshot of a computer error Description automatically generated
+コンピュータエラーのスクリーンショット 説明は自動的に生成されました
 
-22. In the Command Prompt, press **Y** and press enter to confirm and
-    continue when prompted.
+23. デバイスがオンボードされたというメッセージが表示されます。コマンド
+    プロンプトで、「Press any key to continue
+    …」というメッセージが表示されたら、任意のキーを押します。
 
-![A screenshot of a computer error Description automatically
-generated](./media/rId125.png)
+24. コマンド プロンプトが閉じたら、管理者モードでコマンド
+    プロンプトを開き、検出テストを実行し、プロンプトで以下のコマンドをコピーして実行します。コマンド
+    プロンプト ウィンドウは自動的に閉じます。
 
-A screenshot of a computer error Description automatically generated
+`powershell.exe -``NoExit`` -``ExecutionPolicy`` Bypass -WindowStyle Hidden $ErrorActionPreference= 'silentlycontinue';(New-ObjectSystem.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe','C:\test-WDATP-test\invoice.exe');Start-Process 'C:\test-WDATP-test\invoice.exe'`
 
-23. You will receive a message that the device is onboarded. In the
-    Command Prompt once you get the message, **Press any key to continue
-    …**, press any key.
+![Text Description automatically generated](./media/image35.png)
 
-24. Once the Command Prompt is closed, open Command Prompt in
-    administrator mode to run a detection test and at the prompt, copy
-    and run the command below. The Command Prompt window will close
-    automatically.
+自動生成されるテキスト説明
 
-`powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden $ErrorActionPreference= 'silentlycontinue';(New-ObjectSystem.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe','C:\test-WDATP-test\invoice.exe');Start-Process 'C:\test-WDATP-test\invoice.exe'`
+25. ナビゲーションの設定をクリックして設定を開き、「Devices Onboarding
+    \> Devices」を選択します。
 
-![Text Description automatically generated](./media/rId128.png)
+注: デバイスのオンボーディングが有効になるまでに通常約 60
+秒かかりますが、最大 30 分ほどお待ちください。
 
-Text Description automatically generated
+26. デバイス
+    リストを確認できます。デバイスをオンボードするまでリストは空ですが、完了すると、オンボードされたデバイスとして
+    VM がリストされます。
 
-25. Open the **settings** by clicking on the settings in the navigation
-    and choose **Devices Onboarding** \> **Devices**.
+### タスク 1: 危険なブラウザの使用を検出してスコアリングするための組織全体のポリシーを作成する
 
-**Note:** While it usually takes about 60 seconds for device onboarding
-to be enabled, please allow up to 30 minutes.
+#### ステップ1 – 新しいポリシーを作成する
 
-26. You will be able to check the **Devices** list. The list will be
-    empty until you onboard devices, once done, you will be able to see
-    your VMs listed as the onboarded device.
+1.  前のタスクでブラウザー
+    ウィンドウを閉じた場合は、https://purview.microsoft.com
+    を開き、管理者の資格情報でログインします。
 
-### Task 1: Creating an organisation wide policy to detect and score Risky Browser Usage
+2.  Insider Risk Management に移動し、\[Policy\]
+    タブを選択します。\[Create policy\] を選択して、ポリシー
+    ウィザードを開きます。
 
-#### Step 1 – Create a new policy
+![](./media/image36.png)
 
-1.  If you closed the browser window in the previous task, open
-    the `https://purview.microsoft.com` and log in with the Admin
-    credentials.
+3\. \[Choose a policy template\] ページで、\[Risky browser usage
+(preview)\] の下にある \[Risky browser usage (preview)\]
+を選択します。![A screenshot of a computer Description automatically
+generated](./media/image37.png)
 
-2.  Go to **Insider Risk Management** and select the **Policies** tab.
-    Select **Create policy** to open the policy wizard.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![](./media/rId133.png)
+4\. すべての前提条件が満たされていることを確認します。![A screenshot of
+a computer Description automatically generated](./media/image38.png)
 
-3.  On the **Choose a policy template** page, choose **Risky browser
-    usage (preview)**, under **Risky browser usage (preview)**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer Description automatically
-generated](./media/rId136.png)
+5\. 「Next」を選択して続行します。![A screenshot of a computer
+Description automatically generated](./media/image39.png)
 
-A screenshot of a computer Description automatically generated
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-4.  Make sure that all the prerequisites are met.
+6.  「Name and description」ページで、次のフィールドに入力します。
 
-![A screenshot of a computer Description automatically
-generated](./media/rId139.png)
+    - 名前 (必須): ブラウザの危険な使用
 
-A screenshot of a computer Description automatically generated
+    - 説明 (オプション): これは、危険なブラウザの使用に関するテスト
+      ポリシーです。
 
-5.  Select **Next** to continue.
+o 「Next」を選択して続行します。![Graphical user interface, text,
+application Description automatically generated](./media/image40.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/rId142.png)
+グラフィカルユーザーインターフェイス、テキスト、アプリケーションの説明が自動的に生成されます
 
-A screenshot of a computer Description automatically generated
+8.  \[Choose users, groups, & adaptive scopes\] ページで、\[All users,
+    groups, & adaptive scopes.\] を選択します。\[Next\]
+    を選択して続行します。
 
-6.  On the **Name and description** page, complete the following fields:
+9.  \[Exclude users and groups\] ページで、\[Next\] を選択します。
 
-    - Name (required): `Risky usage of browser`
-
-    - Description
-      (optional): `This is a test policy for the risky browser usage.`
-
-7.  Select **Next** to continue.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/rId145.png)
-
-Graphical user interface, text, application Description automatically
-generated
-
-8.  On the **Choose users, groups, & adaptive scopes** page,
-    select **All users, groups, & adaptive scopes**. Select **Next** to
-    continue.
-
-9.  On the **Exclude users and groups** page, select **Next**.
-
-10. On the **Decide whether to prioritize** page, select **I don’t want
-    to specify priority content right now** (you’ll be able to do this
-    after the policy is created). Select **Next** to continue.
+10. \[Decide whether to prioritize\] ページで、\[I don’t want to specify
+    priority content right now\] を選択します
+    (ポリシーの作成後にこれを実行できるようになります)。\[Next\]
+    を選択して続行します。
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/rId148.png)
+generated](./media/image41.png)
 
-Graphical user interface, text, application Description automatically
-generated
+グラフィカルユーザーインターフェイス、テキスト、アプリケーションの説明が自動的に生成されます
 
-11. On the **Triggers for this policy** page, select **Turn on
-    indicators**.
+11\. \[Triggers for this policy\] ページで、\[Turn on indicators\]
+を選択します。![A screenshot of a computer Description automatically
+generated](./media/image42.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/rId151.png)
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-A screenshot of a computer Description automatically generated
+12\. \[Choose indicators to turn on\] で、\[Risky browsing indicators
+(preview)\] の下にある \[Select all\]
+を選択し、残りのボックスのチェックを外します。![A screenshot of a
+computer Description automatically generated](./media/image43.png)
 
-12. On **Choose indicators to turn on**, select **Select all under Risky
-    browsing indicators (preview)**, and uncheck rest of the boxes.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer Description automatically
-generated](./media/rId154.png)
+13. 下にスクロールして \[Save\] を選択します。
 
-A screenshot of a computer Description automatically generated
-
-13. Scroll down and select **Save**.
-
-14. On **Triggers for this policy**, under **Select which activities
-    will trigger this policy**. Select all the options and click
-    on **Next**.
+14. \[Triggers for this policy\] の \[Select which activities will
+    trigger this policy\] で、すべてのオプションを選択し、\[Next\]
+    をクリックします。
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/rId157.png)
+generated](./media/image44.png)
 
-Graphical user interface, text, application Description automatically
-generated
+グラフィカルユーザーインターフェイス、テキスト、アプリケーションの説明が自動的に生成されます
 
-15. On **Triggering thresholds for this policy** page, select **Use
-    custom thresholds (Recommended)**, change all the thresholds to
-    **1** per day and then select **Next**.
-
-![Graphical user interface, application Description automatically
-generated](./media/rId160.png)
-
-Graphical user interface, application Description automatically
-generated
+15\. \[Triggering thresholds for this policy\] ページで、\[Use custom
+thresholds (Recommended)\] を選択し、すべてのしきい値を 1 日あたり 1
+に変更して、\[Next\] を選択します。![Graphical user interface,
+application Description automatically generated](./media/image45.png)
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId163.png)
+generated](./media/image46.png)
 
-A screenshot of a computer Description automatically generated
+グラフィカルユーザーインターフェイス、アプリケーションの説明は自動的に生成されます
 
-16. On **indicators** page, select **Next**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer Description automatically
-generated](./media/rId166.png)
+16\. インジケーターページで、「Next」を選択します。![A screenshot of a
+computer Description automatically generated](./media/image47.png)
 
-A screenshot of a computer Description automatically generated
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-17. On **Decide whether to use default or custom indicator thresholds**,
-    select **Use default thresholds for all indicators**, then
-    select **Next**.
+17\. \[Decide whether to use default or custom indicator thresholds\]
+で、\[Use default thresholds for all indicators\] を選択し、\[Next\]
+を選択します。![Graphical user interface, text, application Description
+automatically generated](./media/image48.png)
 
-![Graphical user interface, text, application Description automatically
-generated](./media/rId169.png)
+グラフィカルユーザーインターフェイス、テキスト、アプリケーションの説明が自動的に生成されます
 
-Graphical user interface, text, application Description automatically
-generated
+18\. 「Review settings and
+finish」で、「Submit」を選択します。![Graphical user interface, text,
+application Description automatically generated](./media/image49.png)
 
-18. On **Review settings and finish**, select **Submit**.
+グラフィカルユーザーインターフェイス、テキスト、アプリケーションの説明が自動的に生成されます
 
-![Graphical user interface, text, application Description automatically
-generated](./media/rId172.png)
+19\. ポリシーが作成されたら、「Done」を選択します。![A screenshot of a
+computer Description automatically generated](./media/image50.png)
 
-Graphical user interface, text, application Description automatically
-generated
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-19. On **Your policy was created**, select **Done**.
+20. タブを開いたまま、次のタスクに進みます。
 
-![A screenshot of a computer Description automatically
-generated](./media/rId175.png)
+#### ステップ2 – ポリシーを評価する
 
-A screenshot of a computer Description automatically generated
-
-20. Keep the tab open and continue to the next task.
-
-#### Step 2 – Score the policy
-
-1.  Click on the new policy named **Risky usage of browser**.
-    Select **Start scoring activity for users**.
+1.  「ブラウザの危険な使用」という新しいポリシーをクリックします。「ユーザーのアクティビティのスコアリングを開始」を選択します。
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId179.png)
+generated](./media/image51.png)
 
-A screenshot of a computer Description automatically generated
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-2.  In the **Reason** field in the **Add users to multiple
-    policies** pane, type **Testing the policy**.
+2.  \[Add users to multiple policies\] ペインの \[Reasons\]
+    フィールドに、「Testing the policy」と入力します。
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId182.png)
+generated](./media/image52.png)
 
-A screenshot of a computer Description automatically generated
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-3.  In the **This should last for (choose between 5 and 30
-    days)** field, select **10** days.
+3.  \[This should last for (choose between 5 and 30 days)\]
+    フィールドで、\[10 days\] を選択します。
 
-4.  Use the **Search user to add to policies** field. Add **MOD Admin**.
-    Then click on **Start scoring activity**.
+4.  \[Search user to add to policies\] フィールドを使用します。MOD
+    ADMINISTRATORを追加します。次に、\[Start scoring activity\]
+    をクリックします。
 
-5.  Once you get the confirmation that you have started **Scoring
-    activity for 1 users**, click **Close**.
+5.  1 人のユーザーに対してスコアリング
+    アクティビティを開始したという確認が表示されたら、\[Close\]
+    をクリックします。
 
 ![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId185.png)
+with medium confidence](./media/image53.png)
 
-A screenshot of a computer screen Description automatically generated
-with medium confidence
+コンピュータ画面のスクリーンショット。中程度の信頼性で自動生成された説明
 
-### Task 2: Data theft by departing users
+### タスク2: 離脱したユーザーによるデータ盗難
 
-#### Step 1 – Create a new policy
+#### ステップ1 – 新しいポリシーを作成する
 
-1.  If you closed the browser window in the previous task, open
-    the `https://purview.microsoft.com` and log in with the admin
-    credentials.
+1.  前のタスクでブラウザー
+    ウィンドウを閉じた場合は、https://purview.microsoft.com
+    を開き、管理者の資格情報でログインします。
 
-2.  Go to **Insider Risk Management** and select the **Policies** tab.
-    Select **Create policy** to open the policy wizard.
+2.  Insider Risk Management に移動し、\[Policy\]
+    タブを選択します。\[Create policy\] を選択して、ポリシー
+    ウィザードを開きます。
 
-![](./media/rId133.png)
+![](./media/image36.png)
 
-3.  On the Choose a policy template page, choose Data theft by departing
-    users, under Data theft. Select Next to continue.
+3\. \[Choose a policy template\] ページで、\[Data theft\] の下にある
+\[Data theft by departing users\] を選択します。\[Next\]
+を選択して続行します。![A screenshot of a computer Description
+automatically generated](./media/image54.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/rId192.png)
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-A screenshot of a computer Description automatically generated
+4.  「Name and description」ページで、次のフィールドに入力します。
 
-4.  On the **Name and description** page, complete the following fields:
+    - 名前 (必須): ユーザーによるデータ盗難
 
-    - Name (required): `Data theft by a user`
+    - 説明 (オプション): これはデータ盗難を防止するためのテスト
+      ポリシーです。
 
-    - Description
-      (optional): `This is a test policy for the preventing data theft.`
+5\. 「Next」を選択して続行します。![A screenshot of a computer
+Description automatically generated](./media/image55.png)
 
-5.  Select **Next** to continue.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer Description automatically
-generated](./media/rId195.png)
+6.  \[Choose users, groups, & adaptive scopes\] ページで、\[All users,
+    groups, & adaptive scopes\] を選択します。\[Next\]
+    を選択して続行します。
 
-A screenshot of a computer Description automatically generated
+7.  \[Exclude users, groups, & adaptive scopes\] ページで、\[Next\]
+    を選択します。
 
-6.  On the **Choose users, groups, & adaptive scopes** page,
-    select **All users, groups, & adaptive scopes**. Select **Next** to
-    continue.
-
-7.  On the **Exclude users, groups, & adaptive scopes** page, select
-    **Next**.
-
-8.  On the **Decide whether to prioritize** page, select **I want to
-    specify priority content**. Select the check box for **Sensitivity
-    labels** and **Sensitive info types**. Select **Next** to continue.
+8.  \[Decide whether to prioritize\] ページで、\[I want to specify
+    priority content\] を選択します。\[Sensitivity labels\] と
+    \[Sensitive info types\] のチェック ボックスをオンにします。\[Next\]
+    を選択して続行します。
 
 ![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId198.png)
+with medium confidence](./media/image56.png)
 
-A screenshot of a computer screen Description automatically generated
-with medium confidence
+コンピュータ画面のスクリーンショット。中程度の信頼性で自動生成された説明
 
-9.  On the **Sensitivity labels to prioritize** page, select **Add or
-    edit sensitivity labels**. On the flyout pane,
-    select **Internal/Employee data (HR)** and select **Add**. Then
-    click **Next**.
-
-![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId201.png)
-
-A screenshot of a computer screen Description automatically generated
-with medium confidence
-
-10. On the **Sensitive info types to prioritize** page, select **Add or
-    edit sensitive info types**. On the flyout pane, search for and
-    select **Credit Card Number**, **Contoso Employee ID** and **Contoso
-    Employee EDM**. Select **Add**. Then click **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId204.png)
-
-A screenshot of a computer Description automatically generated
-
-11. On **Decide whether to score only activity with priority content**,
-    select **Get alerts for all activity**. Select **Next**.
+9.  \[Sensitivity labels to prioritize\] ページで、\[Add or edit
+    sensitivity labels\] を選択します。 フライアウト
+    ペインで、\[Internal/Employee data (HR)\] を選択し、\[Add\]
+    を選択します。 次に、\[Next\] をクリックします。
 
 ![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId207.png)
+with medium confidence](./media/image57.png)
 
-A screenshot of a computer screen Description automatically generated
-with medium confidence
+コンピュータ画面のスクリーンショット。中程度の信頼性で自動生成された説明
 
-12. On triggers for this policy page, select the default and then
-    select Next.
+10. \[Sensitive info types to prioritize\] ページで、\[Add or edit
+    sensitive info types\] を選択します。 フライアウト
+    ペインで、\[Credit Card Number\]、\[Contoso Employee ID\]、\[Contoso
+    Employee EDM\] を検索して選択します。 \[Add\] を選択します。
+    次に、\[Next\] をクリックします。
 
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId210.png)
+![A screenshot of a computer Description automatically
+generated](./media/image58.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-13. On **Indicators** page, select **Turn on indicators** from the
-    prompt.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId213.png)
-
-A screenshot of a computer Description automatically generated with
-medium confidence
-
-14. Select **Select all under Office indicators** and click **Save**.
+11. 「Decide whether to score only activity with priority
+    content」で、「Get alerts for all
+    activity」を選択します。「Next」を選択します。
 
 ![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId216.png)
+with medium confidence](./media/image59.png)
 
-A screenshot of a computer screen Description automatically generated
-with medium confidence
+コンピュータ画面のスクリーンショット。中程度の信頼性で自動生成された説明
 
-15. Select all the options and click on **Next**.
+12\. このポリシーのトリガー ページで、デフォルトを選択し、\[Next\]
+を選択します。![A screenshot of a computer Description automatically
+generated with medium confidence](./media/image60.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/rId219.png)
+コンピュータのスクリーンショットの説明は中程度の確信度で自動的に生成されました
 
-A screenshot of a computer Description automatically generated
+13\. 「Indicators」ページで、プロンプトから「Turn on indicators from the
+prompt」を選択します。![A screenshot of a computer Description
+automatically generated with medium confidence](./media/image61.png)
 
-16. On **Detection options** page, select the default and then
-    select **Next**.
+コンピュータのスクリーンショットの説明は中程度の確信度で自動的に生成されました
 
-![A screenshot of a computer Description automatically
-generated](./media/rId222.png)
+14\. \[Office indicators\] の下の \[Select all\] を選択し、\[Save\]
+をクリックします。![A screenshot of a computer screen Description
+automatically generated with medium confidence](./media/image62.png)
 
-A screenshot of a computer Description automatically generated
+コンピュータ画面のスクリーンショット。中程度の信頼性で自動生成された説明
 
-17. On **indicators** page, select **Next**.
+15\. すべてのオプションを選択し、「Next」をクリックします。![A
+screenshot of a computer Description automatically
+generated](./media/image63.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/rId166.png)
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-A screenshot of a computer Description automatically generated
+16\. 検出オプション ページで、デフォルトを選択し、\[Next\]
+を選択します。![A screenshot of a computer Description automatically
+generated](./media/image64.png)
 
-18. On **Decide whether to use default or custom indicator thresholds**,
-    select **Customise thresholds**, use **1**, **2**, and **3** events
-    for each stage respectively then select Next.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer screen Description automatically
-generated](./media/rId227.png)
+17\. インジケーターページで、「Next」を選択します。![A screenshot of a
+computer Description automatically generated](./media/image47.png)
 
-A screenshot of a computer screen Description automatically generated
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-19. On **Review settings and finish**, select **Submit**.
+18\.
+デフォルトまたはカスタムのインジケーターしきい値を使用するかどうかを決定するには、しきい値のカスタマイズを選択し、各ステージにそれぞれ
+1、2、3 のイベントを使用して、次へを選択します。![A screenshot of a
+computer screen Description automatically
+generated](./media/image65.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/rId230.png)
+コンピュータ画面のスクリーンショット 説明は自動的に生成されました
 
-A screenshot of a computer Description automatically generated
+19\. 「Review settings and finish」で、「Submit」を選択します。![A
+screenshot of a computer Description automatically
+generated](./media/image66.png)
 
-20. On **Your policy was created**, select **Done**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer Description automatically
-generated](./media/rId233.png)
+20\. ポリシーが作成されたら、「Done」を選択します。![A screenshot of a
+computer Description automatically generated](./media/image67.png)
 
-A screenshot of a computer Description automatically generated
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-21. Keep the tab open and continue to the next task.
+21. タブを開いたまま、次のタスクに進みます。
 
-#### Step 2 – Score the policy
+#### ステップ2 – ポリシーを評価する
 
-1.  Click on the new policy named **Data theft by a user**.
-    Select **Start scoring activity for users**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId237.png)
-
-A screenshot of a computer Description automatically generated
-
-2.  In the **Reason field in the Add users to multiple policies** pane,
-    type **Testing the policy**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId182.png)
-
-A screenshot of a computer Description automatically generated
-
-3.  In the **This should last for (choose between 5 and 30
-    days)** field, select **10** days.
-
-4.  Use the **Search user to add to policies** field. Add **MOD Admin**.
-    Then click on **Start scoring activity**.
-
-5.  Once you get the confirmation that you have started **Scoring
-    activity for 1 users**, click **Close**.
+1.  「Data theft by a
+    user」という新しいポリシーをクリックします。「Start scoring activity
+    for users」を選択します。
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId242.png)
+generated](./media/image68.png)
 
-A screenshot of a computer Description automatically generated
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-### Task 3: Data leaks by users
-
-#### Step 1 – Create a new policy
-
-1.  If you closed the browser window in the previous task, open
-    the `https://purview.microsoft.com` and log in with admin
-    credentials.
-
-2.  Go to **Insider Risk Management** and select the **Policies** tab.
-    Select **Create policy** to open the policy wizard.
+2.  \[Add users to multiple policies\] ペインの \[Reason\]
+    フィールドに、「Testing the policy」と入力します。
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId133.png)
+generated](./media/image52.png)
 
-A screenshot of a computer Description automatically generated
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-3.  On the **Choose a policy template** page, choose **Data leaks**,
-    under **Data leaks**. Select **Next** to continue.
+3.  \[This should last for (choose between 5 and 30 days)\]
+    フィールドで、\[10 days\] を選択します。
 
-![A screenshot of a computer Description automatically
-generated](./media/rId249.png)
+4.  \[Search user to add to policies\] フィールドを使用します。MOD
+    ADMINISTRATORを追加します。次に、\[Start scoring activity\]
+    をクリックします。
 
-A screenshot of a computer Description automatically generated
-
-4.  On the **Name and description** page, complete the following fields:
-
-    - Name (required): `Data leaks by a user`
-
-    - Description
-      (optional): `This is a test policy for preventing data leaks.`
-
-5.  Select **Next** to continue.
+5.  1 人のユーザーに対してスコアリング
+    アクティビティを開始したという確認が表示されたら、\[Close\]
+    をクリックします。
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId252.png)
+generated](./media/image69.png)
 
-A screenshot of a computer Description automatically generated
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-6.  On the **Choose users and groups** page, select **Include all users
-    and groups**. Select **Next** to continue.
+### タスク3: ユーザーによるデータ漏洩
+
+#### ステップ1 – 新しいポリシーを作成する
+
+1.  前のタスクでブラウザー
+    ウィンドウを閉じた場合は、https://purview.microsoft.com
+    を開き、管理者の資格情報でログインします。
+
+2.  Insider Risk Management に移動し、\[Policy\]
+    タブを選択します。\[Create policy\] を選択して、ポリシー
+    ウィザードを開きます。
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId255.png)
+generated](./media/image36.png)
 
-A screenshot of a computer Description automatically generated
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-7.  On the **Exclude users and groups** page, select **Next**.
+3\. \[Choose a policy template\] ページで、\[Data leaks\] の下にある
+\[Data leaks\] を選択します。\[Next\] を選択して続行します。![A
+screenshot of a computer Description automatically
+generated](./media/image70.png)
 
-8.  On the **Decide whether to prioritize** page, select **I want to
-    specify priority content**. Select the check box for **SharePoint
-    sites**, **Sensitivity labels** and **Sensitive info types**.
-    Select **Next** to continue.
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+4.  「Name and description」ページで、次のフィールドに入力します。
+
+    - 名前 (必須): ユーザーによるデータ漏洩
+
+    - 説明 (オプション): これはデータ漏洩を防ぐためのテスト
+      ポリシーです。
+
+5\. 「Next」を選択して続行します。![A screenshot of a computer
+Description automatically generated](./media/image71.png)
+
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+6\. \[Choose users and groups page\] ページで、\[Include all users and
+groups\] を選択します。\[Next\] を選択して続行します。![A screenshot of
+a computer Description automatically generated](./media/image72.png)
+
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+7.  \[Exclude users and groups\] ページで、\[Next\] を選択します。
+
+8.  \[Decide whether to prioritize\] ページで、\[I want to specify
+    priority content\] を選択します。SharePoint
+    サイト、機密ラベル、機密情報の種類の各チェック
+    ボックスをオンにします。\[Next\] を選択して続行します。
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId258.png)
+medium confidence](./media/image73.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+コンピュータのスクリーンショットの説明は中程度の確信度で自動的に生成されました
 
-9.  On the **SharePoint sites to prioritize** page, select **Add or edit
-    SharePoint sites**. On the flyout pane,
-    select `https://{TENANTPREFIX}.sharepoint.com/sites/ContosoWeb1` and
-    select **Add**. Then click **Next**.
+9.  \[SharePoint sites to prioritize\] ページで、\[Add or edit
+    SharePoint sites\] を選択します。ポップアップ
+    ウィンドウで、https://{TENANTPREFIX}.sharepoint.com/sites/ContosoWeb1
+    を選択し、\[Add\] を選択します。次に、\[Next\] をクリックします。
 
-10. On the **Sensitivity labels to prioritize** page, select **Add or
-    edit sensitivity labels**. On the flyout pane,
-    select **Internal/Employee data (HR)** and select **Add**. Then
-    click **Next**.
+10. \[Sensitivity labels to prioritize\] ページで、\[Add or edit
+    sensitivity labels\] を選択します。ポップアップ
+    ウィンドウで、\[Internal/Employee data (HR)\] を選択し、\[Add\]
+    を選択します。次に、\[Next\] をクリックします。
 
 ![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId201.png)
+with medium confidence](./media/image57.png)
 
-A screenshot of a computer screen Description automatically generated
-with medium confidence
+コンピュータ画面のスクリーンショット。中程度の信頼性で自動生成された説明
 
-11. On the **Sensitive info types to prioritize** page, select **Add or
-    edit sensitive info types**. On the flyout pane, search for and
-    select **Credit Card Number**, **Contoso Employee ID** and **Contoso
-    Employee EDM**. Select **Add**. Then click **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/rId204.png)
-
-A screenshot of a computer Description automatically generated
-
-12. On **Decide whether to score only activity with priority content**,
-    select **Get alerts for all activity**. Select **Next**.
-
-![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/rId207.png)
-
-A screenshot of a computer screen Description automatically generated
-with medium confidence
-
-13. On **Triggers for this policy** page, select Radio
-    button near **User performs an exfiltration activity**. Under select
-    which activities will trigger this policy, select all the available
-    options especially **Download content from SharePoint**. and then
-    select **Next**.
+11. \[Sensitive info types to prioritize\] ページで、\[Add or edit
+    sensitive info types\] を選択します。 フライアウト
+    ペインで、\[Credit Card Number\]、\[Contoso Employee ID\]、\[Contoso
+    Employee EDM\] を検索して選択します。 \[Add\] を選択します。
+    次に、\[Next\] をクリックします。
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId267.png)
+generated](./media/image58.png)
 
-A screenshot of a computer Description automatically generated
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-14. On **Triggering thresholds for this policy**, select **Use custom
-    thresholds**. Set every threshold to **1** and select **Next**.
+12\. 「Decide whether to score only activity with priority」で、「Get
+alerts for all activity」を選択します。「Next」を選択します。![A
+screenshot of a computer screen Description automatically generated with
+medium confidence](./media/image59.png)
 
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId270.png)
+コンピュータ画面のスクリーンショット。中程度の信頼性で自動生成された説明
 
-A screenshot of a computer Description automatically generated with
-medium confidence
-
-15. Select the default settings on the **Indicators** page and
-    select **Next**.
-
-16. On **Decide whether to use default or custom indicator thresholds**,
-    select **Customise thresholds**, use **1**, **2**, and **3** events
-    for each stage respectively then select **Next**.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId273.png)
-
-A screenshot of a computer Description automatically generated with
-medium confidence
-
-17. On **Review settings and finish**, select **Submit**.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId276.png)
-
-A screenshot of a computer Description automatically generated with
-medium confidence
-
-18. On **Your policy was created**, select **Done**.
+13. \[Triggers for this policy\] ページで、\[Radio button near User
+    performs an exfiltration activity\] の横にあるラジオ
+    ボタンを選択します。\[select which activities will trigger this
+    policy\] で、使用可能なすべてのオプション (特に \[SharePoint
+    からコンテンツをダウンロード\]) を選択し、\[Next\] を選択します。
 
 ![A screenshot of a computer Description automatically
-generated](./media/rId279.png)
+generated](./media/image74.png)
 
-A screenshot of a computer Description automatically generated
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-19. Keep the tab open and continue to the next task.
-
-#### Step 2 – Score the policy
-
-1.  Click on the new policy named **Data leaks by a user**.
-    Select **Start scoring activity for users**.
+14. Triggering thresholds for this policyで、Use custom
+    thresholdsを選択します。すべてのしきい値を 1
+    に設定し、Nextを選択します。
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./media/rId283.png)
+medium confidence](./media/image75.png)
 
-A screenshot of a computer Description automatically generated with
-medium confidence
+コンピュータのスクリーンショットの説明は中程度の確信度で自動的に生成されました
 
-2.  In the **Reason field in the Add users to multiple policies** pane,
-    type Testing the policy. In the **This should last for (choose
-    between 5 and 30 days)** field, select **10** days. Use the **Search
-    user to add to policies** field. Add **MOD Admin**. Then click
-    on **Start scoring activity**.
+15. \[Indicators\] ページで既定の設定を選択し、\[Next\] を選択します。
 
-3.  Once you get the confirmation that you have started **Scoring
-    activity for 1 user**, click **Close**.
+16. \[Decide whether to use default or custom indicator thresholds\]
+    で、\[Customise thresholds\] を選択し、ステージごとにそれぞれ
+    1、2、3 のイベントを使用して、\[Next\] を選択します。
 
-You have successfully created the Insider risk management policies.
+![A screenshot of a computer Description automatically generated with
+medium confidence](./media/image76.png)
 
-## Summary:
+コンピュータのスクリーンショットの説明は中程度の確信度で自動的に生成されました
 
-In this lab we explored setting up Insider Risk Management from
-end-to-end. With your own subscription and licenses, you can also use
-this lab guide to create an Azure setup that can also be used to create
-various alerts (which includes sending emails with restricted data,
-which is not possible from a trial subscription) for the Insider Risk
-management policies which you can use to explore the Adaptive Protection
-feature on Purview.
+17\. 「Review settings and finish」で、「Submit」を選択します。![A
+screenshot of a computer Description automatically generated with medium
+confidence](./media/image77.png)
+
+コンピュータのスクリーンショットの説明は中程度の確信度で自動的に生成されました
+
+18. ポリシーが作成されたら、「Done」を選択します。
+
+![A screenshot of a computer Description automatically
+generated](./media/image78.png)
+
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+> 19\. タブを開いたまま、次のタスクに進みます。
+
+#### ステップ2 – ポリシーを評価する
+
+1.  「Data leaks by a
+    user」という新しいポリシーをクリックします。「Start scoring activity
+    for users.」を選択します。
+
+![A screenshot of a computer Description automatically generated with
+medium confidence](./media/image79.png)
+
+コンピュータのスクリーンショットの説明は中程度の確信度で自動的に生成されました
+
+2.  \[Add users to multiple policies\] ペインの \[Reason\]
+    フィールドに、「Testing the policy」と入力します。 \[この期間 (5 ～
+    30 日間を選択)\] フィールドで、\[10 days\] を選択します。 \[Search
+    user to add to policies\] フィールドを使用します。 MOD
+    ADMINISTRATORを追加します。次に、\[Start scoring activity\]
+    をクリックします。
+
+3.  1 人のユーザーに対してスコアリング
+    アクティビティを開始したという確認が表示されたら、\[閉じる\]
+    をクリックします。
+
+Insider リスク管理ポリシーが正常に作成されました。
+
+## 概要:
+
+このラボでは、Insider Risk Management
+のセットアップを最初から最後まで説明しました。独自のサブスクリプションとライセンスがあれば、このラボ
+ガイドを使用して Azure セットアップを作成し、Purview の Adaptive
+Protection 機能を調べるために使用できる Insider Risk Management
+ポリシーのさまざまなアラート
+(試用版サブスクリプションでは不可能な、制限されたデータを含む電子メールの送信を含む)
+を作成することもできます。
