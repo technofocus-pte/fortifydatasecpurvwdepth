@@ -1,82 +1,106 @@
-# Lab 8 – Exploring the capabilities of Adaptive Protection
+# Laboratório 8 – Explorando os recursos da Proteção Adaptativa
 
-## Exercise 1 – Setting up Adaptive Protection
+## Exercício 1 – Configurando a proteção adaptativa
 
-### Task 1 – Setting up risk levels for Adaptive Protection
+### Tarefa 1 – Definição dos níveis de risco para a Proteção Adaptativa
 
-1.  In Microsoft Edge, open a New InPrivate Window, navigate
-    to ```https://purview.microsoft.com``` and log in using the
-    admin tenant.
+1.  No Microsoft Edge, abra uma Nova Janela InPrivate, navegue até
+    `https://purview.microsoft.com` e faça login usando o locatário
+    admin.
 
-2.  From the navigation bar, go to **Solutions** \> **Insider risk**
+2.  Na barra de navegação, acesse **Solutions** \> **Insider risk**
     **management**.
 
 ![](./media/image1.png)
 
-3.  From the sub-navigation, select **Adaptive Protection (Preview)**.
+3.  Na subnavegação, selecione **Adaptive Protection (Preview).**
 
-![A screenshot of a computer Description automatically
-generated](./media/image2.png)
+![Uma captura de tela de um computador Descrição gerada
+automaticamente](./media/image2.png)
 
-4.  Since we used the quick start option while enabling **Adaptive
-    Protection**, we can see 2 DLP policies created.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-![A screenshot of a computer Description automatically
-generated](./media/image3.png)
+4.  Como usamos a opção de início rápido ao ativar a **Proteção
+    Adaptativa**, podemos ver duas políticas de DLP criadas.
 
-5.  Now click on **Risk levels for Adaptive Protection** from the
-    submenu and from the drop down select **Data leaks by a user**.
+![Uma captura de tela de um computador Descrição gerada
+automaticamente](./media/image3.png)
 
-![BrokenImage](./media/image4.png)
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-6.  Under **Define conditions for risk levels**, select **User performs
-    at least 3 data exfiltration activities,
-    each…** for **Elevated** risk. Select **User performs at least 2
-    data exfiltration activities, each…** for **Moderate** risk.
-    **Select User performs at least 1 data exfiltration activities,
-    each…** for **Minor** risk. Then click **Save**.
+5.  Agora clique em **Risk levels for Adaptive Protection**  no submenu
+    e, no menu suspenso, selecione **Data leaks by a user**.
 
-![BrokenImage](./media/image5.png)
+![Imagem quebrada](./media/image4.png)
 
-7.  Similarly, you can customise the conditions for all the available
-    policy under Insider risk management.
+Imagem interrompida
 
-8.  Now we can customise the DLP policy for each level.
+6.  Em **Define conditions for risk levels**, selecione **User performs
+    at least 3 data exfiltration activities, each…** para risco
+    **Elevated**. Selecione **User performs at least 2 data exfiltration
+    activities, each…** para risco **Moderate**. Selecione **User
+    performs at least 1 data exfiltration activities, each…** para risco
+    **Minor**. Em seguida, clique em **Salve**.
 
-### Task 2 – Exploring Default DLP policies for each of the risk levels of
-Adaptive Protection
+![Imagem quebrada](./media/image5.png)
 
-1.  Under Adaptive Protection, select DLP Polices and select Adaptive
+Imagem interrompida
+
+7.  Da mesma forma, você pode personalizar as condições de todas as
+    políticas disponíveis no Insider Risk Management.
+
+8.  Agora podemos personalizar a política DLP para cada nível.
+
+### Tarefa 2 – Explorar as políticas padrão de DLP para cada um dos níveis de risco de Proteção Adaptativa
+
+1.  Em Adaptive Protection, selecione DLP Polices e selecione Adaptive
     Protection Policy for Endpoint DLP.
 
-![BrokenImage](./media/image6.png)
+![Imagem quebrada](./media/image6.png)
 
-2.  Select **Edit**.
+Imagem interrompida
 
-![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/image7.png)
+2.  Selecione **Edit**.
 
-3.  Click on Next till you reach **Customize advanced DLP rules**.
+![Uma captura de tela de uma tela de computador Descrição gerada
+automaticamente com confiança média](./media/image7.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image8.png)
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-4.  Check the rules and the conditions made for each level of risk.
-    Click **Next**.
+3.  Clique em Next até chegar a **Customize advanced DLP rules**.
 
-5.  On the **Policy mode** page select the radio button near **Turn it
-    on right away**. Click **Next**.
+![Uma captura de tela de um computador Descrição gerada
+automaticamente](./media/image8.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image9.png)
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-6.  Select **Submit**.
+4.  Verifique as regras e as condições estabelecidas para cada nível de
+    risco. Clique em **Next**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image9.png)
+5.  Na página **Policy mode**, selecione o botão de opção próximo a
+    **Turn it on right away**. Clique em **Next**.
 
-7.  Repeat the steps to enable the Adaptive Protection Policy for Teams
-    and Exchange DLP.
+![Uma captura de tela de um computador Descrição gerada
+automaticamente](./media/image9.png)
 
-8.  We will not create any rules or policy as of now, but you can
-    explore various available option after you complete the lab.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+6.  Selecione **Submit**.
+
+![Uma captura de tela de um computador Descrição gerada
+automaticamente](./media/image9.png)
+
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
+
+7.  Repita as etapas para ativar a Política de Proteção Adaptativa para
+    o Teams e o Exchange DLP.
+
+8.  Não criaremos nenhuma regra ou política por enquanto, mas você
+    poderá explorar várias opções disponíveis depois de concluir o
+    laboratório.
