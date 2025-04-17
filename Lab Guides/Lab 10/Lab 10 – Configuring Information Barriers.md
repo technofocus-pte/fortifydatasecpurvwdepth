@@ -186,7 +186,6 @@ Ein Screenshot einer automatisch generierten Computerbeschreibung.
 
 ![BrokenImage](./media/image16.png)
 
-BrokenImage
 
 10. Überprüfen Sie auf der Seite **Review your settings** die
     Einstellungen, die Sie für die Richtlinie ausgewählt haben, sowie
