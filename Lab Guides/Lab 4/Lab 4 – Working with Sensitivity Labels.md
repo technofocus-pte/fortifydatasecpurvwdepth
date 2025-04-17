@@ -1,728 +1,807 @@
-# Lab 4 – Working with Sensitivity Labels
+# ラボ 4 – 機密ラベルの操作
 
-## Objective:
+## 目的:
 
-In this lab you will assume the role of Patti Fernandez, a System
-Administrator for Contoso Ltd. Your organization is based in
-Rednitzhembach, Germany and is currently implementing a sensitivity plan
-to ensure that all employee documents in the HR department have been
-marked with a sensitivity label as part of your organizations
-information protection policies.
+このラボでは、Contoso Ltd のシステム管理者である Patti Fernandez
+の役割を担います。組織はドイツの Rednitzhembach
+に拠点を置いており、組織の情報保護ポリシーの一環として、人事部門のすべての従業員ドキュメントに機密ラベルが付けられていることを確認するための機密性計画を現在実装しています。
 
-## Exercise 1 – Enabling support for sensitivity labels
+## エクササイズ1 – 機密ラベルのサポートを有効にする
 
-In this task, you will install the MSOnline module and the SharePoint
-Online PowerShell module and enable support for sensitivity labels on
-your tenant.
+このタスクでは、MSOnline モジュールと SharePoint Online PowerShell
+モジュールをインストールし、テナントで機密ラベルのサポートを有効にします。
 
-1.  Select the windows symbol in the taskbar with the right mouse button
-    and select **Windows PowerShell (Admin)** and run as administrator.
+1.  1\. タスクバーの Windows
+    シンボルをマウスの右ボタンで選択し、「Windows PowerShell
+    (Admin)」を選択して管理者として実行します。![A screenshot of a
+    computer Description automatically generated](./media/image1.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image1.png)
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-2.  Confirm the **User Account Control** window with **Yes** and press
-    Enter.
+2.  `ユーザー`` ``アカウント制御ウィンドウで`` [``Yes``] ``を選択して`` Enter ``キーを押します。`
 
-3.  Enter the following cmdlet to install the latest Microsoft Online
-    PowerShell module version:
+3.  `次のコマンドレットを入力して、最新の`` Microsoft Online PowerShell ``モジュール`` ``バージョンをインストールします。`
 
-```Install-Module -Name MSOnline```
+> `Install-Module -Name ``MSOnline`
 
 ![A screenshot of a computer Description automatically
 generated](./media/image2.png)
 
-4.  Confirm the NuGet security dialog and the Untrusted repository
-    security dialog with Y for Yes and press Enter. This may take a
-    while to complete processing.
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+4.  NuGet セキュリティ ダイアログと信頼されていないリポジトリ
+    セキュリティ ダイアログで Y (Yes) を選択して Enter
+    キーを押します。処理が完了するまでに時間がかかる場合があります。
 
 ![BrokenImage](./media/image3.png)
 
-5.  Enter the following cmdlet to install the latest SharePoint Online
-    PowerShell module version:
 
-```Install-Module -Name Microsoft.Online.SharePoint.PowerShell```
+5.  次のコマンドレットを入力して、最新の SharePoint Online PowerShell
+    モジュール バージョンをインストールします。
+
+`Install-Module -Name ``Microsoft.Online.SharePoint.PowerShell`
 
 ![A screenshot of a computer Description automatically
 generated](./media/image4.png)
 
-6.  Confirm the Untrusted repository security dialog with **Y** for Yes
-    and press Enter.
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+6.  6\. 「Untrusted repository
+    security」ダイアログで「Y」（Yes）を選択して Enter キーを押します。
 
 ![A screenshot of a computer screen Description automatically
 generated](./media/image5.png)
 
-7.  Enter the following cmdlet to connect to the Microsoft Online
-    service:
+コンピュータ画面のスクリーンショット 説明は自動的に生成されました
 
-```Connect-MsolService```
+7.  次のコマンドレットを入力して、Microsoft Online
+    サービスに接続します。
+
+`Connect-``MsolService`
 
 ![BrokenImage](./media/image6.png)
 
-8.  In the **Sign in to your account** form, log in as **Patti
-    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
-    and the User Password given on your resources tab.
+
+8.  \[Sign in to your account\] フォームで、ユーザー名
+    PattiF@{TENANTPREFIX}.onmicrosoft.com とリソース
+    タブに指定されているユーザー パスワードを使用して、Patti Fernandez
+    としてログインします。
 
 ![A screenshot of a computer screen Description automatically
 generated](./media/image7.png)
 
-9.  After signing in, go the **PowerShell window**.
+コンピュータ画面のスクリーンショット 説明は自動的に生成されました
 
-10. Enter the following cmdlet to get the domain:
+9.  サインインしたら、PowerShell ウィンドウに移動します。
 
-```$domain = get-msoldomain```
+10. 次のコマンドレットを入力してドメインを取得します。
+
+`$domain = get-``msoldomain`
 
 ![BrokenImage](./media/image8.png)
 
-11. Enter the following cmdlet to create the SharePoint admin url:
 
-```$adminurl = "https://" + $domain.Name.split('.')[0] + "-admin.sharepoint.com"```
+11. 次のコマンドレットを入力して、SharePoint 管理者 URL を作成します。
+
+`$``adminurl`` = "https://" + $domain.Name.split('.')[0] + "-admin.sharepoint.com"`
 
 ![A screenshot of a computer screen Description automatically
 generated](./media/image9.png)
 
-12. Enter the following cmdlet to sign in to the SharePoint Online admin
-    center:
+コンピュータ画面のスクリーンショット 説明は自動的に生成されました
 
-```Connect-SPOService -url $adminurl```
+12. 次のコマンドレットを入力して、SharePoint Online
+    管理センターにサインインします。
+
+`Connect-``SPOService`` -``url`` $``adminurl`
 
 ![A screenshot of a computer screen Description automatically
 generated](./media/image10.png)
 
-13. In the **Sign in to your account** form, log in as **MOD
-    Administrator** using the credentials provided in the resources tab
-    of your lab environment.
+コンピュータ画面のスクリーンショット 説明は自動的に生成されました
 
-14. After signing in, select the PowerShell window.
+13. `「``Sign in to your account``」フォームで、ラボ環境のリソース`` ``タブで提供された資格情報を使用して`` MOD ``管理者としてログインします。`
 
-15. Enter the following cmdlet to enable support for sensitivity labels:
+14. `サインインしたら、``PowerShell ``ウィンドウを選択します。`
 
-```Set-SPOTenant -EnableAIPIntegration $true```
+15. ` ``機密ラベルのサポートを有効にするには、次のコマンドレットを入力します。`
+
+> `Set-``SPOTenant`` -``EnableAIPIntegration`` $true`
 
 ![BrokenImage](./media/image11.png)
 
-16. Confirm the changes with **Y** for Yes and press Enter.
+
+16. Y (Yes) を押して変更を確認し、Enter キーを押します。
 
 ![BrokenImage](./media/image12.png)
 
-17. Close the **PowerShell** window.
 
-You have successfully enabled support for sensitivity labels with Teams
-and SharePoint sites.
+17. PowerShell ウィンドウを閉じます。
 
-## Exercise 2 – Creating Sensitivity Labels
+Teams および SharePoint
+サイトでの機密ラベルのサポートが正常に有効になりました。
 
-In this task, your HR department has requested a sensitivity label to
-apply to HR employee documents. You will create a sensitivity label for
-Internal documents and a sublabel for the HR department.
+## エクササイズ2 – 機密ラベルの作成
 
-1.  In **Microsoft Edge** navigate to
-    ```https://purview.microsoft.com``` and log in as **Patti
-    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
-    and the User Password given on your resources tab.
+このタスクでは、人事部門が人事従業員ドキュメントに適用する機密ラベルを要求しています。社内ドキュメントの機密ラベルと人事部門のサブラベルを作成します。
 
-2.  In the Microsoft Purview portal, on the left navigation pane, select
-    **Solutions** \> **Information Protection**.
+1.  Microsoft Edge で https://purview.microsoft.com に移動し、ユーザー名
+    PattiF@{TENANTPREFIX}.onmicrosoft.com とリソース
+    タブに表示されているユーザー パスワードを使用して Patti Fernandez
+    としてログインします。
 
-![](./media/image13.png)
+2.  Microsoft Purview ポータルの左側のナビゲーション
+    ペインで、\[Solutions\] \> \[Information Protection\]
+    を選択します。![](./media/image13.png)
 
-3.  From the sub-navigation select **Sensitivity Labels** \>
-    **Create Labels**.
+&nbsp;
 
-![](./media/image15.png)
+3.  サブナビゲーションから「Sensitivity Labels」\>「Create
+    Labels」を選択します。
 
-4.  The **New sensitivity label** wizard will start. On the **Label**
-    **details** page for the **Name**, **Description for
-    admins** and **Description for users**, enter the following
-    information:
+![](./media/image14.png)
 
-    - Name: ```Internal```
+4.  新しい機密ラベル
+    ウィザードが起動します。ラベルの詳細ページで、管理者の名前、説明、およびユーザーの説明に次の情報を入力します。
 
-    - Display name: ```Internal```
+    - 名前: `Internal`
 
-    - Description for users: ```Internal sensitivity label```
+    - 表示名: `Internal`
 
-    - Description for admins: ```Internal sensitivity label for Contoso.```
+    - ユーザー向けの説明: `Internal sensitivity label`
+
+    - 管理者向けの説明: `Internal sensitivity label for Contoso.`
 
 ![Graphical user interface, text, application, email Description
-automatically generated](./media/image16.png)
+automatically generated](./media/image15.png)
 
-5.  Select **Next**.
+グラフィカルユーザーインターフェイス、テキスト、アプリケーション、電子メールの説明が自動的に生成されます
+
+5.  **Next**を選択します。
 
 ![Graphical user interface, text, application Description automatically
+generated](./media/image16.png)
+
+グラフィカルユーザーインターフェイス、テキスト、アプリケーションの説明が自動的に生成されます
+
+6.  \[Define the scope for this label\]
+    ページで、メール、ファイル、Power BI アイテムを保護する \[Items\]
+    オプションを選択します。\[Meetings\]
+    の横にあるボックスのチェックを外します。
+
+![A screenshot of a computer Description automatically
 generated](./media/image17.png)
 
-6.  On the **Define the scope for this label** page, select the
-    option **Items** which protects emails, files, and Power BI items.
-    Uncheck the box near **Meetings**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+7.  **Next**を選択します。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image18.png)
 
-7.  Select **Next**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+8.  「Choose protection settings for labeled
+    items」ページで、「Next」を選択します。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image19.png)
 
-8.  On the **Choose protection settings for labeled items** page,
-    select **Next**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer Description automatically
-generated](./media/image20.png)
+9.  「Auto-labeling for files and
+    emails」ページで、「Next」を選択します。![A screenshot of a computer
+    Description automatically generated](./media/image20.png)
 
-9. On the **Auto-labeling** for files and emails page, select **Next**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+10. \[Define protection settings for groups and sites\]
+    ページで、\[Next\] を選択します。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image21.png)
 
-10. On the **Define protection settings for groups and sites** page,
-    select **Next**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer Description automatically
-generated](./media/image22.png)
-
-11. On the **Auto-labeling for schematized data assets
-    (preview)** page, select **Next**.
+11. 「Auto-labeling for schematized data assets
+    (preview)」ページで、「Next」を選択します。
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/image23.png)
+generated](./media/image22.png)
 
-12. On the **Review your settings and finish** page, select **Create
-    label**.
+グラフィカルユーザーインターフェイス、テキスト、アプリケーションの説明が自動的に生成されます
 
-![A screenshot of a computer Description automatically
-generated](./media/image24.png)
+12\. 「Review your settings and finish」ページで、「Create
+label」を選択します。![A screenshot of a computer Description
+automatically generated](./media/image23.png)
 
-13. The label will be created and when complete a message will
-    display: **Your sensitivity label was created**
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-14. Select **Don’t create a policy yet** and then select **Done**.
+13. ラベルが作成され、完了すると「Your sensitivity label was
+    created」というメッセージが表示されます。
+
+14. 「Don’t create a policy yet」を選択し、「Done」を選択します。
 
 ![A screenshot of a computer screen Description automatically
-generated](./media/image25.png)
+generated](./media/image24.png)
 
-15. On the **Information protection** page, highlight (without
-    selecting) the newly created **Internal** label and select the
-    vertical **…**.
+コンピュータ画面のスクリーンショット 説明は自動的に生成されました
 
-16. Select the **+ Add sub label** from the drop-down menu.
+15. \[Information Protection\] ページで、新しく作成した 内部
+    ラベルを強調表示し (選択せずに)、垂直方向の \[...\] を選択します。
+
+16. ドロップダウン メニューから「+ Add sub label」を選択します。
 
 ![A screenshot of a computer Description automatically
-generated](./media/image26.png)
+generated](./media/image25.png)
 
-17. The **New sensitivity label** wizard will start. On the **Label
-    details** page, enter the following information:
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-    - Name: ```Employee data (HR)```
+17. 新しい機密ラベル
+    ウィザードが起動します。ラベルの詳細ページで、次の情報を入力します。
 
-    - Display name: ```Employee data (HR)```
+o 名前: 従業員データ (HR)
 
-    - Description for users: ```This HR label is the default label for all specified documents in the HR Department.```
+o 表示名: 従業員データ (HR)
 
-    - Description for admins: ```This label is created in consultation with Ms.Jones (Head of HR department). Contact her, when you want to change settings of the label.```
+o ユーザー向けの説明: この HR ラベルは、HR
+部門のすべての指定されたドキュメントのデフォルト ラベルです。
+
+o 管理者向けの説明: このラベルは、Jones 氏 (HR 部門長)
+と相談して作成されました。ラベルの設定を変更する場合は、Jones
+氏に連絡してください。![](./media/image26.png)
+
+18\. 「 Next」を選択します。![](./media/image27.png)
+
+19. \[Define the scope for this label\]
+    ページで、電子メール、ファイル、会議を保護する \[Items\]
+    オプションを選択します。\[Next\] を選択します。
 
 ![](./media/image28.png)
 
-18. Select **Next**.
+20\. 「Choose protection settings for labeled items」ページで、「Control
+Access」オプションを選択します。「Next」を選択します。
+
+![](./media/image29.png)
+
+21. 「Access Control」ページで、「Configure access
+    control」を選択します。
 
 ![](./media/image30.png)
 
-19. On the **Define the scope for this label** page, select the
-    option **Items** which protects emails, files, and Meetings.
-    Select **Next**.
+22. 暗号化設定に次の情報を入力します。
 
-![](./media/image32.png)
+o 今すぐ権限を割り当てるか、ユーザーに決定させるか:
+今すぐ権限を割り当てる
 
-20. On the **Choose protection settings for labeled items** page, select
-    the **Control Access** option. Select **Next**.
+o コンテンツへのユーザー アクセスの有効期限: なし
 
-![](./media/image34.png)
+o オフライン アクセスを許可する: 指定した日数のみ
 
-21. On **Access Control** page, select **Configure
-    access control ettings**.
+o ユーザーがコンテンツにオフラインでアクセスできる日数: 15![A screenshot
+of a computer Description automatically generated](./media/image31.png)
 
-![](./media/image36.png)
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-22. Enter the following information into the encryption settings:
+23. 「Assign permissions」リンクを選択します。
 
-    - Assign permissions now or let users decide?: **Assign permissions
-      now**
+![A screenshot of a computer Description automatically
+generated](./media/image32.png)
 
-    - User access to content expires: **Never**
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-    - Allow offline access: **Only for a number of days**
+24\. \[Assign permissions\] ペインで、\[+ Add any authenticated users\]
+を選択します。![BrokenImage](./media/image33.png)
 
-    - Users have offline access to the content for this many
-      days: **15**
+
+25. **Save**を選択します。
+
+![BrokenImage](./media/image34.png)
+
+
+26. 「Encryption」ページで、「Next」を選択します。
+
+![A screenshot of a computer Description automatically
+generated](./media/image35.png)
+
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+27\. 「Auto-labeling for files and
+emails」ページで、「Next」を選択します。![A screenshot of a computer
+Description automatically generated](./media/image36.png)
+
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+28\. 「Define protection settings for groups and
+sites」ページで、「Next」を選択します。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image37.png)
 
-23. Select the **Assign permissions** link.
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+29\. 「Auto-labeling for schematized data assests
+(preview)」ページで、「Next」を選択します。![A screenshot of a computer
+Description automatically generated](./media/image38.png)
+
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+> 30\. 「Review your settings and finish」ページで、「Create
+> label」を選択します。
 
 ![A screenshot of a computer Description automatically
-generated](./media/image38.png)
+generated](./media/image39.png)
 
-24. On the **Assign permissions** pane, select the **+ Add any
-    authenticated users**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![BrokenImage](./media/image39.png)
+31\. ラベルが作成され、完了すると「Your sensitivity label was
+created」というメッセージが表示されます。
 
-25. Select **Save**.
+32\. 「Don’t create a policy yet」を選択し、「Done」を選択します。![A
+screenshot of a computer screen Description automatically
+generated](./media/image40.png)
 
-![BrokenImage](./media/image40.png)
+コンピュータ画面のスクリーンショット 説明は自動的に生成されました
 
-26. On the **Encryption** page, select **Next**.
+33\. タブを開いたままにして、次のタスクに進みます。
 
-![A screenshot of a computer Description automatically
-generated](./media/image41.png)
+組織の内部ポリシーの機密ラベルと人事 (HR)
+部門の機密サブラベルが正常に作成されました。
 
-27. On the **Auto-labeling for files and emails** page, select **Next**.
+## エクササイズ3 – 機密ラベルの公開
 
-![A screenshot of a computer Description automatically
-generated](./media/image42.png)
+ここで、内部および HR の機密ラベルを公開して、公開された機密ラベルを HR
+ユーザーが HR ドキュメントに適用できるようにします。
 
-28. On the **Define protection settings for groups and sites** page,
-    select **Next**.
+1.  Microsoft Edge で https://purview.microsoft.com に移動し、ユーザー名
+    PattiF@{TENANTPREFIX}.onmicrosoft.com とリソース
+    タブに表示されているユーザー パスワードを使用して Patti Fernandez
+    としてログインします。
 
-![A screenshot of a computer Description automatically
-generated](./media/image43.png)
+2.  Microsoft Purview ポータルの左側のナビゲーション
+    ペインで、\[Solutions\] \> \[Information Protection\]
+    を選択します。![](./media/image13.png)
 
-29. On the **Auto-labeling for schematized data assests
-    (preview)** page, select **Next**.
+3\. サブナビゲーションから、「Sensitivity labels」\>「Publish
+labels」を選択します。![](./media/image41.png)
+
+4\. 機密ラベルの公開ウィザードが起動します。
+
+5\. \[Choose sensitivity labels to publish\] ページで、\[Choose
+sensitivity labels to publish\] リンクを選択します。![A screenshot of a
+computer Description automatically generated](./media/image42.png)
+
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+6\. 右側に「Sensitivity labels to
+publish」というサイドバーが表示されます。
+
+7\. 「Internal and Internal/Employee Data
+(HR)」チェックボックスをオンにします。![A screenshot of a computer
+Description automatically generated](./media/image43.png)
+
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+8.  **Add**を選択します。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image44.png)
 
-30. On the **Review your settings and finish** page, select **Create
-    label**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+9.  \[Choose sensitivity labels to publish\] ページで、\[Next\]
+    を選択します。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image45.png)
 
-31. The label will be created and when complete a message will
-    display **Your sensitivity label was created**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-32. Select **Don’t create a policy yet** and then select **Done**.
-
-![A screenshot of a computer screen Description automatically
+10\. \[Publish to users and groups\] ページで、\[Next\]
+を選択します。![A screenshot of a computer Description automatically
 generated](./media/image46.png)
 
-33. Keep the tab open to continue to the next task.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-You have successfully created a sensitivity label for your organizations
-internal policies and a sensitivity sublabel for the Human Resources
-(HR) department.
+11\.
+ポリシー設定ページで、「Next」を選択します。![BrokenImage](./media/image47.png)
 
-## Exercise 3 – Publishing Sensitivity Labels
 
-You will now publish the Internal and HR sensitivity label so that the
-published sensitivity labels will be available for the HR users to apply
-to their HR documents.
+12\. 「Apply a default label to
+documents」ページで、「Next」を選択します。![A screenshot of a computer
+Description automatically generated](./media/image48.png)
 
-1.  In **Microsoft Edge** navigate to
-    ```https://purview.microsoft.com``` and log in as **Patti
-    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
-    and the User Password given on your resources tab.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-2.  In the Microsoft Purview portal, on the left navigation pane, select
-    **Solutions** \> **Information Protection**.
+13. \[Apply a default label\] ページで、\[Next\] を選択します。
 
-![](./media/image13.png)
+14. \[Default settings for meetings and calendar events\] で、\[Next\]
+    を選択します。
 
-3.  From the sub-navigation select **Sensitivity Labels** \> **Publish Labels**.
+15. \[Default settings for Fabric and Power BI content\]
+    ページで、\[Next\] を選択します。
 
-![](./media/image48.png)
+16. \[Name your policy\] ページで、次の情報を入力します。
 
-4.  The publish sensitivity labels wizard will start.
+    - 名前: 内部 HR 従業員データ
 
-5.  On the **Choose sensitivity labels to publish** page, select
-    the **Choose sensitivity labels to publish** link.
+    - 機密ラベル ポリシーの説明を入力します: この HR ラベルは、内部 HR
+      従業員データに適用されます。
 
-![A screenshot of a computer Description automatically
-generated](./media/image49.png)
+![Graphical user interface, text, application, email Description
+automatically generated](./media/image49.png)
 
-6.  A side bar called **Sensitivity labels to publish** will appear on
-    the right.
+グラフィカルユーザーインターフェイス、テキスト、アプリケーション、電子メールの説明が自動的に生成されます
 
-7.  Select the **Internal** and **Internal/Employee Data
-    (HR)** checkboxes.
+17. 「Next」を選択します。
 
-![A screenshot of a computer Description automatically
+![Graphical user interface, text, application Description automatically
 generated](./media/image50.png)
 
-8. Select **Add**.
+グラフィカルユーザーインターフェイス、テキスト、アプリケーションの説明が自動的に生成されます
 
-![A screenshot of a computer Description automatically
+18\. 「Review and finish」ページで、「Submit」を選択します。![Graphical
+user interface, text, application Description automatically
 generated](./media/image51.png)
 
-9. On the **Choose sensitivity labels to publish** page,
-    select **Next**.
+グラフィカルユーザーインターフェイス、テキスト、アプリケーションの説明が自動的に生成されます
+
+19. ポリシーが作成され、完了すると「New policy
+    created」というメッセージが表示されます。
+
+20. \[Done\] を選択し、ウィンドウを閉じずに次のタスクに進みます。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image52.png)
 
-10. On the **Publish to users and groups page**, select **Next**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer Description automatically
+内部および HR
+の機密ラベルが正常に公開されました。変更がすべてのユーザーとサービスに複製されるまでに最大
+24 時間かかる場合があることに注意してください。
+
+## エクササイズ4 – 機密ラベルの操作
+
+このタスクでは、Word および Outlook
+の電子メールに機密ラベルを作成します。作成されたドキュメントは OneDrive
+に保存され、電子メールで人事担当者に送信されます。
+
+1.  https://portal.office.com に移動し、Patti Fernandez
+    としてログインします。
+
+2.  「Office 365 message is
+    shown」というメッセージが表示されたら、閉じます。![Graphical user
+    interface Description automatically generated](./media/image53.png)
+
+グラフィカルユーザーインターフェースの説明は自動的に生成されます
+
+3.  左側のペインから Microsoft Word シンボルを選択して、Word Online
+    を開きます。
+
+![Graphical user interface, website Description automatically
 generated](./media/image54.png)
 
-11. On the **Policy settings** page, select **Next**.
+グラフィカルユーザーインターフェイス、ウェブサイトの説明は自動的に生成されます
 
-![BrokenImage](./media/image55.png)
+4.  新しいドキュメントを作成するには、「New blank
+    document」を選択します。
 
-12. On the **Apply a default label to documents** page, select **Next**.
+![Graphical user interface, website Description automatically
+generated](./media/image55.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image56.png)
+グラフィカルユーザーインターフェイス、ウェブサイトの説明は自動的に生成されます
 
-13. On the **Apply a default label to emails** page, select **Next**.
+5.  プライバシー オプションのメッセージが表示された場合は、\[Close\]
+    を選択して閉じます。
 
-14. On the **Default settings for meetings and calendar events**,
-    select **Next**.
+![BrokenImage](./media/image56.png)
 
-15. On the **Default settings for Fabric and Power BI content** page,
-    select **Next**.
 
-16. On the **Name your policy** page, enter the following information:
+6.  `Word ``文書に次の内容を入力します。`
 
-    - Name: ```Internal HR employee data```
+> 重要な人事従業員文書。
 
-    - Enter a description for your sensitivity label
-      policy: ```This HR label is to be applied to internal HR employee data.```
+![Graphical user interface, application, Word Description automatically
+generated](./media/image57.png)
 
-![Graphical user interface, text, application, email Description
-automatically generated](./media/image59.png)
+グラフィカルユーザーインターフェイス、アプリケーション、Wordの説明が自動的に生成されます
 
-17. Select **Next**.
+7\. 上部のペインから「Sensitivity」を選択して、ドロップダウン
+メニューを開きます。![Graphical user interface, application, Word
+Description automatically generated](./media/image58.png)
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image60.png)
+グラフィカルユーザーインターフェイス、アプリケーション、Wordの説明が自動的に生成されます
 
-18. On the **Review and finish** page, select **Submit**.
+7.  ラベルを適用するには、「Internal \> Employee data
+    (HR)」を選択します。
 
-![Graphical user interface, text, application Description automatically
+> 注: この演習のタスク 1 で実行したスクリプトによって、テナントの Word
+> で機密ラベルがアクティブ化されたことに注意してください。Microsoft Word
+> オンラインでそのアクティブ化が実現されるまでに 1
+> 時間かかる場合があります。Word に機密ラベル
+> メニューが表示されない場合は、後でこのラボに戻るか、この演習のタスク 1
+> を適切に完了したことを確認する必要があります。
+
+![BrokenImage](./media/image59.png)
+
+
+9\. ウィンドウの左上にある「Document –
+Saved」を選択し、ファイル名として「HR Document」と入力して Enter
+キーを押します。![Graphical user interface, application, Word
+Description automatically generated](./media/image60.png)
+
+グラフィカルユーザーインターフェイス、アプリケーション、Wordの説明が自動的に生成されます
+
+10\. Word タブを閉じて Office 365 タブに戻ります。左側のペインから
+Outlook シンボルを選択して、Outlook on the web を開きます。![Graphical
+user interface, text, application Description automatically
 generated](./media/image61.png)
 
-19. The policy will be created and when complete a message will
-    display **New policy created**.
+グラフィカルユーザーインターフェイス、テキスト、アプリケーションの説明が自動的に生成されます
 
-20. Select **Done and proceed to next task without closing the window**.
+11. ようこそメッセージが表示されたら、\[X\] を選択して閉じます。
+
+12. Outlook on the Web で、ウィンドウの左上から \[New message\]
+    を選択します。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image62.png)
 
-You have successfully published the Internal and HR sensitivity labels.
-Note that it can take up to 24 hours for changes to replicate to all
-users and services.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-## Exercise 4 – Working with Sensitivity Labels
+13\. \[To\] フィールドに名前「Adele」を入力し、ドロップダウン
+リストから「Adele Vance」を選択します。![](./media/image63.png)
 
-In this task, you will create sensitivity labels in Word and Outlook
-emails. The document created will be stored in OneDrive and sent to an
-HR employee via email.
+14. 件名欄に「Employee data for HR」と入力します。
 
-1.  Navigate to ```https://portal.office.com``` and log in as
-    **Patti Fernandez**.
+15. 電子メール メッセージ (ページ下部の大きなコンテンツ パネル)
+    内に、次のメッセージを挿入します。
 
-2.  If a **Get your work done with Office 365** message is shown, close
-    it.
+&nbsp;
 
-![Graphical user interface Description automatically
-generated](./media/image63.png)
+    DearMs. Adele,
+    Please find attached the important HR employee document.
+    Kind regards,
+    Patti Fernandez
 
-3.  Select the **Microsoft Word** symbol from the left side pane to open
-    Word Online.
-
-![Graphical user interface, website Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image64.png)
 
-4.  Select **New blank document** to create a new document.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![Graphical user interface, website Description automatically
-generated](./media/image65.png)
+16. 下部のメニューからペーパークリップのシンボルを選択します。
 
-5.  If a **Your privacy options** message is shown, close it with
-    selecting **Close**.
+![](./media/image65.png)
 
-![BrokenImage](./media/image66.png)
+17. ドキュメントを添付するには、\[Suggested attachments\] の下の HR
+    Document.docx を選択します。
 
-6.  Enter the following contents into the word document:
+18. \[Send\] を選択して、ドキュメントが添付された電子メール
+    メッセージを送信します。
 
-```Important HR employee document.```
+19. ブラウザー ウィンドウを開いたままにします。
 
-![Graphical user interface, application, Word Description automatically
-generated](./media/image67.png)
+機密ラベル付きの HR Word 文書を正常に作成し、OneDrive
+に保存しました。次に、機密ラベルが設定されたメールをスタッフ
+メンバーに電子メールで送信しました。
 
-7.  Select **Sensitivity** from the top pane to open the dropdown menu.
+試用アカウントでは、メールを送信することはできますが、メールは返送され、現在のテナントの受信者に届かないことに注意してください。
 
-![Graphical user interface, application, Word Description automatically
-generated](./media/image68.png)
+## エクササイズ5 – 自動ラベル付けの構成
 
-8.  Select **Internal** \> **Employee data (HR)** to apply the label.
+このタスクでは、欧州一般データ保護規則 (GPDR)
+に関連する情報が含まれていることが検出されたドキュメントと電子メールに自動的にラベルを付ける機密ラベルを作成します。
 
-**Note**: Be aware, the script you ran in task 1 of this exercise
-activated sensitivity labels in Word for your tenant. It can sometimes
-take an hour for that activation to be realized in Microsoft Word
-online. If you don't see the Sensitivity label menu in Word, you may
-need to return to this lab later or make sure you properly completed
-task 1 of this exercise.
+1.  Microsoft Edge では、Microsoft Purview ポータル
+    タブが開いたままになっているはずです。
 
-![BrokenImage](./media/image69.png)
+2.  Patti Fernandez としてポータルにログインしているはずです。
 
-9. Select the **Document – Saved** in the upper left of the window,
-    enter **HR Document** as the File Name and press **Enter** key.
-
-![Graphical user interface, application, Word Description automatically
-generated](./media/image70.png)
-
-10. Close the word tab to return to the **Office 365** tab. Select
-    the **Outlook** symbol from the left side pane to
-    open **Outlook** on the web.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image71.png)
-
-11. If a welcome message is shown, close it with selecting the **X**.
-
-12. In Outlook on the web, select **New message** from the upper left of
-    the window.
+3.  \[Information Protection\] の下で \[Label\] を選択し、既存の
+    \[内部\] ラベルを強調表示して (選択せずに)、3
+    つのドットを選択します。\[+ Create sublabel\]
+    メニュー項目を選択します。
 
 ![A screenshot of a computer Description automatically
-generated](./media/image72.png)
+generated](./media/image66.png)
 
-13. In the **To** field enter the name: **Adele** and select **Adele
-    Vance** from the drop-down list.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![](./media/image74.png)
+4.  New sensitivity label
+    ウィザードが起動します。ラベルの詳細ページで、次の情報を入力します。
 
-14. In the subject field, enter: ```Employee data for HR```.
+    - `名前``: GDPR ``ドイツ`
 
-15. Within the email message (the large content panel at the bottom of
-    the page), insert the following message:
+    - `表示名``: GDPR ``ドイツ`
 
-```
-DearMs. Adele,
-Please find attached the important HR employee document.
-Kind regards,
-Patti Fernandez
-```
+    - `ユーザー向けの説明``: ``このドキュメントまたはメールには、ドイツ地域の欧州一般データ保護規則`` (GPDR) ``に関連するデータが含まれています。`
+
+    - `管理者向けの説明``: ``このラベルは、ドイツの`` GDPR ``ドキュメントに自動的に適用されます。`
+
+5.  **Next**を選択します。
+
+![BrokenImage](./media/image67.png)
+
+
+6.  \[Define the scope for this label\]
+    ページで、ファイル、電子メール、会議のアイテムを保護する \[Items\]
+    オプションを選択します。次に、\[Next\] を選択します。
+
+![BrokenImage](./media/image68.png)
+
+
+7\. 「Choose protection settings for labeled
+items」ページで、「Next」を選択します。![BrokenImage](./media/image69.png)
+
+
+8\. 「Auto-labeling for files and emails」ページで、「Auto-labeling for
+files and emails」を有効に設定します。![Graphical user interface, text,
+application Description automatically generated](./media/image70.png)
+
+グラフィカルユーザーインターフェイス、テキスト、アプリケーションの説明が自動的に生成されます
+
+9\. \[Detect content that matches these conditions \] セクションで、\[+
+Add condition\] を選択し、\[Content contains\]
+を選択します。![BrokenImage](./media/image71.png)
+
+
+10\. 「Content contains」セクションで「Add」を選択し、「Sensitive info
+types」を選択します。![A screenshot of a computer Description
+automatically generated](./media/image72.png)
+
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+11. 右側にSensitive info typesパネルが表示されます。
+
+12. Sensitive info typesの検索パネルで、次の情報を入力します。
+
+`German`
+
+13. キーボードの Enter
+    キーを押すと、ドイツに関連する機密情報の種類が結果に表示されます。\[Select
+    all\] チェックボックスを押します。
+
+![BrokenImage](./media/image73.png)
+
+
+14. **Add**を選択します。
+
+![BrokenImage](./media/image74.png)
+
+
+15. **Next**を選択します。
 
 ![A screenshot of a computer Description automatically
-generated](./media/image76.png)
+generated](./media/image75.png)
 
-16. Select the **paperclip symbol** from the bottom menu.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![](./media/image78.png)
+16\. 「Define protection settings for groups and
+sites」ページで、「Next」を選択します。![A screenshot of a computer
+Description automatically generated](./media/image76.png)
 
-17. Select the **HR Document.docx** below **Suggested attachments** to
-    attach the document.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-18. Select **Send** to send out the email message with attached
-    document.
+17. 「Auto-labeling for schematized data assets
+    (preview)」ページで、「Next」を選択します。
 
-19. Leave the browser window open.
+18. 「Default settings for Fabric and Power BI
+    content」ページにリダイレクトされた場合は、「Next」を選択します。
 
-You have successfully created an HR Word document with a sensitivity
-label, which was saved onto your OneDrive. You then emailed to document
-to a staff member where the email was also set with a sensitivity
-label.
+19. 「Review your settings and finish」ページで、「Create
+    label」を選択します。
 
-In the trial account, note that you will be able to send the mail but it
-will bounce back and will not be able to reach the receiver from your
-current tenant.
+20\. ラベルが作成され、完了すると「Your sensitivity label was
+created.」というメッセージが表示されます。次の手順で、「Don’t create a
+policy yet.」を選択します。次に、「Done」を選択します。![Graphical user
+interface, text, application, Word Description automatically
+generated](./media/image77.png)
 
-## Exercise 5 – Configuring Auto Labelling
+グラフィカルユーザーインターフェイス、テキスト、アプリケーション、Wordの説明が自動的に生成されます
 
-n this task, you will create a **Sensitivity Label** that will auto
-label documents and emails found to contain information related to
-the **European General Data Protection Regulation (GPDR)**.
+21. サブナビゲーションから、「Sensitivity Label」\>「Publish
+    Label」を選択します。
 
-1.  In **Microsoft Edge**, the Microsoft Purview portal tab should still
-    be open.
+![](./media/image41.png)
 
-2.  You should be logged into the portal as **Patti Fernandez**.
+22. 機密ラベルの公開ウィザードが起動します。
 
-3.  Under the **Information protection**, select **Label**, highlight
-    (without selecting) the existing **Internal** label, and select the
-    three dots. Select the **+ Create sublabel** menu item.
+![Graphical user interface, text, application, Word Description
+automatically generated](./media/image78.png)
 
-![A screenshot of a computer Description automatically
+グラフィカルユーザーインターフェイス、テキスト、アプリケーション、Wordの説明が自動的に生成されます
+
+23\. \[Choose sensitivity labels to publish\] ページで、\[Choose
+sensitivity labels to publish\] リンクを選択します。![A screenshot of a
+computer Description automatically generated](./media/image79.png)
+
+コンピュータのスクリーンショット 説明は自動的に生成されました
+
+24\. 右側に「Sensitivity labels to
+publish」というサイドバーが表示されます。![Graphical user interface,
+application, Word Description automatically
+generated](./media/image80.png)
+
+グラフィカルユーザーインターフェイス、アプリケーション、Wordの説明が自動的に生成されます
+
+25\. \[Internal and Internal/GDPR Germany\]
+チェックボックスをオンにし、\[Add\] を選択します。![Graphical user
+interface, application, Word Description automatically
 generated](./media/image81.png)
 
-4.  The **New sensitivity label** wizard will start. On the **label
-    details** page, enter the following information:
+グラフィカルユーザーインターフェイス、アプリケーション、Wordの説明が自動的に生成されます
 
-    - Name: ```GDPR Germany```
+26. \[Choose sensitivity labels to publish\] ページで、\[Next\]
+    を選択します。
 
-    - Display name: ```GDPR Germany```
+![Graphical user interface, text, application, Word Description
+automatically generated](./media/image82.png)
 
-    - Description for users: ```This document or email contains data related to the European General Data Protection Regulation(GPDR) for the region Germany.```
+グラフィカルユーザーインターフェイス、テキスト、アプリケーション、Wordの説明が自動的に生成されます
 
-    - Description for admins: ```This label is auto applied to German GDPR documents.```
+27\. \[Publish to users and groups\] ページで、\[Next\]
+を選択します。![Graphical user interface, text, application Description
+automatically generated](./media/image83.png)
 
-5.  Select **Next**.
+グラフィカルユーザーインターフェイス、テキスト、アプリケーションの説明が自動的に生成されます
 
-![BrokenImage](./media/image82.png)
+28\. Policy settingsページで、「Next」を選択します。![Graphical user
+interface, text, application, Word Description automatically
+generated](./media/image84.png)
 
-6.  On the **Define the scope for this label** page, select the
-    option **Items** which protects Files, Emails, and Meetings items.
-    Then select **Next**.
+グラフィカルユーザーインターフェイス、テキスト、アプリケーション、Wordの説明が自動的に生成されます
 
-![BrokenImage](./media/image83.png)
-
-7.  On the **Choose protection settings for labeled items** page,
-    select **Next**.
-
-![BrokenImage](./media/image84.png)
-
-8.  On the **Auto-labeling for files and emails** page, set
-    the **Auto-labeling for files and emails** to enabled.
-
-![Graphical user interface, text, application Description automatically
+29\. 「Apply a default label to
+documents」ページで、「Next」を選択します。![Graphical user interface,
+text, application Description automatically
 generated](./media/image85.png)
 
-9.  In the **Detect content that matches these conditions** section,
-    select **+Add condition** and then select **Content contains**.
+グラフィカルユーザーインターフェイス、テキスト、アプリケーションの説明が自動的に生成されます
 
-![BrokenImage](./media/image86.png)
+30. \[Apply a default label to emails\] ページで、\[Next\]
+    を選択します。
 
-10. In **Content contains** section select the **Add** text and then
-    select **Sensitive info types**.
+31. \[Default settings for meetings and calendar events\] で、\[Next\]
+    を選択します。
 
-![A screenshot of a computer Description automatically
+32. \[Default settings for Fabric and Power BI content\]
+    ページで、\[Next\] を選択します。
+
+33. \[Name your policy\] ページで、次の情報を入力します。
+
+> o 名前: GDPR ドイツ ポリシー
+>
+> o 機密ラベル ポリシーの説明を入力します:
+> この機密ラベルの自動適用ポリシーは、ドイツの GDPR 地域向けです。Select
+> **Next**.
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image86.png)
+
+グラフィカルユーザーインターフェイス、テキスト、アプリケーションの説明が自動的に生成されます
+
+35\. 「Review and finish」ページで、「Submit」を選択します。![Graphical
+user interface, application Description automatically
 generated](./media/image87.png)
 
-11. A **Sensitive info types** panel will be displayed on the right.
+グラフィカルユーザーインターフェイス、アプリケーションの説明は自動的に生成されます
 
-12. In the **Search for sensitive info types** search panel, enter the
-    following information:
+36. ポリシーが作成され、完了すると「New policy
+    created」というメッセージが表示されます。
 
-```German```
-
-13. Press the enter key on your keyboard, the results will display sensitivity info
-    types related to Germany. Press the **Select all** check box.
-
-![BrokenImage](./media/image88.png)
-
-14. Select **Add**.
-
-![BrokenImage](./media/image89.png)
-
-15. Select **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image90.png)
-
-16. On the **Define protection settings for groups and sites** page,
-    select **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image91.png)
-
-17. On the **Auto-labeling for schematized data assets
-    (preview)** page, select **Next**.
-
-18. If redirected to the **Default settings for Fabric and Power BI content page** page,
-    select **Next**.
-
-19. On the **Review your settings and finish** page, select **Create
-    label**.
-
-20. The label will be created and when complete a message will
-    display: **Your sensitivity label was created**. Under next steps, select **Don't create a policy yet**. Then
-    select **Done**.
+37. \[Done\] を選択します。
 
 ![Graphical user interface, text, application, Word Description
-automatically generated](./media/image93.png)
+automatically generated](./media/image88.png)
 
-21. From the sub-navigation select **Sensitivity Labels** \> **Publish
-    Labels**.
+グラフィカルユーザーインターフェイス、テキスト、アプリケーション、Wordの説明が自動的に生成されます
 
-![](./media/image48.png)
+## 概要:
 
-22. The **Publish sensitivity labels wizard** will start.
+ドイツ地域の GDPR
+ドキュメントの自動適用機密ラベルが正常に作成され、公開されました。
 
-![Graphical user interface, text, application, Word Description
-automatically generated](./media/image94.png)
-
-23. On the **Choose sensitivity labels to publish** page, select the **Choose
-    sensitivity labels to publish** link.
-
-![A screenshot of a computer Description automatically
-generated](./media/image95.png)
-
-24. A side bar called **Sensitivity labels to publish** will appear on
-    the right.
-
-![Graphical user interface, application, Word Description automatically
-generated](./media/image96.png)
-
-25. Select the **Internal** and **Internal/GDPR Germany** checkbox and
-    select **Add**.
-
-![Graphical user interface, application, Word Description automatically
-generated](./media/image97.png)
-
-26. On the **Choose sensitivity labels to publish** page,
-    select **Next**.
-
-![Graphical user interface, text, application, Word Description
-automatically generated](./media/image98.png)
-
-27. On the **Publish to users and groups** page, select **Next**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image99.png)
-
-28. On the **Policy settings** page, select **Next**.
-
-![Graphical user interface, text, application, Word Description
-automatically generated](./media/image100.png)
-
-29. On the **Apply a default label to documents** page, select **Next**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image101.png)
-
-30. On the **Apply a default label to emails** page, select **Next**.
-
-31. On the **Default settings for meetings and calendar events**,
-    select **Next**.
-
-32. On the **Default settings for Fabric and Power BI content page**,
-    select **Next**.
-
-33. On the **Name your policy** page, enter the following information:
-
-    - Name: ```GDPR Germany policy```
-
-    - Enter a description for your sensitivity label
-      policy: ```This auto apply sensitivity labels policy is for the GDPR region of Germany.```
-
-34. Select **Next**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image104.png)
-
-35. On the **Review and finish** page, select **Submit**.
-
-![Graphical user interface, application Description automatically
-generated](./media/image105.png)
-
-36. The policy will be created and when complete a message will
-    display, **New policy created**.
-
-37. Select **Done**.
-
-![Graphical user interface, text, application, Word Description
-automatically generated](./media/image106.png)
-
-## Summary:
-
-You have successfully created and published an auto apply sensitivity
-label for GDPR documents in the region Germany.
-
-Be aware that it can take up to 24 hours for auto applied sensitivity
-labels to be applied, this duration will be longer when applied to more
-than 25,000 documents (that is, the daily limit).
+自動適用機密ラベルの適用には最大 24
+時間かかる場合があることに注意してください。25,000
+件を超えるドキュメントに適用する場合は、この期間が長くなります
+(つまり、1 日の制限)。
