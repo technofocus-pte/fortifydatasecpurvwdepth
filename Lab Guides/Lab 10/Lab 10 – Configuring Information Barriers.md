@@ -71,7 +71,6 @@ Une capture d'écran d'un ordinateur Description générée automatiquement
 
 ![BrokenImage](./media/image5.png)
 
-BrokenImage
 
 7.  Exécutez la commande suivante une par une dans **PowerShell** pour
     créer la structure d'organisation.
@@ -80,7 +79,7 @@ BrokenImage
 
 ![BrokenImage](./media/image6.png)
 
-BrokenImage
+
 
 New-OrganizationSegment -Name "Sales" -UserGroupFilter "Department -eq
 'Sales'"
@@ -186,7 +185,6 @@ Une capture d'écran d'un ordinateur Description générée automatiquement
 
 ![BrokenImage](./media/image16.png)
 
-BrokenImage
 
 10. Sur la page **Review your settings**, passez en revue les paramètres
     que vous avez choisis pour la stratégie et les suggestions ou
@@ -196,7 +194,7 @@ BrokenImage
 
 ![BrokenImage](./media/image17.png)
 
-BrokenImage
+
 
 11. Sélectionnez **Done** une fois la stratégie créée.
 
@@ -212,7 +210,6 @@ Une capture d'écran d'un ordinateur Description générée automatiquement
 
 ![BrokenImage](./media/image1.png)
 
-BrokenImage
 
 2.  Exécutez ce qui suit :
 
@@ -246,7 +243,6 @@ Une capture d'écran d'un ordinateur Description générée automatiquement
 
 ![BrokenImage](./media/image20.png)
 
-BrokenImage
 
 6.  Exécutez la commande suivante pour créer une stratégie IB appelée
     **Manufacturing-HRMarketing**. Lorsque cette politique est active et
