@@ -309,7 +309,6 @@ generated](./media/image24.png)
 
 ![BrokenImage](./media/image28.png)
 
-BrokenImage
 
 12. 다음 cmdlet을 사용하여 데모 파일럿 사용자인 **Adele Vance**에 대해
     Office 365 Message Encryption에 사용되는 Azure RMS 템플릿을
