@@ -1,627 +1,803 @@
-# Lab 2 — Managing Sensitive Information Types
+# Laboratório 2 — Gerenciando tipos de informações confidenciais
 
-## Objective:
+## Objetivo:
 
-Contoso Ltd. previously had issues with employees accidentally sending
-out personal information from customers when working on support tickets
-in the ticketing solution.
+Anteriormente, a Contoso Ltd. tinha problemas com funcionários que
+acidentalmente enviavam informações pessoais de clientes quando
+trabalhavam em tíquetes de suporte na solução de tíquetes.
 
-To educate users in the future, a custom sensitive information type is
-required to identify employee IDs in emails and documents, which consist
-of three uppercase characters and six numbers, using Sensitive info
-types. To lower the false positive rate, the keywords "Employee" and
-"IDs" will be used.
+Para educar os usuários no futuro, um tipo de informação confidencial
+personalizada é necessária para identificar IDs de funcionários em
+e-mails e documentos, que consistem em três caracteres maiúsculos e seis
+números, usando tipos de informações confidenciais. Para reduzir a taxa
+de falsos positivos, serão usadas as palavras-chave "Employee" e "IDs".
 
-In this Lab you will create:
+Neste laboratório, você criará:
 
-- a new custom sensitive information type
+- Um novo tipo de informação confidencial personalizada
 
-- a database for EDM-based classification
+- um banco de dados para classificação baseada em EDM
 
-- keyword dictionary
+- dicionário de palavras-chave
 
-## Exercise 1 – Creating Custom Sensitive Information Types
+## Exercício 1 – Criando tipos de informações confidenciais personalizadas
 
-In this exercise, you will use the **Security & Compliance Center
-PowerShell** module to create a new custom sensitive information type
-that recognizes the pattern of employee IDs near the keywords "Employee"
-and "ID".
+Neste exercício, você usará o módulo do **Security and Compliance Center
+PowerShell** para Criar um novo tipo de informações confidenciais
+personalizadas que reconheça o padrão de IDs de funcionários próximo às
+palavras-chave "Employee" e "ID".
 
-1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
-    to ```https://purview.microsoft.com``` and log in as
-    **Patti Fernandez** using the
-    username ```PattiF@{TENANTPREFIX}.onmicrosoft.com``` and the User Password
-    given on your resources tab. If asked, agree to the terms and conditions and select **Get started**.
+1.  No **Microsoft Edge**, abra uma **New InPrivate Window**, navegue
+    até `https://purview.microsoft.com` e faça login como **Patti
+    Fernandez** usando o nome de usuário
+    `PattiF@{TENANTPREFIX}.onmicrosoft.com` e a Senha de Usuário
+    fornecida na guia de recursos. Se solicitado, concorde com os termos
+    e condições e selecione **Get started**.
 
-2.  From the left navigation, select **Solutions** \> **Data Loss
-    Prevention**.
+2.  No painel de navegação à esquerda, selecione **Solutions** \> **Data
+    Loss Prevention**.
 
-![](./media/image1.png) 
+![](./media/image1.png)
 
-3. Select **Classifiers** from the left pane. Select **Sensitive info
-    types** from the sub-navigation pane. Select **+Create sensitive
-    info type** to open the wizard for a new sensitive information type.
+3.  Selecione **Classifiers** no painel esquerdo. Selecione **Sensitive
+    info types** **confidenciais** no painel de subnavegação. Selecione
+    **+ Create sensitive info type** para abrir o assistente para um
+    novo sensitive info type.
 
-![A screenshot of a computer Description automatically
-generated](./media/image6.png)
+![Uma captura de tela de um computador Descrição gerada
+automaticamente](./media/image2.png)
 
-4. On the **Name your sensitive info type** page, enter the following
-    information:
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-    - **Name**: ```Contoso Employee IDs```
+4.  Na página **Name your sensitive info type**, insira as seguintes
+    informações:
 
-    - **Description**: ```Pattern for Contoso Employee IDs.```
+    - **Name**: `Contoso Employee IDs`
 
-5. Select **Next**.
+    - **Description**: `Pattern for Contoso Employee IDs``.`
 
-![Graphical user interface, application Description automatically
-generated](./media/image7.png)
+5.  Selecione **Next**.
 
-6. On the **Define patterns for this sensitive info type** page,
-    select **Create pattern**.
+![Interface gráfica do usuário, aplicação Descrição gerada
+automaticamente](./media/image3.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image9.png)
+Interface gráfica do usuário, descrição do aplicativo gerada
+automaticamente
 
-7. In the right-side **New pattern** pane, select **Add primary
-    element** and select **Regular expression**.
+6.  Na página **Define patterns for this sensitive info type**,
+    selecione **Create pattern**.
 
-![Graphical user interface, application, Teams Description automatically
-generated](./media/image10.png)
+![Uma captura de tela de um computador Descrição gerada
+automaticamente](./media/image4.png)
 
-8. In the new right-side pane **Add a regular expression**, enter the
-    following:
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-    - **ID**: ```Contoso IDs```
+7.  No painel **New pattern** do lado direito, selecione **Add primary
+    element** e selecione **Regular expression**.
 
-    - **Regular expression**: ```\s\[A-Z\]{3}\[0-9\]{6}\s```
+![Interface gráfica do usuário, aplicativo, descrição do Teams gerada
+automaticamente](./media/image5.png)
+
+Interface gráfica do usuário, aplicativo, descrição do Teams gerada
+automaticamente
+
+8.  No novo painel do lado direito **Add a regular expression**, insira
+    o seguinte:
+
+    - **ID**: `Contoso IDs`
+
+    - **Regular expression**: `\s\[A-Z\]{3}\[0-9\]{6}\s`
 
     - Select **String match**
 
-9. Select **Done**.
+9.  Selecione **Done**.
 
-![Graphical user interface, application Description automatically
-generated](./media/image11.png)
+![Interface gráfica do usuário, aplicação Descrição gerada
+automaticamente](./media/image6.png)
 
-10. In the right-side **New pattern** pane again, below **Supporting
-    elements**, select **+ Add supporting elements or group of
-    elements** drop-down menu and select **Keyword list**.
+Interface gráfica do usuário, descrição do aplicativo gerada
+automaticamente
 
-![Graphical user interface, application Description automatically
-generated](./media/image12.png)
+10. Novamente no painel **New pattern** do lado direito, abaixo de
+    **Supporting elements**, selecione **+ Add supporting elements or
+    group of elements** no menu suspenso e selecione **Keyword list**.
 
-10. In the new right-side pane **Add a keyword list**, enter the
-    following:
+![Interface gráfica do usuário, aplicação Descrição gerada
+automaticamente](./media/image7.png)
 
-    - **ID**: ```Employee ID keywords```
+Interface gráfica do usuário, descrição do aplicativo gerada
+automaticamente
+
+10. No novo painel do lado direito **Add a keyword list**, insira o
+    seguinte:
+
+    - **ID**: `Employee ID keywords`
 
     - **Case insensitive**:
 
-```
-Employee
-ID
-```
+&nbsp;
 
-11. Select the radial for ***Word match*** under the **Case
-    Sensitive** field
+    Employee
+    ID
 
-12. Select **Done**.
+11. Selecione o radial para ***Word match*** no campo **Case Sensitive**
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image13.png)
+12. Selecione **Done**.
 
-13. In the New pattern windows decrease the **Character
-    proximity** value to ***100*** characters.
+![Interface gráfica do usuário, texto, aplicativo Descrição gerada
+automaticamente](./media/image8.png)
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image14.png)
+Interface gráfica do usuário, texto e descrição do aplicativo gerada
+automaticamente
 
-14. Select the **Create** button.
+13. Na janela Novo padrão, diminua o valor de **Character proximity**
+    para ***100*** caracteres.
 
-15. Back on the **Define patterns for this sensitive info type** page
-    select **Next**.
+![Interface gráfica do usuário, texto, aplicativo Descrição gerada
+automaticamente](./media/image9.png)
 
-![Graphical user interface, text, application, Teams Description
-automatically generated](./media/image15.png)
+Interface gráfica do usuário, texto e descrição do aplicativo gerada
+automaticamente
 
-16. On the **Choose the recommended confidence level to show in
-    compliance policies** page use the default value and
-    select **Next**.
+14. Selecione o botão **Create**.
 
-![BrokenImage](./media/image16.png)
+15. De volta à página **Define patterns for this sensitive info type,**
+    selecione **Next**.
 
-17. On the **Review settings and finish** page review the settings and
-    select **Create**. When successfully created select **Done**.
+![Interface gráfica do usuário, texto, aplicativo, descrição do Teams
+gerada automaticamente](./media/image10.png)
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image17.png)
+Interface gráfica do usuário, texto, aplicativo e descrição do Teams
+gerada automaticamente
 
-18. Leave the browser window open.
+16. Na página **Choose the recommended confidence level to show in
+    compliance policies**, use o valor padrão e selecione **Next**.
 
-You have successfully created a new sensitive information type to
-identify employee IDs in the pattern of three uppercase characters, six
-numbers, and the keywords 'Employee' or 'IDs' within a range of 100
-characters.
+![Imagem quebrada](./media/image11.png)
 
-## Exercise 2 – Creating EDM-based classification information type
+Imagem interrompida
 
-As an extra search pattern, you will create an EDM-based classification
-with a database schema of employee data. The database source file will
-be formatted with the following data fields of employees: Name,
-Birthdate, StreetAddress, and EmployeeID.
+17. Na página **Review settings and finish**, revise as configurações e
+    selecione **Create**. Quando a criação for bem-sucedida, selecione
+    **Done**.
 
-1.  Select **Solutions** \> **Data Loss Prevention** \> **Classifiers**,
-    navigate to **EDM classifiers**, switch off **New EDM experience**,
-    and from EDM Schema, select **+ Create EDM schema** to create a new
-    schema definition.
+![Interface gráfica do usuário, texto, aplicativo Descrição gerada
+automaticamente](./media/image12.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image18.png)
+Interface gráfica do usuário, texto e descrição do aplicativo gerada
+automaticamente
 
-2.  In the **Name** field, enter ```employeedb```.
+18. Deixe a janela do navegador aberta.
 
-3.  In the **Description** field,
-    enter ```Employee Database schema.```.
+Você criou com sucesso um novo tipo de informação confidencial para
+identificar IDs de funcionários no padrão de três caracteres maiúsculos,
+seis números e as palavras-chave "Employee" ou "IDs" em um intervalo de
+100 caracteres.
 
-4.  Enable **Ignore delimiters and punctuation for all schema fields**.
+## Exercício 2 – Criando o tipo de informação de classificação baseada em EDM
 
-![A screenshot of a computer Description automatically
-generated](./media/image21.png)
+Como um padrão de pesquisa adicional, você criará uma classificação
+baseada em EDM com um esquema de banco de dados de funcionários. O
+arquivo de origem do banco de dados será formatado com os seguintes
+campos de dados de funcionários: Name, Birthdate, StreetAddress, e
+EmployeeID.
 
-5.  Click the dropdown for **Choose delimiters and punctuation to
-    ignore** and select **Hyphen**, **Period**, **Space**, **Open
-    parenthesis** and **Close parenthesis**.
+1.  Selecione **Solutions** \> **Data Loss Prevention** \>
+    **Classifiers**, navegue até **EDM classifiers**, desative a opção
+    **New EDM experience** e, em **EDM schema**, selecione **+ Create
+    EDM schema** para criar uma nova definição de esquema.
 
-![Graphical user interface, application Description automatically
-generated](./media/image22.png)
+![Uma captura de tela de um computador Descrição gerada
+automaticamente](./media/image13.png)
 
-6.  In the first Schema field name, enter ```Name``` and mark
-    the **Field is searchable** box.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-7.  Select **+ Add schema data field** from the lower end.
+2.  No campo **Name**, insira `employeedb`.
 
-![BrokenImage](./media/image23.png)
+3.  No campo **Description**, insira `o ``Employee Database schema``.`.
 
-8.  In **Schema field name**, below **Schema field \#2**,
-    enter ```Birthdate```.
+4.  Ative **Ignore delimiters and punctuation for all schema fields**.
 
-9.  Select **+ Add schema data field** from the lower end again.
+![Uma captura de tela de um computador Descrição gerada
+automaticamente](./media/image14.png)
 
-10. In **Schema field name**, below **Schema field \#3**,
-    enter ```StreetAddress```.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-11. Select **+ Add schema data field** from the lower end a last time.
+5.  Clique no menu suspenso para **Choose delimiters and punctuation to
+    ignore** e selecione **Hyphen**, **Period**, **Space**, **Open
+    parenthesis** e **Close parenthesis**.
 
-12. In **Schema field name**, below **Schema field \#4**,
-    enter ```EmployeeID```.
+![Interface gráfica do usuário, aplicação Descrição gerada
+automaticamente](./media/image15.png)
 
-13. Select **Field is searchable**.
+Interface gráfica do usuário. Descrição do aplicativo gerada
+automaticamente
 
-14. Select **Save**.
+6.  No primeiro **Schema field name**, insira `N``a``me` e marque a
+    caixa **Field is searchable**.
 
-![Graphical user interface, application Description automatically
-generated](./media/image24.png)
+7.  Selecione **+ Add schema data field** na parte inferior.
 
-15. Select **EDM sensitive info types** from the left pane and
-    select **+ Create EDM sensitive info type** to open the **EDM rule
-    package** wizard.
+![Imagem quebrada](./media/image16.png)
 
-![](./media/image26.png)
+Imagem interrompida
 
-16. On the **Define data store schema** page, select **Choose an
-    existing EDM schema**.
+8.  Em **Schema field name**, abaixo do **Schema field \#2**, digite
+    Birthdate.
 
-![Graphical user interface, application Description automatically
-generated](./media/image27.png)
+9.  Novamente selecione **+ Add schema data field** na extremidade
+    inferior.
 
-17. Select **employeedb** and select **Add**.
+10. No **Schema field name**, abaixo do **Schema field \#3**, digite
+    `StreetAddress`.
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image28.png)
+11. Selecione **+ Add schema data field** na extremidade inferior uma
+    última vez.
 
-18. Review the data store schema and select **Next**.
+12. No **Schema field name**, abaixo do **Schema field \#4**, digite
+    EmployeeID.
 
-![Graphical user interface, application Description automatically
-generated](./media/image29.png)
+13. Selecione **Field is searchable**.
 
-19. On the **Define patterns for this EDM sensitive info type** page,
-    select **+ Create pattern**.
+14. Selecione **Save**.
 
-![Graphical user interface, application Description automatically
-generated](./media/image30.png)
+![Interface gráfica do usuário, aplicação Descrição gerada
+automaticamente](./media/image17.png)
 
-20. On the **New pattern** pane on the right-side, in the **Primary
-    element** field, select ***EmployeeID***.
+Interface gráfica do usuário. Descrição do aplicativo gerada
+automaticamente
 
-21. Below **Primary element's sensitive info type**, select **Choose
-    sensitive info type**.
+15. Selecione **EDM sensitive info types** no painel esquerdo e
+    selecione **+ Create EDM sensitive info type** para abrir o
+    assistente de **EDM rule package**.
 
-![A screenshot of a pattern Description automatically
-generated](./media/image31.png)
+![](./media/image18.png)
 
-22. In the **Search** bar, enter ***Contoso*** and press the enter key.
+16. Na página **Define data store schema**, selecione **Choose an
+    existing EDM**.
 
-23. Select **Contoso Employee IDs** and select **Done**.
+![Interface gráfica do usuário, aplicação Descrição gerada
+automaticamente](./media/image19.png)
 
-24. Select **Done**.
+Interface gráfica do usuário. Descrição do aplicativo gerada
+automaticamente
 
-![A screenshot of a computer Description automatically
-generated](./media/image34.png)
+17. Selecione **employeedb** e clique em **Add**.
 
-25. Select **Next** in the **Define patterns for this EDM sensitive info
-    type** screen.
+![Interface gráfica do usuário, texto, aplicativo Descrição gerada
+automaticamente](./media/image20.png)
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image35.png)
+Interface gráfica do usuário, texto e descrição do aplicativo gerada
+automaticamente
 
-26. In the **Choose the recommended confidence level and character
-    proximity** let the default value persist and select **Next**.
+18. Revise o esquema do armazenamento de dados e selecione **Next**.
 
-![Graphical user interface, text, application, Word Description
-automatically generated](./media/image36.png)
+![Interface gráfica do usuário, aplicação Descrição gerada
+automaticamente](./media/image21.png)
 
-27. In the **Name and describe your EDM sensitive info type** page,
-    enter ```Contoso Employee EDM``` for the name.
+Interface gráfica do usuário. Descrição do aplicativo gerada
+automaticamente
 
-28. In the **Description for admins** field, enter ```EDM-based sensitive information type for employee personal information.```.
-    Select **Next.**
+19. Na página **Define patterns for this EDM sensitive info type**,
+    selecione **+ Create pattern**.
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image37.png)
+![Interface gráfica do usuário, aplicação Descrição gerada
+automaticamente](./media/image22.png)
 
-29. Review the settings and select **Submit**.
+Interface gráfica do usuário. Descrição do aplicativo gerada
+automaticamente
 
-![Graphical user interface, application Description automatically
-generated](./media/image38.png)
+20. No painel **New pattern** no lado direito, no campo **Primary
+    element**, selecione ***EmployeeID.***
 
-30. On the **Your EDM sensitive info type was created** page,
-    select **Done**.
+21. Abaixo do **Primary element’s sensitive info type**, selecione
+    **Choose sensitive info type**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image40.png)
+![Uma captura de tela de um padrão Descrição gerada
+automaticamente](./media/image23.png)
 
-31. Leave the browser open with the Microsoft Purview portal.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-You have successfully created a new EDM-based classification sensitive
-information type for identifying employee data from a database file
-source.
+22. Na barra **Search**, insira ***Contoso*** e pressione a tecla Enter.
 
-## Exercise 3 – Creating EDM-based classification data source
+23. Selecione **Contoso Employee IDs** e selecione **Done**.
 
-To associate the EDM-based classification with a database containing
-sensitive data, hashing and uploading the actual data for the sensitive
-information type via the EDM Upload Agent tool is required next.
+24. Selecione **Done**.
 
-1.  In **Microsoft Edge**, navigate
-    to ```https://go.microsoft.com/fwlink/?linkid=2088639``` to
-    access the EDM download agent.
+![Uma captura de tela de um computador Descrição gerada
+automaticamente](./media/image24.png)
 
-2.  Select **Run** to download and install the tool.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-![BrokenImage](./media/image41.png)
+25. Selecione **Next** na tela **Define patterns for this EDM sensitive
+    info type**.
 
-3.  In the **Microsoft Exact Data Match Upload Agent Setup** wizard,
-    select **Next**.
+![Interface gráfica do usuário, texto, aplicativo Descrição gerada
+automaticamente](./media/image25.png)
 
-    - Select **I accept the terms in the License Agreement** and
-      select **Next**.
+Interface gráfica do usuário, texto e descrição do aplicativo gerada
+automaticamente
 
-    - Do not change the default **Destination Folder** path and
-      select **Next**.
+26. Na seção **Choose the recommended confidence level and character
+    proximity**, deixe o valor padrão persistir e selecione **Next**.
 
-    - Select **Install** to perform the installation.
+![Interface gráfica do usuário, texto, aplicativo, descrição do Word
+gerada automaticamente](./media/image26.png)
 
-    - When the **User Account Control** window opens, select **Yes**.
+Interface gráfica do usuário, texto, aplicativo e descrição do Word
+gerada automaticamente
 
-    - If asked to log in, log in via **Patti’s** account.
+27. Na página **Name and describe your EDM sensitive info type**, digite
+    `Contoso Employee EDM` for the name.
 
-    - When the installation finishes, select **Finish**.
+28. No campo **Description for admins**, digite
+    `EDM-based sensitive information type for employee personal information`.
+    Selecione **Next.**
 
-    - Select the Windows symbol in the lower left to open the start
-      menu, enter **Notepad** and select **Notepad** from the start
-      menu.
+![Interface gráfica do usuário, texto, aplicativo Descrição gerada
+automaticamente](./media/image27.png)
 
-    - Enter the following text to the first line in the notepad window ( Make sure you enter all the following three in new lines.)
+Interface gráfica do usuário, texto e descrição do aplicativo gerada
+automaticamente
 
-```
-Name,Birthdate,StreetAddress,EmployeeID
-Patti Fernandez,01.06.1980,1Main Street,CSO123456
-Christie Cline,31.01.1985,2Secondary Street,CSO654321
-```
+29. Revise as configurações e selecione **Submit**.
 
-4.  Select File and Save As: ```EmployeeData.csv```
+![Interface gráfica do usuário, aplicação Descrição gerada
+automaticamente](./media/image28.png)
 
-5.  Select the dropdown at **Save as type:** and select **All Files
-    (*.*)**.
+Interface gráfica do usuário. Descrição do aplicativo gerada
+automaticamente
 
-6.  Select the dropdown at **Encoding:** and select **UTF-8** and
-    select **Save**.
+30. Na página **Your EDM sensitive info type was created**, selecione
+    **Done**.
 
-![BrokenImage](./media/image43.png)
+![Uma captura de tela de um computador Descrição gerada
+automaticamente](./media/image29.png)
 
-7.  Close the Notepad window.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-8.  Select the windows symbol in the taskbar with the right mouse button
-    and select **Windows PowerShell (Admin)** and run as administrator.
+31. Deixe o navegador aberto com o portal do Microsoft Purview.
 
-![BrokenImage](./media/image44.png)
+Você criou com sucesso um novo tipo de informação confidencial de
+classificação baseada em EDM para identificar dados de funcionários de
+uma fonte de arquivo de banco de dados.
 
-9.  When the **User Account Control** window opens, select **Yes**.
+## Exercício 3 – Criando fonte de dados de classificação baseada em EDM
 
-10. Navigate to the EDM Upload Agent directory:
+Para associar a classificação baseada em EDM a um banco de dados que
+contenha dados confidenciais, é necessário fazer o hashing e o upload
+dos dados reais para o tipo de informação sensível por meio da
+ferramenta EDM Upload Agent.
 
-```cd "C:\Program Files\Microsoft\EdmUploadAgent"```
+1.  No **Microsoft Edge**, navegue até
+    `https://go.microsoft.com/fwlink/?linkid=2088639` para acessar o
+    agente de download do EDM.
 
-![Text Description automatically generated](./media/image45.png)
+2.  Selecione **Run** para baixar e instalar a ferramenta.
 
-11. Authorize with your Account to upload the database to your tenant by
-    running the following cmdlet:
+![Imagem quebrada](./media/image30.png)
 
-```.\EdmUploadAgent.exe /Authorize```
+Imagem interrompida
 
-![BrokenImage](./media/image46.png)
+3.  No assistente **Microsoft Exact Data Match Upload Agent Setup**,
+    selecione **Next**.
 
-12. When the **Pick an account** window is displayed, log in as **Patti
-    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
-    and the User Password given on your resources tab. (Or the new
-    password you reset.)
+    - Selecione, **I accept the terms in the License Agreement** e
+      selecione **Next**.
 
-**Note**: For the next steps, please make sure that the path of the files
-resembles the path in your VM. It may be different than the instructions
-or the screenshots. In such case please change the path of your file in
-the commands accordingly.
+    - Não altere o caminho padrão do **Destination Folder** e selecione
+      **Next**.
 
-13. Download the database schema definition of the EDM-based
-    classification sensitive information type by running the following
-    script in PowerShell
+    - Selecione **Install** para executar a instalação.
 
-```.\EdmUploadAgent.exe /SaveSchema /DataStoreName employeedb /OutputDir "C:\Users\Admin\Documents\"```
+    - Quando a janela **User Account Control** for aberta, selecione
+      **Sim**.
 
-**Note**: If the last command fails, it possibly takes more time until
-the **EDM_DataUploaders** group membership is applied. It can take up to
-one hour until it is possible to download the schema file. If it fails
-proceed to the next task and return to this step later. Or check the
-path the documents folder on your VM.
+    - Se solicitado a fazer login, faça-o por meio da conta da **Patti**
+      .
 
-![BrokenImage](./media/image47.png)
+    - Quando a instalação for concluída, selecione **Finish**.
 
-14. Hash the database file and upload it to the EDM-based classification
-    sensitive information type by running the following script in
-    PowerShell:
+    - Selecione o símbolo do Windows no canto inferior esquerdo para
+      abrir o menu Iniciar, entre no **Notepad** e selecione **Notepad**
+      no menu Iniciar.
 
-```.\EdmUploadAgent.exe /UploadData /DataStoreName employeedb /DataFile "C:\Users\Admin\Documents\EmployeeData.csv" /HashLocation "C:\Users\Admin\Documents\" /Schema "C:\Users\Admin\Documents\employeedb.xml"```
+    - Digite o seguinte texto na primeira linha da janela do Notepad
+      (certifique-se de inserir todos os três seguintes em novas
+      linhas.)
 
-![BrokenImage](./media/image48.png)
+&nbsp;
 
-**Note:** If you get the following errors
+    Name,Birthdate,StreetAddress,EmployeeID
+    Patti Fernandez,01.06.1980,1Main Street,CSO123456
+    Christie Cline,31.01.1985,2Secondary Street,CSO654321
+
+4.  Selecione File e Save As: `EmployeeData.csv`
+
+5.  Selecione o menu suspenso em **Save as type:** e selecione **All
+    files (*.*)**.
+
+6.  Selecione o menu suspenso em **Encoding:** e selecione **UTF-8** e
+    selecione **Save**.
+
+![Imagem quebrada](./media/image31.png)
+
+Imagem interrompida
+
+7.  Feche a janela do Notepad.
+
+8.  Selecione o símbolo do Windows na barra de tarefas com o botão
+    direito do mouse e selecione **Windows PowerShell (Admin)** e
+    execute run as administrator.
+
+![Imagem quebrada](./media/image32.png)
+
+Imagem interrompida
+
+9.  Quando a janela **User Account Control** for aberta, selecione
+    **Yes**.
+
+10. Navegue até o EDM Upload Agent directory:
+
+`cd "C:\Arquivos de Programas\Microsoft\EdmUploadAgent"`
+
+![Descrição do texto gerada automaticamente](./media/image33.png)
+
+Descrição do texto gerada automaticamente
+
+11. Autorize com sua conta o upload do banco de dados para seu locatário
+    executando o seguinte cmdlet:
+
+`.\EdmUploadAgent.exe /Authorize`
+
+![Imagem quebrada](./media/image34.png)
+
+Imagem interrompida
+
+12. Quando a janela **Pick an account** for exibida, faça login como
+    **Patti Fernandez** usando o nome de usuário
+    `PattiF@{TENANTPREFIX}.onmicrosoft.com` e a senha do usuário
+    fornecida na guia de recursos. (Ou a nova senha que você redefinir.)
+
+**Observação**: para as próximas etapas, verifique se o caminho dos
+arquivos é semelhante ao caminho em sua VM. Pode ser diferente das
+instruções ou das capturas de tela. Nesse caso, altere o caminho do seu
+arquivo nos comandos de acordo.
+
+13. Faça o download da definição do esquema do banco de dados do tipo de
+    informação sensível de classificação baseada em EDM executando o
+    seguinte script no PowerShell
+
+`.\EdmUploadAgent.exe /SaveSchema /DataStoreName employeedb /OutputDir "C:\Users\Admin\Documents\"`
+
+**Observação**: Se o último comando falhar, possivelmente levará mais
+tempo até que a associação ao grupo **EDM_DataUploaders** seja aplicada.
+Pode levar até uma hora até que seja possível fazer o download do
+arquivo de esquema. Se houver falha, prossiga para a próxima tarefa e
+retorne a esta etapa mais tarde. Ou verifique o caminho da pasta de
+documentos em sua VM.
+
+![Imagem quebrada](./media/image35.png)
+
+Imagem interrompida
+
+14. Faça o hash do arquivo de banco de dados e carregue-o no tipo de
+    informação confidencial de classificação baseada em EDM executando o
+    seguinte script no PowerShell:
+
+`.\EdmUploadAgent.exe /UploadData /DataStoreName employeedb /DataFile "C:\Users\Admin\Documents\EmployeeData.csv" /HashLocation "C:\Users\Admin\Documents\" /Schema "C:\Users\Admin\Documents\employeedb.xml"`
+
+![Imagem quebrada](./media/image36.png)
+
+Imagem interrompida
+
+**Observação:** se você receber os seguintes erros
 
 Error Type: System.IO.FileNotFoundException
 
 Error Message: Unable to find the specified file.
 
-Check the path where you saved the file EmployeeData.csv
+Verifique o caminho onde você salvou o arquivo EmployeeData.csv
 
-![Text Description automatically generated](./media/image49.png)
+![Descrição do texto gerada automaticamente](./media/image37.png)
 
-15. Check the upload progress until the state changes to completed then
-    run the following PowerShell command:
+Descrição do texto gerada automaticamente
 
-```.\EdmUploadAgent.exe /GetSession /DataStoreName employeedb```
+15. Verifique o andamento do upload até que o estado mude para concluído
+    e, em seguida, execute o seguinte comando do PowerShell:
 
-![BrokenImage](./media/image50.png)
+`.\EdmUploadAgent.exe /GetSession /DataStoreName employeedb`
 
-You have successfully hashed and uploaded a database file for a
-EDM-based classification sensitive information type.
+![Imagem quebrada](./media/image38.png)
 
-## Exercise 4 – Creating Keyword Dictionary
+Imagem interrompida
 
-Several violations of personal information leakage happened when users
-sent out emails after colleagues reported on sick leave. When that
-happened the reason for illness or disease was sent out. We do not want
-that to happen.
+Você fez hash e upload com sucesso de um arquivo de banco de dados para
+um tipo de informação confidencial de classificação baseada em EDM.
 
-1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
-    to ```https://purview.microsoft.com``` and log in as **Patti
-    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
-    and the User Password given on your resources tab.
+## Exercício 4 – Criando um dicionário de palavras-chave
 
-2.  From the left navigation, select **Solutions** \> **Data Loss
-    Prevention**.
+Várias violações de vazamento de informações pessoais ocorreram quando
+os usuários enviaram e-mails depois que os colegas informaram que
+estavam de licença médica. Quando isso acontecia, o motivo da doença ou
+enfermidade era enviado. Não queremos que isso aconteça.
 
-![A screenshot of a computer Description automatically
-generated](./media/image1.png)
+1.  No **Microsoft Edge**, abra uma guia **New InPrivate Window**,
+    navegue até `https://purview.microsoft.com` e faça login como
+    **Patti Fernandez** usando o nome de usuário
+    `PattiF@{TENANTPREFIX}.onmicrosoft.com` e a Senha de Usuário
+    fornecida na guia de recursos.
 
-3.  Select **Classifiers** from the left pane. Select **Sensitive info
-    types** from the sub-navigation pane. Select **+Create sensitive
-    info type** to open the wizard for a new sensitive information type.
+2.  No painel de navegação à esquerda, selecione **Solutions** \> **Data
+    Loss Prevention**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image6.png)
+![Uma captura de tela de um computador Descrição gerada
+automaticamente](./media/image1.png)
 
-4.  On the **Name your sensitive info type** page, enter the following:
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-    - Name: ```Contoso Diseases List```
+3.  Selecione **Classifiers** no painel esquerdo. Selecione **Sensitive
+    info types** no painel de subnavegação. Selecione **+****Create
+    sensitive info type** para abrir o assistente para um novo tipo de
+    informação confidencial.
 
-    - Description: ```List of possible diseases of employees.```
+![Uma captura de tela de um computador Descrição gerada
+automaticamente](./media/image2.png)
 
-![Graphical user interface, application, Teams Description automatically
-generated](./media/image51.png)
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-5.  Select **Next**.
+4.  Na página **Name your sensitive info type**, insira o seguinte:
 
-6.  On the **Define patterns for this sensitive info type** page,
-    select **+ Create pattern**.
+    - Name: `Contoso Diseases List`
 
-![Graphical user interface, application, Teams Description automatically
-generated](./media/image52.png)
+    - Description: `List of possible diseases of employees.`
 
-7.  Select the dropdown field below **Primary element** and
-    select **Keyword dictionary**.
+![Interface gráfica do usuário, aplicativo, descrição do Teams gerada
+automaticamente](./media/image39.png)
 
-![Graphical user interface, application Description automatically
-generated](./media/image53.png)
+Interface gráfica do usuário, aplicativo e descrição do Teams gerada
+automaticamente
 
-8.  In the **Add a keyword dictionary** page enter the
-    name ```Diseases Dictionary```.
+5.  Selecione **Next**.
 
-9.  In the **Keywords** area enter the following keywords, each into a
-    separate line
+6.  Na página **Define patterns for this sensitive info type**,
+    selecione **+ Create pattern**.
 
-```
-flu
-influenza
-cold
-bronchitis
-otitis
-```
+![Interface gráfica do usuário, aplicativo, descrição do Teams gerada
+automaticamente](./media/image40.png)
 
-![BrokenImage](./media/image54.png)
+Interface gráfica do usuário, aplicativo, descrição do Teams gerada
+automaticamente
 
-10.  Select **Done**.
+7.  Selecione o campo suspenso abaixo de **Primary element** e selecione
+    **Keyword dictionary**.
 
-11. Below **Supporting elements**, select **+ Add supporting elements or
-    group of elements** drop-down and select **keyword list** to add
-    additional support for the keyword dictionary.
+![Interface gráfica do usuário, aplicação Descrição gerada
+automaticamente](./media/image41.png)
 
-![Graphical user interface, application Description automatically
-generated](./media/image55.png)
+Interface gráfica do usuário, descrição do aplicativo gerada
+automaticamente
 
-12. In the **Add a keyword list** page enter ```Employee absence``` in
-    the **ID** field. In the **Case insensitive** box, enter the
-    following keywords, each into a separate line	
+8.  Na página **Add a keyword dictionary**, digite o nome
+    `Diseases Dictionary`.
 
-```
-employee
-absence
-reason
-```
+9.  Na área **Keywords**, insira as seguintes palavras-chave, cada uma
+    em uma linha separada
 
-![Graphical user interface, application Description automatically
-generated](./media/image56.png)
+> flu
+>     influenza
+>     cold
+>     bronchitis
+>     otitis
 
-13. Select **Done**.
+![Imagem quebrada](./media/image42.png)
 
-14. In the **New pattern** page, review the configuration and
-    select **Create**.
+Imagem interrompida
 
-![Graphical user interface, application Description automatically
-generated](./media/image57.png)
+10. Selecione **Done**.
 
-15. In the **Define patterns for this sensitive info
-    type** select **Next**.
+11. Abaixo de **Supporting elements**, selecione **+ Add supporting
+    elements or group of elements** suspensos e selecione **keyword
+    list** para adicionar suporte adicional ao dicionário de
+    palavras-chave.
 
-![Graphical user interface, application, Teams Description automatically
-generated](./media/image58.png)
+![Interface gráfica do usuário, aplicação Descrição gerada
+automaticamente](./media/image43.png)
 
-16. In the **Choose the recommended confidence level to show in
-    compliance policies** let the default value persist and
-    select **Next**.
+Interface gráfica do usuário, descrição do aplicativo gerada
+automaticamente
 
-![A screenshot of a computer Description automatically
-generated](./media/image59.png)
+12. Na página **Add a keyword list**, insira `Employee absence` no campo
+    **ID**. Na caixa **Case insensitive**, insira as seguintes
+    palavras-chave, cada uma em uma linha separada
 
-17. In the **Review settings and finish** page, review your settings and
-    select **Create**. When the process is complete select **Done**.
+&nbsp;
 
-![BrokenImage](./media/image60.png)
+    employee
+    absence
+    reason
 
-18. Leave the browser window in the Microsoft Purview portal open.
+![Interface gráfica do usuário, aplicação Descrição gerada
+automaticamente](./media/image44.png)
 
-You have successfully created a new sensitive information type based on
-a keyword dictionary and added more keywords to decrease the false
-positive rate. Proceed with the next task.
+Interface gráfica do usuário, descrição do aplicativo gerada
+automaticamente
 
-## Exercise 5 – Working with custom Sensitive Information Types
+13. Selecione **Done**.
 
-Custom Sensitive information types should always be tested before using
-them in policies otherwise data loss or leakage may occur due to a
-malfunctioning custom search pattern.  
+14. Na página **New pattern**, revise a configuração e selecione
+    **Create**.
 
-1.  Select the Windows symbol in the lower left to open the start menu,
-    enter **Notepad** and select **Notepad** from the start menu.
+![Interface gráfica do usuário, aplicação Descrição gerada
+automaticamente](./media/image45.png)
 
-2.  Enter the following text to the notepad window
+Interface gráfica do usuário. Descrição do aplicativo gerada
+automaticamente
 
-```Employee Patti Fernandez EMP123456 is on absence because of the flu/influenza```
+15. Na seção **Define patterns for this sensitive info type**, selecione
+    **Next**.
 
-3.  Select **File** and Save As ```SickTestData``` and select **Save**.
+![Interface gráfica do usuário, aplicativo, descrição do Teams gerada
+automaticamente](./media/image46.png)
 
-4.  Close the Notepad window.
+Interface gráfica do usuário, aplicativo e descrição do Teams gerada
+automaticamente
 
-5.  In **Microsoft Edge**, the Microsoft Purview portal tab should still
-    be open. If so, select it and proceed to the next step. If you
-    closed it, then in a new tab, navigate
-    to ```https://purview.microsoft.com```. Log in as **Patti
-    Fernandez** using the username ```PattiF@{TENANTPREFIX}.onmicrosoft.com```
-    and the User Password given on your resources tab.
+16. Na seção **Choose the recommended confidence level to show in
+    compliance policies**, deixe o valor padrão persistir e selecione
+    **Next**.
 
-6.  In the left navigation pane select **Solutions** \> **Data Loss
-    Prevention**, then select the **Sensitive info types** under
-    **Classifiers** . In the **Search** box from the upper right side
-    and enter ***Contoso*** and press **Enter**. Select **Contoso Employee
-    IDs** to open the right side pane.
+![Uma captura de tela de um computador Descrição gerada
+automaticamente](./media/image47.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image61.png)
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-7.  Select **Test** from the right-side pane.
+17. Na página **Review settings and finish**, revise suas configurações
+    e selecione **Create**. Quando o processo estiver concluído,
+    selecione **Done**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image63.png)
+![Imagem quebrada](./media/image48.png)
 
-8.  On the **Upload file to test** page, select **Upload file**.
+Imagem interrompida
 
-![BrokenImage](./media/image65.png)
+18. Deixe a janela do navegador no portal do Microsoft Purview aberta.
 
-9. Select **Documents** from the left pane, select the file with the
-    name **SickTestData** and select **Open**.
+Você criou com sucesso um novo tipo de informação confidencial com base
+em um dicionário de palavras-chave e adicionou mais palavras-chave para
+diminuir a taxa de falsos positivos. Prossiga para a próxima tarefa.
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image66.png)
+## Exercício 5 – Trabalhando com tipos de informações confidenciais personalizados
 
-10. Select **Test** to start the analysis.
+Os tipo de informações confidenciais personalizadas devem ser sempre
+testados antes de serem usados nas políticas, caso contrário, poderá
+ocorrer perda ou vazamento de dados devido ao mau funcionamento de um
+padrão de pesquisa personalizado.
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image67.png)
+1.  Selecione o símbolo do Windows no canto inferior esquerdo para abrir
+    o menu Iniciar, entre no **Notepad** e selecione **Notepad** no menu
+    Iniciar.
 
-11. On the **Match results** page, review the found match.
+2.  Digite o seguinte texto na janela do Notepad
 
-![BrokenImage](./media/image68.png)
+`Employee Patti Fernandez EMP123456 is on absence because of the flu/influenza`
 
-12. Select **Finish** and close the test page by clicking
-    the **X** button.
+3.  Selecione **File** e Save as `SickTestData` e selecione **Save**.
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image69.png)
+4.  Feche a janela do Notepad.
 
-13. Back on the **Data classification** page, select the Sensitive
-    Information Type with the name **Contoso Diseases List**.
+5.  No **Microsoft Edge**, a guia do portal do Microsoft Purview ainda
+    deve estar aberta. Em caso afirmativo, selecione-a e prossiga para a
+    próxima etapa. Se você o fechou, em uma nova guia, navegue até
+    `https://purview.microsoft.com`. Faça login como **Patti Fernandez**
+    usando o nome de usuário `PattiF@{TENANTPREFIX}.onmicrosoft.com` e a
+    senha de usuário fornecida na guia de recursos.
 
-14. In the right side pane, select **Test**.
+6.  No painel de navegação esquerdo, selecione **Solutions** \> **Data
+    Loss Prevention** e, em seguida, selecione os **Sensitive info
+    types** em **Classifiers**. Na caixa **Search** no canto superior
+    direito, insira ***Contoso*** e pressione **Enter**. Selecione
+    **Contoso Employee IDs** para abrir o painel do lado direito.
 
-![BrokenImage](./media/image71.png)
+![Uma captura de tela de um computador Descrição gerada
+automaticamente](./media/image49.png)
 
-15. On the **Upload file to test** page, select **Upload file**.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-![BrokenImage](./media/image72.png)
+7.  Selecione **Test** no painel do lado direito.
 
-16. Select **Documents** from the left pane, select the file with the
-    name *SickTestData* and select **Open**.
+![Uma captura de tela de um computador Descrição gerada
+automaticamente](./media/image50.png)
 
-17. Select **Test** to start the analysis.
+Uma captura de tela de uma descrição de computador gerada
+automaticamente
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image74.png)
+8.  Na página **Upload file to test**, selecione **Upload file**.
 
-18. On the **Match results** page, review the found match. When done
-    review select **Finish**.
+![Imagem quebrada](./media/image51.png)
 
-![Graphical user interface, application Description automatically
-generated](./media/image75.png)
+Imagem interrompida
 
-## Summary:
+9.  Selecione **Documents** no painel esquerdo, selecione o arquivo com
+    o nome **SickTestData** e selecione **Open**.
 
-You have successfully tested the two custom sensitive information types
-and validated the search pattern recognizes the desired patterns. You
-have finished the creation of sensitive information types and can
-proceed with the next exercise.
+![Interface gráfica do usuário, texto, aplicativo Descrição gerada
+automaticamente](./media/image52.png)
+
+Interface gráfica do usuário, texto e descrição do aplicativo gerada
+automaticamente
+
+10. Selecione **Test** para iniciar a análise.
+
+![Interface gráfica do usuário, texto, aplicativo Descrição gerada
+automaticamente](./media/image53.png)
+
+Interface gráfica do usuário, texto e descrição do aplicativo gerada
+automaticamente
+
+11. Na página de **Match results**, revise a correspondência encontrada.
+
+![Imagem quebrada](./media/image54.png)
+
+Imagem interrompida
+
+12. Selecione **Finish** e feche a página de teste clicando no botão
+    **X**.
+
+![Interface gráfica do usuário, texto, aplicativo Descrição gerada
+automaticamente](./media/image55.png)
+
+Interface gráfica do usuário, texto e descrição do aplicativo gerada
+automaticamente
+
+13. De volta à página **Data classification**, selecione o Sensitive
+    Information Type com o nome **Contoso Diseases List**.
+
+14. No painel do lado direito, selecione **Test**.
+
+![Imagem quebrada](./media/image56.png)
+
+Imagem interrompida
+
+15. Na página **Upload file to test**, selecione **Upload file**.
+
+![Imagem quebrada](./media/image57.png)
+
+Imagem interrompida
+
+16. Selecione **Documents** no painel esquerdo, selecione o arquivo com
+    o nome *SickTestData* e selecione **Open**.
+
+17. Selecione **Test** para iniciar a análise.
+
+![Interface gráfica do usuário, texto, aplicativo Descrição gerada
+automaticamente](./media/image58.png)
+
+Interface gráfica do usuário, texto e descrição do aplicativo gerada
+automaticamente
+
+18. Na página de **Match results**, revise a correspondência encontrada.
+    Quando terminar, revise, selecione **Finish.**
+
+![Interface gráfica do usuário, aplicação Descrição gerada
+automaticamente](./media/image59.png)
+
+Interface gráfica do usuário, descrição do aplicativo gerada
+automaticamente
+
+## Resumo:
+
+Você testou com sucesso os dois tipos de informações confidenciais
+personalizadas e validou que o padrão de pesquisa reconhece os padrões
+desejados. Você concluiu a criação de tipos de informações confidenciais
+e pode prosseguir com o próximo exercício.
