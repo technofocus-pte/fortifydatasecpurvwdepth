@@ -1,315 +1,367 @@
-# Lab 9 – Configuring Communication Compliance
+# 실습 9 – Communication Compliance 구성
 
-## Objective:
+## 목표:
 
-In this lab you will configure a compliance policy to detect any
-sensitive information being communicated by the users in your
-organisation. You will use the sensitive info types created in the
-earlier lab, to detect the employee health data or employee IDs being
-communicated through Emails.
+이 실습에서는 조직의 사용자가 전달하는 중요한 정보를 검색하도록 규정
+준수 정책을 구성할 것입니다. 이전 실습에서 생성한 중요한 정보 유형을
+사요하여 이메일을 통해 전달되는 직원 건강 데이터나 직원 ID를 검색할
+것입니다.
 
-## Exercise 1 – Enabling permissions for communication compliance
+## 연습 1 – Communication Compliance에 대한 권한을 활성화하기
 
-In this task you will assign users to specific role groups to segment
-communication compliance access and responsibilities among different
-users in your organization.
+이 작업에서는 사용자를 특정 역할 그룹에 할당하여 조직의 여러 사용자간에
+communication compliance 액세스 및 책임을 분류할 것입니다.
 
-1.  If the Microsoft Purview portal is open continue to step 2,
-    otherwise, open the ```https://purview.microsoft.com``` and log
-    in with the **MOD Administrator** credentials.
+1.  Microsoft Purview 포털이 열려 있으면 2단계를 진행하세요. 그렇지
+    않으면 `https://purview.microsoft.com` 를 열고 **MOD Administrator**
+    자격 증명으로 로그인하세요.
 
-2.  In the navigation select **Settings**, and select **Role**
-    **groups** under **Role groups**, select **Communication
-    Compliance**. Then select **Edit**. On the side pane, again select
-    **Edit**.
+2.  탐색에서 **Settings**를 선택하여**Role** **groups**의 **Role
+    groups**를 선택하여 **Communication Compliance**를 선택하세요.
+    **Edit**를 선택하세요. 옆 창에서**Edit**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image1.png)
 
-3.  On the **Edit members of the role group** select **Choose Users**.
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+3.  **Edit members of the role group**에서 **Choose Users**를
+    선택하세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image2.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+4.  **MOD Administrator**, **Megan Bowen**, 및**Patti Fernandez**를
+    선택했는지 확인하세요. **Select**를 선택하세요.
+
+![](./media/image3.png)
+
+5.  **Next**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image4.png)
 
-4.  Make sure to select **MOD Administrator**, **Megan Bowen**, and
-    **Patti Fernandez**. Then choose **Select**.
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-![](./media/image7.png)
-
-5.  Select **Next**.
+6.  사용자를 역할 그룹에 추가하기 위해 **Save**를 선택하세요. 단계를
+    완료하려면 **Done**를 선택하세요.
 
 ![A screenshot of a computer Description automatically
+generated](./media/image5.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+![A screenshot of a computer Description automatically
+generated](./media/image6.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+## 연습 2 – Communication Compliance를 위한 그룹을 설정하기
+
+이 정책에서는 이메일 주소를 사용하여 개인이나 사용자 그룹을 식별할
+것입니다. 설정을 단순화하기 위해 통신을 검토한 사람들을 위한 그룹과 해당
+통신을 검토하는 사람들을 위한 그룹을 생성할 수 있습니다.
+
+PowerShell을 사용하여 할당된 그룹에 대한 글로벌 communication compliance
+정책에 대한 메일 그룹을 구성할 수 있습니다. 이를 통해 단일 정책으로 수천
+명의 사용자에 대한 메시지를 감지하고 새 직원이 조직에 합류할 때
+communication compliance 정책을 업데이트된 상태로 유지할 수 있습니다.
+
+1.  관리자 모드에서 **PowerShell** 여세요.
+
+2.  다음 cmdlet을 입력하여 **Exchange Online PowerShell** 모듈을
+    사용하고 테넌트에 연결하세요:
+
+`Connect-ExchangeOnline`
+
+![Text Description automatically generated](./media/image7.png)
+
+텍스트 설명이 자동으로 생성됩니다
+
+3.  **Sign in** 창이 표시되면 **MOD Administrator**로 로그인하세요.
+
+![BrokenImage](./media/image8.png)
+
+
+4.  다음 속성을 사용하요 글로벌 communication compliance 정책에 대한
+    전용 메일 그룹을 생성하세요:
+
+    - **MemberDepartRestriction = Closed**. 사용자가 메일 그룹에서
+      자신을 제거할 수 없도록 합니다.
+
+    - **MemberJoinRestriction = Closed**. 사용자가 메일 그룹에 자신을
+      추가할 수 없도록 합니다.
+
+    - **ModerationEnabled = True**. 이 그룹으로 전송된 모든 메시지가
+      승인 대상이며 그룹이 communication compliance 정책 구성 외부에서
+      통신하는 데 사용되지 않도록 합니다.
+
+`New-``DistributionGroup`` -Name "Communication Compliance Group Contoso" -Alias "CCG_Contoso" -MemberDepartRestriction 'Closed' -MemberJoinRestriction 'Closed' -ModerationEnabled $true`
+
+![BrokenImage](./media/image9.png)
+
+
+**참고:**  **Following command**과 같이 **Exchange Custom Attribute**을
+추가하여 조직의 communication compliance 정책에 추가된 사용자를 추적할
+수 있습니다.
+
+`Set-DistributionGroup -Identity "Communication Compliance Group Contoso"-CustomAttribute1 "MonitoredCommunication"`
+
+![A screen shot of a computer Description automatically
 generated](./media/image10.png)
 
-6.  Select **Save** to add the users to the role group.
-    Select **Done** to complete the steps.
+컴퓨터 설명의 스크린샷이 자동으로 생성됩니다
 
-![A screenshot of a computer Description automatically
-generated](./media/image12.png)
+5.  되풀이 일정에 따라 다음PowerShell 스크립트를 실행하여 communication
+    compliance 정책에 사용자를 추가하세요:
+
+&nbsp;
+
+    $Mbx = (Get-Mailbox -RecipientTypeDetails UserMailbox -ResultSize Unlimited -Filter {CustomAttribute9 -eq $Null})
+    $i = 0
+    ForEach ($M in $Mbx)
+    {
+    Write-Host "Adding" $M.DisplayName
+    Add-DistributionGroupMember -Identity "Communication Compliance Group Contoso" -Member $M.DistinguishedName -ErrorAction SilentlyContinue
+    Set-Mailbox -Identity $M.Alias -CustomAttribute1 "MonitoredCommunication"
+    $i++
+    }
+    Write-Host $i "Mailboxes added to supervisory review distribution group."
+
+![BrokenImage](./media/image11.png)
+
+
+
+**참고:** 이 스크립트는 특정 간격마다 실행되어야 합니다. 지금은
+Microsoft 365 admin center의 Active 팀 및 Groups에서 Distribution 목록을
+볼 수 있습니다.
+
+그룹 이름을 클릭하면 구성원 탭 아래에 나열된 모든 사용자를 볼 수
+있습니다.
+
+![BrokenImage](./media/image12.png)
+
+
+
+## 연습 3 – Communication compliance 정책을 생성하기
+
+1.  Microsoft Purview 포털이 열려 있으면 2단계를 진행하세요. 그렇지
+    않으면 `https://purview.microsoft.com` 를 열고 **MOD Administrator**
+    자격 증명으로 로그인하세요.
+
+2.  Microsoft Purview 포털에서 **Solutions** \> **Communication
+    compliance**를 선택하세요.
+
+3.  하위 탐색에서 **Policy**를 선택하세요. **Create policy**를
+    선택하세요.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image13.png)
 
-## Exercise 2 – Setting up groups for communication compliance
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-In the policy, you'll use email addresses to identify individuals or
-groups of people. To simplify your setup, you can create groups for
-people who have their communication reviewed and groups for people who
-review those communications.
+4.  드롭다운에서 **Custom policy**를 선택하세요.
 
-You can use PowerShell to configure a distribution group for a global
-communication compliance policy for the assigned group. This enables you
-to detect messages for thousands of users with a single policy and keep
-the communication compliance policy updated as new employees join your
-organization.
+![](./media/image14.png)
 
-1.  Open **PowerShell** in administrator mode.
+5.  Name your DLP policy 페이지에서 **Name** 필드에서
+    `My first communication compliance policy` 를
+    입력하여 **Description** 필드에서
+    `This is a policy to test communication compliance`를 입력하세요.
+    **Next**를 선택하세요.
 
-2.  Enter the following cmdlet to use the **Exchange Online
-    PowerShell** module and connect to your tenant:
+![Graphical user interface, text, application Description automatically
+generated](./media/image15.png)
 
-```Connect-ExchangeOnline```
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
 
-![Text Description automatically generated](./media/image14.png)
+6.  **Choose supervised users and reviewers** 페이지에서 나머지 기본
+    설정은 유지라고 리뷰 아래에 **Patti Fernandez**를 추가하세요.
+    **Next**를 클릭하세요.
 
-3.  When the **Sign in** window is displayed, sign in as **MOD
-    Administrator**.
+![A screenshot of a computer Description automatically
+generated](./media/image16.png)
 
-![BrokenImage](./media/image15.png)
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-4.  Create a dedicated distribution group for your global communication
-    compliance policy with the following properties:
+7.  **Communications** 페이지에서 **Microsoft 365 locations** 아래의
+    모든 확인란을 선택하고 **Next**를 클릭하세요.
 
-    - **MemberDepartRestriction = Closed**. Ensures that users can't
-      remove themselves from the distribution group.
-
-    - **MemberJoinRestriction = Closed**. Ensures that users can't add
-      themselves to the distribution group.
-
-    - **ModerationEnabled = True**. Ensures that all messages sent to
-      this group are subject to approval and that the group isn't being
-      used to communicate outside of the communication compliance policy
-      configuration.
-
-```New-DistributionGroup -Name "Communication Compliance Group Contoso" -Alias "CCG_Contoso" -MemberDepartRestriction 'Closed' -MemberJoinRestriction 'Closed' -ModerationEnabled $true```
-
-![BrokenImage](./media/image16.png)
-
-**Note:** You can add an **Exchange Custom Attribute** as in
-the **following command** to track users added to the communication
-compliance policy in your organization.
-
-```Set-DistributionGroup -Identity "Communication Compliance Group Contoso"-CustomAttribute1 "MonitoredCommunication"```
-
-![A screen shot of a computer Description automatically
+![A screenshot of a computer Description automatically
 generated](./media/image17.png)
 
-5.  Run the following PowerShell script on a recurring schedule to add
-    users to the communication compliance policy:
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-```
-$Mbx = (Get-Mailbox -RecipientTypeDetails UserMailbox -ResultSize Unlimited -Filter {CustomAttribute9 -eq $Null})
-$i = 0
-ForEach ($M in $Mbx)
-{
-Write-Host "Adding" $M.DisplayName
-Add-DistributionGroupMember -Identity "Communication Compliance Group Contoso" -Member $M.DistinguishedName -ErrorAction SilentlyContinue
-Set-Mailbox -Identity $M.Alias -CustomAttribute1 "MonitoredCommunication"
-$i++
-}
-Write-Host $i "Mailboxes added to supervisory review distribution group."
-```
+8.  **Choose conditions and review percentage**에서 **Add condition**를
+    선택하고 드롭다운에서 **Content contains any of these sensitive info
+    types**를 선택하세요.
 
-![BrokenImage](./media/image18.png)
+![A screenshot of a computer screen Description automatically
+generated](./media/image18.png)
 
-**Note:** This script is supposed to be run after every particular
-interval. As of now you will be able to see the Distribution list under
-Active teams & Groups in Microsoft 365 admin center.
+컴퓨터 화면의 스크린샷 설명이 자동으로 생성됩니다
 
-If you click on the group name, you will be able to see all the users
-listed under members tab.
+9.  **Content contains any of these sensitive info
+    types** 상자에서 **Add**를 선택하고 **Sensitive info types**를
+    클릭하여 **contoso**를 검색하세요. 이전 실습에서 생성한 모든 민감한
+    정보 유형의 확인란을 선택하세요. **Add**를 클릭하세요.
 
-![BrokenImage](./media/image19.png)
+![Graphical user interface, text, application Description automatically
+generated](./media/image19.png)
 
-## Exercise 3 – Creating a communication compliance policy
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
 
-1.  If the Microsoft Purview compliance portal is open continue to step
-    2, otherwise, open the ```https://purview.microsoft.com``` and
-    log in as **MOD Administrator**.
+10. On **Choose conditions and review percentage**에서 **Use OCR to
+    extract text from images**라는 확인란을 선택하고 **Review percentage
+    to 100%**를 설정하여 **Next**를 클릭하세요.
 
-2.  In the Microsoft Purview portal, select **Soltions** \>
-    **Communication compliance**.
+![Graphical user interface, application Description automatically
+generated](./media/image20.png)
 
-3.  Select from the sub-navigation, select **Policy**. Then select
-    **Create policy**.
+그래픽 사용자 인터페이스, 애플리케이션 설명이 자동으로 생성됩니다
+
+11. **Review and finish** 페이지에서 **Create policy**를 선택하세요.
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image21.png)
+
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
+
+12. **Your policy was created** 페이지가 표시되면 정책이 활성화되는
+    시기와 캡처되는 통신에 대한 지침이 표시됩니다.
+
+![Graphical user interface, text, application Description automatically
+generated](./media/image22.png)
+
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
+
+## 연습 4 – Communication compliance 정책을 편집하기
+
+1.  Microsoft Purview 포털이 열려 있으면 2단계를 진행하세요. 그렇지
+    않으면 `https://purview.microsoft.com` 를 열고 **MOD
+    Administrator**로 로그인하세요.
+
+2.  Microsoft Purview 포털에서 **Settings** \> **Communication
+    compliance** \> **Policies**로 이동하고 **My first communication
+    compliance policy**에 있는 세 개의 점을 선택하고**Edit**을
+    선택하세요.
 
 ![A screenshot of a computer Description automatically
 generated](./media/image23.png)
 
-4.  Select **Custom policy** from the drop down.
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-![](./media/image25.png)
-
-5.  On the Name your DLP policy page, type ```My first communication compliance policy``` in the **Name** field and ```This is a policy to test communication compliance``` in the **Description** field. Select **Next**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image26.png)
-
-6.  On the **Choose supervised users and reviewers** page, keep rest of
-    the default settings and under reviews add **Patti Fernandez**. Then
-    click on **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image28.png)
-
-7.  On the **communications** page, check all the boxes
-    under **Microsoft 365 locations** and click on **Next**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image30.png)
-
-8.  On the **Choose conditions and review percentage**, select **Add
-    condition**, from the drop down, select **Content contains any of
-    these sensitive info types**.
-
-![A screenshot of a computer screen Description automatically
-generated](./media/image32.png)
-
-9.  In the **Content contains any of these sensitive info types** box,
-    select **Add**, click on **Sensitive info types**, and search
-    for **contoso**. Check the boxes for all the sensitive info types we
-    created in earlier labs. Then click **Add**
+3.  **Name and describe your policy** 을 비워 두고 **Next**를
+    클릭하세요.
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/image33.png)
+generated](./media/image24.png)
 
-10. On **Choose conditions and review percentage**, check the box
-    beside **Use OCR to extract text from images**, set **Review
-    percentage to 100%**, and then click on **Next**.
+그래픽 사용자 인터페이스, 텍스트, 애플리케이션 설명이 자동으로
+생성됩니다
 
-![Graphical user interface, application Description automatically
-generated](./media/image34.png)
-
-11. On **Review and finish** page, select **Create policy**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image35.png)
-
-12. The **Your policy was created** page is displayed with guidelines on
-    when policy will be activated and which communications will be
-    captured.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image36.png)
-
-## Exercise 4 – Editing a communication compliance policy
-
-1.  If the Microsoft Purview compliance portal is open continue to step
-    2, otherwise, open the ```https://purview.microsoft.com``` and
-    log in as **MOD Administrator**.
-
-2.  In the Microsoft Purview portal, go to **Settings** \>
-    **Communication compliance** \> **Policies**, select the three dots
-    near **My first communication compliance policy** and
-    select **Edit**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image37.png)
-
-3.  Leave the **Name and describe your policy** blank and
-    click **Next**.
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image39.png)
-
-4.  On **Choose supervised user and reviewers** and under **Supervised
-    users and groups**, select the **Select users** button.
+4.  **Choose supervised user and reviewers** 및 **Supervised users and
+    groups**에서 **Select users** 버튼을 선택하세요.
 
 ![Graphical user interface, application, Teams Description automatically
-generated](./media/image40.png)
+generated](./media/image25.png)
 
-5.  In the **Start typing to find users or groups**, search
-    for **Communication** and select **Communication Compliance Groups
-    Contoso**.
+그래픽 사용자 인터페이스, 애플리케이션, 팀 설명이 자동으로 생성됩니다
 
-![](./media/image42.png)
+5.  **Start typing to find users or groups**에서 **Communication**를
+    검색하고 **Communication Compliance Groups Contoso**를 선택하세요.
 
-6.  On Choose supervised user and reviewers under Reviewers add MOD
-    Administrator to the Reviewers.
+![](./media/image26.png)
+
+6.  Reviewers의 Choose supervised user and reviewers에서 Reviewers에 MOD
+    Administrator를 추가하세요.
 
 ![Graphical user interface, application, Teams Description automatically
-generated](./media/image44.png)
+generated](./media/image27.png)
 
-7.  Select **Next** till you reach **Review and finish** page.
+그래픽 사용자 인터페이스, 애플리케이션, 팀 설명이 자동으로 생성됩니다
 
-8.  Click on **Save**.
+7.  **Review and finish** 페이지에 도달할 때까지**Next**을 선택하세요.
 
-## Exercise 5 – Creating notice templates and configure user anonymization
+8.  **Save**를 클릭하세요.
 
-1.  In the Microsoft Purview portal, select Settings from the top right
-    corner and the select **Communication compliance**.
+## 연습 5 – 공지 템플릿을 생성하고 사용자 익명화를 구성하기
 
-![](./media/image45.png)
+1.  Microsoft Purview 포털에서 오른쪽 위 모서리에서Settings을 선택하고
+    **Communication compliance**를 선택하세요.
 
-2.  Select the **Privacy** tab. To enable anonymization, make
-    sure **Show anonymized versions of usernames** is selected.
-    Select **Save**.
+![](./media/image28.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image48.png)
-
-3.  Navigate to the **Notice templates** tab and then select **Create
-    notice template**.
-
-![](./media/image49.png)
-
-4.  On the **Modify a notice template** page, complete the following
-    fields:
-
-    - Template name (required): ```Sample Notice```
-
-    - Send from (required): Select **Patti Fernandez** by
-      typing **Patti** and selecting the name from the drop down.
-
-    - Cc (optional): Select **MOD** **administrator** by
-      typing **MOD** and selecting the name from the drop down.
-
-    - Subject (required): ```Your communication violets company Communication compliance policy.```
-
-    - Message body (required): ```Please note this for future reference and provide an acceptable justification for your current communication. ```
-
-5.  Select **Create** to create and save the notice template.
+2.  **Privacy** 탭을 선택하세요. 이명화를 활성화하려면 **Show anonymized
+    versions of usernames**가 선택되어 있는지 확인하세요. **Save**를
+    선택하세요.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image52.png)
+generated](./media/image29.png)
 
-## Exercise 6 – Testing your communication compliance policy
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
 
-In the trial account you will not have the privilege to send any email
-but you can check out the following steps to understand how to test the
-policy when you have your own licenses. You can perform steps but your
-mail will not be able to reach the receiver from your current tenant.
+3.  **Notice templates** 탭으로 이동하고 **Create notice template**를
+    선택하세요.
 
-1.  Open outlook by going
-    to ```https://outlook.office365.com/mail/```and sign in with the
-    username ```adelev@{TENANTPREFIX}.onmicrosoft.com``` and the User
-    Password.
+![](./media/image30.png)
 
-2.  Send an email to your personal email account with the following
-    message body.
+4.  **Modify a notice template** 페이지에서 다음 필드를 완료하세요:
 
-Message body: ```Employee Patti Fernandez EMP123456 is on absence because of the flu/influenza```
+    - Template name (필수): `Sample Notice`
 
-**Note** Email messages can take approximately 24 hours to fully process
-in a policy. Communications in Microsoft Teams, Yammer, and third-party
-platforms can take approximately 48 hours to fully process in a policy.
+    - Send from (필수):  **Patti**를 입력하고 드롭다운에서 이름을
+      선택하여 **Patti Fernandez**를 선택하세요.
 
-Sign in to ```https://purview.microsoft.com/``` as **Patti
-Fernandez**. Navigate to **Communication compliance** \> **Alerts** to
-view the alerts for your policies after 24 hours.
+    - Cc (선택적): **MOD**를 입력하고 드롭다운에서 이름을 선택하여
+      **MOD** **administrator**를 선택하세요.
 
-**Summary:**
+    - Subject
+      (필수): `Your communication violets company Communication compliance policy.`
 
-In this lab we learned how to enable the permissions for communication
-compliance, create the policies, manage them and then create notice
-templates and configure user anonymization.
+    - Message body
+      (필수): `Please note this for future reference and provide an acceptable justification for your current communication.`
+
+5.  공지 템플릿을 생성하고 저장하기 위해 **Create**를 선택하세요.
+
+![A screenshot of a computer Description automatically
+generated](./media/image31.png)
+
+컴퓨터 설명의 스크린샷 자동으로 생성됩니다
+
+## 연습 6 – Communication compliance 정책을 테스트하기
+
+시험 계정에서는 이메일을 보낼 수 있는 권한이 없지만 다음 단계를 확인하여
+자체 라이선스가 있는 경우 정책을 테스트하는 방법을 이해할 수 있습니다.
+단계를 수행할 수 있지만 메일이 현재 테넌트에서 수신자에게 도달할 수
+없습니다.
+
+1.  <https://outlook.office365.com/mail/a>로 이동하여 outlook을 열고
+    사용자 이름 `adelev``@{TENANTPREFIX}.onmicrosoft.com` 및 사용자
+    암호로 로그인하세요.
+
+2.  다음 메시지 본문을 포함하여 개인 이메일 계정으로 이메일을 보내세요.
+
+메시지
+본문: `Employee Patti Fernandez EMP123456 is on absence because of the flu/influenza`
+
+**참고:** 이메일 메시지는 정책에서 완전히 처리되는 데 약 24시간이 걸릴
+수 있습니다. Microsoft Teams, Yammer 및 타사 플랫폼의 통신은 정책에서
+완전히 처리하는 데 약 48시간이 걸릴 수 있습니다.
+
+**Patti Fernandez**로 `https://purview.microsoft.com/`에 로그인하세요.
+**Communication compliance** \> **Alerts**로 이동하여 24시간 후에 정책에
+대한 경고를 확인하세요.
+
+**요약:**
+
+이 실습에서는 communication compliance에 대한 권한을 활성화하고 정책을
+생성하고 관리한 후 알림 템플릿을 생성하고 사용자 익명화를 구성하는
+방법을 배웠습니다.
+****
