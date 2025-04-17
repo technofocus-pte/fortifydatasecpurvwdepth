@@ -1,82 +1,92 @@
-# Lab 8 – Exploring the capabilities of Adaptive Protection
+#  ラボ8 – 適応型保護の機能を探る
 
-## Exercise 1 – Setting up Adaptive Protection
+## エクササイズ1 – 適応型保護の設定
 
-### Task 1 – Setting up risk levels for Adaptive Protection
+### タスク 1 – 適応型保護のリスクレベルの設定
 
-1.  In Microsoft Edge, open a New InPrivate Window, navigate
-    to ```https://purview.microsoft.com``` and log in using the
-    admin tenant.
+1.  Microsoft Edge で、新しい InPrivate
+    ウィンドウを開き、https://purview.microsoft.com
+    に移動して、管理者テナントを使用してログインします。
 
-2.  From the navigation bar, go to **Solutions** \> **Insider risk**
-    **management**.
+2.  ナビゲーション バーから、\[Solutions\] \> \[Insider リスク管理\]
+    に移動します。
 
 ![](./media/image1.png)
 
-3.  From the sub-navigation, select **Adaptive Protection (Preview)**.
+3\. サブナビゲーションから、「Adaptive Protection
+(Preview)」を選択します。![A screenshot of a computer Description
+automatically generated](./media/image2.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image2.png)
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-4.  Since we used the quick start option while enabling **Adaptive
-    Protection**, we can see 2 DLP policies created.
+4\. Adaptive Protection を有効にする際にクイック スタート
+オプションを使用したため、2 つの DLP
+ポリシーが作成されていることがわかります。![A screenshot of a computer
+Description automatically generated](./media/image3.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image3.png)
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-5.  Now click on **Risk levels for Adaptive Protection** from the
-    submenu and from the drop down select **Data leaks by a user**.
+5\. サブメニューから「Risk levels for Adaptive
+Protection」をクリックし、ドロップダウンから「Data leaks by a
+user」を選択します。![BrokenImage](./media/image4.png)
 
-![BrokenImage](./media/image4.png)
 
-6.  Under **Define conditions for risk levels**, select **User performs
-    at least 3 data exfiltration activities,
-    each…** for **Elevated** risk. Select **User performs at least 2
-    data exfiltration activities, each…** for **Moderate** risk.
-    **Select User performs at least 1 data exfiltration activities,
-    each…** for **Minor** risk. Then click **Save**.
+6.  リスク レベルの条件の定義で、高リスクの場合は「ユーザーが少なくとも
+    3
+    つのデータ流出アクティビティをそれぞれ実行…」を選択します。中リスクの場合は「ユーザーが少なくとも
+    2
+    つのデータ流出アクティビティをそれぞれ実行…」を選択します。軽度リスクの場合は「ユーザーが少なくとも
+    1
+    つのデータ流出アクティビティをそれぞれ実行…」を選択します。次に、\[Save\]
+    をクリックします。
 
 ![BrokenImage](./media/image5.png)
 
-7.  Similarly, you can customise the conditions for all the available
-    policy under Insider risk management.
 
-8.  Now we can customise the DLP policy for each level.
+7.  同様に、インサイダー
+    リスク管理で利用可能なすべてのポリシーの条件をカスタマイズできます。
 
-### Task 2 – Exploring Default DLP policies for each of the risk levels of
+8.  これで、各レベルの DLP ポリシーをカスタマイズできます。
+
+### タスク 2 – 各リスクレベルにおけるデフォルトのDLPポリシーの検討
+
 Adaptive Protection
 
-1.  Under Adaptive Protection, select DLP Polices and select Adaptive
-    Protection Policy for Endpoint DLP.
+1\. 「Adaptive Protection」で、「DLP Policy」を選択し、「Endpoint
+DLP」の「Adaptive Protection
+Policy」を選択します。![BrokenImage](./media/image6.png)
 
-![BrokenImage](./media/image6.png)
 
-2.  Select **Edit**.
+2.  **Edit**を選択します。
 
 ![A screenshot of a computer screen Description automatically generated
 with medium confidence](./media/image7.png)
 
-3.  Click on Next till you reach **Customize advanced DLP rules**.
+コンピュータ画面のスクリーンショット。中程度の信頼性で自動生成された説明
 
-![A screenshot of a computer Description automatically
-generated](./media/image8.png)
+3\. 「Customize advanced DLP
+rules」に到達するまで「Next」をクリックします。![A screenshot of a
+computer Description automatically generated](./media/image8.png)
 
-4.  Check the rules and the conditions made for each level of risk.
-    Click **Next**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-5.  On the **Policy mode** page select the radio button near **Turn it
-    on right away**. Click **Next**.
+4.  各リスク レベルに設定されたルールと条件を確認します。\[Next\]
+    をクリックします。
+
+5.  \[Policy mode\] ページで、\[Turn it on\] の横にあるラジオ
+    ボタンを選択します。\[Next\] をクリックします。
 
 ![A screenshot of a computer Description automatically
 generated](./media/image9.png)
 
-6.  Select **Submit**.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-![A screenshot of a computer Description automatically
-generated](./media/image9.png)
+6\. 「」を選択します。![A screenshot of a computer Description
+automatically generated](./media/image9.png)
 
-7.  Repeat the steps to enable the Adaptive Protection Policy for Teams
-    and Exchange DLP.
+コンピュータのスクリーンショット 説明は自動的に生成されました
 
-8.  We will not create any rules or policy as of now, but you can
-    explore various available option after you complete the lab.
+7.  手順を繰り返して、Teams および Exchange DLP
+    の適応型保護ポリシーを有効にします。
+
+8.  現時点ではルールやポリシーは作成しませんが、ラボを完了した後で利用可能なさまざまなオプションを調べることができます。
