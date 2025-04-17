@@ -1,82 +1,107 @@
-# Lab 8 – Exploring the capabilities of Adaptive Protection
+# Lab 8 – Esplorare le funzionalità della protezione adattiva
 
-## Exercise 1 – Setting up Adaptive Protection
+## Esercizio 1 – Impostazione della protezione adattiva
 
-### Task 1 – Setting up risk levels for Adaptive Protection
+### Task 1 – Impostazione dei livelli di rischio per la protezione adattiva
 
-1.  In Microsoft Edge, open a New InPrivate Window, navigate
-    to ```https://purview.microsoft.com``` and log in using the
-    admin tenant.
+1.  In Microsoft Edge, aprire una nuova finestra InPrivate Window,
+    passare a `https://purview.microsoft.com` e accedere utilizzando il
+    tenant amministratore.
 
-2.  From the navigation bar, go to **Solutions** \> **Insider risk**
-    **management**.
+2.  Dalla barra di spostamento passare a **Solutions \> Insider risk
+    management**.
 
-![](./media/image1.png)
+![A screenshot of a computer AI-generated content may be
+incorrect.](./media/image1.png)
 
-3.  From the sub-navigation, select **Adaptive Protection (Preview)**.
+3.  Nella struttura di spostamento secondario selezionare **Adaptive
+    Protection (Preview). **
 
-![A screenshot of a computer Description automatically
-generated](./media/image2.png)
+![Uno screenshot di un computer Descrizione generata
+automaticamente](./media/image2.png)
 
-4.  Since we used the quick start option while enabling **Adaptive
-    Protection**, we can see 2 DLP policies created.
+Uno screenshot di un computer Descrizione generata automaticamente
 
-![A screenshot of a computer Description automatically
-generated](./media/image3.png)
+4.  Poiché è stata utilizzata l'opzione di avvio rapido durante
+    l'abilitazione della **Adaptive Protection**, è possibile
+    visualizzare la creazione di 2 criteri DLP.
 
-5.  Now click on **Risk levels for Adaptive Protection** from the
-    submenu and from the drop down select **Data leaks by a user**.
+![Uno screenshot di un computer Descrizione generata
+automaticamente](./media/image3.png)
 
-![BrokenImage](./media/image4.png)
+Uno screenshot di un computer Descrizione generata automaticamente
 
-6.  Under **Define conditions for risk levels**, select **User performs
-    at least 3 data exfiltration activities,
-    each…** for **Elevated** risk. Select **User performs at least 2
-    data exfiltration activities, each…** for **Moderate** risk.
-    **Select User performs at least 1 data exfiltration activities,
-    each…** for **Minor** risk. Then click **Save**.
+5.  Ora fare clic su **Risk levels for Adaptive Protection** dal
+    sottomenu e dal menu a discesa selezionare ** Data leaks by a
+    user**.
 
-![BrokenImage](./media/image5.png)
+![Immagine rotta](./media/image4.png)
 
-7.  Similarly, you can customise the conditions for all the available
-    policy under Insider risk management.
+Immagine rotta
 
-8.  Now we can customise the DLP policy for each level.
+6.  In **Define conditions for risk levels**, selezionare **User
+    performs at least 3 data exfiltration activities, each…** per
+    rischio **Elevated**. Selezionare **User performs at least 2 data
+    exfiltration activities, each…** per rischio **Moderate**.
+    **Select User performs at least 1 data exfiltration activities,
+    each…** per rischio **Minor**. Quindi fare clic su **Save**.
 
-### Task 2 – Exploring Default DLP policies for each of the risk levels of
-Adaptive Protection
+![Immagine rotta](./media/image5.png)
 
-1.  Under Adaptive Protection, select DLP Polices and select Adaptive
-    Protection Policy for Endpoint DLP.
+Immagine rotta
 
-![BrokenImage](./media/image6.png)
+7.  Analogamente, è possibile personalizzare le condizioni per tutti i
+    criteri disponibili in Insider risk management.
 
-2.  Select **Edit**.
+8.  Ora possiamo personalizzare la policy DLP per ogni livello.
 
-![A screenshot of a computer screen Description automatically generated
-with medium confidence](./media/image7.png)
+### Attività 2 - Esplorazione dei criteri DLP predefiniti per ognuno dei livelli di rischio di
 
-3.  Click on Next till you reach **Customize advanced DLP rules**.
+Protezione adattiva
 
-![A screenshot of a computer Description automatically
-generated](./media/image8.png)
+1.  In Protezione adattiva, selezionare** DLP Polices** e selezionare
+    **Adaptive Protection Policy for Endpoint DLP**.
 
-4.  Check the rules and the conditions made for each level of risk.
-    Click **Next**.
+![Immagine rotta](./media/image6.png)
 
-5.  On the **Policy mode** page select the radio button near **Turn it
-    on right away**. Click **Next**.
+Immagine rotta
 
-![A screenshot of a computer Description automatically
-generated](./media/image9.png)
+2.  Selezionare **Edit**.
 
-6.  Select **Submit**.
+![Uno screenshot dello schermo di un computer Descrizione generata
+automaticamente con media sicurezza](./media/image7.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image9.png)
+Uno screenshot dello schermo di un computer Descrizione generata
+automaticamente con media sicurezza
 
-7.  Repeat the steps to enable the Adaptive Protection Policy for Teams
-    and Exchange DLP.
+3.  Fare clic su **Next** fino a raggiungere **Customize advanced DLP
+    rules**.
 
-8.  We will not create any rules or policy as of now, but you can
-    explore various available option after you complete the lab.
+![Uno screenshot di un computer Descrizione generata
+automaticamente](./media/image8.png)
+
+Uno screenshot di un computer Descrizione generata automaticamente
+
+4.  Controllare le regole e le condizioni stabilite per ogni livello di
+    rischio. Fare clic su **Next**.
+
+5.  Nella pagina  **Policy mode,** selezionare il pulsante di opzione
+    accanto a **Turn it on right away**. Fare clic su **Next**.
+
+![Uno screenshot di un computer Descrizione generata
+automaticamente](./media/image9.png)
+
+Uno screenshot di un computer Descrizione generata automaticamente
+
+6.  Selezionare **Submit**.
+
+![Uno screenshot di un computer Descrizione generata
+automaticamente](./media/image9.png)
+
+Uno screenshot di un computer Descrizione generata automaticamente
+
+7.  Ripetere i passaggi per abilitare i criteri di protezione adattiva
+    per Teams ed Exchange DLP.
+
+8.  Al momento non creeremo alcuna regola o politica, ma puoi esplorare
+    varie opzioni disponibili dopo aver completato il laboratorio.
