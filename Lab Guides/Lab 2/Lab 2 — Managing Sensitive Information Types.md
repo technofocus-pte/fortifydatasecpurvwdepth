@@ -74,7 +74,7 @@ generated](./media/image10.png)
 
     - **ID**: ```Contoso IDs```
 
-    - **Regular expression**: ```\s\[A-Z\]{3}\[0-9\]{6}\s```
+    - **Regular expression**: ```\s\[A-Z\]{3}\[0-9\]{6}\s to \s[A-Z]{3}[0-9]{6}\s```
 
     - Select **String match**
 
