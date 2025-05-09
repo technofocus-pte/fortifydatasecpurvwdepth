@@ -11,9 +11,10 @@ information protection policies.
 
 ## Exercise 1 – Enabling support for sensitivity labels
 
-In this task, you will install the MSOnline module and the SharePoint
+In this task, you will install the AzureAD module and the SharePoint
 Online PowerShell module and enable support for sensitivity labels on
 your tenant.
+
 
 1.  Select the windows symbol in the taskbar with the right mouse button
     and select **Windows PowerShell (Admin)** and run as administrator.
@@ -27,7 +28,7 @@ generated](./media/image1.png)
 3.  Enter the following cmdlet to install the latest Microsoft Online
     PowerShell module version:
 
-```Install-Module -Name MSOnline```
+```Install-Module -Name AzureAD```
 
 ![A screenshot of a computer Description automatically
 generated](./media/image2.png)
@@ -55,7 +56,7 @@ generated](./media/image5.png)
 7.  Enter the following cmdlet to connect to the Microsoft Online
     service:
 
-```Connect-MsolService```
+```Connect-AzureAD```
 
 ![BrokenImage](./media/image6.png)
 
@@ -70,13 +71,13 @@ generated](./media/image7.png)
 
 10. Enter the following cmdlet to get the domain:
 
-```$domain = get-msoldomain```
+```$domain = Get-AzureADDomain```
 
 ![BrokenImage](./media/image8.png)
 
 11. Enter the following cmdlet to create the SharePoint admin url:
 
-```$adminurl = "https://" + $domain.Name.split('.')[0] + "-admin.sharepoint.com"```
+```$adminurl = "https://" + $domain.Name.Split('.')[0] + "-admin.sharepoint.com"```
 
 ![A screenshot of a computer screen Description automatically
 generated](./media/image9.png)
