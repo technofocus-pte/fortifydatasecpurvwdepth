@@ -108,7 +108,7 @@ generated](./media/image7.png)
 
 Uno screenshot di un computer Descrizione generata automaticamente
 
-2.  Per il nome utilizzare `Contoso`` ``Finance Team`` `e per la
+2.  Per il nome utilizzare `Contoso Finance Team `e per la
     descrizione utilizzare **This team handles finance.**, quindi fare
     clic su **Next**.
 
