@@ -225,7 +225,7 @@ generated](./media/image25.png)
   `This HR label is the default label for all specified documents in the HR Department.`
 
 - 管理員描述:
-  `This label is created in consultation with ``Ms.Jones`` (Head of HR department). Contact her, when you want to change settings of the label.`
+  `This label is created in consultation with Ms.Jones (Head of HR department). Contact her, when you want to change settings of the label.`
 
 ![](./media/image26.png)
 
@@ -461,7 +461,7 @@ generated](./media/image52.png)
 電子郵件中創建敏感度標簽。創建的文檔將存儲在 OneDrive
 中，幷通過電子郵件發送給 HR 員工。
 
-1.  導航到 `https://portal.office.com ``幷以`` `**Patti Fernandez**
+1.  導航到 `https://portal.office.com 幷以 `**Patti Fernandez**
     身份登錄。
 
 2.  如果**顯示 Get your work with Office 365** 消息，請將其關閉。
@@ -549,7 +549,7 @@ generated](./media/image62.png)
 
 ![](./media/image63.png)
 
-14. 在主題字段中，輸入：`Employee data for HR``。`
+14. 在主題字段中，輸入：`Employee data for HR。`
 
 15. 在電子郵件消息（頁面底部的大內容面板）中，插入以下消息:
 
