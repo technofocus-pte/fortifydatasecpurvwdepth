@@ -65,7 +65,7 @@ generated](./media/image6.png)
 2.  輸入以下 cmdlet 以使用 **Exchange Online PowerShell**
     模塊幷連接到您的租戶：
 
-`Connect-``ExchangeOnline`
+`Connect-ExchangeOnline`
 
 ![Text Description automatically generated](./media/image7.png)
 
@@ -86,7 +86,7 @@ generated](./media/image6.png)
     - **ModerationEnabled =
       True**。確保發送到此組的所有消息都需要審批，幷且該組不用于通信合規性策略配置之外的通信。
 
-`New-``DistributionGroup`` -Name "Communication Compliance Group Contoso" -Alias "``CCG_Contoso``" -``MemberDepartRestriction`` 'Closed' -``MemberJoinRestriction`` 'Closed' -``ModerationEnabled`` $true`
+`New-DistributionGroup -Name "Communication Compliance Group Contoso" -Alias "CCG_Contoso" -MemberDepartRestriction 'Closed' -MemberJoinRestriction 'Closed' -ModerationEnabled $true`
 
 ![BrokenImage](./media/image9.png)
 
@@ -94,7 +94,7 @@ generated](./media/image6.png)
 **注意：**可以按  **following command** 添加 **Exchange Custom
 Attribute**，以跟踪添加到組織中通信合規性策略的用戶。
 
-`Set-``DistributionGroup`` -Identity "Communication Compliance Group Contoso"-CustomAttribute1 "``MonitoredCommunication``"`
+`Set-DistributionGroup -Identity "Communication Compliance Group Contoso"-CustomAttribute1 "MonitoredCommunication"`
 
 ![A screen shot of a computer Description automatically
 generated](./media/image10.png)
@@ -310,18 +310,18 @@ generated](./media/image31.png)
 在試用帳戶中，您將無權發送任何電子郵件，但可以查看以下步驟，瞭解如何在擁有自己的許可證時測試策略。您可以執行步驟，但您的郵件將無法從當前租戶到達收件人。
 
 1.  轉到 https://outlook.office365.com/mail/ 打開
-    Outlook，然後使用用戶名 `adelev``@{TENANTPREFIX}.``onmicrosoft.com`
+    Outlook，然後使用用戶名 `adelev@{TENANTPREFIX}.onmicrosoft.com`
     和用戶密碼登錄。
 
 2.  向您的個人電子郵件賬戶發送一封電子郵件，其中包含以下郵件正文。
 
-消息正文: `Employee Patti Fernandez EMP123456 ``is on absence`` because of the flu/influenza`
+消息正文: `Employee Patti Fernandez EMP123456 is on absence because of the flu/influenza`
 
 **注意** 電子郵件可能需要大約 24 小時才能在策略中完全處理。Microsoft
 Teams、Yammer 和第三方平臺中的通信可能需要大約 48
 小時才能在策略中完全處理。
 
-以 `Patti Fernandez`` ``的身份`登錄
+以 `Patti Fernandez 的身份`登錄
 https://purview.microsoft.com/。導航到 **Communication
 compliance \> Alerts** ，在 24 小時後查看策略的警報。
 
