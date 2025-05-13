@@ -34,7 +34,7 @@ Microsoft 365 租戶以防止數據丟失。Contoso Ltd.
 
 ![](./media/image3.png)
 
-5.  在 **Name your DLP policy** 頁面上， ` ``在`` `Name 字段中鍵入
+5.  在 **Name your DLP policy** 頁面上， ` 在 `Name 字段中鍵入
     Credit Card DLP Policy `幷保護信用卡號不被共享。` 在 **Description**
     字段中。選擇 **Next**。
 
