@@ -231,7 +231,7 @@ Contoso EmployeeID，則會阻止用戶發送電子郵件。
 
 2.  在 **PowerShell** 窗口中，輸入
 
-`Connect-``IPPSSession`
+`Connect-IPPSSession`
 
 然後以 **Patti Fernandez** 身份登錄**。**
 
@@ -241,9 +241,9 @@ Contoso EmployeeID，則會阻止用戶發送電子郵件。
 
 注意：如果顯示錯誤，請先嘗試逐個運行以下命令，然後再次執行該步驟。
 
-`Install-Module ``ExchangeOnlineManagement`
+`Install-Module ExchangeOnlineManagement`
 
-`Import-Module ``ExchangeOnlineManagement`
+`Import-Module ExchangeOnlineManagement`
 
 如果顯示錯誤，請先嘗試逐個運行以下命令，然後再次執行該步驟。如果您仍然遇到任何錯誤，請下載以下文件幷安裝它，然後再繼續。
 `https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/PowerShell-7.4.0-win-x64.msi`
@@ -251,7 +251,7 @@ Contoso EmployeeID，則會阻止用戶發送電子郵件。
 3.  在 PowerShell 中輸入以下命令以創建掃描所有 Exchange 郵箱的 DLP
     策略：
 
-`New-``DlpCompliancePolicy`` -Name "``EmployeeID`` DLP Policy" -Comment "This policy blocks sharing of Employee IDs" -``ExchangeLocation`` All`
+`New-DlpCompliancePolicy -Name "EmployeeID DLP Policy" -Comment "This policy blocks sharing of Employee IDs" -ExchangeLocation All`
 
 ![BrokenImage](./media/image29.png)
 
@@ -259,7 +259,7 @@ Contoso EmployeeID，則會阻止用戶發送電子郵件。
 4.  在 PowerShell 中輸入以下命令，將 DLP 規則添加到您在上一步中創建的
     DLP 策略:
 
-`New-``DlpComplianceRule`` -Name "``EmployeeID`` DLP rule" -Policy "``EmployeeID`` DLP Policy" -``BlockAccess`` $\\true -``ContentContainsSensitiveInformation`` ``@{``Name="Contoso Employee ``IDs"}`
+`New-DlpComplianceRule -Name "EmployeeID DLP rule" -Policy "EmployeeID DLP Policy" -BlockAccess $\\true -ContentContainsSensitiveInformation @{Name="Contoso Employee IDs"}`
 
 ![Text Description automatically generated](./media/image30.png)
 
@@ -267,7 +267,7 @@ Contoso EmployeeID，則會阻止用戶發送電子郵件。
 
 5.  使用以下命令查看 **EmployeeID DLP rule**:
 
-`Get-``DLPComplianceRule`` -Identity "``EmployeeID`` DLP rule"`
+`Get-DLPComplianceRule -Identity "EmployeeID DLP rule"`
 
 ![Text Description automatically generated](./media/image31.png)
 
@@ -431,9 +431,9 @@ generated](./media/image42.png)
 
 自動生成的計算機 Description 的屏幕截圖
 
-9.  在 **Create file policy** 頁面上，在 `Policy name`` `字段中鍵入
+9.  在 **Create file policy** 頁面上，在 `Policy name `字段中鍵入
     Credit Card Information for files，然後鍵入
-    `Protect credit card numbers from being shared in files``。` 在
+    `Protect credit card numbers from being shared in files。` 在
     **Description**字段中。
 
 ![Graphical user interface, application Description automatically
@@ -561,7 +561,7 @@ generated](./media/image56.png)
 自動生成圖形用戶界面、應用程序、Teams 描述
 
 4.  在 **Name your policy**頁面上，鍵入
-    `“``租戶範圍的`` SharePoint ``策略`”，然後選擇 **Next**。
+    `“租戶範圍的 SharePoint 策略"`，然後選擇 **Next**。
 
 ![Graphical user interface, text, application Description automatically
 generated](./media/image57.png)
