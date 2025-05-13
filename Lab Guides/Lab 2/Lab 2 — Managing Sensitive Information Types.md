@@ -297,7 +297,7 @@ automatically generated](./media/image26.png)
     `Contoso Employee EDM` 作爲名稱。
 
 28. 在 **Description for admins** 字段中，爲員工個人信息輸入
-    `基于`` EDM ``的敏感信息類型。`。選擇 **Next。**
+    `基于 EDM 的敏感信息類型。`。選擇 **Next。**
 
 ![Graphical user interface, text, application Description automatically
 generated](./media/image27.png)
@@ -399,7 +399,7 @@ Text Description automatically generated
 
 
 12. 當 **Pick an account （選擇帳戶**） 窗口顯示時， 使用用戶名
-    PattiF@{TENANTPREFIX}.onmicrosoft.com` ``和資源選項卡上提供的用戶密碼以`` `**Patti
+    PattiF@{TENANTPREFIX}.onmicrosoft.com` 和資源選項卡上提供的用戶密碼以 `**Patti
     Fernandez** 身份登錄。
 
 **注意**：對于後續步驟，請確保文件的路徑與 VM
@@ -528,7 +528,7 @@ generated](./media/image43.png)
 
 圖形用戶界面，自動生成應用程序描述
 
-12. 在 **Add a keyword list**頁中`，在`` `ID 字段中輸入 員工缺勤。在
+12. 在 **Add a keyword list**頁中`，在 `ID 字段中輸入 員工缺勤。在
     **Case insensitive**
     框中，輸入以下關鍵字，每個關鍵字都放在單獨的行中
 
@@ -597,7 +597,7 @@ generated](./media/image47.png)
 5.  在 **Microsoft Edge** 中，Microsoft Purview
     門戶選項卡應仍處于打開狀態。如果是這樣，請選擇它幷繼續下一步。如果您關閉了它，則在新選項卡中導航到
     `https://purview.microsoft.com`。 **使用用戶名**
-    PattiF@{TENANTPREFIX}.onmicrosoft.com` ``和資源選項卡上提供的用戶密碼以`` `**Patti
+    PattiF@{TENANTPREFIX}.onmicrosoft.com` 和資源選項卡上提供的用戶密碼以 `**Patti
     Fernandez** 身份登錄。
 
 6.  在左側導航窗格中，選擇 **Solutions** \> **Data Loss
