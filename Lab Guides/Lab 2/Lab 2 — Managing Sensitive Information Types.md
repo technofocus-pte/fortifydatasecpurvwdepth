@@ -408,7 +408,7 @@ Text Description automatically generated
 13. 通過在 PowerShell 中運行以下脚本，下載基于 EDM
     的分類敏感信息類型的數據庫架構定義
 
-`.\EdmUploadAgent.exe /``SaveSchema`` /``DataStoreName`` ``employeedb`` /``OutputDir`` "C:\Users\Admin\Documents\"`
+`.\EdmUploadAgent.exe /SaveSchema /DataStoreName employeedb /OutputDir "C:\Users\Admin\Documents\"`
 
 **注意**：如果最後一個命令失敗，則可能需要更多時間才能應用
 **EDM_DataUploaders** 組成員資格。可能需要長達一小時才能下載 Schema
@@ -421,7 +421,7 @@ documents 文件夾的路徑。
 > \`14.通過在PowerShell中運行以下脚本，對數據庫文件進行哈希處理，幷將其上傳到基于
 > EDM 的分類敏感信息類型：
 
-`.\EdmUploadAgent.exe /``UploadData`` /``DataStoreName`` ``employeedb`` /``DataFile`` "C:\Users\Admin\Documents\EmployeeData.csv" /``HashLocation`` "C:\Users\Admin\Documents\" /Schema "C:\Users\Admin\Documents\employeedb.xml"`
+`.\EdmUploadAgent.exe /UploadData /DataStoreName employeedb /DataFile "C:\Users\Admin\Documents\EmployeeData.csv" /HashLocation "C:\Users\Admin\Documents\" /Schema "C:\Users\Admin\Documents\employeedb.xml"`
 
 ![BrokenImage](./media/image36.png)
 
@@ -440,7 +440,7 @@ documents 文件夾的路徑。
 15. 檢查上傳進度，直到狀態更改爲 completed （已完成），然後運行以下
     PowerShell 命令：
 
-`.\EdmUploadAgent.exe /``GetSession`` /``DataStoreName`` ``employeedb`
+`.\EdmUploadAgent.exe /GetSession /DataStoreName employeedb`
 
 ![BrokenImage](./media/image38.png)
 
@@ -587,9 +587,9 @@ generated](./media/image47.png)
 
 2.  在記事本窗口中輸入以下**Notepad**
 
-`Employee Patti Fernandez EMP123456 ``is on absence`` because of the flu/influenza`
+`Employee Patti Fernandez EMP123456 is on absence because of the flu/influenza`
 
-3.  選擇 **File （文件** ） 和 Save As `SickTestData`` `，然後選擇
+3.  選擇 **File （文件** ） 和 Save As `SickTestData`，然後選擇
     **Save**。
 
 4.  關閉記事本窗口。
