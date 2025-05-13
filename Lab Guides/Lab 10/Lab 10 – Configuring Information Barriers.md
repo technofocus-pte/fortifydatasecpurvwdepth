@@ -27,7 +27,7 @@ BrokenImage
 
 2.  運行以下命令:
 
-`Install-Module ``ExchangeOnlineManagement`
+`Install-Module ExchangeOnlineManagement`
 
 3.  如果系統提示**Do you want PowerShellGet to install and import the
     NuGet provider now?**’ 和‘**Are you sure you want to install the
@@ -40,7 +40,7 @@ generated](./media/image2.png)
 
 4.  安裝完成後，運行以下命令。
 
-`Import-Module ``ExchangeOnlineManagement`
+`Import-Module ExchangeOnlineManagement`
 
 ![A screenshot of a computer Description automatically
 generated](./media/image3.png)
@@ -49,7 +49,7 @@ generated](./media/image3.png)
 
 5.  現在運行以下命令以連接到 Exchange Online。
 
-`Connect-``IPPSSession`
+`Connect-IPPSSession`
 
 ![A screenshot of a computer Description automatically
 generated](./media/image4.png)
@@ -64,19 +64,19 @@ BrokenImage
 
 7.  在 **PowerShell** 中逐個運行以下命令 以創建組織結構。
 
-`New-``OrganizationSegment`` -Name "HR" -``UserGroupFilter`` "Department -eq 'HR'"`
+`New-OrganizationSegment -Name "HR" -UserGroupFilter "Department -eq 'HR'"`
 
 ![BrokenImage](./media/image6.png)
 
 BrokenImage
 
-`New-``OrganizationSegment`` -Name "Sales" -``UserGroupFilter`` "Department -eq 'Sales'"`
+`New-OrganizationSegment -Name "Sales" -UserGroupFilter "Department -eq 'Sales'"`
 
-`New-``OrganizationSegment`` -Name "Marketing" -``UserGroupFilter`` "Department -eq 'Marketing'"`
+`New-OrganizationSegment -Name "Marketing" -UserGroupFilter "Department -eq 'Marketing'"`
 
-`New-``OrganizationSegment`` -Name "Research" -``UserGroupFilter`` "Department -eq 'Research'"`
+`New-OrganizationSegment -Name "Research" -UserGroupFilter "Department -eq 'Research'"`
 
-`New-``OrganizationSegment`` -Name "Manufacturing" -``UserGroupFilter`` "Department -eq 'Manufacturing'"`
+`New-OrganizationSegment -Name "Manufacturing" -UserGroupFilter "Department -eq 'Manufacturing'"`
 
 ### 任務 2 – 在 Microsoft Teams 中啓用範圍目錄搜索
 
@@ -103,7 +103,7 @@ generated](./media/image8.png)
 
 ### 任務 1 – 阻止段之間的通信
 
-1.  `使用`` MOD Administration ``的憑證登錄`` ``https://purview.microsoft.com/``，該憑證在環境的`` resources ``選項卡上提供``。`
+1.  `使用 MOD Administration 的憑證登錄 https://purview.microsoft.com/，該憑證在環境的 resources 選項卡上提供。`
 
 2.  在左側導航窗格中，選擇 **Solutions** \> **Information barriers**。
 
@@ -190,7 +190,7 @@ BrokenImage
 
 2.  運行以下命令:
 
-`Import-Module ``ExchangeOnlineManagement`
+`Import-Module ExchangeOnlineManagement`
 
 ![A screenshot of a computer Description automatically
 generated](./media/image19.png)
@@ -199,7 +199,7 @@ generated](./media/image19.png)
 
 3.  現在運行以下命令以連接到 Exchange Online。
 
-`Connect-``IPPSSession`
+`Connect-IPPSSession`
 
 ![A screenshot of a computer Description automatically
 generated](./media/image4.png)
@@ -212,7 +212,7 @@ generated](./media/image4.png)
     策略。當此策略處于活動狀態幷應用時，它將有助于阻止 **Research**
     區段中的用戶與 **Sales** 區段中的用戶通信。
 
-`New-``InformationBarrierPolicy`` -Name "Research-Sales" -``AssignedSegment`` "Research" -``SegmentsBlocked`` "Sales" -State Inactive`
+`New-InformationBarrierPolicy -Name "Research-Sales" -AssignedSegment "Research" -SegmentsBlocked "Sales" -State Inactive`
 
 ![BrokenImage](./media/image20.png)
 
@@ -223,7 +223,7 @@ BrokenImage
     **HR** 和 **Marketing**
     進行通信。人力資源和營銷部門不受與其他部門交流的限制..
 
-`New-``InformationBarrierPolicy`` -Name "Manufacturing-``HRMarketing``" -``AssignedSegment`` "Manufacturing" -``SegmentsAllowed`` "``HR","Marketing","Manufacturing``" -State Inactive`
+`New-InformationBarrierPolicy -Name "Manufacturing-HRMarketing" -AssignedSegment "Manufacturing" -SegmentsAllowed "HR","Marketing","Manufacturing" -State Inactive`
 
 ![A computer screen shot of a computer program Description automatically
 generated](./media/image21.png)
@@ -240,7 +240,7 @@ generated](./media/image21.png)
 
 ## 練習 3 - 應用 IB 策略
 
-1.  `使用`` MOD Administration ``的憑證登錄`` ``https://purview.microsoft.com/``，該憑證在環境的`` resources ``選項卡上提供。`
+1.  `使用 MOD Administration 的憑證登錄 https://purview.microsoft.com/，該憑證在環境的 resources 選項卡上提供。`
 
 2.  在左側導航窗格中，選擇 **Information barriers**。
 
