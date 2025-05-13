@@ -54,7 +54,7 @@ Uno screenshot di un computer Descrizione generata automaticamente
 4.  Nella pagina **Name your sensitive info type,** immettere le
     informazioni seguenti:
 
-    - **Name**: `ID`` ``dipendente Contoso`
+    - **Name**: `ID dipendente Contoso`
 
     - **Description**: `modello per gli ID dipendente di Contoso.`
 
@@ -88,7 +88,7 @@ automaticamente
 
     - **ID**: `ID Contoso`
 
-    - **Regular expression**: `\s\[A-Z\]{3}\[0-9\]{6}\s`
+    - **Regular expression**: `\s[A-Z]{3}[0-9]{6}\s`
 
     - Selezionare **String match**
 
