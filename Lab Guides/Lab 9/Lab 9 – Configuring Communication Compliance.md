@@ -82,7 +82,7 @@ employés rejoignent votre organisation.
 2.  Entrez l'applet de commande suivante pour utiliser le **Exchange
     Online PowerShell** et vous connecter à votre locataire :
 
-`Connect-``ExchangeOnline`
+`Connect-ExchangeOnline`
 
 ![Description textuelle générée automatiquement](./media/image7.png)
 
@@ -111,7 +111,7 @@ Description textuelle générée automatiquement
       n'est pas utilisé pour communiquer en dehors de la configuration
       de la stratégie de conformité de communication.
 
-`New-``DistributionGroup`` -Name "Communication Compliance Group Contoso" -Alias "``CCG_Contoso``" -``MemberDepartRestriction`` 'Closed' -``MemberJoinRestriction`` 'Closed' -``ModerationEnabled`` $true`
+`New-DistributionGroup -Name "Communication Compliance Group Contoso" -Alias "CCG_Contoso" -MemberDepartRestriction 'Closed' -MemberJoinRestriction 'Closed' -ModerationEnabled $true`
 
 ![BrokenImage](./media/image9.png)
 
@@ -120,7 +120,7 @@ Description textuelle générée automatiquement
 comme dans la **following command** pour suivre les utilisateurs ajoutés
 à la stratégie de conformité de communication dans votre organisation.
 
-`Set-``DistributionGroup`` -Identity "Communication Compliance Group Contoso"-CustomAttribute1 "``MonitoredCommunication``"`![Une
+`Set-DistributionGroup -Identity "Communication Compliance Group Contoso"-CustomAttribute1 "MonitoredCommunication"`![Une
 capture d'écran d'un ordinateur Description générée
 automatiquement](./media/image10.png)
 
@@ -366,7 +366,7 @@ le destinataire à partir de votre locataire actuel.
 
 1.  Ouvrez Outlook en accédant à
     `https://outlook.office365.com/mail/ `et connectez-vous avec le nom
-    d'utilisateur `adelev``@{TENANTPREFIX``}.onmicrosoft.com` et le mot
+    d'utilisateur `adelev@{TENANTPREFIX}.onmicrosoft.com` et le mot
     de passe utilisateur.
 
 2.  Envoyez un e-mail à votre compte de messagerie personnel avec le
