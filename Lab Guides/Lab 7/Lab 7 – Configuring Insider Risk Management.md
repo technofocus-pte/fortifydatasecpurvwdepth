@@ -581,7 +581,7 @@ automatiquement*
     - Name (required): `Data theft by a user`
 
     - Description
-      (optional): `This is a test policy for ``the preventing`` data theft`.
+      (optional): `This is a test policy for the preventing data theft`.
 
 5.  Sélectionnez **Next** pour continuer.
 
