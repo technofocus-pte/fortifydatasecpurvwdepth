@@ -48,7 +48,7 @@ Une capture d'écran d'un ordinateur Description générée automatiquement
 
 4.  Exécutez la commande suivante une fois l'installation terminée.
 
-`Import-Module ``ExchangeOnlineManagement`
+`Import-Module ExchangeOnlineManagement`
 
 ![Une capture d'écran d'un ordinateur Description générée
 automatiquement](./media/image3.png)
@@ -58,7 +58,7 @@ Une capture d'écran d'un ordinateur Description générée automatiquement
 5.  Exécutez maintenant la commande suivante pour vous connecter à
     Exchange Online.
 
-`Connect-``IPPSSession`
+`Connect-IPPSSession`
 
 ![Une capture d'écran d'un ordinateur Description générée
 automatiquement](./media/image4.png)
@@ -75,7 +75,7 @@ Une capture d'écran d'un ordinateur Description générée automatiquement
 7.  Exécutez la commande suivante une par une dans **PowerShell** pour
     créer la structure d'organisation.
 
-`New-``OrganizationSegment`` -Name "HR" -``UserGroupFilter`` "Department -eq 'HR'"`
+`New-OrganizationSegment -Name "HR" -UserGroupFilter "Department -eq 'HR'"`
 
 ![BrokenImage](./media/image6.png)
 
@@ -223,7 +223,7 @@ Une capture d'écran d'un ordinateur Description générée automatiquement
 3.  Exécutez maintenant la commande suivante pour vous connecter à
     Exchange Online.
 
-`Connect-``IPPSSession`
+`Connect-IPPSSession`
 
 ![Une capture d'écran d'un ordinateur Description générée
 automatiquement](./media/image4.png)
@@ -239,7 +239,7 @@ Une capture d'écran d'un ordinateur Description générée automatiquement
     elle permet d'empêcher les utilisateurs du segment **Research** de
     communiquer avec les utilisateurs du segment **Sales**.
 
-`New-``InformationBarrierPolicy`` -Name "Research-Sales" -``AssignedSegment`` "Research" -``SegmentsBlocked`` "Sales" -State Inactive`
+`New-InformationBarrierPolicy -Name "Research-Sales" -AssignedSegment "Research" -SegmentsBlocked "Sales" -State Inactive`
 
 ![BrokenImage](./media/image20.png)
 
@@ -250,7 +250,7 @@ Une capture d'écran d'un ordinateur Description générée automatiquement
     **HR** et **le Marketing**. Les RH et le marketing ne sont pas
     limités dans la communication avec d'autres segments.
 
-`New-``InformationBarrierPolicy`` -Name "Manufacturing-``HRMarketing``" -``AssignedSegment`` "Manufacturing" -``SegmentsAllowed`` "``HR","Marketing","Manufacturing``" -State Inactive`
+`New-InformationBarrierPolicy -Name "Manufacturing-HRMarketing" -AssignedSegment "Manufacturing" -SegmentsAllowed "HR","Marketing","Manufacturing" -State Inactive`
 
 ![Capture d'écran d'un programme d'ordinateur Description générée
 automatiquement](./media/image21.png)
