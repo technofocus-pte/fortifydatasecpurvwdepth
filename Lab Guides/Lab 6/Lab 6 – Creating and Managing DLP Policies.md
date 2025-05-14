@@ -260,7 +260,7 @@ inclut des ID d'employé Contoso.
 
 2.  Dans la fenêtre **PowerShell**, entrez
 
-`Connect-``IPPSSession`
+`Connect-IPPSSession`
 
 puis connectez-vous en tant que **Patti Fernandez.**
 
@@ -271,9 +271,9 @@ Description textuelle générée automatiquement
 Remarque : Si l'erreur s'affiche, essayez d'exécuter les commandes
 Nextes une par une, puis exécutez à nouveau l'étape.
 
-`Install-Module ``ExchangeOnlineManagement`
+`Install-Module ExchangeOnlineManagement`
 
-`Import-Module ``ExchangeOnlineManagement`
+`Import-Module ExchangeOnlineManagement`
 
 S'il affiche une erreur, essayez d'exécuter les commandes Nextes une par
 une, puis exécutez à nouveau l'étape. Si vous rencontrez toujours une
@@ -283,7 +283,7 @@ erreur, téléchargez le fichier Next et installez-le avant de continuer.
 3.  Entrez la commande Nexte dans PowerShell pour créer une stratégie
     DLP qui analyse toutes les boîtes aux lettres Exchange :
 
-`New-``DlpCompliancePolicy`` -Name "``EmployeeID`` DLP Policy" -Comment "This policy blocks sharing of Employee IDs" -``ExchangeLocation`` All`
+`New-DlpCompliancePolicy -Name "EmployeeID DLP Policy" -Comment "This policy blocks sharing of Employee IDs" -ExchangeLocation All`
 
 ![BrokenImage](./media/image29.png)
 
@@ -292,14 +292,14 @@ erreur, téléchargez le fichier Next et installez-le avant de continuer.
 4.  Entrez la commande Nexte dans PowerShell pour ajouter une règle DLP
     à la stratégie DLP que vous avez créée à l'étape précédente :
 
-`New-``DlpComplianceRule`` -Name "``EmployeeID`` DLP rule" -Policy "``EmployeeID`` DLP Policy" -``BlockAccess`` $\\true -``ContentContainsSensitiveInformation`` ``@{``Name="Contoso Employee IDs"}`![Description
+`New-DlpComplianceRule -Name "EmployeeID DLP rule" -Policy "EmployeeID DLP Policy" -BlockAccess $\\true -ContentContainsSensitiveInformation @{Name="Contoso Employee IDs"}`![Description
 textuelle générée automatiquement](./media/image30.png)
 
 Description textuelle générée automatiquement
 
 5.  Utilisez la commande Nexte pour examiner la **EmployeeID DLP rule**:
 
-`Get-``DLPComplianceRule`` -Identity « ``Règle`` DLP EmployeeID »`
+`Get-DLPComplianceRule -Identity « Règle DLP EmployeeID »`
 
 ![Description textuelle générée automatiquement](./media/image31.png)
 
@@ -635,7 +635,7 @@ Interface utilisateur graphique, application, Teams Description générée
 automatiquement
 
 4.  Sur la page **Name your policy**, tapez
-    `Tenant-``wide`` SharePoint Policy`, puis sélectionnez **Next**.
+    `Tenant-wide SharePoint Policy`, puis sélectionnez **Next**.
 
 ![Interface utilisateur graphique, texte, application Description
 générée automatiquement](./media/image57.png)
