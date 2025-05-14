@@ -57,7 +57,7 @@ Une capture d'écran d'un ordinateur Description générée automatiquement
 
     - **Name**: `Contoso Employee IDs`
 
-    - **Description** : `Pattern for Contoso Employee IDs``.`
+    - **Description** : `Pattern for Contoso Employee IDs.`
 
 5.  Sélectionnez **Next**.
 
@@ -89,7 +89,7 @@ automatiquement
 
     - **ID** : `ID Contoso`
 
-    - **Expression régulière** : `\s\[A-Z\]{``3}\``[0-9\]{``6}\``s`
+    - **Expression régulière** : `\s[A-Z]{3}[0-9]{6}\s`
 
     - Sélectionnez **String match**
 
@@ -114,7 +114,7 @@ automatiquement
 10. Dans le nouveau volet de droite **Add a keyword list**, entrez ce
     qui suit :
 
-    - **ID** : `Employee`` ID keywords`
+    - **ID** : `Employee ID keywords`
 
     - **Case insensitive**:
 
@@ -199,7 +199,7 @@ Une capture d'écran d'un ordinateur Description générée automatiquement
 2.  Dans le champ **Name**, entrez `employeedb`.
 
 3.  Dans le champ **Description**, entrez
-    `Employee`` ``Database`` ``schema``.``.`.
+    `Employee Database schema..`.
 
 4.  Activez **Ignore delimiters and punctuation for all schema fields**.
 
@@ -240,7 +240,7 @@ automatiquement
     inférieure.
 
 12. Dans **Schema field name**, sous **Schema field \#4**, entrez
-    `EmployeeID``.`
+    `EmployeeID.`
 
 13. Sélectionnez **Field is searchable**.
 
@@ -335,10 +335,10 @@ Interface utilisateur graphique, texte, application, description de mot
 générée automatiquement
 
 27. Sur la page **Name and describe your EDM sensitive info type**,
-    entrez `Contoso`` ``Employee`` EDM` pour le nom.
+    entrez `Contoso Employee EDM` pour le nom.
 
 28. Dans le champ **Description for admins**, saisissez le
-    `type d'informations sensibles basé sur EDM pour les informations personnelles des ``employés.`
+    `type d'informations sensibles basé sur EDM pour les informations personnelles des employés.`
     Sélectionnez **Next.**
 
 ![Interface utilisateur graphique, texte, application Description
@@ -446,7 +446,7 @@ d'informations sensibles via l'outil EDM Upload Agent.
 
 10. Accédez au répertoire de l'agent de téléchargement EDM :
 
-`cd ``"C:\Program Files\Microsoft\``EdmUploadAgent``"`
+`cd "C:\Program Files\Microsoft\EdmUploadAgent"`
 
 ![Description textuelle générée automatiquement](./media/image33.png)
 
@@ -455,7 +455,7 @@ Description textuelle générée automatiquement
 11. Autorisez avec votre compte à télécharger la base de données sur
     votre locataire en exécutant l'applet de commande suivante :
 
-`.\EdmUploadAgent.exe /``Autoriser`
+`.\EdmUploadAgent.exe /Autoriser`
 
 ![BrokenImage](./media/image34.png)
 
@@ -495,7 +495,7 @@ documents sur votre machine virtuelle.
     d'informations sensibles de classification basé sur EDM en exécutant
     le script suivant dans PowerShell :
 
-`.\EdmUploadAgent.exe /``UploadData`` /``DataStoreName`` ``employeedb`` /``DataFile`` "C:\Users\Admin\Documents\EmployeeData.csv" /``HashLocation`` "C:\Users\Admin\Documents\" /``Schema`` "C:\Users\Admin\Documents\employeedb.xml"`![BrokenImage](./media/image36.png)
+`.\EdmUploadAgent.exe /UploadData /DataStoreName employeedb /DataFile "C:\Users\Admin\Documents\EmployeeData.csv" /HashLocation "C:\Users\Admin\Documents\" /Schema "C:\Users\Admin\Documents\employeedb.xml"`![BrokenImage](./media/image36.png)
 
 
 
@@ -515,7 +515,7 @@ Description textuelle générée automatiquement
 15. Vérifiez la progression du chargement jusqu'à ce que l'état passe à
     terminer, puis exécutez la commande PowerShell suivante :
 
-`.\EdmUploadAgent.exe /``GetSession`` /``DataStoreName`` ``employeedb`
+`.\EdmUploadAgent.exe /GetSession /DataStoreName employeedb`
 
 ![BrokenImage](./media/image38.png)
 
@@ -535,7 +535,7 @@ pas que cela se produise.
 1.  Dans **Microsoft Edge**, ouvrez une **New InPrivate Window**,
     accédez à `https://purview.microsoft.com` et connectez-vous en tant
     que **Patti Fernandez** à l'aide du nom d'utilisateur
-    `PattiF``@{TENANTPREFIX``}.onmicrosoft.com` et du mot de passe
+    `PattiF@{TENANTPREFIX}.onmicrosoft.com` et du mot de passe
     utilisateur indiqué dans votre onglet ressources.
 
 2.  Dans le volet de navigation gauche, sélectionnez **Solutions** \>
@@ -630,7 +630,7 @@ automatiquement
 
 `absence`
 
-`reason`` `  
+`reason`  
   
 ![Interface utilisateur graphique, application Description générée
 automatiquement](./media/image44.png)
@@ -695,9 +695,9 @@ recherche personnalisé défectueux.
 
 2.  Entrez le texte suivant dans la fenêtre du bloc-notes
 
-`Employee Patti Fernandez EMP123456 ``is on absence`` because of the flu/influenza`
+`Employee Patti Fernandez EMP123456 is on absence because of the flu/influenza`
 
-3.  Sélectionnez **File** et Enregistrer sous `SickTestData``, `puis
+3.  Sélectionnez **File** et Enregistrer sous `SickTestData, `puis
     sélectionnez **Save**.
 
 4.  Fermez la fenêtre du Bloc-notes.
@@ -707,7 +707,7 @@ recherche personnalisé défectueux.
     l'étape suivante. Si vous l'avez fermé, dans un nouvel onglet,
     accédez à `https://purview.microsoft.com`. Connectez-vous en tant
     que **Patti Fernandez** en utilisant le nom d'utilisateur
-    `PattiF``@{TENANTPREFIX``}.onmicrosoft.com` et le mot de passe de
+    `PattiF@{TENANTPREFIX}.onmicrosoft.com` et le mot de passe de
     l'utilisateur indiqué dans l'onglet de vos ressources.
 
 6.  Dans le volet de navigation de gauche, sélectionnez **Solutions** \>
