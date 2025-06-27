@@ -6,7 +6,7 @@
   Fabric using Microsoft Purview.
 
 1.  Open an Edge browser address bar and enter the following URL to open
-    the Fabric portal - +++**https://app.fabric.microsoft.com**+++
+    the Fabric portal - `**https://app.fabric.microsoft.com**`
 
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image1.png)
