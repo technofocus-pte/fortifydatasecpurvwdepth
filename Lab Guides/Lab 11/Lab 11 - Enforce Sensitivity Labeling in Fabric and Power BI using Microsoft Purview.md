@@ -1,7 +1,6 @@
-**Lab 1: Enforce Sensitivity Labeling in Fabric and Power BI using
-Microsoft Purview**
+# Lab 1: Enforce Sensitivity Labeling in Fabric and Power BI using Microsoft Purview
 
-**Objective**
+## Objective
 
 - Enable and prioritize a manual sensitivity label policy in Microsoft
   Fabric using Microsoft Purview.
