@@ -1,6 +1,6 @@
-> **Configure Information Protection Policy in Fabric​**
+# Lab 12: Configure Information Protection Policy in Fabric​
 
-**Introduction**
+## Introduction
 
 Information protection tenant settings help you to protect sensitive
 information in your Power BI tenant. Allowing and applying sensitivity
