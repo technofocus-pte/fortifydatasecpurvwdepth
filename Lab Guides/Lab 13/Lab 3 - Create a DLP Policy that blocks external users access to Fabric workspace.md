@@ -1,16 +1,15 @@
-**Create a DLP Policy that blocks external users access to Fabric
-workspace**
+# Lab 13: Create a DLP Policy that blocks external users access to Fabric workspace
 
-Introduction
+## Introduction
 
-*We need to block external users from reports containing credit card
+We need to block external users from reports containing credit card
 numbers, unless the data is labeled with the 'Highly Confidential -
 Internal' sensitivity label, in which case a protection policy restricts
 access to select security groups. We want to notify the compliance admin
 to know whenever a semantic model is blocked and the data owner to be
 aware the restriction took place. We also want internal users to be
 aware that the data is highly confidential and that they shouldn't share
-it outside the organization.*
+it outside the organization.
 
 [TABLE]
 
