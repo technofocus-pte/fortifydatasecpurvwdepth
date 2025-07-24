@@ -12,6 +12,8 @@ the appropriate users. 
 Enable information protection features in Microsoft Fabric through the
 Admin Portal to prepare for sensitivity label enforcement.
 
+**Exercise 1: Configure Information Protection Settings in Fabric Admin Portal**
+
 1.  In the Fabric portal home page, click on the **Settings** icon in
     the command bar, then navigate to **Governance and insights**
     section and click on **Admin portal** link.
@@ -140,38 +142,10 @@ Click on the **Apply** button
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image21.png)
 
-22. Allow workspace admins to override automatically applied sensitivity
-    labels
+22. You will receive a notification stating - Tenant settings will be applied within the next 15 minutes.
 
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image22.png)
-
-23. Click on the Play icon beside **Increase the number of users who can
-    edit and republish encrypted PBIX files (preview)**
-
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image23.png)
-
-24. Click on the toggle button to enable it.
-
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image24.png)
-
-25. When enabled, users with restrictive sensitivity permissions on an
-    encrypted sensitivity label can open, edit, publish, and republish
-    PBIX files protected by that label, with restrictions (provided that
-    the appropriate preview feature switch in Power BI Desktop is on).
-
-Click on the **Apply** button
-
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image25.png)
-
-26. Allow workspace admins to override automatically applied sensitivity
-    labels
-
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image26.png)
 
 27. Click on the Play icon beside **Domain admins can set default
     sensitivity labels for their domains (preview)**
@@ -189,9 +163,8 @@ incorrect.](./media/image28.png)
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image29.png)
 
-30. Allow workspace admins to override automatically applied sensitivity
-    labels
-
+30. You will receive a notification stating - Tenant settings will be applied within the next 15 minutes.
+    
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image30.png)
 
