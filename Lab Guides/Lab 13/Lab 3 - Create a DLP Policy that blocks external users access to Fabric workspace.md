@@ -74,10 +74,8 @@ incorrect.](./media/image6.png)
 
 8.  On Choose where to apply the policy page, click on the Next button.
 
-![](./media/image18.png)
+![](./media/n18.png)
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image9.png)
 
 9.  On the **Define policy settings** page, ensure that **Create or
     customize advanced DLP rules** radio button is selected. Then, click
