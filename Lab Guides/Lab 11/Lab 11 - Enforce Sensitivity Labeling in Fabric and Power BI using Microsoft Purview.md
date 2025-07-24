@@ -1,15 +1,24 @@
 # Lab 11: Enforce Sensitivity Labeling in Fabric and Power BI using Microsoft Purview
 
+## Introduction
+Sensitivity labels from Microsoft Purview Information Protection in Fabric and Power BI (including Power BI Desktop) must be enabled on the tenant. When sensitivity labels are enabled:
+-	Specified users and security groups in the organization can apply sensitivity labels to their Fabric content. In the Fabric service, this means any Fabric item. In Power BI Desktop, it means their .pbix files.
+-	In the service, all members of the organization can see those labels. In Desktop, only members of the organization who have the labels published to them can see the labels.
+
 ## Objective
 
 - Enable and prioritize a manual sensitivity label policy in Microsoft
   Fabric using Microsoft Purview.
+
+## Exercise 1: Activate Microsoft Fabric Trial and Access the Purview Hub
 
 1.  Open an Edge browser address bar and enter the following URL to open
     the Fabric portal - `https://app.fabric.microsoft.com`
 
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image1.png)
+
+**Note**: In case, you are directly landing into the Fabric portal, then skip step #2 and 3.
 
 2.  Enter your tenant credentials.
 
@@ -76,7 +85,9 @@ incorrect.](./media/image12.png)
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image14.png)
 
-13. Click on the dropdown beside **Policies**.
+## Exercise 2: Create and Configure a Sensitivity Label Policy for Fabric and Power BI
+
+13.	In the Information Protection blade, navigate and click on the dropdown beside **Policies**.
 
 ![](./media/image15.png)
 
@@ -148,7 +159,7 @@ incorrect.](./media/image26.png)
 incorrect.](./media/image27.png)
 
 25. In **Name your policy** page, under the **Name** field, enter
-    **Manual Labeling – HR Confidential Docs**. Then, click on the
+    ***Manual Labeling – HR Confidential Docs***. Then, click on the
     **Next** button.
 
 ![A screenshot of a computer AI-generated content may be
