@@ -72,10 +72,9 @@ incorrect.](./media/image6.png)
 
 ![](./media/image7.png)
 
-8.  Scroll down and select the checkbox beside **Fabric and Power BI
-    workspaces**. Then, click on the **Next** button.
+8.  On Choose where to apply the policy page, click on the Next button.
 
-![](./media/image8.png)
+![](./media/image18.png)
 
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image9.png)
@@ -118,25 +117,6 @@ incorrect.](./media/image15.png)
 
 ![](./media/image17.png)
 
-15. Under **Conditions** section, select **Add condition** \> **Content
-    contains** \> **Add** \> **Sensitivity labels**
-
-![](./media/image18.png)
-
-![](./media/image19.png)
-
-16. Sensitivity labels pane appears on the right side, in the search
-    bar, enter **Highly Confidential**, then press the enter button.
-
-![](./media/image20.png)
-
-![](./media/image21.png)
-
-17. Select the check box beside **Highly Confidential**, then click on
-    the **Add** button.
-
-![](./media/image22.png)
-
 18. Under **Actions**, select **Add an action** \> **Restrict access or
     encrypt the content in Microsoft 365 locations**
 
@@ -165,10 +145,12 @@ incorrect.](./media/image26.png)
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image27.png)
 
-22. Provide a policy tip that explains that the data in the report is
-    highly confidential is not to be shared outside the organization.
+22. In the **User overrides** section, select the checkbox beside **Allow users to override policy restrictions in Fabric (including Power BI), Exchange, SharePoint, OneDrive, and Teams**, then navigate and select the checkbox beside **Override the rule automatically if they report it as a false positive**.
+    
+![A screenshot of a computer AI-generated content may be
+incorrect.](./media/n27.png)
 
-23. Under **Incident reports**, set **Use this severity level in admin
+24. Under **Incident reports**, set **Use this severity level in admin
     alerts and reports** to **High**.
 
 ![A screenshot of a computer AI-generated content may be
@@ -211,11 +193,9 @@ incorrect.](./media/image34.png)
 
 ![](./media/image35.png)
 
-31. In the **Policies** page, you will see that the **Custom policy** is
-    successfully created.
+**Important Note**: You may encounter Client Error because creating a block DLP policy is not possible in this environment due to lab limitations. In a real-world scenario, this issue will not occur.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image36.png)
+![](./media/n35.png)
 
 **Summary**
 
