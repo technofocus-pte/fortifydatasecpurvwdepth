@@ -66,13 +66,13 @@ incorrect.](./media/image9.png)
 incorrect.](./media/image10.png)
 
 10. Navigate to Governance and insights section and click on **Microsoft
-    Purview hub (preview)** link.
+    Purview hub (preview)** link. Then, on **Microsoft Purview hub (preview)** page, navigate and click on **Information Protection** tile. 
 
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image11.png)
 
 ![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image12.png)
+incorrect.](./media/info15.png)
 
 11. In case, **Pick an account** dialog box appears, then select your
     tenant ID.
