@@ -93,7 +93,7 @@ incorrect.](./media/image14.png)
 
 14. Then, click on **Label publishing policies**.
 
-![](./media/image16.png)
+![](./media/lab125.png)
 
 15. In the **Create policy** page, navigate and click on **Choose
     sensitivity label to publish** link.
