@@ -91,7 +91,7 @@ incorrect.](./media/image14.png)
 
 ![](./media/image15.png)
 
-14. Then, click on **Label publishing policies**.
+14. Then, click on **Label publishing policies**. In the **Label publishing policies** page, navigate and click on **Publish label**.
 
 ![](./media/lab125.png)
 
