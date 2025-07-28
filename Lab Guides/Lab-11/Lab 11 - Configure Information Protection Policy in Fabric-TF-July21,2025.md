@@ -1,19 +1,18 @@
-> **Lab 11: Configure Information Protection Policy in Fabric​**
+# **Lab 11: Configure Information Protection Policy in Fabric​**
 
-**Introduction**
+## **Introduction**
 
 Information protection tenant settings help you to protect sensitive
 information in your Power BI tenant. Allowing and applying sensitivity
 labels to content ensures that information is only seen and accessed by
 the appropriate users. 
 
-**Objective**
+## **Objective**
 
 - Enable information protection features in Microsoft Fabric through the
   Admin Portal to prepare for sensitivity label enforcement.
 
-**Exercise 1: Configure Information Protection Settings in Fabric Admin
-Portal**
+## **Exercise 1: Configure Information Protection Settings in Fabric Admin Portal**
 
 1.  In the Fabric portal home page, click on the **Settings** icon in
     the command bar, then navigate to **Governance and insights**
@@ -64,7 +63,7 @@ incorrect.](./media/image6.png)
     those labels, so that the data remains classified and secure when
     brought into Power BI.
 
-> Click on the **Apply** button.
+    Click on the **Apply** button.
 
 ![](./media/image9.png)
 
@@ -87,7 +86,7 @@ incorrect.](./media/image12.png)
     or applied to Fabric content, the label will also be applied to its
     eligible downstream content.
 
-Click on the **Apply** button.
+    Click on the **Apply** button.
 
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image13.png)
@@ -112,7 +111,7 @@ incorrect.](./media/image16.png)
     automatically applied sensitivity labels without regard to label
     change enforcement rules.
 
-Click on the **Apply** button
+    Click on the **Apply** button
 
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image17.png)
@@ -138,7 +137,7 @@ incorrect.](./media/image19.png)
     for People in your organization for content with protection settings
     in the sensitivity label.
 
-Click on the **Apply** button
+    Click on the **Apply** button
 
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image21.png)
@@ -169,7 +168,7 @@ incorrect.](./media/image25.png)
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image26.png)
 
-**Summary**
+## **Summary**
 
 In this lab, you’ve enabled various information protection settings in
 the Microsoft Fabric Admin Portal to support sensitivity label
