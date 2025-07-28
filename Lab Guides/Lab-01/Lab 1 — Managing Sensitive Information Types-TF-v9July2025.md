@@ -37,7 +37,7 @@ that recognizes the pattern of employee IDs near the keywords "Employee"
 and "ID".
 
 1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
-    to ++**https://**purview**.microsoft.com**++ and log in as
+    to **`https://purview.microsoft.com`** and log in as
     **Patti Fernandez** using the
     username **PattiF@WWLxXXXXXX.onmicrosoft.com** and the User Password
     given on your resources tab.
