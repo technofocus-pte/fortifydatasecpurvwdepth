@@ -1,7 +1,6 @@
-**Lab 12: Create a DLP Policy that blocks external users access to
-Fabric workspace**
+# **Lab 12: Create a DLP Policy that blocks external users access to Fabric workspace**
 
-**Introduction**
+##**Introduction**
 
 *We need to block external users from reports containing credit card
 numbers, unless the data is labeled with the 'Highly Confidential -
@@ -27,14 +26,13 @@ For the purposes of this policy creation procedure, you'll accept the
 default include/exclude values and leave the policy turned off. You'll
 be changing these when you deploy the policy.
 
-**Objective**
+##**Objective**
 
 - Create a custom Data Loss Prevention (DLP) policy in Microsoft Purview
   to block external user access to Fabric and Power BI content
   containing sensitive information.
 
-**Exercise 1: Creating a Custom DLP Policy to Block External Access to
-Fabric Workspaces**
+##**Exercise 1: Creating a Custom DLP Policy to Block External Access to Fabric Workspaces**
 
 1.  In the Microsoft Purview portal, click on **Solutions**, then
     navigate and click on **Data Loss Prevention**
@@ -205,7 +203,7 @@ limitations. In a real-world scenario, this issue will not occur.
 
 ![](./media/image31.png)
 
-**Summary**
+##**Summary**
 
 In this lab, you have created a custom DLP policy in Microsoft Purview
 to protect Fabric and Power BI content by detecting sensitive data and
