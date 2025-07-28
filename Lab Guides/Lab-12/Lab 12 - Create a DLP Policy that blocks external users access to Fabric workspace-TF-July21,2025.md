@@ -15,9 +15,7 @@ it outside the organization.*
 
 | **Statement** | **Configuration question answered and configuration mapping** |
 | ---  | --- |
-|"We need to block external users..."           |       Where to monitor: Fabric and Power BI 
-                                                        Administrative scope: Full directory  
-                                                        Action: Restrict access or encrypt the content in Microsoft 365 locations > Block users from receiving email or accessing shared SharePoint, OneDrive, and Teams files, and Power BI items > Block only people outside your organization |
+|"We need to block external users..."           |       Where to monitor: Fabric and Power BI Administrative scope: Full directory. Action: Restrit.  access or encrypt the content in Microsoft 365 locations > Block users from receiving email or accessing shared SharePoint, OneDrive, and Teams files, and Power BI items > Block only people outside your organization |
 |"...from reports containing credit card numbers..."|- What to monitor: use the Custom template
 - Conditions for match: edit it to add the Credit Card Number sensitive info type.
 |
