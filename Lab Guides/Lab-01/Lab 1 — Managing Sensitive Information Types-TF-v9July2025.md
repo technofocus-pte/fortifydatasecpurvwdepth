@@ -37,7 +37,7 @@ that recognizes the pattern of employee IDs near the keywords "Employee"
 and "ID".
 
 1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
-    to **+++**https://**purview**.microsoft.com**+++** and log in as
+    to `**https://**purview**.microsoft.com**` and log in as
     **Patti Fernandez** using the
     username **PattiF@WWLxXXXXXX.onmicrosoft.com** and the User Password
     given on your resources tab.
@@ -57,7 +57,7 @@ generated](./media/image2.png)
 4.  On the **Name your sensitive info type** page, enter the following
     information:
 
-    - **Name**: **+++Contoso Employee IDs+++**
+    - **Name**: `**Contoso Employee IDs**`
 
     - **Description**: **+++Pattern for Contosoemployee IDs+++.**
 
