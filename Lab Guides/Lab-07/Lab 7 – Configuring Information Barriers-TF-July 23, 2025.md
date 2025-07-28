@@ -8,7 +8,7 @@ regulations, users in some departments aren't supposed to communicate
 with other departments, as listed in the following table:
 
 |**Segment**|**Can communicate with**|**Can't communicate with**|
-| ------------|--------------------------|----------------------------|
+| ----------|------------------------|--------------------------|
 |   HR           |   Everyone                 |  (no restrictions)           |
 |  Sales        |  HR, Marketing Manufacturing                          | Research                           |
 |  Marketing  |  Everyone                          |        (no restrictions)                    |
