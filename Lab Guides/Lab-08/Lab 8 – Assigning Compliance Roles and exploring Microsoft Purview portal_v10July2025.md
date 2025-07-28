@@ -1,26 +1,18 @@
 # **Lab 8 – Assigning Compliance Roles and exploring Microsoft Purview portal**
 
-## Objective:
+**Introduction**
 
-In this lab, we create users and assign them appropriate roles, teams,
-and groups in the Office 365 admin center to represent an
-organisation—Contoso.
+The Microsoft Purview portal supports directly managing permissions for users who perform tasks within Microsoft Purview. Using the Roles and scopes area in Settings for the portal, you can manage permissions for users across your Purview data security, data governance, and risk and compliance solutions. You can limit users to perform only specific tasks that you explicitly grant them access to.
 
-We also assign the following to the Users:
-
-- Trial for compliance Assessments
-
-Later, we will test **Microsoft 365 built-in** **Office 365 Message
-Encryption (OME)**.
-
-Firstly, we will modify the default template to ensure that no social
-IDs dialog is displayed for external recipients when receiving a message
-protected with Office 365 Message Encryption from users of the
-organisation that we set up.
-
-Then, we will create a new custom OME configuration and create a
-transport rule to apply the OME configuration to all mails sent from our
-finance department.
+**Objectives**
+- Assign managers and compliance roles to users in Microsoft 365.
+- Create Microsoft 365 and security groups for team collaboration.
+- Enable trial for Microsoft Purview compliance assessments.
+- Verify and configure Azure RMS for Office 365 Message Encryption.
+- Modify the default OME template to disable social ID access.
+- Test encrypted email delivery without social sign-in.
+- Create and apply a custom OME branding template for the finance team.
+- Enable Adaptive Protection in Microsoft Purview.
 
 ## Exercise 1 - Managing Compliance Roles
 
