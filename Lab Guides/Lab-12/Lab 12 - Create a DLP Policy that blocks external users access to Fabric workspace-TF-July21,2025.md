@@ -15,11 +15,11 @@ it outside the organization.*
 
 | **Statement** | **Configuration question answered and configuration mapping** |
 | ---  | --- |
-|"We need to block external users..."           |       **Where to monitor**: Fabric and Power BI **Administrative scope**: Full directory. **Action**: Restrict.  access or encrypt the content in Microsoft 365 locations > Block users from receiving email or accessing shared SharePoint, OneDrive, and Teams files, and Power BI items > Block only people outside your organization |
-|"...from reports containing credit card numbers..."| What to monitor: use the Custom template. Conditions for match: edit it to add the Credit Card Number sensitive info type.|
+|"We need to block external users..."           |       Where to monitor: **Fabric and Power BI** Administrative scope: **Full directory**. Action: **Restrict.  access or encrypt the content in Microsoft 365 locations > Block users from receiving email or accessing shared SharePoint, OneDrive, and Teams files, and Power BI items > Block only people outside your organization**|
+|"...from reports containing credit card numbers..."| What to monitor: use the **Custom template**. Conditions for match: edit it to add the Credit Card Number sensitive info type.|
 | "...except if the data is labeled with the Highly Confidential - Internal sensitivity label..."| Condition group configuration: Create a nested boolean NOT condition group joined to the first condition using a boolean AND Condition for match: edit it to add the Highly Confidential - Internal sensitivity label.|
-| "We want to notify the compliance admin to know whenever a semantic model is blocked..."|Incident reports: Send an alert to admins when a rule match occurs: On. Send an alert every time an activity matches the rule: selected|
-| "...the data owner to be aware the restriction took place. We also want internal users to be aware that the data is highly confidential and that they shouldn't share it outside the organization."| User notifications: On. Microsoft 365 files and Microsoft Fabric items: Notify users in Office 365 service with a policy tip or email notifications: selected. Policy tips: Customize the policy tip text: selected. Add text in the text box explaining the rules governing sharing highly confidential data.|
+| "We want to notify the compliance admin to know whenever a semantic model is blocked..."|Incident reports: **Send an alert to admins when a rule match occurs: On**. Send an alert every time an activity matches the rule: **selected**|
+| "...the data owner to be aware the restriction took place. We also want internal users to be aware that the data is highly confidential and that they shouldn't share it outside the organization."| User notifications: **On**. Microsoft 365 files and Microsoft Fabric items: Notify users in Office 365 service with a policy tip or email notifications: **selected**. Policy tips: Customize the policy tip text: selected. Add text in the text box explaining the rules governing sharing highly confidential data.|
 
 **Important**
 
