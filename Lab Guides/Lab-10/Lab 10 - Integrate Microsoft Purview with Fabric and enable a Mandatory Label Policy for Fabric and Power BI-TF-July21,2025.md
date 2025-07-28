@@ -1,7 +1,6 @@
-**Lab 10: Enforce Sensitivity Labeling in Fabric and Power BI using
-Microsoft Purview**
+# **Lab 10: Enforce Sensitivity Labeling in Fabric and Power BI using Microsoft Purview**
 
-**Introduction**
+## **Introduction**
 
 Sensitivity labels from Microsoft Purview Information Protection in
 Fabric and Power BI (including Power BI Desktop) must be enabled on the
@@ -16,13 +15,12 @@ tenant. When sensitivity labels are enabled:
   In Desktop, only members of the organization who have the labels
   published to them can see the labels.
 
-**Objective**
+## **Objective**
 
 - Enable and prioritize a manual sensitivity label policy in Microsoft
   Fabric using Microsoft Purview.
 
-**Exercise 1: Activate Microsoft Fabric Trial and Access the Purview
-Hub**
+## **Exercise 1: Activate Microsoft Fabric Trial and Access the Purview Hub**
 
 1.  Open an Edge browser address bar and enter the following URL to open
     the Fabric portal -
@@ -103,8 +101,7 @@ incorrect.](./media/image12.png)
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image14.png)
 
-**Exercise 2: Create and Configure a Sensitivity Label Policy for Fabric
-and Power BI**
+## **Exercise 2: Create and Configure a Sensitivity Label Policy for Fabric and Power BI**
 
 1.  In the Information Protection blade, navigate and click on the
     dropdown beside **Policies**.
@@ -224,7 +221,7 @@ incorrect.](./media/image34.png)
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image35.png)
 
-**Summary**
+## **Summary**
 
 In this lab, you’ve activated a Microsoft Fabric trial, accessed the
 Microsoft Purview portal, and created a mandatory sensitivity label
