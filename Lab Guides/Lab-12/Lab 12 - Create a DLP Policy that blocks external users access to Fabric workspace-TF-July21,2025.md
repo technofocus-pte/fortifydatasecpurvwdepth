@@ -12,6 +12,7 @@ aware the restriction took place. We also want internal users to be
 aware that the data is highly confidential and that they shouldn't share
 it outside the organization.*
 
+
 | **Statement** | **Configuration question answered and configuration mapping** |
 | ------------  | -------------------------------------- ---------------------  |
 |"We need to block external users..."           |       - Where to monitor: Fabric and Power BI
