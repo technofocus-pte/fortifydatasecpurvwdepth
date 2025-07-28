@@ -9,11 +9,11 @@ with other departments, as listed in the following table:
 
 |**Segment**|**Can communicate with**|**Can't communicate with**|
 | ------------|--------------------------|----------------------------|
-|HR           | Everyone                 |(no restrictions)           |
-|Sales        |HR, Marketing Manufacturing                          | Research                           |
-|Marketing  |Everyone                          |        (no restrictions)                    |
-|         Research    |               HR, Marketing, Manufacturing           |                          Sales  |
-|      Manufacturing       |               HR, Marketing           |                    Anyone other than HR or Marketing        |
+|   HR           |   Everyone                 |  (no restrictions)           |
+|  Sales        |  HR, Marketing Manufacturing                          | Research                           |
+|  Marketing  |  Everyone                          |        (no restrictions)                    |
+|  Research    |  HR, Marketing, Manufacturing           |                          Sales  |
+|  Manufacturing       |               HR, Marketing           |                    Anyone other than HR or Marketing        |
 
 For this structure, Contoso's plan includes three IB policies:
 
