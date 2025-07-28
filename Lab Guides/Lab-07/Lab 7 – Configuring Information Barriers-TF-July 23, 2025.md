@@ -7,7 +7,7 @@ and *Manufacturing*. In order to remain compliant with industry
 regulations, users in some departments aren't supposed to communicate
 with other departments, as listed in the following table:
 
-| **Segment** | **Can communicate with** | **Can't communicate with** |
+|**Segment**|**Can communicate with**|**Can't communicate with**|
 | ------------|--------------------------|----------------------------|
 |HR           | Everyone                 |(no restrictions)           |
 |Sales        |HR, Marketing Manufacturing                          | Research                           |
