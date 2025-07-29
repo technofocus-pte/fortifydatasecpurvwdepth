@@ -1,6 +1,6 @@
 # **Lab 1 — Managing Sensitive Information Types​**
 
-## Introduction
+## **Introduction**
 
 Contoso Ltd. previously had issues with employees accidentally sending
 out personal information from customers when working on support tickets
@@ -12,7 +12,7 @@ of three uppercase characters and six numbers, using Sensitive info
 types. To lower the false positive rate, the keywords "Employee" and
 "IDs" will be used.
 
-## Objectives
+## **Objectives**
 
 - Create a **custom sensitive information type** using regular
   expressions and keyword lists.
