@@ -273,7 +273,7 @@ your organization.
 3.  Run the following cmdlet to restrict the use of social IDs for
     accessing messages from your tenant protected with OME:
 
-**+++Set-OMEConfiguration -Identity "OME Configuration" -SocialIdSignIn:$false+++**
+    **+++Set-OMEConfiguration -Identity "OME Configuration" -SocialIdSignIn:$false+++**
 
     ![A screenshot of a computer screen AI-generated content may be incorrect.](./media/image30.png)
 
@@ -287,7 +287,7 @@ your organization.
 
     **+++Get-OMEConfiguration -Identity "OME Configuration" |fl+++**
 
-6.  Notice the result should show the **SocialIDSignIn**is set
+6.  Notice the result should show the **SocialIDSignIn** is set
     to **False**.
 
     ![](./media/image32.png)
@@ -305,8 +305,8 @@ recipients when receiving a message protected with Office 365 Message
 Encryption from users of your tenant and they need to use the OTP at any
 time accessing the encrypted content.
 
-1.  In **Microsoft Edge**, open a **New InPrivate Window** and navigate
-    to **https://outlook.office.com** and log into Outlook on the web
+1.  In **Microsoft Edge**, open a **New InPrivate Window** and enter the following URL in the address bar to
+    open Microsoft Outlook: **+++https://outlook.office.com+++**. Log into Outlook 
     with the username **AdeleV@WWLxXXXXXX.onmicrosoft.com** and the User
     Password given on your resources tab.
 
