@@ -36,8 +36,8 @@ PowerShell** module to create a new custom sensitive information type
 that recognizes the pattern of employee IDs near the keywords "Employee"
 and "ID".
 
-1.  In **Microsoft Edge**, open a **New InPrivate Window**, navigate
-    to **`https://purview.microsoft.com`** and log in as
+1.  In **Microsoft Edge** browser address bar, enter the following URL to open Microssoft Purview:
+    +++**https://purview.microsoft.com**+++, then log in as
     **Patti Fernandez** using the
     username **PattiF@WWLxXXXXXX.onmicrosoft.com** and the User Password
     given on your resources tab.
@@ -45,14 +45,13 @@ and "ID".
 2.  From the left navigation, select **Solutions** \> **Data Loss
     Prevention**.
 
-![](./media/image1.png)
+    ![](./media/image1.png)
 
 3.  Select **Classifiers** from the left pane. Select **Sensitive info
     types** from the sub-navigation pane. Select **+Create sensitive
     info type** to open the wizard for a new sensitive information type.
 
-![A screenshot of a computer Description automatically
-generated](./media/image2.png)
+    ![A screenshot of a computer Description automatically generated](./media/image2.png)
 
 4.  On the **Name your sensitive info type** page, enter the following
     information:
@@ -63,20 +62,17 @@ generated](./media/image2.png)
 
 5.  Select **Next**.
 
-![Graphical user interface, application Description automatically
-generated](./media/image3.png)
+    ![Graphical user interface, application Description automatically generated](./media/image3.png)
 
 6.  On the **Define patterns for this sensitive info type** page,
     select **Create pattern**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image4.png)
+  ![A screenshot of a computer Description automatically generated](./media/image4.png)
 
 7.  In the **New pattern** pane that appears on the right side,
     select **Add primary element** and select **Regular expression**.
 
-![Graphical user interface, application, Teams Description automatically
-generated](./media/image5.png)
+  ![Graphical user interface, application, Teams Description automatically generated](./media/image5.png)
 
 8.  In the new right-side pane **Add a regular expression**, enter the
     following:
@@ -89,23 +85,20 @@ generated](./media/image5.png)
 
 9.  Select **Done**.
 
-![Graphical user interface, application Description automatically
-generated](./media/image6.png)
+  ![Graphical user interface, application Description automatically generated](./media/image6.png)
 
 10. In the New pattern pane, decrease the **Character proximity** value
     to ***100*** characters.
 
-![](./media/image7.png)
+    ![](./media/image7.png)
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image8.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image8.png)
 
 11. Navigate to **Supporting elements** heading, click on **+ Add
     supporting elements or group of elements** drop-down menu and
     select **Keyword list**.
 
-![Graphical user interface, application Description automatically
-generated](./media/image9.png)
+    ![Graphical user interface, application Description automatically generated](./media/image9.png)
 
 12. In the **Add a keyword list** pane, enter the following:
 
@@ -113,36 +106,34 @@ generated](./media/image9.png)
 
     - **Case insensitive**:**+++Employee** **ID+++**
 
-> ![](./media/image10.png)
+    ![](./media/image10.png)
 
 13. Scroll down and select the radio button beside **Word match**. Then,
     click on the **Done** button. 
 
-![](./media/image11.png)
+    ![](./media/image11.png)
 
 14. Now, click on the **Create** button.
 
-![](./media/image12.png)
+    ![](./media/image12.png)
 
 15. Back on the **Define patterns for this sensitive info type** page
     select **Next**.
 
-![Graphical user interface, text, application, Teams Description
-automatically generated](./media/image13.png)
+    ![Graphical user interface, text, application, Teams Description automatically generated](./media/image13.png)
 
 16. On the **Choose the recommended confidence level to show in
     compliance policies** page, use the default value and
     select **Next** button.
 
-![](./media/image14.png)
+    ![](./media/image14.png)
 
 17. On the **Review settings and finish** page review the settings and
     select **Create**. When successfully created select **Done**.
 
-![](./media/image15.png)
+    ![](./media/image15.png)
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image16.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image16.png)
 
 18. Leave the browser window open.
 
@@ -159,17 +150,18 @@ be formatted with the following data fields of employees: Name,
 Birthdate, StreetAddress, and EmployeeID.
 
 1.  Click on Solutions, then select **Data Loss Prevention**
+
     ![](./media/image17.png)
 
 2.  Click on **Classifiers**, then select **EDM classifiers**. In the
     EDM classifiers page, click on the toggle button beside **New EDM
     experience** to turn it **Off**
 
-![](./media/image18.png)
+    ![](./media/image18.png)
 
 3.  Then, click on **Create** **EDM schema**
 
-![](./media/image19.png)
+    ![](./media/image19.png)
 
 4.  In the **Name** field, enter **+++employeedb+++**.
 
@@ -177,28 +169,24 @@ Birthdate, StreetAddress, and EmployeeID.
     enter **+++Employee Database schema.+++**.  
     Uncheck **Ignore delimiters and punctuation for all schema fields**.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image20.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image20.png)
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image21.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image21.png)
 
 6.  In the first Schema field name, enter **+++Name+++** and mark
     the **Field is searchable** box.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image22.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image22.png)
 
 7.  Click the dropdown for **Choose delimiters and punctuation to
     ignore** and select **Hyphen**, **Period**, **Space**, **Open
     parenthesis** and **Close parenthesis**.
 
-![Graphical user interface, application Description automatically
-generated](./media/image23.png)
+    ![Graphical user interface, application Description automatically generated](./media/image23.png)
 
 8.  Select **+ Add schema data field** from the lower end.
 
-![](./media/image24.png)
+    ![](./media/image24.png)
 
 9.  In **Schema field name**, below **Schema field \#2**,
     enter **+++Birthdate+++**.
@@ -217,36 +205,31 @@ generated](./media/image23.png)
 
 15. Select **Save**.
 
-![Graphical user interface, application Description automatically
-generated](./media/image25.png)
+    ![Graphical user interface, application Description automatically generated](./media/image25.png)
 
 16. Select **EDM sensitive info types** from the left pane and
     select **+ Create EDM sensitive info type** to open the **EDM rule
     package** wizard.
 
-![](./media/image26.png)
+    ![](./media/image26.png)
 
 17. On the **Define data store schema** page, select **Choose an
     existing EDM schema**.
 
-![Graphical user interface, application Description automatically
-generated](./media/image27.png)
+    ![Graphical user interface, application Description automatically generated](./media/image27.png)
 
 18. Select **employeedb** and select **Add**.
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image28.png)
+    ![Graphical user interface, text, application Description automatically generated](./media/image28.png)
 
 19. Review the data store schema and select **Next**.
 
-![Graphical user interface, application Description automatically
-generated](./media/image29.png)
+    ![Graphical user interface, application Description automatically generated](./media/image29.png)
 
 20. On the **Define patterns for this EDM sensitive info type** page,
     select **+ Create pattern**.
 
-![Graphical user interface, application Description automatically
-generated](./media/image30.png)
+    ![Graphical user interface, application Description automatically generated](./media/image30.png)
 
 21. On the **New pattern** pane on the right-side, in the **Primary
     element** field, select ***EmployeeID***.
@@ -254,8 +237,7 @@ generated](./media/image30.png)
 22. Below **Primary element's sensitive info type**, select **Choose
     sensitive info type**.
 
-![A screenshot of a pattern Description automatically
-generated](./media/image31.png)
+    ![A screenshot of a pattern Description automatically generated](./media/image31.png)
 
 23. In the **Search** bar, enter ***Contoso*** and press the enter key.
 
@@ -263,20 +245,17 @@ generated](./media/image31.png)
 
 25. Select **Done**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image32.png)
+    ![A screenshot of a computer Description automaticall generated](./media/image32.png)
 
 26. Select **Next** in the *Define patterns for this EDM sensitive info
     type* screen.
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image33.png)
+    ![Graphical user interface, text, application Description automatically generated](./media/image33.png)
 
 27. In the **Choose the recommended confidence level and character
     proximity** let the default value persist and select **Next**.
 
-![Graphical user interface, text, application, Word Description
-automatically generated](./media/image34.png)
+    ![Graphical user interface, text, application, Word Description automatically generated](./media/image34.png)
 
 28. In the **Name and describe your EDM sensitive info type** page,
     enter **+++Contoso Employee EDM+++** for the name.
@@ -285,19 +264,16 @@ automatically generated](./media/image34.png)
     sensitive information type for employee personal information.+++**.
     Select **Next.**
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image35.png)
+    ![Graphical user interface, text, application Description automatically generated](./media/image35.png)
 
 30. Review the settings and select **Submit**.
 
-![Graphical user interface, application Description automatically
-generated](./media/image36.png)
+    ![Graphical user interface, application Description automatically generated](./media/image36.png)
 
 31. On the **Your EDM sensitive info type was created** page,
     select **Done**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image37.png)
+    ![A screenshot of a computer Description automatically generated](./media/image37.png)
 
 32. Leave the browser open with the Microsoft Purview portal.
 
@@ -312,18 +288,17 @@ sensitive data, hashing and uploading the actual data for the sensitive
 information type via the EDM Upload Agent tool is required next.
 
 1.  In **Microsoft Edge**, navigate
-    to **+++**https://go.microsoft.com/fwlink/?linkid=2088639**+++** to
+    to +++**https://go.microsoft.com/fwlink/?linkid=2088639**+++ to
     download the EDM download agent.
 
 2.  Click on **Open file** link to access **EdmUploadAgent.msi**
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image38.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image38.png)
 
 3.  On **Welcome to the Microsoft Exact Data Match Upload Agent Setup
     Wizard** dialog box, click on the **Next** button.
 
-![](./media/image39.png)
+    ![](./media/image39.png)
 
 4.  In the **Microsoft Exact Data Match Upload Agent Setup** wizard,
     select **Next**.
@@ -342,23 +317,20 @@ information type via the EDM Upload Agent tool is required next.
 
     - When the installation finishes, select **Finish**.
 
-5\. Now, right click on the Windows icon, navigate and click **Run**. In
-the **Run** dialog box, type +++notepad+++ then click on the **OK**
+5. Now, right click on the Windows icon, navigate and click **Run**. In the **Run** dialog box, type +++notepad+++ then click on the **OK**
 button.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image40.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image40.png)
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image41.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image41.png)
 
-6\. Enter the following text to the first line in the notepad window:
+6. Enter the following text to the first line in the notepad window:
 
-**+++Name,Birthdate,StreetAddress,EmployeeID**
+    **+++Name,Birthdate,StreetAddress,EmployeeID**
 
-**Patti Fernandez,01.06.1980,1Main Street,CSO123456**
+    **Patti Fernandez,01.06.1980,1Main Street,CSO123456**
 
-**Christie Cline,31.01.1985,2Secondary Street,CSO654321+++**
+    **Christie Cline,31.01.1985,2Secondary Street,CSO654321+++**
 
 7.  Select File and Save As: **+++EmployeeData.csv+++**
 
@@ -368,59 +340,53 @@ incorrect.](./media/image41.png)
 9.  In the **Encoding** field, ensure that **UTF-8** is selected, then
     click on the **Save** button.
 
-![](./media/image42.png)
+    ![](./media/image42.png)
 
 10. Close the Notepad window.
 
 11. Right-click the Windows icon on the taskbar and select Windows
     PowerShell (Admin) to run it as administrator.
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image43.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image43.png)
 
 12. On the **User Account Control** dialog box, click on the **Yes**
     button.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image44.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image44.png)
 
 13. Navigate to the EDM Upload Agent directory:
 
-**+++cd "C:\Program Files\Microsoft\EdmUploadAgent"+++**
+    **+++cd "C:\Program Files\Microsoft\EdmUploadAgent"+++**
 
-![Text Description automatically generated](./media/image45.png)
+    ![Text Description automatically generated](./media/image45.png)
 
 14. Authorize with your Account to upload the database to your tenant by
     running the following cmdlet:
 
-**+++.\EdmUploadAgent.exe /Authorize+++**
+    **+++.\EdmUploadAgent.exe /Authorize+++**
 
-![](./media/image46.png)
+    ![](./media/image46.png)
 
 15. When the **Pick an account** window is displayed, log in as **Patti
     Fernandez** using the username **PattiF@WWLxXXXXXX.onmicrosoft.com**
     and the User Password given on your resources tab. (Or the new
     password you reset.)
 
-> ![A computer screen with a sign in box AI-generated content may be
-> incorrect.](./media/image47.png)
->
-> ![A screenshot of a login box AI-generated content may be
-> incorrect.](./media/image48.png)
+    ![A computer screen with a sign in box AI-generated content may be incorrect.](./media/image47.png)
+
+    ![A screenshot of a login box AI-generated content may be incorrect.](./media/image48.png)
 
 16. Download the database schema definition of the EDM-based
     classification sensitive information type by running the following
     script in PowerShell:
 
-**+++.\EdmUploadAgent.exe /SaveSchema /DataStoreNameemployeedb /OutputDirC:\Users\Admin\Documents\\++**
+    **+++.\EdmUploadAgent.exe /SaveSchema /DataStoreNameemployeedb /OutputDirC:\Users\Admin\Documents\\++**
 
-**Note**: If the last command fails, it possibly takes more time until
-the **EDM_DataUploaders** group membership is applied. It can take up to
-one hour until it is possible to download the schema file. If it fails
-proceed to the next task and return to this step later. Or check the
+    **Note**: If the last command fails, it possibly takes more time until the **EDM_DataUploaders** group membership is applied. It can take up to
+one hour until it is possible to download the schema file. If it fails proceed to the next task and return to this step later. Or check the
 path the documents folder on your VM.
 
-![](./media/image49.png)
+    ![](./media/image49.png)
 
 17. Hash the database file and upload it to the EDM-based classification
     sensitive information type by running the following script in
@@ -428,25 +394,24 @@ path the documents folder on your VM.
 
 **+++.\EdmUploadAgent.exe /UploadData/DataStoreName employeedb /DataFileC:\Users\Admin\Documents\EmployeeData.csv /HashLocation C:\Users\Admin\Documents\\/SchemaC:\Users\Admin\Documents\employeedb.xml+++**
 
-![](./media/image50.png)
+    ![](./media/image50.png)
 
-**Note:** If you get the following errors
+    **Note:** If you get the following errors
 
-Error Type: System.IO.FileNotFoundException
+    Error Type: System.IO.FileNotFoundException
 
-Error Message: Unable to find the specified file.
+    Error Message: Unable to find the specified file.
 
-Check the path where you saved the file EmployeeData.csv
+    Check the path where you saved the file EmployeeData.csv
 
-![Text Description automatically generated](./media/image51.png)
+    ![Text Description automatically generated](./media/image51.png)
 
 18. Check the upload progress until the state changes to completed then
     run the following PowerShell command:
 
-**+++.\EdmUploadAgent.exe /GetSession /DataStoreNameemployeedb+++**
+    **+++.\EdmUploadAgent.exe /GetSession /DataStoreNameemployeedb+++**
 
-![A screenshot of a computer program AI-generated content may be
-incorrect.](./media/image52.png)
+    ![A screenshot of a computer program AI-generated content may be incorrect.](./media/image52.png)
 
 You have successfully hashed and uploaded a database file for a
 EDM-based classification sensitive information type.
@@ -466,15 +431,13 @@ that to happen.
 2.  From the left navigation, select **Solutions** \> **Data Loss
     Prevention**.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image53.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image53.png)
 
 3.  Select **Classifiers** from the left pane. Select **Sensitive info
     types** from the sub-navigation pane. Select **+Create sensitive
     info type** to open the wizard for a new sensitive information type.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image54.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image54.png)
 
 4.  On the **Name your sensitive info type** page, enter the following:
 
@@ -482,22 +445,19 @@ incorrect.](./media/image54.png)
 
     - Description: **+++List of possible diseases of employees.+++**
 
-![Graphical user interface, application, Teams Description automatically
-generated](./media/image55.png)
+    ![Graphical user interface, application, Teams Description automatically generated](./media/image55.png)
 
 5.  Select **Next**.
 
 6.  On the **Define patterns for this sensitive info type** page,
     select **+ Create pattern**.
 
-![Graphical user interface, application, Teams Description automatically
-generated](./media/image56.png)
+    ![Graphical user interface, application, Teams Description automatically generated](./media/image56.png)
 
 7.  Select the dropdown field below **Primary element** and
     select **Keyword dictionary**.
 
-![Graphical user interface, application Description automatically
-generated](./media/image57.png)
+    ![Graphical user interface, application Description automatically generated](./media/image57.png)
 
 8.  In the **Add a keyword dictionary** page enter the
     name **!!*Diseases Dictionary*!!**.
@@ -515,7 +475,7 @@ generated](./media/image57.png)
 
 **otitis+++**
 
-![](./media/image58.png)
+    ![](./media/image58.png)
 
 10. Select **Done**.
 
@@ -523,8 +483,7 @@ generated](./media/image57.png)
     group of elements** drop-down and select **keyword list** to add
     additional support for the keyword dictionary.
 
-![Graphical user interface, application Description automatically
-generated](./media/image59.png)
+    ![Graphical user interface, application Description automatically generated](./media/image59.png)
 
 12. In the **Add a keyword list** page enter **Employee **in
     the **ID** field. In the **Case insensitive** box, enter the
@@ -537,32 +496,28 @@ generated](./media/image59.png)
 
 **reason+++**
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image60.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image60.png)
 
 13. In the **New pattern** page, review the configuration and
     select **Create**.
 
-![Graphical user interface, application Description automatically
-generated](./media/image61.png)
+    ![Graphical user interface, application Description automatically generated](./media/image61.png)
 
 14. In the **Define patterns for this sensitive info
     type** select **Next**.
 
-![Graphical user interface, application, Teams Description automatically
-generated](./media/image62.png)
+    ![Graphical user interface, application, Teams Description automatically generated](./media/image62.png)
 
 15. In the **Choose the recommended confidence level to show in
     compliance policies** let the default value persist and
     select **Next**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image63.png)
+    ![A screenshot of a computer Description automatically generated](./media/image63.png)
 
 16. In the **Review settings and finish** page, review your settings and
     select **Create**. When the process is complete select **Done**.
 
-![](./media/image64.png)
+    ![](./media/image64.png)
 
 17. Leave the browser window in the Microsoft Purview portal open.
 
@@ -580,16 +535,13 @@ malfunctioning custom search pattern.
     **Run** dialog box, type +++notepad+++ then click on the **OK**
     button.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image40.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image40.png)
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image41.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image41.png)
 
 2.  Enter the following text to the notepad window:
 
-**+++Employee Patti Fernandez with EmployeeID HR-255801 is on absence
-because of the flu/influenza+++**
+    **+++Employee Patti Fernandez with EmployeeID HR-255801 is on absence because of the flu/influenza+++**
 
 3.  Select **File** and Save As **SickTestData** and select **Save**.
 
@@ -608,57 +560,51 @@ because of the flu/influenza+++**
     enter ***Contoso*** and press Enter. Click on **Contoso Employee
     IDs** to open the right side pane.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image65.png)
+  ![A screenshot of a computer AI-generated content may be incorrect.](./media/image65.png)
 
 7.  Select **Test** from the right-side pane.
 
-![A screenshot of a computer Description automatically
-generated](./media/image66.png)
+    ![A screenshot of a computer Description automatically generated](./media/image66.png)
 
 8.  On the **Upload file to test** page, select **Upload file**.
 
-![](./media/image67.png)
+    ![](./media/image67.png)
 
 9.  Select **Documents** from the left pane, select the file with the
     name **SickTestData** and select **Open**.
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image68.png)
+    ![Graphical user interface, text, application Description automatically generated](./media/image68.png)
 
 10. Select **Test** to start the analysis.
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image69.png)
+  ![Graphical user interface, text, application Description automatically generated](./media/image69.png)
 
 11. On the **Match results** page, review the found match.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image70.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image70.png)
 
 12. Select **Finish** and close the test page by clicking
     the **X** button.
 
-![](./media/image71.png)
+    ![](./media/image71.png)
 
 13. Back on the **Data classification** page, select the Sensitive
     Information Type with the name **Contoso Diseases List**.
 
 14. In the right side pane, select **Test**.
 
-![](./media/image72.png)
+    ![](./media/image72.png)
 
 15. On the **Upload file to test** page, select **Upload file**.
 
-![](./media/image73.png)
+    ![](./media/image73.png)
 
 16. Select **Documents** from the left pane, select the file with the
     name *SickTestData* and select **Open**.
 
 17. Select **Test** to start the analysis.
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image74.png)
+    ![Graphical user interface, text, application Description automatically generated](./media/image74.png)
 
 18. On the **Match results** page, review the found match. When done
     review select **Finish**.
