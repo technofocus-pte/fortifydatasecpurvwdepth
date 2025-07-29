@@ -263,7 +263,7 @@ your organization.
 
     **+++Get-OMEConfiguration -Identity"OME Configuration" |fl+++**
 
-    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image28.png)
+    ![](./media/image28.png)
 
 2.  Review the settings and confirm that
     the **SocialIdSignIn** parameter is set to **True**.
