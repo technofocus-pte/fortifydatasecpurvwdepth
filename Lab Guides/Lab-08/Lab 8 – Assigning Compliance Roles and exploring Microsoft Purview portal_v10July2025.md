@@ -48,6 +48,10 @@ for implementing security with Microsoft Purview.
       
 8.  For Patti Fernandez, add **MOD Administrator** as the manager.
 
+   ![A screenshot of a computer Description automatically generated](./media/p3.png)
+
+   ![A screenshot of a computer Description automatically generated](./media/p4.png)
+
 ### Task 2 – Adding a Compliance Administrator
 
 1.  Select the user **Patti Fernandez**, under **Account**, scroll
