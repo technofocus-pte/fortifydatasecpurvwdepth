@@ -1,4 +1,4 @@
-# **Lab 8 – Assigning Compliance Roles and exploring Microsoft Purview portal**
+# **Lab 1 – Assigning Compliance Roles and exploring Microsoft Purview portal**
 
 ## **Introduction**
 
