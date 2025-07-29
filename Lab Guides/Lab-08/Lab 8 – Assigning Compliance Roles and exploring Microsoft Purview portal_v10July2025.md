@@ -43,7 +43,6 @@ for implementing security with Microsoft Purview.
     ![A screenshot of a computer Description automatically generated](./media/image3.png)
 
 6.  Similarly, change the manager to **Patti Fernandez** for all the following users.
-    - Adele Vance
     - Christie Cline
     - Megan Bowen
       
