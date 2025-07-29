@@ -127,13 +127,18 @@ for implementing security with Microsoft Purview.
 - When the **New group created** page is shown, select newly created
   **EDM_DataUploaders** group.
 
-- Select **View all and manage owners**, and add **Patti Fernandez** and
-  **Christie Cline**.
+- Click on **Members** tab, then select **View all and manage owners**, and add **Patti Fernandez**.
+
+    ![A screenshot of a computer Description automatically generated](./media/e1.png)
+
+    ![A screenshot of a computer Description automatically generated](./media/e2.png)
 
 - Similarly add **Christie Cline** as the member.
 
-    ![A screenshot of a computer Description automatically generated](./media/image14.png)
+    ![A screenshot of a computer Description automatically generated](./media/e3.png)
 
+    ![A screenshot of a computer Description automatically generated](./media/e4.png)
+    
 ### Task 4 – Enabling trial for compliance Assessments
 
 1.  Log in to the Purview Portal **+++https://purview.microsoft.com+++**
