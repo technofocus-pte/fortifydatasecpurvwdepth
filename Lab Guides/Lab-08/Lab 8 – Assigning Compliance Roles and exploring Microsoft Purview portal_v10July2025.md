@@ -180,7 +180,7 @@ and verify the correct Azure RMS functionality of your tenant.
 3.  Enter the following cmdlet to install the latest Exchange Online
     PowerShell module version:
 
-    **+++Install-ModuleExchangeOnlineManagement+++**
+    **+++Install-Module ExchangeOnlineManagement+++**
 
     ![](./media/image19.png)
 
