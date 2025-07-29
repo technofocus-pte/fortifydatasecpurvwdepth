@@ -33,12 +33,12 @@ for implementing security with Microsoft Purview.
 
     ![](./media/image1.png)
 
-4.  Under **Manager**, Click **Edit manager**.
+4.  Under **Manager**, click **Edit manager**.
 
     ![A screenshot of a computer Description automatically generated](./media/image2.png)
 
-5.  Remove the current manager and type **Patti** in the search box.
-    Select **Patti Fernandez**. Click **Save Changes**.
+5.  Remove the current manager and type +++Patti+++ in the search box.
+    Select **Patti Fernandez**. Click on the **Save Changes** button.
 
     ![A screenshot of a computer Description automatically generated](./media/image3.png)
 
