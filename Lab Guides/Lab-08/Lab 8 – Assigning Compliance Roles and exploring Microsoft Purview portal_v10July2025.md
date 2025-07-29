@@ -492,8 +492,7 @@ mail will not be able to reach the receiver from your current tenant.
 
 4.  Select **Send** to send the message.
 
-5.  Sign in to the email account you used above and open the message
-    from Veronica Quek.
+5.  Sign in to the email account you used above and open the message. 
 
 6.  You should see a message from **Christie Cline** that looks like the
     image below. Select **Read the message**.
@@ -533,7 +532,7 @@ You have successfully tested the new customized OME template
     ![](./media/image56.png)
 
 4.  Enabling of Adaptive protection will take time. We will explore
-    Adaptive protection feature in the 8^(th) lab.
+    Adaptive protection feature in the 6th lab.
 
     ![](./media/image57.png)
 
