@@ -328,7 +328,7 @@ time accessing the encrypted content.
 
     ![Graphical user interface, text, application, Word Description automatically generated](./media/image34.png)
 
-7.  In the **To** line enter your personal or other third-party email
+7.  In the **To** line, enter your personal or other third-party email
     address that is not in the tenant domain.
     Enter **Secret Message** to the subject line
     and **+++My super-secret message.+++** to the body.
@@ -363,7 +363,7 @@ reach the receiver from your current tenant.
     ![](./media/image39.png)
 
 **Note:** If you sent the email to another email service like
-(@google.com), you may have to perform the next steps to process the
+(gmail), you may have to perform the next steps to process the
 encryption and read the message. You may need to check your junk or spam
 folder for the message.
 
@@ -407,8 +407,7 @@ to all mails sent from the finance department.
     connected, run the following cmdlet to create a new OME
     configuration:
 
-**+++New-OMEConfiguration -Identity"Finance
-Department" -ExternalMailExpiryInDays 7+++**
+    **+++New-OMEConfiguration -Identity "Finance Department" -ExternalMailExpiryInDays 7+++**
 
     ![](./media/image44.png)
 
@@ -419,9 +418,7 @@ Department" -ExternalMailExpiryInDays 7+++**
 
 3.  Change the introduction text message with the following cmdlet:
 
-**+++Set-OMEConfiguration -Identity"Finance
-Department" -IntroductionText " from Contoso Ltd. finance department has
-sent you a secure message." +++**
+    **+++Set-OMEConfiguration -Identity "Finance Department" -IntroductionText "from Contoso Ltd. finance department has sent you a secure message." +++**
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image46.png)
 
@@ -432,9 +429,7 @@ sent you a secure message." +++**
 
 5.  Change the body email text of the message with the following cmdlet:
 
-**+++Set-OMEConfiguration -Identity"Finance
-Department" -EmailText "Encrypted message sent from Contoso Ltd. finance
-department. Handle the content responsibly." +++**
+    **+++Set-OMEConfiguration -Identity "Finance Department" -EmailText "Encrypted message sent from Contoso Ltd. financ department. Handle the content responsibly."+++**
 
 6.  Confirm the warning message for customizing the template
     with **Y** for Yes and press **Enter**.
@@ -444,8 +439,7 @@ department. Handle the content responsibly." +++**
 7.  Change the disclaimer URL to point to Contoso's privacy statement
     site:
 
-**+++Set-OMEConfiguration -Identity "Finance
-Department" -PrivacyStatementURL"https://contoso.com/privacystatement.html"+++**
+    **+++Set-OMEConfiguration -Identity "Finance Department" -PrivacyStatementURL "https://contoso.com/privacystatement.html"+++**
 
 8.  Confirm the warning message for customizing the template
     with **Y** for Yes and press **Enter**.
@@ -456,17 +450,13 @@ Department" -PrivacyStatementURL"https://contoso.com/privacystatement.html"+++*
     the custom OME template to all messages sent from the Contoso
     finance team. This process may take a few seconds to complete.
 
-**+++New-TransportRule -Name "Encrypt all mails from Contoso Finance
-team" -FromScopeInOrganization -FromMemberOf "Contoso Finance
-Team"-ApplyRightsProtectionCustomizationTemplate"Finance
-Department" -ApplyRightsProtectionTemplate Encrypt+++**
+   **+++New-TransportRule -Name "Encrypt all mails from Contoso Finance team" -FromScopeInOrganization -FromMemberOf "Contoso Finance Team"- ApplyRightsProtectionCustomizationTemplate"Finance Department" -ApplyRightsProtectionTemplate Encrypt+++**
 
     ![A screenshot of a computer screen AI-generated content may be incorrect.](./media/image50.png)
 
 10. Type the following cmdlet to verify changes.
 
-**+++Get-OMEConfiguration -Identity"Finance
-Department" | Format-List+++**
+**+++Get-OMEConfiguration -Identity "Finance Department" | Format-List+++**
 
     ![](./media/image51.png)
 
