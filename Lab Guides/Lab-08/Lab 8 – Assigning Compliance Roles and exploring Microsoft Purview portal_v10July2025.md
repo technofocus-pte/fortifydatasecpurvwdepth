@@ -238,7 +238,7 @@ and verify the correct Azure RMS functionality of your tenant.
     cmdlet (replace WWLxXXXXXX with your tenant prefix given on the
     resources tab)
 
-**+++Test-IRMConfiguration -Senderadelev@WWLxXXXXXX.onmicrosoft.com -Recipientadelev@WWLxXXXXX.onmicrosoft.com+++**
+**+++Test-IRMConfiguration -Sender adelev@WWLxXXXXXX.onmicrosoft.com -Recipient adelev@WWLxXXXXX.onmicrosoft.com+++**
 
 12. Verify all tests are in the status PASS and no errors are shown.
 
