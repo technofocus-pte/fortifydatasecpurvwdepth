@@ -42,10 +42,12 @@ for implementing security with Microsoft Purview.
 
     ![A screenshot of a computer Description automatically generated](./media/image3.png)
 
-6.  Similarly, change the manager to Patti Fernandez for all the users
-    who have been assigned the licenses.
-
-7.  For Patti Fernandez, add **MOD Administrator** as the manager.
+6.  Similarly, change the manager to **Patti Fernandez** for all the following users.
+    - Adele Vance
+    - Christie Cline
+    - Megan Bowen
+      
+8.  For Patti Fernandez, add **MOD Administrator** as the manager.
 
 ### Task 2 – Adding a Compliance Administrator
 
