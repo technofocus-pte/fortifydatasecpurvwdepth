@@ -475,9 +475,9 @@ can check out the following steps to understand how to test the template
 when you have your own licenses. You can perform step 1 - 4 but your
 mail will not be able to reach the receiver from your current tenant.
 
-1.  In **Microsoft Edge**, open a **New InPrivate Window** and navigate
-    to **https://outlook.office.com** and log into Outlook on the web
-    with the username **<ChristieC@M365xXXXXXX.onmicrosoft.com>** and
+1.  In **Microsoft Edge**, open a **New InPrivate Window** and enter the following URL in the address bar to
+    open Microsoft Outlook: **+++https://outlook.office.com+++**. Log into Outlook 
+    with the username  **<ChristieC@M365xXXXXXX.onmicrosoft.com>** and
     the User Password given on the resources tab.
 
     ![Graphical user interface, text, application Description automatically generated](./media/image52.png)
