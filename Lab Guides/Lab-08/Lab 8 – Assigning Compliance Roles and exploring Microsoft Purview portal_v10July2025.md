@@ -184,12 +184,8 @@ and verify the correct Azure RMS functionality of your tenant.
 
     ![](./media/image19.png)
 
-4.  Confirm the Untrusted repository security dialog with **Y** for Yes
-    and press **Enter**. This process may take some seconds to complete.
-
-**Note**: In case, you see NuGet provider is required to continue
-statement before Untrusted repository confirmation, then enter **Y** and
-press the **Enter** button.
+4.  In case, Untrusted repository security message appears, then type **Y** for Yes
+    and press **Enter**. If it does not appear, then move on to the next step. 
 
 5.  Enter the following cmdlet to change your execution policy and
     press **Enter**
@@ -216,9 +212,7 @@ press the **Enter** button.
 
     ![](./media/image23.png)
 
-In case, **Automatically sign in to all desktop apps and websites on
-this device?** dialog box appears, then click on the **No, this app
-only** button
+    In case, **Automatically sign in to all desktop apps and websites on this device?** dialog box appears, then click on the **No, this app only** button
 
     ![](./media/image24.png)
 
