@@ -57,20 +57,17 @@ for implementing security with Microsoft Purview.
 1.  Select the user **Patti Fernandez**, under **Account**, scroll
     to **Roles** and click on **Manage roles**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image4.png)
+    ![A screenshot of a computer Description automatically generated](./media/image4.png)
 
 2.  Once the **Roles** pane opens, check the radio button near **Admin
     center access**, and expand **Show all by category.**
 
-![A screenshot of a computer Description automatically
-generated](./media/image5.png)
+    ![A screenshot of a computer Description automatically generated](./media/image5.png)
 
 3.  Scroll to **Security & compliance**, check the box
     beside **Compliance Administrator**, and click on **Save changes**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image6.png)
+    ![A screenshot of a computer Description automatically generated](./media/image6.png)
 
 ### Task 3 – Creating teams and groups in Microsoft admin center
 
@@ -78,21 +75,19 @@ generated](./media/image6.png)
     click on **Add a Microsoft 365 group** under Teams & Microsoft 365
     groups.
 
-![A screenshot of a computer Description automatically
-generated](./media/image7.png)
+    ![A screenshot of a computer Description automatically generated](./media/image7.png)
 
 2.  For name use **+++Contoso** **Finance Team+++**, and for description
     use **+++This team handles finance.+++**, and then click
     on **Next**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image8.png)
+    ![A screenshot of a computer Description automatically generated](./media/image8.png)
 
 3.  On the **Assign Owners** page, click on **Assign owners**, check the
     box besides **Adele Vance**, and click on **Add(1)**. Click
     on **Next**.
 
-![](./media/image9.png)
+    ![](./media/image9.png)
 
 4.  On the **Add members** page add **Adele Vance** as a member,
     click **Next**. On the **Add members** page, select **Next**.
@@ -100,24 +95,20 @@ generated](./media/image8.png)
 5.  For group email address use **+++contfosofinance+++** and then
     click **Next**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image10.png)
+    ![A screenshot of a computer Description automatically generated](./media/image10.png)
 
 6.  Click on **Create group**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image11.png)
+    ![A screenshot of a computer Description automatically generated](./media/image11.png)
 
 7.  Once done, click on **Close**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image12.png)
+    ![A screenshot of a computer Description automatically generated](./media/image12.png)
 
 8.  On the **Active teams & groups page**, select **Security
     groups** tab. Select **Add a security group.**
 
-![A screenshot of a computer Description automatically
-generated](./media/image13.png)
+    ![A screenshot of a computer Description automatically generated](./media/image13.png)
 
 9.  Repeat the steps to create another group with the following
     information.
@@ -141,8 +132,7 @@ generated](./media/image13.png)
 
 - Similarly add **Christie Cline** as the member.
 
-![A screenshot of a computer Description automatically
-generated](./media/image14.png)
+    ![A screenshot of a computer Description automatically generated](./media/image14.png)
 
 ### Task 4 – Enabling trial for compliance Assessments
 
@@ -156,17 +146,16 @@ generated](./media/image14.png)
 > disclosure and Privacy Statement**, then ignore and click on **Get
 > started** button
 
-![](./media/image15.png)
+    ![](./media/image15.png)
 
 3.  From the navigation bar, select **Solutions** \> **Audit**.
 
-![](./media/image16.png)
+    ![](./media/image16.png)
 
 4.  On the **Audit** page, select **Start recording user and admin
     activity** to activate audit logging.
 
-![A screenshot of a search engine Description automatically
-generated](./media/image17.png)
+    ![A screenshot of a search engine Description automatically generated](./media/image17.png)
 
 ## Exercise 2 - Managing Office 365 Message Encryption
 
@@ -186,17 +175,16 @@ and verify the correct Azure RMS functionality of your tenant.
     button with the right mouse button and then run **Windows
     PowerShell** as administrator.
 
-![A screenshot of a computer Description automatically
-generated](./media/image18.png)
+    ![A screenshot of a computer Description automatically generated](./media/image18.png)
 
 2.  Confirm the **User Account Control** window with **Yes**.
 
 3.  Enter the following cmdlet to install the latest Exchange Online
     PowerShell module version:
 
-**+++Install-ModuleExchangeOnlineManagement+++**
+    **+++Install-ModuleExchangeOnlineManagement+++**
 
-![](./media/image19.png)
+    ![](./media/image19.png)
 
 4.  Confirm the Untrusted repository security dialog with **Y** for Yes
     and press **Enter**. This process may take some seconds to complete.
@@ -208,47 +196,45 @@ press the **Enter** button.
 5.  Enter the following cmdlet to change your execution policy and
     press **Enter**
 
-**+++Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser+++**
+    **+++Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser+++**
 
-![](./media/image20.png)
+    ![](./media/image20.png)
 
 6.  Confirm the Execution Policy Change with  **Y** for Yes and
     press **Enter**.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image21.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image21.png)
 
 7.  Enter the following cmdlet to use the **Exchange Online
     PowerShell** module and connect to your tenant:
 
-**+++Connect-ExchangeOnline+++**
+    **+++Connect-ExchangeOnline+++**
 
 8.  When the **Sign in** window is displayed, sign in as **Patti
     Fernandez** using the username PattiF@WWLxXXXXXX.onmicrosoft.com and
     the User Password given on your resources tab.
 
-![](./media/image22.png)
+    ![](./media/image22.png)
 
-![](./media/image23.png)
+    ![](./media/image23.png)
 
 In case, **Automatically sign in to all desktop apps and websites on
 this device?** dialog box appears, then click on the **No, this app
 only** button
 
-![](./media/image24.png)
+    ![](./media/image24.png)
 
 9.  Verify Azure RMS and IRM is activated in your tenant by using the
     following cmdlet and press **Enter**:
 
-**+++Get-IRMConfiguration | fl AzureRMSLicensingEnabled+++**
+    **+++Get-IRMConfiguration | fl AzureRMSLicensingEnabled+++**
 
-![](./media/image25.png)
+    ![](./media/image25.png)
 
 10. When **AzureRMSLicensingEnabled** result is **True**, Azure RMS is
     activated for your tenant. Continue with the next step.
 
-![A screenshot of a computer screen AI-generated content may be
-incorrect.](./media/image26.png)
+    ![A screenshot of a computer screen AI-generated content may be incorrect.](./media/image26.png)
 
 11. Test the Azure RMS templates used for Office 365 Message Encryption
     against the demo pilot user **Adele Vance** by using the following
@@ -259,7 +245,7 @@ incorrect.](./media/image26.png)
 
 12. Verify all tests are in the status PASS and no errors are shown.
 
-![](./media/image27.png)
+    ![](./media/image27.png)
 
 13. Leave the **PowerShell** window open.
 
@@ -279,13 +265,12 @@ your organization.
 
 **+++Get-OMEConfiguration -Identity"OME Configuration" |fl+++**
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image28.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image28.png)
 
 2.  Review the settings and confirm that
     the **SocialIdSignIn** parameter is set to **True**.
 
-![](./media/image29.png)
+    ![](./media/image29.png)
 
 3.  Run the following cmdlet to restrict the use of social IDs for
     accessing messages from your tenant protected with OME:
@@ -293,14 +278,12 @@ incorrect.](./media/image28.png)
 **Set-OMEConfiguration -Identity"OME
 Configuration" -SocialIdSignIn:$false**
 
-![A screenshot of a computer screen AI-generated content may be
-incorrect.](./media/image30.png)
+    ![A screenshot of a computer screen AI-generated content may be incorrect.](./media/image30.png)
 
 4.  Confirm the warning message for customizing the default template
     with **Y** for Yes and press Enter.
 
-![A blue screen with white text AI-generated content may be
-incorrect.](./media/image31.png)
+    ![A blue screen with white text AI-generated content may be incorrect.](./media/image31.png)
 
 5.  Check the default configuration again and validate,
     the **SocialIdSignIn** parameter is now set to **False**.
@@ -310,7 +293,7 @@ incorrect.](./media/image31.png)
 6.  Notice the result should show the **SocialIDSignIn**is set
     to **False**.
 
-![](./media/image32.png)
+    ![](./media/image32.png)
 
 7.  Leave the **PowerShell window** **open** and proceed to next
     exercise.
@@ -341,39 +324,34 @@ time accessing the encrypted content.
 5.  If you see **Your privacy matters** dialog box, then click on the
     **Continue** button.
 
-> ![](./media/image33.png)
+    ![](./media/image33.png)
 
 6.  Select **New mail** from the upper left side part of Outlook on the
     web.
 
-![Graphical user interface, text, application, Word Description
-automatically generated](./media/image34.png)
+    ![Graphical user interface, text, application, Word Description automatically generated](./media/image34.png)
 
 7.  In the **To** line enter your personal or other third-party email
     address that is not in the tenant domain.
     Enter **Secret Message** to the subject line
     and **+++My super-secret message.+++** to the body.
 
-![Graphical user interface, text, application, Word Description
-automatically generated](./media/image35.png)
+    ![Graphical user interface, text, application, Word Description automatically generated](./media/image35.png)
 
 8.  From the top pane go to **Options** pane, select **Encrypt** to
     encrypt the message.
 
-![A screenshot of a computer Description automatically
-generated](./media/image36.png)
+    ![A screenshot of a computer Description automatically generated](./media/image36.png)
 
 9.  Once you've successfully encrypted the message, you should see a
     notice that says "**Encrypt: This message is encrypted. Recipients
     can't remove encryption.**"
 
-![A screenshot of a computer screen Description automatically
-generated](./media/image37.png)
+    ![A screenshot of a computer screen Description automatically generated](./media/image37.png)
 
 10. Select **Send** to send the message.
 
-![Graphical user interface, text, email Description automatically
-generated](./media/image38.png)
+    ![Graphical user interface, text, email Description automatically generated](./media/image38.png)
 
 In the trial account you will not have the privilege to send any email
 but you can check out the following steps to understand how to test the
@@ -385,7 +363,7 @@ reach the receiver from your current tenant.
     @outlook.com) the encryption may be processed automatically and you
     will see the message automatically.
 
-![](./media/image39.png)
+    ![](./media/image39.png)
 
 **Note:** If you sent the email to another email service like
 (@google.com), you may have to perform the next steps to process the
@@ -400,24 +378,21 @@ folder for the message.
 14. Select **Sign in with a One-time passcode** to receive a limited
     time passcode.
 
-> ![](./media/image40.png)
+    ![](./media/image40.png)
 
 15. Go to your personal email portal and open the message with
     subject **Your one-time passcode to view the message**.
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image41.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image41.png)
 
 16. Copy the passcode, paste it in to the OME portal and
     select **Continue**.
 
-![A screenshot of a computer screen AI-generated content may be
-incorrect.](./media/image42.png)
+    ![A screenshot of a computer screen AI-generated content may be incorrect.](./media/image42.png)
 
 17. Review the encrypted message.
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image43.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image43.png)
 
 You have successfully tested the modified default OME template with
 deactivated social IDs.
@@ -438,13 +413,12 @@ to all mails sent from the finance department.
 **+++New-OMEConfiguration -Identity"Finance
 Department" -ExternalMailExpiryInDays 7+++**
 
-![](./media/image44.png)
+    ![](./media/image44.png)
 
 2.  Confirm the warning message for customizing the template
     with **Y** for Yes and press **Enter**.
 
-![A blue screen with white text AI-generated content may be
-incorrect.](./media/image45.png)
+    ![A blue screen with white text AI-generated content may be incorrect.](./media/image45.png)
 
 3.  Change the introduction text message with the following cmdlet:
 
@@ -452,14 +426,12 @@ incorrect.](./media/image45.png)
 Department" -IntroductionText " from Contoso Ltd. finance department has
 sent you a secure message." +++**
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image46.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image46.png)
 
 4.  Confirm the warning message for customizing the template
     with **Y** for Yes and press **Enter**.
 
-![A screen shot of a computer AI-generated content may be
-incorrect.](./media/image47.png)
+    ![A screen shot of a computer AI-generated content may be incorrect.](./media/image47.png)
 
 5.  Change the body email text of the message with the following cmdlet:
 
@@ -470,7 +442,7 @@ department. Handle the content responsibly." +++**
 6.  Confirm the warning message for customizing the template
     with **Y** for Yes and press **Enter**.
 
-![](./media/image48.png)
+    ![](./media/image48.png)
 
 7.  Change the disclaimer URL to point to Contoso's privacy statement
     site:
@@ -481,8 +453,7 @@ Department" -PrivacyStatementURL"https://contoso.com/privacystatement.html"+++*
 8.  Confirm the warning message for customizing the template
     with **Y** for Yes and press **Enter**.
 
-![A screenshot of a computer screen AI-generated content may be
-incorrect.](./media/image49.png)
+    ![A screenshot of a computer screen AI-generated content may be incorrect.](./media/image49.png)
 
 9.  Use the following cmdlet to create a mail flow rule, which applies
     the custom OME template to all messages sent from the Contoso
@@ -493,15 +464,14 @@ team" -FromScopeInOrganization -FromMemberOf "Contoso Finance
 Team"-ApplyRightsProtectionCustomizationTemplate"Finance
 Department" -ApplyRightsProtectionTemplate Encrypt+++**
 
-![A screenshot of a computer screen AI-generated content may be
-incorrect.](./media/image50.png)
+    ![A screenshot of a computer screen AI-generated content may be incorrect.](./media/image50.png)
 
 10. Type the following cmdlet to verify changes.
 
 **+++Get-OMEConfiguration -Identity"Finance
 Department" | Format-List+++**
 
-![](./media/image51.png)
+    ![](./media/image51.png)
 
 11. Leave the **PowerShell** open.
 
@@ -523,8 +493,7 @@ mail will not be able to reach the receiver from your current tenant.
     with the username **<ChristieC@M365xXXXXXX.onmicrosoft.com>** and
     the User Password given on the resources tab.
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image52.png)
+    ![Graphical user interface, text, application Description automatically generated](./media/image52.png)
 
 2.  Select **New message** from the upper left side part of Outlook on
     the web.
@@ -542,7 +511,7 @@ generated](./media/image52.png)
 6.  You should see a message from **Christie Cline** that looks like the
     image below. Select **Read the message**.
 
-![BrokenImage](./media/image53.png)
+    ![](./media/image53.png)
 
 7.  If you want to read the message, perform the following steps.
 
@@ -564,22 +533,22 @@ You have successfully tested the new customized OME template
 1.  In the Microsoft Purview portal left navigation pane, click on
     **Solutions**, then navigate and select **Insider Risk Management**
 
-> ![](./media/image54.png)
+     ![](./media/image54.png)
 
 2.  In the **Insider Risk Management** pane, navigate and click on
     **Adaptive Protection**, then select **Adaptive Protection
     settings**. Now, turn **On** the Adaptive Protection toggle.
 
-> ![](./media/image55.png)
+    ![](./media/image55.png)
 
 3.  Click on the **Save** button.
 
-![](./media/image56.png)
+    ![](./media/image56.png)
 
 4.  Enabling of Adaptive protection will take time. We will explore
     Adaptive protection feature in the 8^(th) lab.
 
-![BrokenImage](./media/image57.png)
+    ![](./media/image57.png)
 
 ## **Summary**
 
