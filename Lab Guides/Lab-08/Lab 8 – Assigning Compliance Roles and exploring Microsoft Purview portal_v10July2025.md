@@ -261,7 +261,7 @@ your organization.
 
 1.  Run the following cmdlet to view the default OME configuration:
 
-**+++Get-OMEConfiguration -Identity"OME Configuration" |fl+++**
+    **+++Get-OMEConfiguration -Identity"OME Configuration" |fl+++**
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image28.png)
 
@@ -273,8 +273,7 @@ your organization.
 3.  Run the following cmdlet to restrict the use of social IDs for
     accessing messages from your tenant protected with OME:
 
-**Set-OMEConfiguration -Identity"OME
-Configuration" -SocialIdSignIn:$false**
+**+++Set-OMEConfiguration -Identity"OME Configuration" -SocialIdSignIn:$false+++**
 
     ![A screenshot of a computer screen AI-generated content may be incorrect.](./media/image30.png)
 
@@ -286,7 +285,7 @@ Configuration" -SocialIdSignIn:$false**
 5.  Check the default configuration again and validate,
     the **SocialIdSignIn** parameter is now set to **False**.
 
-**+++Get-OMEConfiguration -Identity"OME Configuration" |fl+++**
+    **+++Get-OMEConfiguration -Identity"OME Configuration" |fl+++**
 
 6.  Notice the result should show the **SocialIDSignIn**is set
     to **False**.
