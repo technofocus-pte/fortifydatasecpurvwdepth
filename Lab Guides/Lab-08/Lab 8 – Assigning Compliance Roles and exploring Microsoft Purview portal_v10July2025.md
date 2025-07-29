@@ -1,4 +1,4 @@
-# **Lab 1 – Assigning Compliance Roles and exploring Microsoft Purview portal**
+# **Lab 8 – Assigning Compliance Roles and exploring Microsoft Purview portal**
 
 ## **Introduction**
 
@@ -77,9 +77,9 @@ for implementing security with Microsoft Purview.
 
     ![A screenshot of a computer Description automatically generated](./media/image7.png)
 
-2.  For name use **+++Contoso** **Finance Team+++**, and for description
-    use **+++This team handles finance.+++**, and then click
-    on **Next**.
+2.  In the **Name** field, enter **+++Contoso Finance Team+++**, and in the **Description**
+    box, enter **+++This team handles finance.+++**, then click
+    on the **Next** button.
 
     ![A screenshot of a computer Description automatically generated](./media/image8.png)
 
@@ -89,10 +89,10 @@ for implementing security with Microsoft Purview.
 
     ![](./media/image9.png)
 
-4.  On the **Add members** page add **Adele Vance** as a member,
+4.  On the **Add members** page, add **Adele Vance** as a member,
     click **Next**. On the **Add members** page, select **Next**.
 
-5.  For group email address use **+++contfosofinance+++** and then
+5.  In  the **Group email address** field, enter **+++contfosofinance+++**, then
     click **Next**.
 
     ![A screenshot of a computer Description automatically generated](./media/image10.png)
@@ -122,7 +122,7 @@ for implementing security with Microsoft Purview.
 - On the **Settings** page, select **Next**.
 
 - On the **Review and finish adding group** page, review your settings
-  and select **Create group**.
+  and select **Create group**. Once the EDM_DataUploaders group created, then click on the **Close** button.
 
 - When the **New group created** page is shown, select newly created
   **EDM_DataUploaders** group.
@@ -142,9 +142,7 @@ for implementing security with Microsoft Purview.
 2.  If a welcome window is displayed, agree to the terms and
     select **Get started** and close it.
 
-> **Note**: In case, you did not see **I agree to the terms of data flow
-> disclosure and Privacy Statement**, then ignore and click on **Get
-> started** button
+    **Note**: In case, you did not see **I agree to the terms of data flow disclosure and Privacy Statement**, then ignore and click on **Get started** button
 
     ![](./media/image15.png)
 
