@@ -450,7 +450,7 @@ to all mails sent from the finance department.
     the custom OME template to all messages sent from the Contoso
     finance team. This process may take a few seconds to complete.
 
-   **+++New-TransportRule -Name "Encrypt all mails from Contoso Finance team" -FromScopeInOrganization -FromMemberOf "Contoso Finance Team"-ApplyRightsProtectionCustomizationTemplate "Finance Department" -ApplyRightsProtectionTemplate Encrypt+++**
+   **+++New-TransportRule -Name "Encrypt all mails from Contoso Finance team" -FromScope InOrganization -FromMemberOf "Contoso Finance Team" -ApplyRightsProtectionCustomizationTemplate "Finance Department" -ApplyRightsProtectionTemplate Encrypt+++**
 
     ![A screenshot of a computer screen AI-generated content may be incorrect.](./media/image50.png)
 
