@@ -477,7 +477,7 @@ mail will not be able to reach the receiver from your current tenant.
 
 1.  In **Microsoft Edge**, open a **New InPrivate Window** and enter the following URL in the address bar to
     open Microsoft Outlook: **+++https://outlook.office.com+++**. Log into Outlook 
-    with the username  **<ChristieC@M365xXXXXXX.onmicrosoft.com>** and
+    with the username  **<ChristieC@WWLxXXXXXX.onmicrosoft.com>** and
     the User Password given on the resources tab.
 
     ![Graphical user interface, text, application Description automatically generated](./media/image52.png)
@@ -487,8 +487,8 @@ mail will not be able to reach the receiver from your current tenant.
 
 3.  In the **To** line enter your personal or other third-party email
     address that is not in the tenant domain.
-    Enter **Finance Report** to the subject line and
-    enter **Secret finance information.** to the body.
+    Enter +++**Finance Report**+++ in the subject line and
+    enter +++**Secret finance information.**+++ in the body.
 
 4.  Select **Send** to send the message.
 
