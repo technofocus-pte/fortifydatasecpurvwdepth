@@ -142,9 +142,9 @@ for implementing security with Microsoft Purview.
 2.  If a welcome window is displayed, agree to the terms and
     select **Get started** and close it.
 
-    **Note**: In case, you did not see **I agree to the terms of data flow disclosure and Privacy Statement**, then ignore and click on **Get started** button
-
     ![](./media/image15.png)
+
+    **Note**: In case, you did not see **I agree to the terms of data flow disclosure and Privacy Statement**, then ignore and click on **Get started** button
 
 3.  From the navigation bar, select **Solutions** \> **Audit**.
 
