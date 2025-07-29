@@ -1,10 +1,10 @@
 # **Lab 8 – Assigning Compliance Roles and exploring Microsoft Purview portal**
 
-**Introduction**
+## **Introduction**
 
 The Microsoft Purview portal supports directly managing permissions for users who perform tasks within Microsoft Purview. Using the Roles and scopes area in Settings for the portal, you can manage permissions for users across your Purview data security, data governance, and risk and compliance solutions. You can limit users to perform only specific tasks that you explicitly grant them access to.
 
-**Objectives**
+## **Objectives**
 - Assign managers and compliance roles to users in Microsoft 365.
 - Create Microsoft 365 and security groups for team collaboration.
 - Enable trial for Microsoft Purview compliance assessments.
@@ -31,18 +31,16 @@ for implementing security with Microsoft Purview.
 3.  From the left pane, select **Users** \> **Active users**, and click
     on the first user **Adele Vance**.
 
-![](./media/image1.png)
+    ![](./media/image1.png)
 
 4.  Under **Manager**, Click **Edit manager**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image2.png)
+    ![A screenshot of a computer Description automatically generated](./media/image2.png)
 
 5.  Remove the current manager and type **Patti** in the search box.
     Select **Patti Fernandez**. Click **Save Changes**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image3.png)
+    ![A screenshot of a computer Description automatically generated](./media/image3.png)
 
 6.  Similarly, change the manager to Patti Fernandez for all the users
     who have been assigned the licenses.
