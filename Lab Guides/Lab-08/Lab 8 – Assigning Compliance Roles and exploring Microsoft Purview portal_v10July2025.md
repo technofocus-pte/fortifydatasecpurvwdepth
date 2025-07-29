@@ -173,7 +173,7 @@ and verify the correct Azure RMS functionality of your tenant.
     button with the right mouse button and then run **Windows
     PowerShell** as administrator.
 
-    ![A screenshot of a computer Description automatically generated](./media/image18.png)
+    ![A screenshot of a computer Description automatically generated](./media/ab1.png)
 
 2.  Confirm the **User Account Control** window with **Yes**.
 
