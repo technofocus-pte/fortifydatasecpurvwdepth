@@ -418,7 +418,7 @@ to all mails sent from the finance department.
 
 3.  Change the introduction text message with the following cmdlet:
 
-    **+++Set-OMEConfiguration -Identity "Finance Department" -IntroductionText "from Contoso Ltd. finance department has sent you a secure message"+++**
+      **+++Set-OMEConfiguration -Identity "Finance Department" -IntroductionText "from Contoso Ltd. finance department has sent you a secure message."+++**
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image46.png)
 
@@ -450,13 +450,13 @@ to all mails sent from the finance department.
     the custom OME template to all messages sent from the Contoso
     finance team. This process may take a few seconds to complete.
 
-   **+++New-TransportRule -Name "Encrypt all mails from Contoso Finance team" -FromScopeInOrganization -FromMemberOf "Contoso Finance Team"- ApplyRightsProtectionCustomizationTemplate"Finance Department" -ApplyRightsProtectionTemplate Encrypt+++**
+   **+++New-TransportRule -Name "Encrypt all mails from Contoso Finance team" -FromScopeInOrganization -FromMemberOf "Contoso Finance Team"-ApplyRightsProtectionCustomizationTemplate "Finance Department" -ApplyRightsProtectionTemplate Encrypt+++**
 
     ![A screenshot of a computer screen AI-generated content may be incorrect.](./media/image50.png)
 
 10. Type the following cmdlet to verify changes.
 
-**+++Get-OMEConfiguration -Identity "Finance Department" | Format-List+++**
+    **+++Get-OMEConfiguration -Identity "Finance Department" | Format-List+++**
 
     ![](./media/image51.png)
 
