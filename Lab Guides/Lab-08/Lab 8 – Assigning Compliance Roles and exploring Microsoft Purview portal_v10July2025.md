@@ -126,7 +126,8 @@ for implementing security with Microsoft Purview.
 
 - When the **New group created** page is shown, select newly created
   **EDM_DataUploaders** group.
-
+    ![A screenshot of a computer Description automatically generated](./media/e10.png)
+  
 - Click on **Members** tab, then select **View all and manage owners**, and add **Patti Fernandez**.
 
     ![A screenshot of a computer Description automatically generated](./media/e1.png)
