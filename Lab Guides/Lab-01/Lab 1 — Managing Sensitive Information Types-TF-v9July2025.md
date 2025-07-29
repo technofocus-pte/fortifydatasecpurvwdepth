@@ -36,7 +36,7 @@ PowerShell** module to create a new custom sensitive information type
 that recognizes the pattern of employee IDs near the keywords "Employee"
 and "ID".
 
-1.  In **Microsoft Edge** browser address bar, enter the following URL to open Microssoft Purview:
+1.  Open an InPrivate Window in your Edge browser, enter the following URL in the address bar to open Microssoft Purview portal:
     +++**https://purview.microsoft.com**+++, then log in as
     **Patti Fernandez** using the
     username **PattiF@WWLxXXXXXX.onmicrosoft.com** and the User Password
