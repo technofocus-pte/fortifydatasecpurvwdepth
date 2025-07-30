@@ -471,20 +471,20 @@ that to happen.
     ![Graphical user interface, application Description automatically generated](./media/image57.png)
 
 8.  In the **Add a keyword dictionary** page enter the
-    name **!!*Diseases Dictionary*!!**.
+    name **+++Diseases Dictionary+++***.
 
 9.  In the **Keywords** area enter the following keywords, each into a
     separate line:
 
-**+++flu+++**
+    **+++flu+++**
 
-**+++influenza+++**
+    **+++influenza+++**
 
-**+++cold+++**
+    **+++cold+++**
 
-**+++bronchitis+++**
+    **+++bronchitis+++**
 
-**+++otitis+++**
+    **+++otitis+++**
 
     ![](./media/image58.png)
 
