@@ -274,8 +274,7 @@ EmployeeIDs.
 6.  Enter the following command into PowerShell to add a DLP rule to the
     DLP policy you created in the previous step:
 
-    **+++New-DlpComplianceRule -Name "EmployeeID DLP rule" -Policy "EmployeeID DLP Policy" -BlockAccess $true -ContentContainsSensitiveInformation @{Name="Contoso
-Employee IDs"}+++**
+    **+++New-DlpComplianceRule -Name "EmployeeID DLP rule" -Policy "EmployeeID DLP Policy" -BlockAccess $true -ContentContainsSensitiveInformation @{Name="Contoso Employee IDs"}+++**
 
     ![](./media/image43.png)
 
