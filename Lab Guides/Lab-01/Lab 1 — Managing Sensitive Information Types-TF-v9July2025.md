@@ -406,8 +406,7 @@ path the documents folder on your VM.
     PowerShell:
 
     ![](./media/image50.png)
-  **+++.\EdmUploadAgent.exe /UploadData/DataStoreName employeedb /DataFileC:\Users\Admin\Documents\EmployeeData.csv /HashLocation C:\Users\Admin\Documents\\/SchemaC:\Users\Admin\Documents\employeedb.xml+++**
-
+  **+++.\EdmUploadAgent.exe /UploadData/DataStoreName employeedb /DataFile C:\Users\Admin\Documents\EmployeeData.csv /HashLocation C:\Users\Admin\Documents\" /Schema "C:\Users\Admin\Documents\employeedb.xml+++**
 
     **Note:** If you get the following errors
 
