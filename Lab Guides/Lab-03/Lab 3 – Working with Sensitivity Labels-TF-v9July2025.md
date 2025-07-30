@@ -74,20 +74,20 @@ your tenant.
 
 9.  Enter the following cmdlet to get the domain:
 
-    **+++\\domain = get-msoldomain+++**
+    **+++$domain = get-msoldomain+++**
 
     ![](./media/image10.png)
 
 10. Enter the following cmdlet to create the SharePoint admin url:
 
-    **+++\\adminurl = "https://" +\\domain.Name.split('.')\[0\] +"-admin.sharepoint.com"+++**
+    **+++$adminurl = "https://" + $domain.Name.split('.')[0] + "admin.sharepoint.com"+++**
 
     ![A screenshot of a computer screen Description automatically generated](./media/image11.png)
 
 11. Enter the following cmdlet to sign in to the SharePoint Online admin
     center:
 
-    **+++Connect-SPOService -url \\adminurl+++**
+    **+++Connect-SPOService -url $adminurl+++**
 
     ![A screenshot of a computer screen Description automatically generated](./media/image12.png)
 
@@ -119,7 +119,7 @@ apply to HR employee documents. You will create a sensitivity label for
 Internal documents and a sublabel for the HR department.
 
 1.  Open an **Microsoft Edge** browser in Private window, navigate to
-    **+++**https://purview.microsoft.com**+++** and log in as **Patti
+    **+++https://purview.microsoft.com+++** and log in as **Patti
     Fernandez** using the username **PattiF@WWLxXXXXXX.onmicrosoft.com**
     and the User Password given on your resources tab.
 
