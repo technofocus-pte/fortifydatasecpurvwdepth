@@ -410,7 +410,9 @@ HR employee via email.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image60.png)
 
-8.  Click on **Employee data (HR)** to apply the label.
+    **Note**: In case, you did not see Internal in the dropdown list, then select Confidential - Finance and skip the step #8.
+    
+9.  Click on **Employee data (HR)** to apply the label.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image61.png)
 
@@ -491,19 +493,14 @@ In this task, you will create a **Sensitivity Label** that will auto
 label documents and emails found to contain information related to
 the **European General Data Protection Regulation (GPDR)**.
 
-1.  In **Microsoft Edge**, the Microsoft Purview portal tab should still
-    be open.
-
-2.  You should be logged into the portal as **Patti Fernandez**.
-
-3.  Under the **Information protection**, navigate and click on
-    **Sensitivity** **Labels**, select the checkbox beside
+1.  While logged in as Patti Fernandez in the Microsoft Purview portal, under the **Information protection**, navigate and click on
+    **Sensitivity Labels**, select the checkbox beside
     **Internal** label, and click on the vertical ellipsis. Navigate and
     click on **+ Create sublabel**.
 
     ![](./media/image71.png)
 
-4.  The **New sensitivity label** wizard will start. On the **label
+2.  The **New sensitivity label** wizard will start. On the **label
     details** page, enter the following information:
 
     - Name: **+++GDPR Germany+++**
@@ -517,129 +514,129 @@ the **European General Data Protection Regulation (GPDR)**.
     - Description for admins: **+++This label is auto applied
       to German GDPR documents. +++**
 
-5.  Select **Next**.
+3.  Select **Next**.
 
     ![](./media/image72.png)
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image73.png)
 
-6.  On **Define the scope for this label** page, ensure that the
+4.  On **Define the scope for this label** page, ensure that the
     checkboxes for **Files & other data assets, Emails,** and
     **Meetings** are selected, then click on the **Next** button.
 
     ![](./media/image74.png)
 
-7.  On the **Choose protection settings for the types of items you
+5.  On the **Choose protection settings for the types of items you
     selected** page, select **Next**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image75.png)
 
-8.  On the **Auto-labeling for files and emails** page, turn on the
+6.  On the **Auto-labeling for files and emails** page, turn on the
     toggle for **Auto-labeling for files and emails**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image76.png)
 
-9.  In the **Detect content that matches these conditions** section,
+7.  In the **Detect content that matches these conditions** section,
     select **+Add condition** and then select **Content contains**.
 
     ![](./media/image77.png)
 
-10. In **Content contains** section select the **Add** text and then
+8. In **Content contains** section select the **Add** text and then
     select **Sensitive info types**.
 
     ![](./media/image78.png)
 
-11. A **Sensitive info types** panel will be displayed on the right.
+9. A **Sensitive info types** panel will be displayed on the right.
 
-12. In the **Search for sensitive info types** search panel, enter the
+10. In the **Search for sensitive info types** search panel, enter the
     following information:
 
     **+++German+++**
 
-13. Press the enter button, the results will display sensitivity info
+11. Press the enter button, the results will display sensitivity info
     types related to Germany. Select the checkbox beside **Name** to
     select all sensitive info types.
 
     ![](./media/image79.png)
 
-14. Select **Add**.
+12. Select **Add**.
 
     ![](./media/image80.png)
 
-15. Select **Next**.
+13. Select **Next**.
 
     ![A screenshot of a computer Description automatically generated](./media/image81.png)
 
-16. On the **Define protection settings for groups and sites** page,
+14. On the **Define protection settings for groups and sites** page,
     select **Next**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image82.png)
 
-17. On the **Review your settings and finish** page, select **Create
+15. On the **Review your settings and finish** page, select **Create
     label**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image83.png)
 
-18. On **Your sensitivity label was created** page, select the radio
+16. On **Your sensitivity label was created** page, select the radio
     button for **Automatically apply label to sensitive content**, then
     click on the **Done** button.
 
     ![](./media/image84.png)
 
-19. From the sub-navigation select **Sensitivity Labels** \> **Publish
+17. From the sub-navigation select **Sensitivity Labels** \> **Publish
     Labels**.
 
     ![](./media/image85.png)
 
-20. The **Publish sensitivity labels wizard** will start.
+18. The **Publish sensitivity labels wizard** will start.
 
-21. On the **Choose sensitivity labels to publish** page, select the
+19. On the **Choose sensitivity labels to publish** page, select the
     **Choose sensitivity labels to publish** link.
 
     ![](./media/image86.png)
 
-22. **Sensitivity labels to publish** pane will appear on the right
+20. **Sensitivity labels to publish** pane will appear on the right
     side. Navigate and select the **Internal** and **Internal/GDPR
     Germany** checkboxes, then click on the **Add** button.
 
     ![](./media/image87.png)
 
-23. On the **Choose sensitivity labels to publish** page,
+21. On the **Choose sensitivity labels to publish** page,
     select **Next**.
 
     ![](./media/image88.png)
 
-24. On Assign admin units page, click on the **Next** button.
+22. On Assign admin units page, click on the **Next** button.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image89.png)
 
-25. On the **Publish to users and groups** page, select **Next**.
+23. On the **Publish to users and groups** page, select **Next**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image90.png)
 
-26. On the **Policy settings** page, select **Next**.
+24. On the **Policy settings** page, select **Next**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image91.png)
 
-27. On the **Apply a default label to documents** page, select **Next**.
+25. On the **Apply a default label to documents** page, select **Next**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image92.png)
 
-28. On the **Apply a default label to emails** page, select **Next**.
+26. On the **Apply a default label to emails** page, select **Next**.
 
     ![A screenshot of a computer screen AI-generated content may be incorrect.](./media/image93.png)
 
-29. On the **Default settings for meetings and calendar events**,
+27. On the **Default settings for meetings and calendar events**,
     select **Next**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image94.png)
 
-30. On the **Default settings for Fabric and Power BI content page**,
+28. On the **Default settings for Fabric and Power BI content page**,
     select **Next**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image95.png)
 
-31. On the **Name your policy** page, enter the following information:
+29. On the **Name your policy** page, enter the following information:
 
     - Name: **+++GDPR Germany policy+++**
 
@@ -647,15 +644,15 @@ the **European General Data Protection Regulation (GPDR)**.
       policy: **+++This auto apply sensitivity labels policy is for the
       GDPR region of Germany. +++**
 
-32. Select **Next**.
+30. Select **Next**.
 
     ![](./media/image96.png)
 
-33. On the **Review and finish** page, select **Submit**.
+31. On the **Review and finish** page, select **Submit**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image97.png)
 
-34. On **New policy created** page, click on the **Done** button.
+32. On **New policy created** page, click on the **Done** button.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image98.png)
 
