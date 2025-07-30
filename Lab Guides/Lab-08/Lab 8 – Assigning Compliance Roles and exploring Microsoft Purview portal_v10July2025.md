@@ -138,11 +138,11 @@ for implementing security with Microsoft Purview.
 
     ![A screenshot of a computer Description automatically generated](./media/e3.png)
 
-- You have successfully added Christie Cline and Patti Fernandez. Now, we need to add Patti Fernandez as Member of this group.
+- You have successfully added Christie Cline and Patti Fernandez. Now, we need to add Patti Fernandez as a member of this group, since she will be used in the upcoming lab to upload the EDM data.
 
     ![A screenshot of a computer Description automatically generated](./media/e4.png)
   
-- In **EDM_DataUploaders** pane, under **Member** tab, navigate to **Member** section and click on **View all and manage members** link
+- In **EDM_DataUploaders** pane, under **Member** tab, navigate to **Members** section and click on **View all and manage members** link
 
     ![A screenshot of a computer Description automatically generated](./media/v1.png)
   
