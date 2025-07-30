@@ -343,6 +343,8 @@ button.
 
     **+++Christie Cline,31.01.1985,2Secondary Street,CSO654321+++**
 
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/np1.png)
+
 7.  Select File and Save As: **+++EmployeeData.csv+++**
 
 8.  Select the dropdown at **Save as type:** and select **All Files
