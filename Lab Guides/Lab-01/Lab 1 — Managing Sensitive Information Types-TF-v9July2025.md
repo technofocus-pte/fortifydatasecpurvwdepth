@@ -503,7 +503,7 @@ that to happen.
 
     **+++EmployeeID+++**
 
-    **+++absent+++**
+    **+++leave+++**
 
     **+++reason+++**
 
@@ -552,7 +552,7 @@ malfunctioning custom search pattern.
 
 2.  Enter the following text to the notepad window:
 
-    **+++Employee Patti Fernandez with Employee ID ABC123456 is on absence because of the flu/influenza+++**
+    **+++Employee Patti Fernandez with Employee ID ABC123456 is on leave because of the flu/influenza+++**
 
 3.  Select **File** and Save As **+++SickTestData+++** and select **Save**.
 
