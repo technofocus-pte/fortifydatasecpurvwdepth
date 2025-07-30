@@ -1,4 +1,4 @@
-<img width="1067" height="773" alt="image" src="https://github.com/user-attachments/assets/e4d660fd-33e5-491e-9285-f4477b1765d7" /># **Lab 3 – Working with Sensitivity Labels**
+**Lab 3 – Working with Sensitivity Labels**
 
 ## **Introduction**
 
