@@ -414,14 +414,14 @@ path the documents folder on your VM.
 
     Error Message: Unable to find the specified file.
 
-    Check the path where you saved the file EmployeeData.csv
+    **Check the path where you saved the file EmployeeData.csv**
 
     ![Text Description automatically generated](./media/image51.png)
 
-18. Check the upload progress until the state changes to completed then
+19. Check the upload progress until the state changes to completed then
     run the following PowerShell command:
 
-    **+++.\EdmUploadAgent.exe /GetSession /DataStoreNameemployeedb+++**
+    **+++.\EdmUploadAgent.exe /GetSession /DataStoreName employeedb+++**
 
     ![A screenshot of a computer program AI-generated content may be incorrect.](./media/image52.png)
 
