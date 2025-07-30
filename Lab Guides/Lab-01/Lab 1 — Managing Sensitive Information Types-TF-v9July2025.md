@@ -501,13 +501,13 @@ that to happen.
     following keywords, each into a separate line, then click on the
     **Done** button:
 
-    **+++EmployeeID+++**
+    **+++Employee ID+++**
 
     **+++leave+++**
 
     **+++reason+++**
 
-    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image60.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/l1.png)
 
 13. In the **New pattern** page, review the configuration and
     select **Create**.
