@@ -493,8 +493,8 @@ In this task, you will create a **Sensitivity Label** that will auto
 label documents and emails found to contain information related to
 the **European General Data Protection Regulation (GPDR)**.
 
-1.  While logged in as Patti Fernandez in the Microsoft Purview portal, under the **Information protection**, navigate and click on
-    **Sensitivity Labels**, select the checkbox beside
+1.  While logged in as Patti Fernandez, under the **Information protection**, navigate and click on
+    **Sensitivity labels**, select the checkbox beside
     **Internal** label, and click on the vertical ellipsis. Navigate and
     click on **+ Create sublabel**.
 
@@ -509,10 +509,10 @@ the **European General Data Protection Regulation (GPDR)**.
 
     - Description for users: **+++This document or email contains data
       related to the European General Data
-      Protection Regulation(GPDR) for the region Germany. +++**
+      Protection Regulation(GPDR) for the region Germany.+++**
 
     - Description for admins: **+++This label is auto applied
-      to German GDPR documents. +++**
+      to German GDPR documents.+++**
 
 3.  Select **Next**.
 
@@ -642,7 +642,7 @@ the **European General Data Protection Regulation (GPDR)**.
 
     - Enter a description for your sensitivity label
       policy: **+++This auto apply sensitivity labels policy is for the
-      GDPR region of Germany. +++**
+      GDPR region of Germany.+++**
 
 30. Select **Next**.
 
