@@ -76,26 +76,27 @@ your tenant.
 
     ```$domain = Get-AzureADDomain```
 
-    ![BrokenImage](./media/image8.png)
+    ![BrokenImage](./media/k1.png)
 
 11. Enter the following cmdlet to create the SharePoint admin url:
 
     ```$adminurl = "https://" + $domain.Name.Split('.')[0] + "-admin.sharepoint.com"```
 
-    ![A screenshot of a computer screen Description automatically generated](./media/image9.png)
+    ![A screenshot of a computer screen Description automatically generated](./media/k2.png)
 
 12. Enter the following cmdlet to sign in to the SharePoint Online admin
     center:
 
     ```Connect-SPOService -url $adminurl```
 
-  ![A screenshot of a computer screen Description automatically generated](./media/image10.png)
 
 13. In the **Sign in to your account** form, log in as **MOD
     Administrator** using the credentials provided in the resources tab
     of your lab environment.
 
 14. After signing in, select the PowerShell window.
+
+    ![A screenshot of a computer screen Description automatically generated](./media/k3.png)
 
 15. Enter the following cmdlet to enable support for sensitivity labels:
 
