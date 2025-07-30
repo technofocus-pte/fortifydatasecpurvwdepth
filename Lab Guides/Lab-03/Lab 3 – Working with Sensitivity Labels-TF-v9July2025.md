@@ -193,18 +193,16 @@ Internal documents and a sublabel for the HR department.
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image26.png)
 
 14. The **New sensitivity label** wizard will start. On the **Label
-    details** page, enter the following information:
+    details** page, enter the following information, then click on the **Next** button:
 
     - Name: **+++Employee data (HR)+++**
 
     - Display name: **+++Employee data (HR)+++**
 
-    - Description for users: **+++This HR
-      label is the default label for all specified documents in the
+    - Description for users: **+++This HR label is the default label for all specified documents in the
       HR Department.+++**
 
-    - Description for admins: **+++This label is created in
-      consultation with Ms.Jones (Head of HR department). Contact her,
+    - Description for admins: **+++This label is created in consultation with Ms.Jones (Head of HR department). Contact her,
       when you want to change settings of the label.+++**
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image27.png)
@@ -218,7 +216,7 @@ Internal documents and a sublabel for the HR department.
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image29.png)
 
 16. On the **Choose protection settings for labeled items** page, select
-    the **Control Access** option. Select **Next**.
+    the **Control access** option. Select **Next**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image30.png)
 
@@ -227,7 +225,7 @@ Internal documents and a sublabel for the HR department.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image31.png)
 
-18. Enter the following information into the encryption settings:
+18. Scroll down and enter the following information into the encryption settings:
 
     - Assign permissions now or let users decide?: **Assign permissions
       now**
@@ -288,12 +286,7 @@ You will now publish the Internal and HR sensitivity label so that the
 published sensitivity labels will be available for the HR users to apply
 to their HR documents.
 
-1.  In **Microsoft Edge** navigate to
-    **+++https://purview.microsoft.com+++** and log in as **Patti
-    Fernandez** using the username **PattiF@WWLxXXXXXX.onmicrosoft.com**
-    and the User Password given on your resources tab.
-
-2.  In the Microsoft Purview portal, on the left navigation pane, select
+1.  While logged in as Patti Fernandez in the Microsoft Purview portal, on the left navigation pane, select
     **Solutions** \> **Information Protection**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image41.png)
@@ -360,8 +353,7 @@ to their HR documents.
     - **Name**: **+++Internal HR employee data+++**
 
     - **Enter a description for your sensitivity label
-      policy**: **+++This HR label is to be applied to internal HR
-      employee data. +++**
+      policy**: **+++This HR label is to be applied to internal HR employee data.+++**
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image53.png)
 
@@ -444,7 +436,7 @@ task 1 of this exercise.
 
     ![A screen shot of a computer AI-generated content may be incorrect.](./media/image64.png)
 
-12. In Outlook on the web, select **New message** from the upper left of
+12. In Outlook on the web, select **New mail > Mail** from the upper left of
     the window.
 
     ![A screenshot of a computer Description automatically generated](./media/image65.png)
@@ -458,13 +450,13 @@ task 1 of this exercise.
 
 15. Within the email body, insert the following message:
 
-   **+++Dear Ms. Adele,**
+   **+++Dear Ms. Adele,+++**
 
-  **Please find attached the important HR employee document.**
+  **+++Please find attached the important HR employee document.+++**
 
-   **Kind regards,**
+   **+++Kind regards,+++**
 
-  **Patti Fernandez+++**
+  **+++Patti Fernandez+++**
 
   ![A screenshot of a computer Description automatically generated](./media/image67.png)
 
