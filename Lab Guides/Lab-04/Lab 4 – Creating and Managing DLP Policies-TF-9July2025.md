@@ -115,7 +115,7 @@ action to affect your users yet.
     ![](./media/image14.png)
 
 16. On the **Sensitive info types** pane that appears on the right side,
-    type **credit card number** in the search bar and press the enter
+    enter **+++credit card number+++** in the search bar and press the enter
     button. Select the checkbox beside **Credit Card Number**, then
     select the **Add** button.
 
@@ -185,9 +185,7 @@ SharePoint, OneDrive and Teams to override policy restrictions.**
 
     ![](./media/image26.png)
 
-You have now created a DLP policy that scans for Credit Card numbers in
-Microsoft Teams chats and channels and allows users to provide a
-business justification to override the policy.
+    You have now created a DLP policy that scans for Credit Card numbers in Microsoft Teams chats and channels and allows users to provide a business justification to override the policy.
 
     ![](./media/image27.png)
 
@@ -246,9 +244,9 @@ EmployeeIDs.
 
 3.  In the PowerShell execute the following commands:
 
-    **+++Install-ModuleExchangeOnlineManagement+++**
+    **+++Install-Module ExchangeOnlineManagement+++**
 
-    **+++Import-ModuleExchangeOnlineManagement+++**
+    **+++Import-Module ExchangeOnlineManagement+++**
 
     ![A screenshot of a computer program AI-generated content may be incorrect.](./media/image36.png)
 
@@ -260,9 +258,7 @@ EmployeeIDs.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image39.png)
 
-In case, **Automatically sign in to all desktop apps and websites on
-this device?** dialog box appears, then click on **No, this app only**
-button.
+    In case, **Automatically sign in to all desktop apps and websites on this device?** dialog box appears, then click on **No, this app only** button.
 
     ![](./media/image40.png)
 
@@ -271,14 +267,14 @@ button.
 5.  Enter the following command into PowerShell to create a DLP policy
     that scans all Exchange mailboxes:
 
-    **+++New-DlpCompliancePolicy -Name"EmployeeID DLP Policy" -Comment "This policy blocks sharing of Employee IDs" -ExchangeLocation All+++**
+    **+++New-DlpCompliancePolicy -Name "EmployeeID DLP Policy" -Comment "This policy blocks sharing of Employee IDs" -ExchangeLocation All+++**
 
     ![](./media/image42.png)
 
 6.  Enter the following command into PowerShell to add a DLP rule to the
     DLP policy you created in the previous step:
 
-    **+++New-DlpComplianceRule -Name"EmployeeID DLP rule" -Policy"EmployeeID DLP Policy" -BlockAccess\\true -ContentContainsSensitiveInformation@{Name="Contoso
+    **+++New-DlpComplianceRule -Name "EmployeeID DLP rule" -Policy "EmployeeID DLP Policy" -BlockAccess $true -ContentContainsSensitiveInformation @{Name="Contoso
 Employee IDs"}+++**
 
     ![](./media/image43.png)
