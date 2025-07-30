@@ -138,8 +138,22 @@ for implementing security with Microsoft Purview.
 
     ![A screenshot of a computer Description automatically generated](./media/e3.png)
 
+- You have successfully added Christie Cline and Patti Fernandez. Now, we need to add Patti Fernandez as Member of this group.
+
     ![A screenshot of a computer Description automatically generated](./media/e4.png)
-    
+  
+- In **EDM_DataUploaders** pane, under **Member** tab, navigate to **Member** section and click on **View all and manage members** link
+
+    ![A screenshot of a computer Description automatically generated](./media/v1.png)
+  
+- In the **Members** pane that appear on the right side, click on **+Add members**
+
+    ![A screenshot of a computer Description automatically generated](./media/v2.png)
+  
+- Type +++**PattiF**+++ in the search bar and select **Patti Fernandez**, then click on the **Add** button.
+
+      ![A screenshot of a computer Description automatically generated](./media/v3.png)
+  
 ### Task 4 – Enabling trial for compliance Assessments
 
 1.  Log in to the Purview Portal **+++https://purview.microsoft.com+++**
