@@ -11,16 +11,7 @@ custom trainable classifiers and create a new one in this lab.
 
 ## **Objectives**
 
-- Create a trainable classifier in Microsoft Purview.
-
-- Select SharePoint sites containing positive and negative sample
-  content for training.
-
-- Configure classifier settings to identify Contoso-specific company
-  data.
-
-- Initiate training for automated data classification based on real
-  organizational content.
+- Create a trainable classifier to identify and categorize typical data stored in selected SharePoint sites.
 
 ## Exercise 1 – Creating a trainable classifier
 
@@ -44,8 +35,7 @@ stored by Contoso Ltd.
 
     ![](./media/image2.png)
 
-4.  Enter the following information on the **Name and describe your
-    trainable classifier** page:
+4.  Enter the following information:
 
 5.  Name: **+++Contoso Company Data+++**
 
