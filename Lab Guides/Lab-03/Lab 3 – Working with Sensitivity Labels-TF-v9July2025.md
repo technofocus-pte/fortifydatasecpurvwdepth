@@ -72,42 +72,42 @@ your tenant.
 
     ![A screenshot of a computer program AI-generated content may be incorrect.](./media/u1.png)
 
-9.  Enter the following cmdlet to get the domain:
+9.  10. Enter the following cmdlet to get the domain:
 
-    **+++$domain = get-msoldomain+++**
+    ```$domain = Get-AzureADDomain```
 
-    ![](./media/image10.png)
+    ![BrokenImage](./media/image8.png)
 
-10. Enter the following cmdlet to create the SharePoint admin url:
+11. Enter the following cmdlet to create the SharePoint admin url:
 
-    **+++$adminurl = "https://" + $domain.Name.split('.')[0] + "admin.sharepoint.com"+++**
+    ```$adminurl = "https://" + $domain.Name.Split('.')[0] + "-admin.sharepoint.com"```
 
-    ![A screenshot of a computer screen Description automatically generated](./media/image11.png)
+    ![A screenshot of a computer screen Description automatically generated](./media/image9.png)
 
-11. Enter the following cmdlet to sign in to the SharePoint Online admin
+12. Enter the following cmdlet to sign in to the SharePoint Online admin
     center:
 
-    **+++Connect-SPOService -url $adminurl+++**
+    ```Connect-SPOService -url $adminurl```
 
-    ![A screenshot of a computer screen Description automatically generated](./media/image12.png)
+  ![A screenshot of a computer screen Description automatically generated](./media/image10.png)
 
-12. In the **Sign in to your account** form, log in as **MOD
-    Administrator** using the credentials provided in the resources tab
+13. In the **Sign in to your account** form, log in as **MOD
+    Administrator** using the credentials provided in the resources tab
     of your lab environment.
 
-    ![A screenshot of a computer screen AI-generated content may be incorrect.](./media/image13.png)
+14. After signing in, select the PowerShell window.
 
-13. Enter the following cmdlet to enable support for sensitivity labels:
+15. Enter the following cmdlet to enable support for sensitivity labels:
 
-    **+++Set-SPOTenant -EnableAIPIntegration $true+++**
+    ```Set-SPOTenant -EnableAIPIntegration $true```
 
-    ![](./media/image14.png)
+    ![BrokenImage](./media/image11.png)
 
-14. Confirm the changes with **Y** for Yes and press Enter.
+16. Confirm the changes with **Y** for Yes and press Enter.
 
-    ![](./media/image15.png)
+    ![BrokenImage](./media/image12.png)
 
-15. Close the **PowerShell** window.
+17. Close the **PowerShell** window.
 
 You have successfully enabled support for sensitivity labels with Teams
 and SharePoint sites.
