@@ -53,7 +53,7 @@ your tenant.
 5.  Enter the following cmdlet to install the latest SharePoint Online
     PowerShell module version:
 
-    **+++Install-Module -NameMicrosoft.Online.SharePoint.PowerShell+++**
+    **+++Install-Module -Name Microsoft.Online.SharePoint.PowerShell+++**
 
     ![A screenshot of a computer Description automatically generated](./media/image5.png)
 
