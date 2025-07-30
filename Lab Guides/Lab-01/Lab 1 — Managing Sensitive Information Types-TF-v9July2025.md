@@ -496,14 +496,14 @@ that to happen.
 
     ![Graphical user interface, application Description automatically generated](./media/image59.png)
 
-12. In the **Add a keyword list** page enter **Employee **in
+12. In the **Add a keyword list** page enter **+++Employee+++** in
     the **ID** field. In the **Case insensitive** box, enter the
     following keywords, each into a separate line, then click on the
     **Done** button:
 
     **+++EmployeeID+++**
 
-    **+++absence+++**
+    **+++absent+++**
 
     **+++reason+++**
 
@@ -552,9 +552,9 @@ malfunctioning custom search pattern.
 
 2.  Enter the following text to the notepad window:
 
-    **+++Employee Patti Fernandez with EmployeeID HR-255801 is on absence because of the flu/influenza+++**
+    **+++Employee Patti Fernandez with Employee ID ABC123456 is on absence because of the flu/influenza+++**
 
-3.  Select **File** and Save As **SickTestData** and select **Save**.
+3.  Select **File** and Save As **+++SickTestData+++** and select **Save**.
 
 4.  Close the Notepad window.
 
@@ -568,7 +568,7 @@ malfunctioning custom search pattern.
 6.  In the left navigation pane select **Solutions** \> **Data Loss
     Prevention**, then select the **Sensitive info types** under
     **Classifiers**. In the **Search** box from the upper right side and
-    enter ***Contoso*** and press Enter. Click on **Contoso Employee
+    enter **+++Contoso+++** and press Enter. Click on **Contoso Employee
     IDs** to open the right side pane.
 
   ![A screenshot of a computer AI-generated content may be incorrect.](./media/image65.png)
@@ -584,11 +584,11 @@ malfunctioning custom search pattern.
 9.  Select **Documents** from the left pane, select the file with the
     name **SickTestData** and select **Open**.
 
-    ![Graphical user interface, text, application Description automatically generated](./media/image68.png)
+    ![Graphical user interface, text, application Description automatically generated](./media/id1.png)
 
 10. Select **Test** to start the analysis.
 
-  ![Graphical user interface, text, application Description automatically generated](./media/image69.png)
+    ![Graphical user interface, text, application Description automatically generated](./media/image69.png)
 
 11. On the **Match results** page, review the found match.
 
@@ -619,6 +619,8 @@ malfunctioning custom search pattern.
 
 18. On the **Match results** page, review the found match. When done
     review select **Finish**.
+
+    ![Graphical user interface, text, application Description automatically generated](./media/id2.png)
 
 ## Summary:
 
