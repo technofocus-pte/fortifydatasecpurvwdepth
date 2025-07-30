@@ -1,4 +1,4 @@
-# **Lab 3 – Working with Sensitivity Labels**
+<img width="1067" height="773" alt="image" src="https://github.com/user-attachments/assets/e4d660fd-33e5-491e-9285-f4477b1765d7" /># **Lab 3 – Working with Sensitivity Labels**
 
 ## **Introduction**
 
@@ -41,9 +41,9 @@ your tenant.
 3.  Enter the following cmdlet to install the latest Microsoft Online
     PowerShell module version:
 
-    **+++Install-Module -Name MSOnline+++**
+    **+++Install-Module -Name AzureAD+++**
 
-    ![A screenshot of a computer Description automatically generated](./media/image3.png)
+    ![A screenshot of a computer Description automatically generated](./media/im1.png)
 
 4.  On **You are installing the modules from an untrusted repository...
     message**, type **Y** then press the Enter button
@@ -65,9 +65,9 @@ your tenant.
 7.  Enter the following cmdlet to connect to the Microsoft Online
     service:
 
-    **+++Connect-MsolService+++**
+    **+++Connect-AzureAD+++**
 
-    ![](./media/image7.png)
+    ![](./media/login2.png)
 
 8.  In the **Sign in to your account** form, log in as **Patti
     Fernandez** using the username **PattiF@WWLxXXXXXX.onmicrosoft.com**
