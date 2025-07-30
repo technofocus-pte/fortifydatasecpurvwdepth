@@ -357,8 +357,8 @@ button.
 
 10. Close the Notepad window.
 
-11. Right-click the Windows icon on the taskbar and select Windows
-    PowerShell (Admin) to run it as administrator.
+11. Right-click on the **Windows** icon on the taskbar and select **Windows
+    PowerShell (Admin)** to run it as administrator.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image43.png)
 
@@ -393,7 +393,7 @@ button.
     classification sensitive information type by running the following
     script in PowerShell:
 
-    **+++.\EdmUploadAgent.exe /SaveSchema /DataStoreNameemployeedb /OutputDirC:\Users\Admin\Documents\\++**
+    **+++.\EdmUploadAgent.exe /SaveSchema /DataStoreName employeedb /OutputDir "C:\Users\Admin\Documents\"+++**
 
     **Note**: If the last command fails, it possibly takes more time until the **EDM_DataUploaders** group membership is applied. It can take up to
 one hour until it is possible to download the schema file. If it fails proceed to the next task and return to this step later. Or check the
