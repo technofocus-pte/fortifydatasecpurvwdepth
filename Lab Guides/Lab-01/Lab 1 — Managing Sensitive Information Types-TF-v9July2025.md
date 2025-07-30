@@ -56,24 +56,26 @@ and "ID".
 
     ![](./media/image1.png)
 
-4.  Select **Classifiers** from the left pane. Select **Sensitive info
+    **Note**: In case, you did not see **Data Loss Prevention** in the Solutions list, then wait for few minutes and reupload the page. If you did not see Data Loss Prevention in the Solutions list, then login using the Regular (Normal) browsing window.
+
+5.  Select **Classifiers** from the left pane. Select **Sensitive info
     types** from the sub-navigation pane. Select **+Create sensitive
     info type** to open the wizard for a new sensitive information type.
 
     ![A screenshot of a computer Description automatically generated](./media/image2.png)
 
-5.  On the **Name your sensitive info type** page, enter the following
+6.  On the **Name your sensitive info type** page, enter the following
     information:
 
-    - **Name**: ++**Contoso Employee IDs**++
+    - **Name**: **+++Contoso Employee IDs+++**
 
-    - **Description**: **+++Pattern for Contosoemployee IDs+++.**
+    - **Description**: **+++Pattern for Contoso employee IDs+++.**
 
-6.  Select **Next**.
+7.  Select **Next**.
 
     ![Graphical user interface, application Description automatically generated](./media/image3.png)
 
-7.  On the **Define patterns for this sensitive info type** page,
+8.  On the **Define patterns for this sensitive info type** page,
     select **Create pattern**.
 
   ![A screenshot of a computer Description automatically generated](./media/image4.png)
@@ -113,7 +115,7 @@ and "ID".
 
     - **ID**: **+++Employee ID keywords+++**
 
-    - **Case insensitive**:**+++Employee** **ID+++**
+    - **Case insensitive**:**+++Employee ID+++**
 
     ![](./media/image10.png)
 
@@ -248,7 +250,7 @@ Birthdate, StreetAddress, and EmployeeID.
 
     ![A screenshot of a pattern Description automatically generated](./media/image31.png)
 
-23. In the **Search** bar, enter ***Contoso*** and press the enter key.
+23. In the **Search** bar, enter +++**Contoso**+++ and press the enter key.
 
 24. Select **Contoso Employee IDs** and select **Done**.
 
@@ -270,7 +272,7 @@ Birthdate, StreetAddress, and EmployeeID.
     enter **+++Contoso Employee EDM+++** for the name.
 
 29. In the **Description for admins** field, enter **+++EDM-based
-    sensitive information type for employee personal information.+++**.
+    sensitive information type for employee personal information.+++**
     Select **Next.**
 
     ![Graphical user interface, text, application Description automatically generated](./media/image35.png)
@@ -296,7 +298,7 @@ To associate the EDM-based classification with a database containing
 sensitive data, hashing and uploading the actual data for the sensitive
 information type via the EDM Upload Agent tool is required next.
 
-1.  In **Microsoft Edge**, navigate
+1.  In **Microsoft Edge** browser, navigate
     to +++**https://go.microsoft.com/fwlink/?linkid=2088639**+++ to
     download the EDM download agent.
 
@@ -335,11 +337,11 @@ button.
 
 6. Enter the following text to the first line in the notepad window:
 
-    **+++Name,Birthdate,StreetAddress,EmployeeID**
+    **+++Name,Birthdate,StreetAddress,EmployeeID+++**
 
-    **Patti Fernandez,01.06.1980,1Main Street,CSO123456**
+    **+++Patti Fernandez,01.06.1980,1Main Street,CSO123456+++**
 
-    **Christie Cline,31.01.1985,2Secondary Street,CSO654321+++**
+    **+++Christie Cline,31.01.1985,2Secondary Street,CSO654321+++**
 
 7.  Select File and Save As: **+++EmployeeData.csv+++**
 
