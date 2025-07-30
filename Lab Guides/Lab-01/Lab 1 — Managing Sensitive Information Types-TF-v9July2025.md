@@ -335,7 +335,7 @@ button.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image41.png)
 
-6. Enter the following text to the first line in the notepad window:
+6. Enter the following text in the notepad:
 
     **+++Name,Birthdate,StreetAddress,EmployeeID+++**
 
@@ -476,15 +476,15 @@ that to happen.
 9.  In the **Keywords** area enter the following keywords, each into a
     separate line:
 
-**+++flu**
+**+++flu+++**
 
-**influenza**
+**+++influenza+++**
 
-**cold**
+**+++cold+++**
 
-**bronchitis**
+**+++bronchitis+++**
 
-**otitis+++**
+**+++otitis+++**
 
     ![](./media/image58.png)
 
