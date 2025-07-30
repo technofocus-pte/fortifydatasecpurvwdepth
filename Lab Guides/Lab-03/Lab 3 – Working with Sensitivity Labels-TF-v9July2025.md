@@ -94,21 +94,20 @@ your tenant.
     Administrator** using the credentials provided in the resources tab
     of your lab environment.
 
-14. After signing in, select the PowerShell window.
-
     ![A screenshot of a computer screen Description automatically generated](./media/k3.png)
 
-15. Enter the following cmdlet to enable support for sensitivity labels:
+    ![A screenshot of a computer screen Description automatically generated](./media/kk1.png)
+
+
+14. Enter the following cmdlet to enable support for sensitivity labels:
 
     ```Set-SPOTenant -EnableAIPIntegration $true```
 
-    ![BrokenImage](./media/image11.png)
+15. Confirm the changes with **Y** for Yes and press Enter.
 
-16. Confirm the changes with **Y** for Yes and press Enter.
+    ![BrokenImage](./media/kk2.png)
 
-    ![BrokenImage](./media/image12.png)
-
-17. Close the **PowerShell** window.
+16. Close the **PowerShell** window.
 
 You have successfully enabled support for sensitivity labels with Teams
 and SharePoint sites.
