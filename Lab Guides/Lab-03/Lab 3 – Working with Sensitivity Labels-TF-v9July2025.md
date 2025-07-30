@@ -38,17 +38,15 @@ your tenant.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image2.png)
 
-3.  Enter the following cmdlet to install the latest Microsoft Online
-    PowerShell module version:
+3.  Enter the following cmdlet to install the AzureAD:
+
+4.  On **You are installing the modules from an untrusted repository...
+    message**, type **Y** then press the Enter button
 
     **+++Install-Module -Name AzureAD+++**
 
     ![A screenshot of a computer Description automatically generated](./media/im1.png)
 
-4.  On **You are installing the modules from an untrusted repository...
-    message**, type **Y** then press the Enter button
-
-    ![](./media/image4.png)
 
 5.  Enter the following cmdlet to install the latest SharePoint Online
     PowerShell module version:
@@ -62,20 +60,17 @@ your tenant.
 
     ![A screenshot of a computer screen Description automatically generated](./media/image6.png)
 
-7.  Enter the following cmdlet to connect to the Microsoft Online
-    service:
+7.  Now, enter the following cmdlet to connect AzureAD:
 
     **+++Connect-AzureAD+++**
-
-    ![](./media/login2.png)
 
 8.  In the **Sign in to your account** form, log in as **Patti
     Fernandez** using the username **PattiF@WWLxXXXXXX.onmicrosoft.com**
     and the User Password given on your resources tab.
+    
+    ![](./media/login2.png)
 
-    ![A screenshot of a computer screen AI-generated content may be incorrect.](./media/image8.png)
-
-    ![A screenshot of a computer program AI-generated content may be incorrect.](./media/image9.png)
+    ![A screenshot of a computer program AI-generated content may be incorrect.](./media/u1.png)
 
 9.  Enter the following cmdlet to get the domain:
 
