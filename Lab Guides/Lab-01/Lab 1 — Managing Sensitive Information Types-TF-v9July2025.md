@@ -405,9 +405,9 @@ path the documents folder on your VM.
     sensitive information type by running the following script in
     PowerShell:
 
-**+++.\EdmUploadAgent.exe /UploadData/DataStoreName employeedb /DataFileC:\Users\Admin\Documents\EmployeeData.csv /HashLocation C:\Users\Admin\Documents\\/SchemaC:\Users\Admin\Documents\employeedb.xml+++**
-
     ![](./media/image50.png)
+  **+++.\EdmUploadAgent.exe /UploadData/DataStoreName employeedb /DataFileC:\Users\Admin\Documents\EmployeeData.csv /HashLocation C:\Users\Admin\Documents\\/SchemaC:\Users\Admin\Documents\employeedb.xml+++**
+
 
     **Note:** If you get the following errors
 
@@ -426,8 +426,7 @@ path the documents folder on your VM.
 
     ![A screenshot of a computer program AI-generated content may be incorrect.](./media/image52.png)
 
-You have successfully hashed and uploaded a database file for a
-EDM-based classification sensitive information type.
+    You have successfully hashed and uploaded a database file for a EDM-based classification sensitive information type.
 
 ## Exercise 4 – Creating Keyword Dictionary
 
