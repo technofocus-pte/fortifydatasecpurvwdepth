@@ -42,39 +42,48 @@ and "ID".
     username **PattiF@WWLxXXXXXX.onmicrosoft.com** and the User Password
     given on your resources tab.
 
-2.  From the left navigation, select **Solutions** \> **Data Loss
+    ![](./media/pf1.png)
+
+    ![](./media/pf2.png)
+    
+2. If **Welcome to the new Microsoft Purview protal!** dialog box appears, then click on the **Get Started** button
+
+    ![](./media/gs1.png)
+
+
+3.  From the left navigation, select **Solutions** \> **Data Loss
     Prevention**.
 
     ![](./media/image1.png)
 
-3.  Select **Classifiers** from the left pane. Select **Sensitive info
+4.  Select **Classifiers** from the left pane. Select **Sensitive info
     types** from the sub-navigation pane. Select **+Create sensitive
     info type** to open the wizard for a new sensitive information type.
 
     ![A screenshot of a computer Description automatically generated](./media/image2.png)
 
-4.  On the **Name your sensitive info type** page, enter the following
+5.  On the **Name your sensitive info type** page, enter the following
     information:
 
     - **Name**: ++**Contoso Employee IDs**++
 
     - **Description**: **+++Pattern for Contosoemployee IDs+++.**
 
-5.  Select **Next**.
+6.  Select **Next**.
 
     ![Graphical user interface, application Description automatically generated](./media/image3.png)
 
-6.  On the **Define patterns for this sensitive info type** page,
+7.  On the **Define patterns for this sensitive info type** page,
     select **Create pattern**.
 
   ![A screenshot of a computer Description automatically generated](./media/image4.png)
 
-7.  In the **New pattern** pane that appears on the right side,
+8.  In the **New pattern** pane that appears on the right side,
     select **Add primary element** and select **Regular expression**.
 
   ![Graphical user interface, application, Teams Description automatically generated](./media/image5.png)
 
-8.  In the new right-side pane **Add a regular expression**, enter the
+9.  In the new right-side pane **Add a regular expression**, enter the
     following:
 
     - **ID**: **+++Contoso IDs+++**
@@ -83,24 +92,24 @@ and "ID".
 
     - Select **String match**
 
-9.  Select **Done**.
+10.  Select **Done**.
 
   ![Graphical user interface, application Description automatically generated](./media/image6.png)
 
-10. In the New pattern pane, decrease the **Character proximity** value
+11. In the New pattern pane, decrease the **Character proximity** value
     to ***100*** characters.
 
     ![](./media/image7.png)
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image8.png)
 
-11. Navigate to **Supporting elements** heading, click on **+ Add
+12. Navigate to **Supporting elements** heading, click on **+ Add
     supporting elements or group of elements** drop-down menu and
     select **Keyword list**.
 
     ![Graphical user interface, application Description automatically generated](./media/image9.png)
 
-12. In the **Add a keyword list** pane, enter the following:
+13. In the **Add a keyword list** pane, enter the following:
 
     - **ID**: **+++Employee ID keywords+++**
 
@@ -108,34 +117,34 @@ and "ID".
 
     ![](./media/image10.png)
 
-13. Scroll down and select the radio button beside **Word match**. Then,
+14. Scroll down and select the radio button beside **Word match**. Then,
     click on the **Done** button. 
 
     ![](./media/image11.png)
 
-14. Now, click on the **Create** button.
+15. Now, click on the **Create** button.
 
     ![](./media/image12.png)
 
-15. Back on the **Define patterns for this sensitive info type** page
+16. Back on the **Define patterns for this sensitive info type** page
     select **Next**.
 
     ![Graphical user interface, text, application, Teams Description automatically generated](./media/image13.png)
 
-16. On the **Choose the recommended confidence level to show in
+17. On the **Choose the recommended confidence level to show in
     compliance policies** page, use the default value and
     select **Next** button.
 
     ![](./media/image14.png)
 
-17. On the **Review settings and finish** page review the settings and
+18. On the **Review settings and finish** page review the settings and
     select **Create**. When successfully created select **Done**.
 
     ![](./media/image15.png)
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image16.png)
 
-18. Leave the browser window open.
+19. Leave the browser window open.
 
 You have successfully created a new sensitive information type to
 identify employee IDs in the pattern of three uppercase characters, six
