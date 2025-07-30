@@ -129,7 +129,7 @@ Internal documents and a sublabel for the HR department.
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image16.png)
 
 3.  From the sub-navigation select **Sensitivity Labels** \> **Create
-    Labels**.
+    a label**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image17.png)
 
@@ -195,17 +195,17 @@ Internal documents and a sublabel for the HR department.
 14. The **New sensitivity label** wizard will start. On the **Label
     details** page, enter the following information:
 
-    - Name: **+++Employee data (HR) +++**
+    - Name: **+++Employee data (HR)+++**
 
-    - Display name: **+++Employee data (HR) +++**
+    - Display name: **+++Employee data (HR)+++**
 
     - Description for users: **+++This HR
       label is the default label for all specified documents in the
-      HR Department. +++**
+      HR Department.+++**
 
     - Description for admins: **+++This label is created in
       consultation with Ms.Jones (Head of HR department). Contact her,
-      when you want to change settings of the label. +++**
+      when you want to change settings of the label.+++**
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image27.png)
 
