@@ -501,11 +501,11 @@ that to happen.
     following keywords, each into a separate line, then click on the
     **Done** button:
 
-**+++EmployeeID**
+    **+++EmployeeID+++**
 
-**absence**
+    **+++absence+++**
 
-**reason+++**
+    **+++reason+++**
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image60.png)
 
