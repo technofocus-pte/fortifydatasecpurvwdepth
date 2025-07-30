@@ -1,6 +1,6 @@
 # **Lab 2 – Managing Trainable Classifiers**
 
-## Introduction:
+## **Introduction**
 
 The Contoso Ltd. tenant contains a SharePoint site collection with the
 name "Sales and Marketing" that will be used in the future to store
@@ -9,7 +9,7 @@ of these documents, you need to create a trainable classifier to
 recognize and label these files. For this purpose, you will activate
 custom trainable classifiers and create a new one in this lab.
 
-Objectives
+## **Objectives**
 
 - Create a trainable classifier in Microsoft Purview.
 
@@ -36,13 +36,13 @@ stored by Contoso Ltd.
 2.  From the left navigation, select **Solutions** \> **Data Loss
     Prevention**.
 
-![](./media/image1.png)
+    ![](./media/image1.png)
 
 3.  Expand **Classifiers** from the left pane. Select **Trainable
     Classifiers** from the sub-navigation pane. Select **+ Create
     trainable classifier** to create a new classifier.
 
-![](./media/image2.png)
+    ![](./media/image2.png)
 
 4.  Enter the following information on the **Name and describe your
     trainable classifier** page:
@@ -54,13 +54,11 @@ stored by Contoso Ltd.
 
 7.  Select **Next**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image3.png)
+    ![A screenshot of a computer Description automatically generated](./media/image3.png)
 
 8.  Select **Choose sites** to open the right side pane.
 
-![A screenshot of a computer Description automatically
-generated](./media/image4.png)
+    ![A screenshot of a computer Description automatically generated](./media/image4.png)
 
 9.  Select the following SharePoint sites and select **Add**.
 
@@ -74,39 +72,34 @@ generated](./media/image4.png)
 
     - Mark 8 Project Team
 
-![](./media/image5.png)
+    ![](./media/image5.png)
 
 10. Wait until the chosen site is shown in the list and select **Next**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image6.png)
+    ![A screenshot of a computer Description automatically generated](./media/image6.png)
 
 11. On the **Source of the negative sample content page**, click on the
     **+ Choose sites**
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image7.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image7.png)
 
 12. In **Add SharePoint sites** pane, navigate and select the checkbox
     beside **Learn**, then click on the **Add** button.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image8.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image8.png)
 
 13. Click on the **Next** button.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image9.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image9.png)
 
 14. Review the settings and select **Create trainable classifier**.
 
-![](./media/image10.png)
+    ![](./media/image10.png)
 
 15. On **Your trainable classifier is being trained** page, click on the
     **Done** button.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image11.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image11.png)
 
 The documents and files in the chosen SharePoint site are now being
 analyzed, which can take up to 24 hours.
