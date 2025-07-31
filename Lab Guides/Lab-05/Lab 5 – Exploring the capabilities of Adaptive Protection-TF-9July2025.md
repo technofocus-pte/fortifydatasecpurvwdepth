@@ -21,8 +21,7 @@ Adaptive Protection in Microsoft Purview integrates Microsoft Purview Insider Ri
 
 ### Task 1 – Setting up risk levels for Adaptive Protection
 
-1.  From the navigation bar, go to **Solutions** \> **Insider risk
-    management**.
+1.  Open a Microsoft Edge browser tab in a regular window, log into Microsoft Purview portal using **MOD adiminstrator** credentials, navigate to **Solutions** > **Insider risk management**.
 
     ![](./media/image1.png)
 
