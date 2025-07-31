@@ -47,7 +47,7 @@ that they can be used to get the alerts from those machines.
 
     ![](./media/image1.png)
 
-2.  On the **Windows Settings** search bar, type **+++data and time+++**
+2.  On the **Windows Settings** search bar, enter **+++Date & time settings+++**
     then select **Date & time settings** from the list.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image2.png)
