@@ -360,31 +360,34 @@ You successfully modified the priority of your DLP policies. If both
 policies match the same content the action of the higher priority policy
 will be enforced.
 
-### Task 2 – Enabling file monitoring in Microsoft 365 Defender
+### Task 2 – Enabling file monitoring in Microsoft Defender
 
 You want to use file policies in **Microsoft Defender** to protect files
 in your OneDrive and SharePoint Online locations. Before you can create
 a file policy, you need to enable file monitoring so Microsoft Defender
 can scan files in your organization.
 
-1.  Open **Microsoft Edge** and navigate
-    to **+++https://security.microsoft.com+++** and log into the
+1.  Open a new tab in your regular Microsoft Edge browser, enter the following URL in the address bar to open Microsoft Defender portal:  **+++https://security.microsoft.com+++**. Then, log in to the
     Microsoft Defender portal as **MOD Administrator**.
 
-2.  In the Microsoft Defender portal, scroll down to **Settings** in the
-    left-sided navigation menu, then click on it. In the **Settings**
-    page, click on **Cloud Apps**. ![](./media/image53.png)
+2.  In the Microsoft Defender portal, scroll down and click on **System>Settings** in the
+    left-sided navigation menu. In the **Settings**
+    page, click on **Cloud Apps**.
 
-3.  Now, scroll down to **Information Protection** section, then click
+    ![](./media/image53.png)
+
+4.  Now, scroll down to **Information Protection** section, then click
     on **Files**. In the **Files** page, select the checkbox beside
     **Enable file monitoring**, then click on the **Save** button.
 
     ![](./media/image54.png)
 
+**Note**: If File monitoring has already been enabled by default, then ignore the above step and move on to the next task.
+
 You successfully enabled file monitoring in Microsoft Defender for Cloud
 Apps and can now scan files for sensitive content using file policies.
 
-### Task 3 – Creating File Policy for Microsoft 365 Defender
+### Task 3 – Creating File Policy for Microsoft Defender
 
 In this task, you want to create a file policy in Microsoft Defender to
 scan files in OneDrive and SharePoint Online and automatically
@@ -404,7 +407,7 @@ quarantine files containing credit card information if they are shared.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image57.png)
 
-3.  On **Pick an account** dialog box appears, then select the MOD
+3.   **Pick an account** dialog box appears, then select the MOD
     Administrator tenant credentials.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image58.png)
@@ -425,7 +428,7 @@ quarantine files containing credit card information if they are shared.
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image61.png)
 
 7.  Now, in the **Microsoft Defender** portal left-sided navigation
-    pane, expand **Policies** and select **Policy management**.
+    pane, expand **Policies** under Cloud Apps section and select **Policy management**.
 
     ![](./media/image62.png)
 
@@ -458,11 +461,9 @@ quarantine files containing credit card information if they are shared.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image67.png)
 
-**Note:** If you do not see the **Data Classification Service** in the
-drop down yet, select **None** as of now. Once done come back after some
-time to **Policies**\>**Policy management** \>**All Policies**\>**Search
-for name: Credit card** \>**Select Credit Card Information for
-files**![A screenshot of a computer Description automatically
+    **Note:** If you do not see the **Data Classification Service** in the drop down yet, select **None** as of now. Once done come back after some time to **Policies**>**Policy management**>**All Policies**>**Search for name: Credit card** >**Select Credit Card Information for files**
+
+![A screenshot of a computer Description automatically
 generated](./media/image68.png)
 
 13. In the **Choose inspection type…** dropdown menu, select **Sensitive
