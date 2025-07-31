@@ -455,28 +455,32 @@ prerequisite to creating any Insider Risk Policy.
 
     ![A screenshot of a computer Description automaticall generated](./media/uu1.png)
 
-6.  On the Decide whether to prioritize page, select I want to specify
-    priority content. Select only the check box for Sensitivity
-    labels and Sensitive info types. Select Next to continue.
+6.   On **Exclude users and groups (optional)** page, click on the **Next** button.
+
+    ![A screenshot of a computer Description automaticall generated](./media/uu2.png)
+     
+6.  On the **Decide whether to prioritize content** page, select **I want to 
+    priority content**. Select only the check box for **Sensitivity
+    labels** and **Sensitive info types**. Select **Next** to continue.
 
     ![A screenshot of a computer screen Description automatically generated with medium confidence](./media/image77.png)
 
-7.  On the Sensitivity labels to prioritize page, select Add or edit
-    sensitivity labels. On Add or edit sensitivity labels search bar,
-    type employee and press the enter button, select Internal/Employee
-    data (HR) and select Add. Then click Next.
+7.  On the **Sensitivity labels to prioritize** page, select **Add or edit
+    sensitivity labels**. On Add or edit sensitivity labels search bar,
+    type +++**employee**+++ and press the enter button, select **Internal/Employee
+    data (HR)** and select **Add**. Then click Next.
 
     ![A screenshot of a computer screen Description automatically generated with medium confidence](./media/image78.png)
 
-8.  On the Sensitive info types to prioritize page, select Add or edit
-    sensitive info types. On the flyout pane, search for and
-    select Credit Card Number, Contoso Employee ID and Contoso Employee
-    EDM. Select Add. Then click Next.
+8.  On the **Sensitive info types to prioritize** page, select **Add or edit
+    sensitive info types**. On the flyout pane, search for and
+    select **Credit Card Number**, **Contoso Employee ID** and **Contoso Employee
+    EDM**. Select **Add**. Then, click **Next**.
 
     ![A screenshot of a computer Description automaticall generated](./media/image79.png)
 
-9.  On Decide whether to score only activity with priority content,
-    select Get alerts for all activity. Select Next.
+9.  On **Decide whether to score only activity with priority content**,
+    ensure that **Get alerts for all activity** is selected. Then, click on the **Next** button.
 
     ![A screenshot of a computer screen Description automatically generated with medium confidence](./media/image80.png)
 
@@ -508,9 +512,9 @@ prerequisite to creating any Insider Risk Policy.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image86.png)
 
-15. Under Sharing SharePoint files with people outside the
-    organizzation, use 1, 2, and 3 events for each stage respectively
-    then select Next.
+15. Under **Sharing SharePoint files with people outside the
+    organization**, use 1, 2, and 3 events for each stage respectively
+    then select **Next**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image87.png)
 
@@ -525,13 +529,13 @@ prerequisite to creating any Insider Risk Policy.
 
 #### Step 2 – Score the policy
 
-1.  Click on the new policy named Data theft by a user. Select Start
-    scoring activity for users.
+1.  Click on the new policy named **Data theft by a user**. Select **Start
+    scoring activity for users**.
 
     ![](./media/image90.png)
 
-2.  In the Reason for scoring activity field, type **Testing the
-    policy**. In **Scoring activity for this many days (between 5 and
+2.  In the Reason for scoring activity field, enter +++**Testing the
+    policy**+++. In **Scoring activity for this many days (between 5 and
     30)** field, select **10 days**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image69.png)
