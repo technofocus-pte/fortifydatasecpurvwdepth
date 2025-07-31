@@ -63,8 +63,7 @@ that they can be used to get the alerts from those machines.
 
 #### Step 1 – Add users to Insider risk management role group
 
-1.  If the Microsoft Purview portal is opened, then continue with step
-    2, otherwise, open the **+++https://purview.microsoft.com+++** and
+1.  Open the Microsoft Purvie portal: **+++https://purview.microsoft.com+++** and
     log in with the **MOD Administrator** credentials.
 
 2.  In the left-sided navigation menu, click on **Settings.**
@@ -85,11 +84,10 @@ that they can be used to get the alerts from those machines.
     ![](./media/image7.png)
 
 5.  Select the checkbox near **Alex Wilber**. Then, click on the
-    **Select** button.
+    **Select** button. In case, Alex Wilber has already been selected, then ignore this step.
 
-**Note**: In case, you did not see Megan Bowen and MOD Administrator
-names in the Edit members name, then in addition to Alex name, select
-Megan Bowen and MOD administrator names also.
+    **Note**: In case, you did not see Megan Bowen and MOD Administrator names in the Edit members name, then in addition to Alex name, select
+     Megan Bowen and MOD administrator names also.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image8.png)
 
