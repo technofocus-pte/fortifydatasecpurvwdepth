@@ -445,16 +445,15 @@ prerequisite to creating any Insider Risk Policy.
 
     - Name: +++**Data theft by a user**+++
 
-    - Description: +++**This is a test policy forthe preventing data theft**+++
+    - Description: +++**This is a test policy for preventing data theft**+++
 
 4.  Select **Next** to continue.
 
     ![A screenshot of a computer Description automatically generated](./media/image75.png)
 
-5.  On the Choose users and groups page, select Include all users and
-    groups. Select Next to continue.
+5.   On **Choose users, groups, & adaptive scopes** page, select radio button beside** All users, groups, and adaptive scopes**, then click on the **Next** button.
 
-    ![A screenshot of a computer Description automaticall generated](./media/image76.png)
+    ![A screenshot of a computer Description automaticall generated](./media/uu1.png)
 
 6.  On the Decide whether to prioritize page, select I want to specify
     priority content. Select only the check box for Sensitivity
