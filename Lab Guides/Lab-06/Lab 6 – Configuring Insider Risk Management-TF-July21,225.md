@@ -298,70 +298,71 @@ prerequisite to creating any Insider Risk Policy.
 #### Step 1 – Create a new policy
 
 1.  In Microsoft Purview portal, click on Solutions, then click on
-    **Insider Risk Management** ![](./media/image47.png)
+    **Insider Risk Management**
 
-2.  Click on **Policies**. In the Policies page, click on **+Create
+    ![](./media/image47.png)
+
+3.  Click on **Policies**. In the Policies page, click on **+Create
     policy \> Custom policy**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image48.png)
 
-3.  On the Choose a policy template page, choose Risky browser usage
+4.  On the Choose a policy template page, choose Risky browser usage
     (preview), under Risky browser usage (preview).
 
     ![A screenshot of a computer Description automatically generated](./media/image49.png)
 
-4.  Review all the prerequisites.
+5.  Review all the prerequisites.
 
     ![A screenshot of a computer Description automatically generated](./media/image50.png)
 
-5.  Select **Next** to continue.
+6.  Select **Next** to continue.
 
     ![A screenshot of a computer Description automatically generated](./media/image51.png)
 
-6.  On the **Name and description** page, complete the following fields:
+7.  On the **Name and description** page, complete the following fields:
 
-    - Name (required): Risky usage of browser
+    - Name: +++**Risky usage of browser**+++
+      
+    - Description: +++**This is a test policy for the risky browser usage**+++
 
-    - Description (optional): This is a test policy for the risky
-      browser usage.
-
-7.  Select **Next** to continue.
+8.  Select **Next** to continue.
 
     ![Graphical user interface, text, application Description automatically generated](./media/image52.png)
 
-8.  On the Choose users and groups page, select Include all users and
+9.  On the Choose users and groups page, select Include all users and
     groups. Select Next to continue.
 
     ![Graphical user interface, text, application Description automatically generated](./media/image52.png)
 
-9.  On the **Choose users, groups, & adaptive scopes** page,
+10.  On the **Choose users, groups, & adaptive scopes** page,
     select **All users, groups, & adaptive scopes**. Select **Next** to
     continue.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image53.png)
 
-10. On the **Exclude users and groups** page, select **Next**.
+11. On the **Exclude users and groups** page, select **Next**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image54.png)
 
-11. On the Decide whether to prioritize page, select I don't want to
+12. On the Decide whether to prioritize page, select I don't want to
     specify priority content right now (you'll be able to do this after
     the policy is created). Select Next to continue.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image55.png)
 
-12. On the Triggers for this policy page, select Turn on indicators.
+13. On the Triggers for this policy page, select Turn on indicators.
 
     ![A screenshot of a computer Description automatically generated](./media/image56.png)
 
-13. On **Turn on indicators for your organization** dialog box, scroll
+14. On **Turn on indicators for your organization** dialog box, scroll
     down and click on **Choose indicators to turn on** button.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image57.png)
 
     ![](./media/image58.png)
 
-14. On **Choose indicators to turn on** dialog box, ensure that
+15. On **Choose indicators to turn on** dialog box, ensure that
     under Risky browsing indicators (preview) all the indicators are
     selected.
 
@@ -369,16 +370,16 @@ prerequisite to creating any Insider Risk Policy.
 
     ![A screenshot of a computer Description automatically generated](./media/image60.png)
 
-15. Scroll down and select **Save**.
+16. Scroll down and select **Save**.
 
-16. On **Choose triggering event for this policy** page, ensure that the
+17. On **Choose triggering event for this policy** page, ensure that the
     radio button beside **User browsed to a potentially risky website**
     is selected. Under **Select which activities will trigger this
     policy**, select all the options and click on the **Next** button.
 
     ![Graphical user interface, text, application Description automatically generated](./media/image61.png)
 
-17. On **Choose thresholds for triggering events** page, select **Choose
+18. On **Choose thresholds for triggering events** page, select **Choose
     your own thresholds** radio button, change all the thresholds to 1
     per day and then select **Next**.
 
@@ -386,25 +387,25 @@ prerequisite to creating any Insider Risk Policy.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image63.png)
 
-18. On **indicators** page, select **Next**.
+19. On **indicators** page, select **Next**.
 
     ![A screenshot of a computer Description automatically generated](./media/image64.png)
 
-19. On **Choose threshold type for indicators** page, ensure that
+20. On **Choose threshold type for indicators** page, ensure that
     **Apply thresholds provided by Microsoft** is selected, then click
     on the **Next** button.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image65.png)
 
-20. On **Review settings and finish** page, select **Submit**.
+21. On **Review settings and finish** page, select **Submit**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image66.png)
 
-21. On **Your policy was created** page, select **Done**.
+22. On **Your policy was created** page, select **Done**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image67.png)
 
-22. Keep the tab open and continue to the next task.
+23. Keep the tab open and continue to the next task.
 
 #### Step 2 – Score the policy
 
