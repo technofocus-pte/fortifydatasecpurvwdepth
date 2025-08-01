@@ -1,4 +1,4 @@
-# **Lab 2 – Managing Trainable Classifiers**
+# **Lab 3 – Managing Trainable Classifiers**
 
 ## **Introduction**
 
