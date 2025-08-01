@@ -1,4 +1,4 @@
-**Lab 7 – Configuring Information Barriers**
+# **Lab 8 – Configuring Information Barriers**
 
 **Introduction**
 
