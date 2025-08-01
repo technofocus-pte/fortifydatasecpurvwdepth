@@ -1,4 +1,4 @@
-# **Lab 3 – Working with Sensitivity Labels**
+# **Lab 4 – Working with Sensitivity Labels**
 
 ## **Introduction**
 
