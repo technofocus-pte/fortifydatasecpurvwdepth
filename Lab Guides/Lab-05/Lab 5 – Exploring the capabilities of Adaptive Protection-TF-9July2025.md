@@ -1,4 +1,4 @@
-# **Lab 5 – Exploring the capabilities of Adaptive Protection**
+# **Lab 7 – Exploring the capabilities of Adaptive Protection**
 
 ## **Introduction**
 
