@@ -1,4 +1,4 @@
-# **Lab 1 — Managing Sensitive Information Types​**
+# **Lab 2 — Managing Sensitive Information Types​**
 
 ## **Introduction**
 
