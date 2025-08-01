@@ -1,4 +1,4 @@
-# **Lab 4 – Creating and Managing DLP Policies**
+# **Lab 5 – Creating and Managing DLP Policies**
 
 ## Introduction
 
