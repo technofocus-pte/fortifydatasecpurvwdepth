@@ -123,44 +123,38 @@ Adaptive Protection in Microsoft Purview integrates Microsoft Purview Insider Ri
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image19.png)
 
-14. Then, click on the dropdown beside **Add condition** and select
-    **Insider risk level for Adaptive Protection is**
-
-    ![](./media/image20.png)
-
-
-15. Under the **Actions** section, click on the dropdown beside **Add an
+14. Under the **Actions** section, click on the dropdown beside **Add an
     action** and select **Audit or restrict activities on devices**.
 
     ![](./media/image22.png)
 
-16. Select **Block** for **Copy to clipboard, Copy to a removable USB
+15. Select **Block** for **Copy to clipboard, Copy to a removable USB
     device, Copy to a network share,** and **Print**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image23.png)..
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image24.png)
 
-17. On the **Incident reports** section, in the **Use this severity
+16. On the **Incident reports** section, in the **Use this severity
     level in admin alerts and reports** field, select **Low** from the
     dropdown. Then, click on the **Save** button.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image25.png)
 
-18. Click on the **Next** button.
+17. Click on the **Next** button.
 
     ![](./media/image26.png)
 
-19. In the **Policy mode** page, select the radio button beside **Turn
+18. In the **Policy mode** page, select the radio button beside **Turn
     the policy on immediately**, then click on the **Next** button.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image27.png)
 
-20. On the **Review and finish** page, click on the **Submit** button.
+19. On the **Review and finish** page, click on the **Submit** button.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image28.png)
 
-21. On the **New policy created** page, click on the **Done** button.
+20. On the **New policy created** page, click on the **Done** button.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image29.png)
 
@@ -174,5 +168,6 @@ automatically restrict activities—such as copying to USB or
 printing—when elevated risk is detected. The policy targets sensitive
 content using trainable classifiers and applies strict actions based on
 insider risk levels to mitigate potential data leaks.
+
 
 
