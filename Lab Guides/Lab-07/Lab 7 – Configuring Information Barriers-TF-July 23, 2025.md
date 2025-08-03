@@ -163,15 +163,14 @@ To turn on search by name
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image19.png)
 
-8.  On the **Policy status** page, toggle the active policy status
+8.  On the **Configure Policy status** page, toggle the active policy status
     to **On**. Select **Next** to continue.
 
     ![](./media/image20.png)
 
 9.  On the **Review your settings** page, review the settings you've
     chosen for the policy and any suggestions or warnings for your
-    selections. Select **Edit** to change any of the policy segments and
-    status or select **Submit** to create the policy.
+    selections. Select **Submit** to create the policy.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image21.png)
 
@@ -256,5 +255,6 @@ blocking Sales from communicating with Research). These policies were
 created both via the portal and PowerShell for hands-on practice.
 Finally, you applied the policies to activate and enforce the defined
 communication restrictions within the organization.
+
 
 
