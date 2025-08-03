@@ -74,7 +74,7 @@ be changing these when you deploy the policy.
 
     ![](./media/image7.png)
 
-7.  On Choose where to apply the policy page, click on the Next button.
+7.  On **Choose where to apply the policy** page, click on the **Next** button.
 
     ![](./media/image8.png)
 
@@ -88,8 +88,8 @@ be changing these when you deploy the policy.
 
     ![](./media/image10.png)
 
-10. On the **Create rule** page, in the **Name** field, enter **Block
-    external users access to Fabric workspace**.
+10. On the **Create rule** page, in the **Name** field, enter **+++Block
+    external users access to Fabric workspace+++**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image11.png)
 
@@ -101,7 +101,7 @@ be changing these when you deploy the policy.
     ![](./media/image13.png)
 
 12. In the **Sensitive info types** pane that appear on the right side,
-    click inside the search bar, type **credit card number** and press
+    click inside the search bar, type **+++credit card number+++** and press
     the enter button.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image14.png)
@@ -191,5 +191,6 @@ In this lab, you have created a custom DLP policy in Microsoft Purview
 to protect Fabric and Power BI content by detecting sensitive data and
 applying restrictions to block external user access. The policy also
 enables user notifications and admin alerts.
+
 
 
