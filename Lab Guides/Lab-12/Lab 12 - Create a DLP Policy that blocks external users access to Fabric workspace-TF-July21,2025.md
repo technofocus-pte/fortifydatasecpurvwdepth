@@ -181,9 +181,7 @@ be changing these when you deploy the policy.
 
     ![](./media/image30.png)
 
-**Important Note:** You may encounter **Client Error** because creating
-a **block DLP policy** is not possible in this environment due to lab
-limitations. In a real-world scenario, this issue will not occur.
+  **Important Note:** You may encounter **Client Error** because creating a **block DLP policy** is not possible in this environment due to lab limitations. In a real-world scenario, this issue will not occur.
 
     ![](./media/image31.png)
 
@@ -193,4 +191,5 @@ In this lab, you have created a custom DLP policy in Microsoft Purview
 to protect Fabric and Power BI content by detecting sensitive data and
 applying restrictions to block external user access. The policy also
 enables user notifications and admin alerts.
+
 
