@@ -171,12 +171,11 @@ compliance policy in your organization.
     ![](./media/image20.png)
 
 3.  In the **Name** field, enter **+++My first communication compliance
-    policy+++**. In the **Description** field, enter **+++This is a policy to test
-    communication compliance+++**. Select **Next**.
+    policy+++**. In the **Description** field, enter **+++This is a policy to test communication compliance+++**. Select **Next**.
 
     ![Graphical user interface, text, application Description automatically generated](./media/image21.png)
 
-4.  On the **Choose users and reviewers** page, navigate to
+4.  On the **Choose users and reviewers** page, scroll down to
     **Reviewers** section, type and select **Patti Fernandez**. Then,
     click on the **Next button**.
 
@@ -277,20 +276,18 @@ of usernames** radio button.
 4.  On the **Modify a notice template** page, complete the following
     fields:
 
-    - Template name (required): **+++Sample Notice+++**
+    - Template name: **+++Sample Notice+++**
 
-    - Send from (required): Select **Patti Fernandez** by
+    - Send from: Select **Patti Fernandez** by
       typing **Patti** and selecting the name from the drop down.
 
-    - Cc (optional): Select **MOD** **administrator** by
+    - Cc: Select **MOD** **administrator** by
       typing **MOD** and selecting the name from the drop down.
 
-    - Subject (required): **+++Your communication violets company
-      Communication compliance policy.+++**
+    - Subject: **+++Your communication violets company Communication compliance policy.+++**
 
-    - Message body (required): **+++Please note this for future
-      reference and provide an acceptable justification for your current
-      communication. +++**
+    - Message body (required): **+++Please note this for future reference and provide an acceptable justification for your current
+      communication.+++**
 
 5.  Select **Create** to create and save the notice template.
 
@@ -328,6 +325,7 @@ policies to monitor internal communications. You enabled anonymization
 to protect user identities during reviews, created user notice
 templates, and understood how to simulate and test communication
 compliance policies before full enforcement.
+
 
 
 
