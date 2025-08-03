@@ -98,18 +98,24 @@ Adaptive Protection in Microsoft Purview integrates Microsoft Purview Insider Ri
     rule for Endpoint DLP**+++
 
     ![](./media/image15.png)
+
+10. Click on the dropdown beside **Select one or more risk levels** and
+    select the checkbox beside **Elevated risk level**
+
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image21.png)
+
   
-10. Click on the dropdown beside **+ Add condition**, then select
+11. Click on the dropdown beside **+ Add condition**, then select
     **Content contains**.
 
     ![](./media/image16.png)
 
-11. In the **Content contains** section, click on the dropdown beside
+12. In the **Content contains** section, click on the dropdown beside
     **Add**, the select **Trainable classifiers**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image17.png)
 
-12. In the **Trainable classifiers** pane on the right side, navigate
+13. In the **Trainable classifiers** pane on the right side, navigate
     and select the checkbox beside **Source code**, **Agreements**,
     **HR**, and **IP**, then click on the **Add** button 
 
@@ -117,15 +123,11 @@ Adaptive Protection in Microsoft Purview integrates Microsoft Purview Insider Ri
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image19.png)
 
-13. Then, click on the dropdown beside **Add condition** and select
+14. Then, click on the dropdown beside **Add condition** and select
     **Insider risk level for Adaptive Protection is**
 
     ![](./media/image20.png)
 
-14. Click on the dropdown beside **Select one or more risk levels** and
-    select the checkbox beside **Elevated risk level**
-
-    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image21.png)
 
 15. Under the **Actions** section, click on the dropdown beside **Add an
     action** and select **Audit or restrict activities on devices**.
@@ -172,3 +174,4 @@ automatically restrict activities—such as copying to USB or
 printing—when elevated risk is detected. The policy targets sensitive
 content using trainable classifiers and applies strict actions based on
 insider risk levels to mitigate potential data leaks.
+
