@@ -122,27 +122,18 @@ compliance policy in your organization.
 6.  Run the following PowerShell script on a recurring schedule to add
     users to the communication compliance policy:
 
-    **`$Mbx = (Get-Mailbox -RecipientTypeDetails UserMailbox -ResultSize Unlimited -Filter {CustomAttribute9 -eq $Null})**
-
-    **$i = 0**
-
-    **ForEach ($M in $Mbx)**
-
-    **{**
-
-    **Write-Host "Adding" $M.DisplayName**
-
-    **Add-DistributionGroupMember -Identity "Communication Compliance Group Contoso" -Member $M.DistinguishedName -ErrorAction SilentlyContinue**
-
-    **Set-Mailbox -Identity $M.Alias -CustomAttribute1
-    "MonitoredCommunication"**
-
-    **$i`**
-
-    **}**
-
-    **Write-Host $i "Mailboxes added to supervisory review distribution
-    group." +++**
+    ```
+    $Mbx = (Get-Mailbox -RecipientTypeDetails UserMailbox -ResultSize Unlimited -Filter {CustomAttribute9 -eq $Null})
+    $i = 0
+    ForEach ($M in $Mbx)
+    {
+    Write-Host "Adding" $M.DisplayName
+    Add-DistributionGroupMember -Identity "Communication Compliance Group Contoso" -Member $M.DistinguishedName -ErrorAction SilentlyContinue
+    Set-Mailbox -Identity $M.Alias -CustomAttribute1 "MonitoredCommunication"
+    $i++
+    }
+    Write-Host $i "Mailboxes added to supervisory review distribution group."
+    ```
 
     ![BrokenImage](./media/image15.png)
 
@@ -336,6 +327,7 @@ policies to monitor internal communications. You enabled anonymization
 to protect user identities during reviews, created user notice
 templates, and understood how to simulate and test communication
 compliance policies before full enforcement.
+
 
 
 
