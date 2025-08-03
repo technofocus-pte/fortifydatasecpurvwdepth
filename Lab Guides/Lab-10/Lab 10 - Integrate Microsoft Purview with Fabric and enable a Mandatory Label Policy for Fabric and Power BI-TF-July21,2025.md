@@ -96,7 +96,7 @@ tenant. When sensitivity labels are enabled:
     ![](./media/image15.png)
 
 2.  Then, click on **Label publishing policies**. In the Label policies
-    page, click
+    page, click on **Publish label**
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image16.png)
 
@@ -197,4 +197,5 @@ In this lab, you’ve activated a Microsoft Fabric trial, accessed the
 Microsoft Purview portal, and created a mandatory sensitivity label
 policy requiring users to apply the "Confidential" label to Fabric and
 Power BI content. The policy was then prioritized for enforcement.
+
 
