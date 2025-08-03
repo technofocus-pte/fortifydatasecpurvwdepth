@@ -8,7 +8,7 @@ organisation. You will use the sensitive info types created in the
 earlier lab, to detect the employee health data or employee IDs being
 communicated through Emails.
 
-Objectives
+## Objectives
 
 - Assign roles for communication compliance access.
 
@@ -108,8 +108,7 @@ organization.
       used to communicate outside of the communication compliance policy
       configuration.
 
-      **+++New-DistributionGroup -Name "Communication Compliance Group Contoso" -Alias "CCG_Contoso" -MemberDepartRestriction
-'Closed' -MemberJoinRestriction 'Closed' -ModerationEnabled $true+++**
+      **+++New-DistributionGroup -Name "Communication Compliance Group Contoso" -Alias "CCG_Contoso" -MemberDepartRestriction 'Closed' -MemberJoinRestriction 'Closed' -ModerationEnabled $true+++**
 
     ![BrokenImage](./media/image13.png)
 
@@ -337,4 +336,5 @@ policies to monitor internal communications. You enabled anonymization
 to protect user identities during reviews, created user notice
 templates, and understood how to simulate and test communication
 compliance policies before full enforcement.
+
 
