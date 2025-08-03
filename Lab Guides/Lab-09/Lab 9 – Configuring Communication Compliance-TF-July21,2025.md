@@ -141,14 +141,16 @@ compliance policy in your organization.
     enter the following URL: **+++https://admin.cloud.microsoft/+++** to
     open Microsoft 365 admin center.
 
-8.  In Microsoft 365 admin center page, navigate and click on **Teams &
+    If prompted to set up **multifactor authentication**, then select **Skip for now**.
+    
+9.  In Microsoft 365 admin center page, navigate and click on **Teams &
     groups\>Active teams & groups\>Distribution list\>Communication
     Compliance Group Contoso.**
 
     ![](./media/image16.png)
 
-9.  On the Communication Compliance pane that appears on the right side,
-    click on the Members tab, scroll down and review all the members in
+10.  On the Communication Compliance pane that appears on the right side,
+    click on the **Members** tab, scroll down and review all the members in
     the Distribution list group.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image17.png)
@@ -168,10 +170,9 @@ compliance policy in your organization.
 
     ![](./media/image20.png)
 
-3.  In the **Name** field, type **+++My first communication compliance
-    policy+++** in the **Name** field and **+++This is a policy to test
-    communication compliance+++** in the **Description** field.
-    Select **Next**.
+3.  In the **Name** field, enter **+++My first communication compliance
+    policy+++**. In the **Description** field, enter **+++This is a policy to test
+    communication compliance+++**. Select **Next**.
 
     ![Graphical user interface, text, application Description automatically generated](./media/image21.png)
 
@@ -327,6 +328,7 @@ policies to monitor internal communications. You enabled anonymization
 to protect user identities during reviews, created user notice
 templates, and understood how to simulate and test communication
 compliance policies before full enforcement.
+
 
 
 
