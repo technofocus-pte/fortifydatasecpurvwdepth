@@ -151,7 +151,7 @@ To turn on search by name
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image16.png)
 
-6.  Under Configure **Communication and collaboration details page**,
+6.  Under **Configure Communication and collaboration details page**,
     select **Block**. Select **Choose segment**, select **Research** and
     then select **Add.**
 
@@ -159,9 +159,7 @@ To turn on search by name
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image18.png)
 
-7.  On the **Communication and collaboration** page, select the policy
-    type Blocked in the **Communication and collaboration** field.
-    Select **Next**.
+7.  Then, click on the **Next** button.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image19.png)
 
@@ -258,4 +256,5 @@ blocking Sales from communicating with Research). These policies were
 created both via the portal and PowerShell for hands-on practice.
 Finally, you applied the policies to activate and enforce the defined
 communication restrictions within the organization.
+
 
