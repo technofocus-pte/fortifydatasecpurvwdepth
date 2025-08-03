@@ -138,7 +138,7 @@ compliance policy in your organization.
     ![BrokenImage](./media/image15.png)
 
 7.  After the output generation from the script, open a new tab and
-    enter the following URL: +++<https://admin.cloud.microsoft/>+++ to
+    enter the following URL: **+++https://admin.cloud.microsoft/+++** to
     open Microsoft 365 admin center.
 
 8.  In Microsoft 365 admin center page, navigate and click on **Teams &
@@ -327,6 +327,7 @@ policies to monitor internal communications. You enabled anonymization
 to protect user identities during reviews, created user notice
 templates, and understood how to simulate and test communication
 compliance policies before full enforcement.
+
 
 
 
