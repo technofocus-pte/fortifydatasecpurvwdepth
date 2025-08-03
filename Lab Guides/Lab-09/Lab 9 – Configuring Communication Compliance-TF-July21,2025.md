@@ -112,7 +112,7 @@ organization.
 
     ![BrokenImage](./media/image13.png)
 
-    **Note:** You can add an **Exchange Custom Attribute** as in the **following command**to track users added to the communication
+    **Note:** You can add an **Exchange Custom Attribute** as in the following command to track users added to the communication
 compliance policy in your organization.
 
     **+++Set-DistributionGroup -Identity "Communication Compliance Group Contoso" -CustomAttribute1 "MonitoredCommunication"+++**
@@ -122,7 +122,7 @@ compliance policy in your organization.
 6.  Run the following PowerShell script on a recurring schedule to add
     users to the communication compliance policy:
 
-    **+++$Mbx = (Get-Mailbox -RecipientTypeDetails UserMailbox -ResultSize Unlimited -Filter {CustomAttribute9 -eq $Null})**
+    **`$Mbx = (Get-Mailbox -RecipientTypeDetails UserMailbox -ResultSize Unlimited -Filter {CustomAttribute9 -eq $Null})**
 
     **$i = 0**
 
@@ -137,7 +137,7 @@ compliance policy in your organization.
     **Set-Mailbox -Identity $M.Alias -CustomAttribute1
     "MonitoredCommunication"**
 
-    **$i++**
+    **$i`**
 
     **}**
 
@@ -336,5 +336,6 @@ policies to monitor internal communications. You enabled anonymization
 to protect user identities during reviews, created user notice
 templates, and understood how to simulate and test communication
 compliance policies before full enforcement.
+
 
 
