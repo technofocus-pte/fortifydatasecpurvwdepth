@@ -307,7 +307,7 @@ mail will not be able to reach the receiver from your current tenant.
 2.  Send an email to your personal email account with the following
     message body.
 
-    Subject Line: **Patti Fernandez (EMP123456) on Medical Leave Due to Flu**
+    Subject Line: **+++Patti Fernandez (EMP123456) on Medical Leave Due to Flu+++**
 
 
     Message body: **+++Employee Patti Fernandez EMP123456 is on absence because of the flu/influenza+++**
@@ -329,6 +329,7 @@ policies to monitor internal communications. You enabled anonymization
 to protect user identities during reviews, created user notice
 templates, and understood how to simulate and test communication
 compliance policies before full enforcement.
+
 
 
 
