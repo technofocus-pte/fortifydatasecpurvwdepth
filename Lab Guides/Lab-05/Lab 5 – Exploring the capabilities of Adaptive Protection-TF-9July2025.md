@@ -108,7 +108,7 @@ Adaptive Protection in Microsoft Purview integrates Microsoft Purview Insider Ri
 11. Click on the dropdown beside **+ Add condition**, then select
     **Content contains**.
 
-    ![](./media/image16.png)
+    ![](./media/aca1.png)
 
 12. In the **Content contains** section, click on the dropdown beside
     **Add**, the select **Trainable classifiers**.
@@ -174,4 +174,5 @@ automatically restrict activities—such as copying to USB or
 printing—when elevated risk is detected. The policy targets sensitive
 content using trainable classifiers and applies strict actions based on
 insider risk levels to mitigate potential data leaks.
+
 
