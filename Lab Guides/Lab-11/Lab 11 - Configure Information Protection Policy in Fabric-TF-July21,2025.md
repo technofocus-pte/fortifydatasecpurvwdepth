@@ -25,8 +25,8 @@ the appropriate users. 
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image2.png)
 
-3.  Click on the play button beside the Allow users to apply sensitivity
-    labels for content.
+3.  Click on the play button beside the **Allow users to apply sensitivity
+    labels for content.**
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image3.png)
 
@@ -40,6 +40,8 @@ the appropriate users. 
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image5.png)
 
+    **Note**: In case, **Apply** button is not highlighted, then select **Specific security groups** radio button and select back the **The entire organization** radio button.
+    
 6.  You will receive a notification stating – **Tenant settings will be
     applied within the next 15 minutes**.
 
@@ -158,4 +160,5 @@ the appropriate users. 
 In this lab, you’ve enabled various information protection settings in
 the Microsoft Fabric Admin Portal to support sensitivity label
 application, inheritance, automatic labeling, and admin overrides.
+
 
