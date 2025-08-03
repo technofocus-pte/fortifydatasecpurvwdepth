@@ -540,7 +540,7 @@ prerequisite to creating any Insider Risk Policy.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image69.png)
 
-3.  In Score activity for these users field, type MOD and then select
+3.  In Score activity for these users field, type +++**MOD**+++ and then select
     MOD administrator.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image70.png)
@@ -571,7 +571,7 @@ prerequisite to creating any Insider Risk Policy.
 
     - Name: +++**Data leaks by a user**+++
 
-    - Description: +++**This is a test policy forthe preventing data leaks**+++
+    - Description: +++**This is a test policy for preventing data leaks**+++
       
 4.  Select **Next** to continue.
 
@@ -583,19 +583,17 @@ prerequisite to creating any Insider Risk Policy.
 
     ![](./media/image94.png)
 
-6.  On the Decide whether to prioritize page, select I want to specify
-    priority content. Select the check box for SharePoint
-    sites, Sensitivity labels and Sensitive info types. Select Next to
-    continue.
+    On **Exclude users and groups (optional)** page, click on the **Next** button.
+
+6.  On the **Decide whether to prioritize** page, select **I want to 
+    priority content**. Select the check box for **SharePoint
+    sites, Sensitivity labels and Sensitive info types**. Click on **Next** button.
 
     ![A screenshot of a computer Description automatically generated wit medium confidence](./media/image95.png)
 
-7.  On the SharePoint sites to prioritize page, select **Add or edit
-    SharePoint sites**. On the flyout pane,
-    select **https://wwlxXXXXXX.sharepoint.com/sites/ContosoWeb1** and
-    select **Add**. Then, click **Next**.
+7.  On the **SharePoint sites to prioritize** page, select **Add or edit SharePoint sites**. On the flyout pane, type +++**https://WWLxXXXXXX.sharepoint.com/sites/ContosoWeb1**+++, then select the checkbox beside **Contoso Web 1** and click on **Add** button. Then, click **Next**.
 
-    **Note**: Tenant Prefix is available in the **Resources** tab.
+    **Note**: **XXXXXX** Tenant Prefix is available in the **Resources** tab.
 
     ![](./media/image96.png)
 
@@ -603,7 +601,7 @@ prerequisite to creating any Insider Risk Policy.
 
     ![](./media/image98.png)
 
-8.  On the Sensitivity labels to prioritize page, select **Add or edit
+9.  On the **Sensitivity labels to prioritize** page, select **Add or edit
     sensitivity labels**. On the flyout pane, type **+++employee+++**
     and then select Internal/Employee data (HR) checkbox and click on
     the **Add** button. Then, click on the **Next** button.
@@ -612,19 +610,19 @@ prerequisite to creating any Insider Risk Policy.
 
     ![](./media/image100.png)
 
-9.  On the Sensitive info types to prioritize page, select Add or edit
-    sensitive info types. On the flyout pane, search for and
-    select Credit Card Number, Contoso Employee ID and Contoso Employee
-    EDM. Select Add. Then click Next.
+10.  On the **Sensitive info types to prioritize** page, select **Add or edit
+    sensitive info types**. On the flyout pane, search for and
+    select +++**Credit Card Number**+++, +++**Contoso Employee ID**+++ and +++**Contoso Employee
+    EDM**+++. Select **Add**. Then click **Next**.
 
     ![A screenshot of a computer Description automatically generated](./media/image79.png)
 
-10. On Decide whether to score only activity with priority content,
-    select Get alerts for all activity. Select Next.
+11. On **Decide whether to score only activity with priority content**,
+    select **Get alerts for all activity**. Select **Next**.
 
     ![](./media/image101.png)
 
-11. On **Choose triggering event for this policy** page, ensure that the
+12. On **Choose triggering event for this policy** page, ensure that the
     radio button for **User performs an exfiltration activity** is
     selected. Under **Select which activities will trigger this
     policy**, select **Download content from SharePoint, Sending email
@@ -636,24 +634,23 @@ prerequisite to creating any Insider Risk Policy.
 
     ![](./media/image103.png)
 
-12. On Triggering thresholds for this policy, select Use custom
-    thresholds. Set every threshold to 1 and select Next.
+13. On **Choose thresholds for trigerring events** page, select the radio button beside **Choose your own thresholds**. Set every threshold to 1 and select **Next**.
 
     ![](./media/image104.png)
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image105.png)
 
-13. Keep the default settings on the **Indicators** page and
+14. Keep the default settings on the **Indicators** page and
     select **Next**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image106.png)
 
-14. Keep the default settings on the **Detection options** page and
+15. Keep the default settings on the **Detection options** page and
     select **Next**.
 
     ![](./media/image107.png)
 
-15. On **Choose threshold type for indicators** page, ensure that the
+16. On **Choose threshold type for indicators** page, ensure that the
     **Choose your own thresholds** radio button is selected. Then, click
     on Office indicators, use 1, 2, and 3 events for each stage
     respectively then select **Next**.
@@ -664,26 +661,26 @@ prerequisite to creating any Insider Risk Policy.
 
     ![](./media/image110.png)
 
-16. On **Review settings and finish**, select **Submit**.
+17. On **Review settings and finish**, select **Submit**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image111.png)
 
-17. On Your policy was created, select Done.
+18. On Your policy was created, select Done.
 
     ![](./media/image112.png)
 
 #### Step 2 – Score the policy
 
-1.  In the Policies page, select the checkbox beside the new policy
-    named Data leaks by a user. Then, select **Start scoring activity
+1.  In the **Policies** page, select the checkbox beside the new policy
+    named **Data leaks by a user**. Then, select **Start scoring activity
     for users**.
 
     ![](./media/image113.png)
 
-2.  In the Reason for scoring activity field, type **Testing the
-    policy**. In **Scoring activity for this many days (between 5 and
+2.  In the Reason for scoring activity field, type +++**Testing the
+    policy**+++. In **Scoring activity for this many days (between 5 and
     30)** field, select **10 days**. In Score activity for these users
-    field, type MOD and then select MOD administrator.
+    field, type +++**MOD**+++ and then select MOD administrator.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image69.png)
 
@@ -711,3 +708,4 @@ SharePoint sites, and sensitive information types as priority content,
 and thresholds were configured to trigger alerts and scoring. Finally,
 you initiated scoring activities to simulate real-world insider risk
 scenarios and assess the effectiveness of the configured policies.
+
