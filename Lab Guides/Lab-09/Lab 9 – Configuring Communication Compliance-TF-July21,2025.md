@@ -273,7 +273,7 @@ of usernames** radio button.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image37.png)
 
-4.  On the **Modify a notice template** page, complete the following
+4.  On the **Create a notice template** page, complete the following
     fields:
 
     - Template name: **+++Sample Notice+++**
@@ -286,8 +286,7 @@ of usernames** radio button.
 
     - Subject: **+++Your communication violets company Communication compliance policy.+++**
 
-    - Message body (required): **+++Please note this for future reference and provide an acceptable justification for your current
-      communication.+++**
+    - Message body: **+++Please note this for future reference and provide an acceptable justification for your current communication.+++**
 
 5.  Select **Create** to create and save the notice template.
 
@@ -300,10 +299,10 @@ but you can check out the following steps to understand how to test the
 policy when you have your own licenses. You can perform steps but your
 mail will not be able to reach the receiver from your current tenant.
 
-1.  Open outlook by going
-    to **+++https://outlook.office365.com/mail/+++**and sign in with the
-    username **+++adelev@WWLxXXXXXX.onmicrosoft.com+++** and the User
-    Password.
+1.  In a New InPrivate widnow open outlook by entering the following URL in the address bar:
+   **+++https://outlook.office365.com/mail/+++**. Then, sign in with the
+    username **adelev@WWLxXXXXXX.onmicrosoft.com** and the User
+    Password provided in the **Resources** tab.
 
 2.  Send an email to your personal email account with the following
     message body.
@@ -325,6 +324,7 @@ policies to monitor internal communications. You enabled anonymization
 to protect user identities during reviews, created user notice
 templates, and understood how to simulate and test communication
 compliance policies before full enforcement.
+
 
 
 
