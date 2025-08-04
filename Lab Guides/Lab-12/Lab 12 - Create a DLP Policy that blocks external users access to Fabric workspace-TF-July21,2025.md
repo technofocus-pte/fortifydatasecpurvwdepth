@@ -181,8 +181,24 @@ be changing these when you deploy the policy.
 
     ![](./media/image30.png)
 
-  **Important Note:** You may encounter **Client Error** because creating a **block DLP policy** is not possible in this environment due to lab limitations. In a real-world scenario, this issue will not occur.
+  **Important Note**: 
 
+  You may encounter the following error  due to a licensing limitation in this lab environment.
+
+  ![](./media/image31.png)
+
+  This lab is running under a Power BI Pro license, which does not support Microsoft Purview DLP integration for Fabric or Premium workspaces. As a result, DLP policy actions like “Block external users” can't be properly scoped, and the wizard fails with the following error:
+
+  To block only people outside your organization, you must select the condition 'Content is shared with people outside my organization'.
+
+  In a real-world enterprise environment, this issue will not occur if your tenant has:
+
+  - Power BI Premium Per User (PPU) license
+
+  - or a Microsoft Fabric capacity (F64+)
+
+  These licenses allow full DLP policy integration with Microsoft Fabric and Power BI, including support for block actions and proper condition scoping.
+    
     ![](./media/image31.png)
 
 ## **Summary**
@@ -191,6 +207,7 @@ In this lab, you have created a custom DLP policy in Microsoft Purview
 to protect Fabric and Power BI content by detecting sensitive data and
 applying restrictions to block external user access. The policy also
 enables user notifications and admin alerts.
+
 
 
 
