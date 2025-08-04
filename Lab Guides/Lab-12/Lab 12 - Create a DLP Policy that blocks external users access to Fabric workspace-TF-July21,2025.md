@@ -199,14 +199,13 @@ be changing these when you deploy the policy.
 
   These licenses allow full DLP policy integration with Microsoft Fabric and Power BI, including support for block actions and proper condition scoping.
     
-    ![](./media/image31.png)
-
 ## **Summary**
 
 In this lab, you have created a custom DLP policy in Microsoft Purview
 to protect Fabric and Power BI content by detecting sensitive data and
 applying restrictions to block external user access. The policy also
 enables user notifications and admin alerts.
+
 
 
 
