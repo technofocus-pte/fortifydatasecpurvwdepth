@@ -42,7 +42,7 @@ for implementing security with Microsoft Purview.
 
     ![A screenshot of a computer Description automatically generated](./media/image3.png)
 
-6.  Similarly, change the manager to **Patti Fernandez** for all the following users.
+6.  Similarly, change the manager to **Patti Fernandez** for the following users.
     - Christie Cline
     - Megan Bowen
       
@@ -566,3 +566,4 @@ OME configuration** for the finance department, enforced via a transport
 rule. Finally, you enabled **Adaptive Protection** under Insider Risk
 Management in Purview, laying the groundwork for intelligent, risk-based
 data protection policies to be explored further in later labs.
+
