@@ -491,7 +491,7 @@ mail will not be able to reach the receiver from your current tenant.
 
 1.  In **Microsoft Edge**, open a **New InPrivate Window** and enter the following URL in the address bar to
     open Microsoft Outlook: **+++https://outlook.office.com+++**. Log into Outlook 
-    with the username  **<ChristieC@WWLxXXXXXX.onmicrosoft.com>** and
+    with the username  **ChristieC@WWLxXXXXXX.onmicrosoft.com** and
     the User Password given on the resources tab.
 
     ![Graphical user interface, text, application Description automatically generated](./media/image52.png)
@@ -566,6 +566,7 @@ OME configuration** for the finance department, enforced via a transport
 rule. Finally, you enabled **Adaptive Protection** under Insider Risk
 Management in Purview, laying the groundwork for intelligent, risk-based
 data protection policies to be explored further in later labs.
+
 
 
 
