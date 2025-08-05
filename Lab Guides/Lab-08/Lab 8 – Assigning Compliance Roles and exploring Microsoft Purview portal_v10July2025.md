@@ -134,7 +134,7 @@ for implementing security with Microsoft Purview.
 
     ![A screenshot of a computer Description automatically generated](./media/e2.png)
 
-- Similarly add **Christie Cline** as the member.
+- Similarly add **Christie Cline** as the **Owner**.
 
     ![A screenshot of a computer Description automatically generated](./media/e3.png)
 
@@ -566,5 +566,6 @@ OME configuration** for the finance department, enforced via a transport
 rule. Finally, you enabled **Adaptive Protection** under Insider Risk
 Management in Purview, laying the groundwork for intelligent, risk-based
 data protection policies to be explored further in later labs.
+
 
 
