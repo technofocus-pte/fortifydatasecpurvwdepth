@@ -128,7 +128,7 @@ for implementing security with Microsoft Purview.
   **EDM_DataUploaders** group.
     ![A screenshot of a computer Description automatically generated](./media/e10.png)
   
-- Click on **Members** tab, then select **View all and manage owners**, and add **Patti Fernandez**.
+- Click on **Members** tab, then select **View all and manage owners**, and add **Patti Fernandez** as **Owner**.
 
     ![A screenshot of a computer Description automatically generated](./media/e1.png)
 
@@ -566,4 +566,5 @@ OME configuration** for the finance department, enforced via a transport
 rule. Finally, you enabled **Adaptive Protection** under Insider Risk
 Management in Purview, laying the groundwork for intelligent, risk-based
 data protection policies to be explored further in later labs.
+
 
