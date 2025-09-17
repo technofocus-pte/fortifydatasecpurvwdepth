@@ -518,21 +518,17 @@ Online and Apps defined as non-business.
     to **+++https://admin.powerplatform.microsoft.com+++** and log into
     the Power Platform admin center as **MOD Administrator**.
 
-2.  In the **Power Platform admin center** page, disable **New admin
-    center** by turning Off the toggle button as shown in the below
-    image.
+2.  In the **Power Platform admin center** home page, navigate and click on **Security**.
 
-    ![](./media/image76.png)
+    ![](./media/pp1.png)
 
-3.  If **Feedback to Microsoft** dialog box appears, then close it.
+3.  Then, click on **Data and privacy** icon as shown in the below image.
 
-    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image77.png)
+    ![](./media/pp2.png)
+    
+4.  On Data protection and privacy page, navigate and click on **Data policy**.
 
-4.  In the **Power Platform admin center**, in the left navigation pane,
-    select the drop-down for **Policies** and then select **Data
-    policies**.
-
-    ![](./media/image78.png)
+    ![](./media/pp3.png)
 
 5.  On the **Data policies** page, select **+ New Policy**.
 
@@ -584,3 +580,4 @@ enabled user notifications and overrides, prioritized policies,
 activated file monitoring in Microsoft Defender, and configured file
 quarantine actions. Additionally, you created a Power Platform DLP
 policy to restrict data sharing with non-business connectors.
+
