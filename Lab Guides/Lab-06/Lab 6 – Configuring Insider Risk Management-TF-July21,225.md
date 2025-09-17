@@ -199,13 +199,11 @@ prerequisite to creating any Insider Risk Policy.
 
     ![A screenshot of a login screen AI-generated content may be incorrect.](./media/image30.png)
 
-15. Sign in to +++**https://security.microsoft.com/+++** using
+15. Sign in to +++**https://purview.microsoft.com**+++ using
     your **MOD Administrator** account on your Lab VM.
 
-16. Select **Settings** \> **Device** **onboarding \> Devices**. Click
+16. In Microsoft Purview portal, navigate and select **Settings** \> **Device** **onboarding \> Devices**. Click
     on **Turn on Device onboarding**.
-
-  ![A screenshot of a computer AI-generated content may be incorrect.](./media/image31.png)
 
   ![A screenshot of a computer AI-generated content may be incorrect.](./media/image32.png)
 
@@ -708,4 +706,5 @@ SharePoint sites, and sensitive information types as priority content,
 and thresholds were configured to trigger alerts and scoring. Finally,
 you initiated scoring activities to simulate real-world insider risk
 scenarios and assess the effectiveness of the configured policies.
+
 
