@@ -36,8 +36,6 @@ For this structure, Contoso's plan includes three IB policies:
 - Create Information Barrier (IB) policies via Microsoft Purview portal
   and PowerShell to control inter-segment communication.
 
-- Apply the configured IB policies to enforce communication restrictions
-  across departments.
 
 ### **Exercise 1 – Prerequisites**
 
@@ -248,6 +246,7 @@ blocking Sales from communicating with Research). These policies were
 created both via the portal and PowerShell for hands-on practice.
 Finally, you applied the policies to activate and enforce the defined
 communication restrictions within the organization.
+
 
 
 
