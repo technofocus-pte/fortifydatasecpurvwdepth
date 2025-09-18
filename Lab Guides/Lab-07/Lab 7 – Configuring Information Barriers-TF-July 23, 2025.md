@@ -236,13 +236,6 @@ app only** button.
 
     ![](./media/image31.png)
 
-**Exercise 3 – Apply IB policies**
-
-1.  In the **Information Barriers** left-sided pane, navigate and click
-    on **Policy applications**. In the Policy application page, click on
-    **Apply all policies**.
-
-    ![](./media/image32.png)
 
 **Summary:**
 
@@ -255,6 +248,7 @@ blocking Sales from communicating with Research). These policies were
 created both via the portal and PowerShell for hands-on practice.
 Finally, you applied the policies to activate and enforce the defined
 communication restrictions within the organization.
+
 
 
 
