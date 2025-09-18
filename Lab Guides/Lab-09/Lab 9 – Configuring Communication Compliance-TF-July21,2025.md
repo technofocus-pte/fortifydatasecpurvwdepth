@@ -284,7 +284,7 @@ of usernames** radio button.
     - Cc: Select **MOD** **administrator** by
       typing **MOD** and selecting the name from the drop down.
 
-    - Subject: **+++Your communication violets company Communication compliance policy.+++**
+    - Subject: **+++Your communication violates company Communication compliance policy.+++**
 
     - Message body: **+++Please note this for future reference and provide an acceptable justification for your current communication.+++**
 
@@ -329,6 +329,7 @@ policies to monitor internal communications. You enabled anonymization
 to protect user identities during reviews, created user notice
 templates, and understood how to simulate and test communication
 compliance policies before full enforcement.
+
 
 
 
