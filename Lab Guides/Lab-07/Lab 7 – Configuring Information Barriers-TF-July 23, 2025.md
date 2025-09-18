@@ -244,8 +244,7 @@ segment restrictions. You then configured IB policies within Microsoft
 Purview to block or allow communication between specific segments (e.g.,
 blocking Sales from communicating with Research). These policies were
 created both via the portal and PowerShell for hands-on practice.
-Finally, you applied the policies to activate and enforce the defined
-communication restrictions within the organization.
+
 
 
 
