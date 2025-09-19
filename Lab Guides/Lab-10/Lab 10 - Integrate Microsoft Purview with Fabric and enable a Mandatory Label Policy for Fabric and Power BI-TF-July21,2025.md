@@ -187,7 +187,7 @@ tenant. When sensitivity labels are enabled:
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image34.png)
 
 19. You will notice that **Manual Labeling – HR Confidential Docs**
-    priority is now changed to 1.
+    priority is now changed.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image35.png)
 
@@ -197,5 +197,6 @@ In this lab, you’ve activated a Microsoft Fabric trial, accessed the
 Microsoft Purview portal, and created a mandatory sensitivity label
 policy requiring users to apply the "Confidential" label to Fabric and
 Power BI content. The policy was then prioritized for enforcement.
+
 
 
