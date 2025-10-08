@@ -22,7 +22,7 @@ Microsoft Purview 信息保护中的 Sensitivity labels。启用敏感度标签�
 
 1.  打开 Edge 浏览器地址栏并输入以下 URL 以打开 Fabric 门户-
 
-[**https://app.fabric.microsoft.com**](https://app.fabric.microsoft.com/)
++++**https://app.fabric.microsoft.com**+++
 
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image1.png)
@@ -214,3 +214,4 @@ incorrect.](./media/image35.png)
 在本实验室中，你已激活 Microsoft Fabric 试用版，访问了 Microsoft Purview
 门户，并创建了强制敏感度标签策略，要求用户将“Confidential”标签应用于
 Fabric 和 Power BI 内容。然后，该政策被优先执行。
+
