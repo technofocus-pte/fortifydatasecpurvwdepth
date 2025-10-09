@@ -668,29 +668,6 @@ generated](./media/image75.png)
 
 > ![](./media/image76.png)
 
-## **演習6 - Adaptive Protectionの有効化**
-
-1.  Microsoft
-    Purviewポータルの左側のナビゲーションペインで、**Solutions**をクリックし、
-    **Insider Risk Management**に移動して選択します**。**
-
-> ![](./media/image77.png)
-
-2.  **Insider Risk Managementパネル**で、 **「Adaptive
-    Protection」**をクリックし、 **「Adaptive Protection
-    settings」を選択します**。 「Adaptive
-    Protection」のトグルを**オンにします。**
-
-> ![](./media/image78.png)
-
-3.  **\[Save\]ボタン**をクリックします。
-
-![](./media/image79.png)
-
-4.  Adaptive Protectionの有効化には時間がかかります。Adaptive
-    Protection機能については、ラボ5で詳しく説明します。
-
-![BrokenImage](./media/image80.png)
 
 ## まとめ：
 
@@ -698,3 +675,4 @@ generated](./media/image75.png)
 テクニックを使用して Microsoft Purview でカスタムの機密情報タイプ (SIT)
 を作成およびテストし、Data Loss
 Prevention機能を強化する方法を学習しました。
+
