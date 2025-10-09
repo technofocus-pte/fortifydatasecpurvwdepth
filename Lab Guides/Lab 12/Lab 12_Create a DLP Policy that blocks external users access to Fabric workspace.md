@@ -10,16 +10,16 @@ labelが付けられている場合は、保護ポリシーによってアクセ
 
 | **声明** | **構成に関する質問への回答と構成のマッピング** |
 | ---  | --- |
-|「外部ユーザーをブロックする必要があります...」           |       - 監視対象: Fabric と Power BI 
-- 管理範囲:ディレクトリ全体
-- アクション: Restrict access or encrypt the content in Microsoft 365 locations > Block users from receiving email or accessing shared SharePoint, OneDrive, and Teams files, and Power BI items > Block only people outside your organization|
-|「...クレジットカード番号を含むレポートから...」| - 監視対象: Custom templateを使用する
-- 一致条件: 編集して、Credit Card Numberの機密情報タイプを追加する。|
-| 「ただし、データに「Highly Confidential - Internal」sensivity labelが付けられている場合は除きます...」| - 条件グループの構成: boolean ANDを使用して最初の条件に結合されたネストされたboolean NOT条件グループを作成する
-- 一致条件: これを編集して、Highly Confidential - Internalのsensitivity labelを追加する。|
-|「セマンティック モデルがブロックされるたびにコンプライアンス管理者に通知し...」|-インシデントレポート: Send an alert to admins when a rule match occurs: On
-- Send an alert every time an activity matches the rule: 選択済み|
-| 「…データ所有者に制限が発生したことを認識してもらいます。また、社内ユーザーにも、データが極秘であり、組織外で共有してはならないことを認識してもらう必要があります」| - User notifications: On　
+|「外部ユーザーをブロックする必要があります...」           |       監視対象: Fabric と Power BI 
+管理範囲:ディレクトリ全体
+ アクション: Restrict access or encrypt the content in Microsoft 365 locations > Block users from receiving email or accessing shared SharePoint, OneDrive, and Teams files, and Power BI items > Block only people outside your organization|
+|「...クレジットカード番号を含むレポートから...」|  監視対象: Custom templateを使用する
+ 致条件: 編集して、Credit Card Numberの機密情報タイプを追加する。|
+| 「ただし、データに「Highly Confidential - Internal」sensivity labelが付けられている場合は除きます...」|  条件グループの構成: boolean ANDを使用して最初の条件に結合されたネストされたboolean NOT条件グループを作成する
+ 一致条件: これを編集して、Highly Confidential - Internalのsensitivity labelを追加する。|
+|「セマンティック モデルがブロックされるたびにコンプライアンス管理者に通知し...」|インシデントレポート: Send an alert to admins when a rule match occurs: On
+ Send an alert every time an activity matches the rule: 選択済み|
+| 「…データ所有者に制限が発生したことを認識してもらいます。また、社内ユーザーにも、データが極秘であり、組織外で共有してはならないことを認識してもらう必要があります」|  User notifications: On　
 - Microsoft 365 files and Microsoft Fabric items: Notify users in Office 365 service with a policy tip or email notifications：選択済み
 - Policy tips: Customize the policy tip text:：選択済み。機密性の高いデータの共有に関するルールを説明するテキストをテキストボックスに追加します。　|
 
@@ -235,5 +235,6 @@ condition 'Content is shared with people outside my organization'」
 ポリシーを作成しました。機密データを検出し、外部ユーザーによるアクセスをブロックする制限を適用することで、Fabric
 と Power BI
 のコンテンツを保護します。また、このポリシーでは、ユーザーへの通知と管理者アラートも可能になります。
+
 
 
