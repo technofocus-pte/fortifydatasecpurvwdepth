@@ -1,4 +1,4 @@
-**Lab 1 – Assigning Compliance Roles and exploring Microsoft Purview portal**
+# **Lab 1 – Assigning Compliance Roles and exploring Microsoft Purview portal**
 
 ## **Introduction**
 
@@ -568,6 +568,7 @@ OME configuration** for the finance department, enforced via a transport
 rule. Finally, you enabled **Adaptive Protection** under Insider Risk
 Management in Purview, laying the groundwork for intelligent, risk-based
 data protection policies to be explored further in later labs.
+
 
 
 
