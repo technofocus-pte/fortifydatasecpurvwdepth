@@ -8,6 +8,8 @@ Purview
 数据安全、数据治理以及风险和合规性解决方案管理用户的权限。您可以限制用户仅执行
 您明确授予他们访问权限的特定任务。
 
+Checking...
+
 ## **目标**:
 
 - 将经理和合规性角色分配给 Microsoft 365 中的用户。
@@ -532,4 +534,5 @@ Encryption (OME)**，方法是修改默认模板以禁用社交 ID
 configuration**，并通过传输规则强制实施。最后，你在 Purview 的“under
 Insider Risk Management”下启用了 **Adaptive
 Protection**，为智能的、基于风险的数据保护策略奠定了基础，以便在以后的实验室中进一步探索。
+
 
