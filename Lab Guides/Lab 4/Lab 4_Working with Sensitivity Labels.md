@@ -1,4 +1,4 @@
-**实验室 4_使用敏感度标签**
+# **实验室 4_使用敏感度标签**
 
 ## 介绍
 
@@ -23,93 +23,85 @@ Rednitzhembach，目前正在实施敏感度计划，以确保人力资源部门
 
 1.  右键单击 Windows 图标，然后导航并单击 **Windows PowerShell (Admin)**
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image1.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image1.png)
 
 2.  在“**User Account Control** ”对话框中，单击“**Yes**”按钮。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image2.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image2.png)
 
 3.  输入以下 cmdlet 以安装最新的 Microsoft Online PowerShell 模块版本:
 
-**+++Install-Module -Name MSOnline+++**
+    **+++Install-Module -Name MSOnline+++**
 
-![A screenshot of a computer Description automatically
-generated](./media/image3.png)
+    ![A screenshot of a computer Description automatically generated](./media/image3.png)
 
 4.  在 **You are installing the modules from an untrusted repository...
     message**，键入 **Y**，然后按 Enter 按钮
 
-> ![BrokenImage](./media/image4.png)
+    ![BrokenImage](./media/image4.png)
 
 5.  输入以下 cmdlet 以安装最新的 SharePoint Online PowerShell 模块版本:
 
-**+++Install-Module -NameMicrosoft.Online.SharePoint.PowerShell+++**
+    **+++Install-Module -NameMicrosoft.Online.SharePoint.PowerShell+++**
 
-![A screenshot of a computer Description automatically
-generated](./media/image5.png)
+    ![A screenshot of a computer Description automatically generated](./media/image5.png)
 
 6.  在 **You are installing the modules from an untrusted repository...
     message**,键入 **Y**，然后按 Enter 按钮
 
-> ![A screenshot of a computer screen Description automatically
-> generated](./media/image6.png)
+    ![A screenshot of a computer screen Description automatically generated](./media/image6.png)
 
 7.  输入以下 cmdlet 以连接到 Microsoft Online 服务:
 
-**+++Connect-MsolService+++**
+    **+++Connect-MsolService+++**
 
-![BrokenImage](./media/image7.png)
+    ![BrokenImage](./media/image7.png)
 
 8.  在**Sign in to your account** 表单中，使用资源选项卡上提供的用户名
     **PattiF@WWLxXXXXXX.onmicrosoft.com** 和用户密码以 **Patti
     Fernandez** 身份登录。
 
-> ![A screenshot of a computer screen AI-generated content may be
-> incorrect.](./media/image8.png)
->
-> ![A screenshot of a computer program AI-generated content may be
-> incorrect.](./media/image9.png)
+    ![A screenshot of a computer screen AI-generated content may be incorrect.](./media/image8.png)
+
+    ![A screenshot of a computer program AI-generated content may be incorrect.](./media/image9.png)
 
 9.  输入以下 cmdlet 以获取域:
 
-**+++\\domain = get-msoldomain+++**
+    **+++\\domain = get-msoldomain+++**
 
-![BrokenImage](./media/image10.png)
+    ![BrokenImage](./media/image10.png)
 
 10. 输入以下 cmdlet 以创建 SharePoint 管理员 URL:
 
-**+++\\adminurl = "https://" +\\domain.Name.split('.')\[0\] +"-admin.sharepoint.com"+++**
+    **+++\\adminurl = "https://" +\\domain.Name.split('.')\[0\] +"-admin.sharepoint.com"+++**
 
-![A screenshot of a computer screen Description automatically
-generated](./media/image11.png)
+    ![A screenshot of a computer screen Description automatically generated](./media/image11.png)
 
 11. 输入以下 cmdlet 以登录到 SharePoint Online 管理中心:
 
-**+++Connect-SPOService -url \\adminurl+++**
+    **+++Connect-SPOService -url \\adminurl+++**
 
-![A screenshot of a computer screen Description automatically
-generated](./media/image12.png)
+    ![A screenshot of a computer screen Description automatically generated](./media/image12.png)
 
 12. 在“**Sign in to your
     account** ”窗体中，使用实验室环境的“资源”选项卡中提供的凭据以 **MOD
-    Administrator** 身份登录。![A screenshot of a computer screen
-    AI-generated content may be incorrect.](./media/image13.png)
+    Administrator** 身份登录。
+    
+    ![A screenshot of a computer screen AI-generated content may be incorrect.](./media/image13.png)
 
 13. 输入以下 cmdlet 以启用对敏感度标签的支持:
 
-**+++Set-SPOTenant -EnableAIPIntegration $true+++**
+    **+++Set-SPOTenant -EnableAIPIntegration $true+++**
 
-![BrokenImage](./media/image14.png)
+    ![BrokenImage](./media/image14.png)
 
 14. 使用 **Y** 表示是确认更改，然后按 Enter。
 
-![BrokenImage](./media/image15.png)
+    ![BrokenImage](./media/image15.png)
 
 15. 关闭 **PowerShell** 窗口。
 
-已成功启用对 Teams 和 SharePoint 网站敏感度标签的支持。
+    已成功启用对 Teams 和 SharePoint 网站敏感度标签的支持。
 
 ## 练习 2 – 创建敏感度标签
 
@@ -124,13 +116,11 @@ HR 部门创建子标签。
 2.  在Microsoft Purview 门户的左侧导航窗格中，选择“**Solutions** \>
     **Information Protection**”。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image16.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image16.png)
 
 3.  从子导航中，选择“**Sensitivity Labels** \> **Create Labels**”。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image17.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image17.png)
 
 4.  “**New sensitivity label**”向导将启动。在“**Name**”、“**Description
     for admins**”和**“Description for users “Label
@@ -144,57 +134,48 @@ incorrect.](./media/image17.png)
 
     - 管理员说明: **+++Internal sensitivity label for Contoso.+++**
 
-    - ![A screenshot of a computer AI-generated content may be
-      incorrect.](./media/image18.png)
+    - ![A screenshot of a computer AI-generated content may be incorrect.](./media/image18.png)
 
 5.  选择 **Next**。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image19.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image19.png)
 
 6.  在“**Define the scope for this label** ”页上，确保选中“**Files &
     other data
     assets**”复选框。然后，取消选中“**Meetings**”复选框，然后单击“**Next**”按钮。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image20.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image20.png)
 
 7.  在“**Choose protection settings for the types of items you
     selected**”页上，单击“**Next**”按钮。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image21.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image21.png)
 
 8.  在“文件和电子邮件的 **Auto-labeling** ”页上，选择“**Next**”。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image22.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image22.png)
 
 9.  在“**Define protection settings for groups and
     sites**”页上，选择“**Next**”。 
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image23.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image23.png)
 
 10. 在“**Review your settings and finish** ”页上，单击“**Create
     label**”按钮。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image24.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image24.png)
 
 11. 在“**Your sensitivity label was created**”页上，导航并选择“**Don’t
     create a policy yet**”单选按钮。然后，单击“**Done**”按钮。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image25.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image25.png)
 
 12. 在“**Information
     protection**”页上，导航到“**Internal**”标签，然后选择垂直省略号 
 
 13. 然后，导航并单击 **Create sublabel**。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image26.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image26.png)
 
 14. “**New sensitivity label”**向导将启动。在 Label details 页上
     ，输入以下信息:
@@ -210,29 +191,24 @@ incorrect.](./media/image26.png)
       consultation with Ms.Jones (Head of HR department). Contact her,
       when you want to change settings of the label. +++**
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image27.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image27.png)
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image28.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image28.png)
 
 15. 在“**Define the scope for this
     label ”**页上，确保选中“文件和其他数据资产”、“电子邮件”和“会议”复选框，然后单击“**Next**”按钮。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image29.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image29.png)
 
 16. 在“**Choose protection settings for labeled
     items** ”页上，选择“**Control Access** ”选项。选择 **Next**。 
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image30.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image30.png)
 
 17. 在**Access control**页面上，确保选择 **Configure access control
     settings**。 
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image31.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image31.png)
 
 18. 在加密设置中输入以下信息:
 
@@ -246,52 +222,43 @@ incorrect.](./media/image31.png)
 
     &nbsp;
 
-    - ![A screenshot of a computer AI-generated content may be
-      incorrect.](./media/image32.png)
+    - ![A screenshot of a computer AI-generated content may be incorrect.](./media/image32.png)
 
 19. 选择“**Assign permissions** ”链接。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image33.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image33.png)
 
 20. 在“**Assign permissions** ”窗格中，选择“**+ Add any authenticated
     users**”。
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image34.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image34.png)
 
 21. 选择 **Save。**
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image35.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image35.png)
 
 22. 在“**Access control**”页上，选择“**Next**”。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image36.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image36.png)
 
 23. 在“**Auto-labeling for files and emails** ”页上，选择“**Next**”。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image37.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image37.png)
 
 24. 在“**Define protection settings for groups and
     sites**”页上，选择“**Next**”。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image38.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image38.png)
 
 25. 在“**Review your settings and finish**”页上，选择“**Create
     label**”。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image39.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image39.png)
 
 26. 在“**Your sensitivity label was created**”页上，选择“尚**Don’t
     create a policy yet**”单选按钮，然后单击“**Done**”按钮。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image40.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image40.png)
 
 已成功为组织内部策略创建敏感度标签，并为人力资源 （HR）
 部门创建敏感度子标签。
@@ -309,64 +276,60 @@ incorrect.](./media/image40.png)
 2.  在Microsoft Purview 门户的左侧导航窗格中，选择“**Solutions** \>
     **Information Protection**”。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image41.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image41.png)
 
 3.  从子导航中，选择“**Sensitivity Labels** \> **Publish Labels**”。
 
-![](./media/image42.png)
+    ![](./media/image42.png)
 
 4.  发布敏感度标签向导将启动。
 
 5.  在“**Choose sensitivity labels to publish**”页上，选择“**Choose
     sensitivity labels to publish** ”链接。
 
-![A screenshot of a computer Description automatically
-generated](./media/image43.png)
+    ![A screenshot of a computer Description automatically generated](./media/image43.png)
 
 6.  右侧将显示一个名为“**Sensitivity labels to publish**”的侧栏。
 
 7.  选中**I nternal** 和 **Internal/Employee Data
     (HR)** 复选框。选择**Add**。 
 
-![](./media/image44.png)
+    ![](./media/image44.png)
 
 8.  在“**Choose sensitivity labels to publish**”页上，选择“**Next**”。
 
-![](./media/image45.png)
+    ![](./media/image45.png)
 
 9.  在“Assign admin units”页上，选择“**Next**”。
 
-![](./media/image46.png)
+    ![](./media/image46.png)
 
 10. 在“**Publish to users and groups**”页上，确保选中“**Users and
     groups**”复选框，然后单击“**Next**”按钮。
 
-![](./media/image47.png)
+    ![](./media/image47.png)
 
 11. 在“**Policy settings** ”页上，选择“**Next**”。
 
-![](./media/image48.png)
+    ![](./media/image48.png)
 
 12. 在 **Apply a default label to documents** 页上，选择**Next**。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image49.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image49.png)
 
 13. 在“**Apply a default label to emails**”页上，选择“**Next**”。 
 
-> ![](./media/image50.png)
+    ![](./media/image50.png)
 
 14. 在 **Default settings for meetings and calendar events**
     上，选择**Next**。
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image51.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image51.png)
 
 15. 在“**Default settings for Fabric and Power BI
     content**”页上，选择“**Next**”。** **
 
-> ![](./media/image52.png)
+    ![](./media/image52.png)
 
 16. 在“**Name your policy**”页上，输入以下信息，然后单击“**Next**”按钮:
 
@@ -375,18 +338,17 @@ incorrect.](./media/image49.png)
     - **输入敏感度标签策略的说明**: **+++This HR label is to be applied
       to internal HR employee data. +++**
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image53.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image53.png)
 
 17. 在“**Review and finish** ”页上，选择“**Submit**”。
 
-![](./media/image54.png)
+    ![](./media/image54.png)
 
 18. 将创建策略，完成后将显示一条消息，显示 **New policy created**。
 
 19. 选择 **Done and proceed to next task without closing the window**。
 
-![](./media/image55.png)
+    ![](./media/image55.png)
 
 已成功发布内部和 HR 敏感度标签。请注意，更改最多可能需要 24
 小时才能复制到所有用户和服务。
@@ -402,40 +364,36 @@ incorrect.](./media/image53.png)
 
 2.  如果出现“**Copilot everywhere you need it**”对话框，然后将其关闭。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image56.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image56.png)
 
-3.  现在，单击左侧导航菜单上的**Apps**，然后单击 **Word**。![A
-    screenshot of a computer AI-generated content may be
-    incorrect.](./media/image57.png)
+3.  现在，单击左侧导航菜单上的**Apps**，然后单击 **Word**。
+
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image57.png)
 
 4.  **Welcome, Patti Fernandez!** 页面，单击“**Create blank
     document**”按钮。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image58.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image58.png)
 
 5.  如果出现“**Your privacy options**”消息，请单击“**Close**”按钮。 
 
-![](./media/image59.png)
+    ![](./media/image59.png)
 
 6.  在word文档中输入以下内容:
 
-**+++Important HR employee document.+++**
+    **+++Important HR employee document.+++**
 
 7.  然后，从顶部窗格中选择 **Sensitivity**
     以打开下拉菜单，导航并单击**Internal**。 
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image60.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image60.png)
 
 注意：如果在下拉菜单中没有看到“**内部**”，请选择“**机密 -
 财务**”并跳过步骤 8。✅
 
 8.  单击“**Employee data (HR)**”以应用标签。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image61.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image61.png)
 
 **注意**： 请注意，在本练习的任务 1 中运行的脚本在 Word
 中为租户激活了敏感度标签。有时可能需要一个小时才能在 Microsoft Word
@@ -446,57 +404,49 @@ incorrect.](./media/image61.png)
 9.  选择 **Document – Saved** 在窗口的左上角，输入 **HR
     Document** 作为文件名，然后按 **Enter** 键。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image62.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image62.png)
 
 10. 关闭单词选项卡。在 M365 Copilot – 应用页面中，单击 **Outlook**。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image63.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image63.png)
 
 11. 如果出现“**Your privacy matters**”对话框，请单击“**Continue**”按钮。
 
-![A screen shot of a computer AI-generated content may be
-incorrect.](./media/image64.png)
+    ![A screen shot of a computer AI-generated content may be incorrect.](./media/image64.png)
 
 12. 在 Outlook 网页版中，从 窗口左上角选择“**New message**”。
 
-![A screenshot of a computer Description automatically
-generated](./media/image65.png)
+    ![A screenshot of a computer Description automatically generated](./media/image65.png)
 
 13. 在收件人字段中输入名称：**Adele**，然后从下拉列表中选择 **Adele
     Vance**。 
 
-![](./media/image66.png)
+    ![](./media/image66.png)
 
 14. 在主题字段中，输入: **+++Employee data for HR+++**.
 
 15. 在电子邮件正文中，插入以下消息:
 
-> **+++Dear Ms. Adele,**
->
-> **Please find attached the important HR employee document.**
->
-> **Kind regards,**
->
-> **Patti Fernandez+++**
+    **+++Dear Ms. Adele,**
+    
+    **Please find attached the important HR employee document.**
 
-![A screenshot of a computer Description automatically
-generated](./media/image67.png)
+    **Kind regards,**
+
+    **Patti Fernandez+++**
+
+    ![A screenshot of a computer Description automatically generated](./media/image67.png)
 
 16. 从底部菜单中选择**回形针符号。**
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image68.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image68.png)
 
 17. 选择 **Suggested attachments** 下方的 **HR Document.docx** 
     以附加文档。 
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image69.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image69.png)
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image70.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image70.png)
 
 18. 选择**“Send”**以发送带有附加文档的电子邮件。
 
@@ -523,7 +473,7 @@ Regulation (GPDR)** 相关的信息的文档和电子邮件。
     label**”旁边的复选框，然后单击垂直省略号。导航并单击 **+ Create
     sublabel**。
 
-![](./media/image71.png)
+    ![](./media/image71.png)
 
 4.  “**New sensitivity label** ”向导将启动。在 **label details**
     页上，输入以下信息 :
@@ -541,35 +491,32 @@ Regulation (GPDR)** 相关的信息的文档和电子邮件。
 
 5.  选择 **Next**。
 
-![](./media/image72.png)
+    ![](./media/image72.png)
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image73.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image73.png)
 
 6.  在“**Define the scope for this label** ”页上，确保选中“**Files &
     other data assets,
     Emails,**”和“**Meetings**”复选框，然后单击“**Next**”按钮。
 
-![](./media/image74.png)
+    ![](./media/image74.png)
 
 7.  在“**Choose protection settings for the types of items you
     selected**”页上，选择“**Next**”。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image75.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image75.png)
 
 8.  在“**Auto-labeling for files and
     emails** ”页上，打开“**Auto-labeling for files and
     emails**”切换开关。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image76.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image76.png)
 
 9.  在“**Detect content that matches these
     conditions** ”部分中，选择“**+Add condition** ”，然后选择“**Content
     contains**”。
 
-![](./media/image77.png)
+    ![](./media/image77.png)
 
 10. 在“**Content contains** ”部分中，选择“**Add**”，然后选择“**Sensitive
     info types**”。 ![](./media/image78.png)
@@ -578,97 +525,87 @@ incorrect.](./media/image76.png)
 
 12. 在“**Search for sensitive info types**”搜索面板中，输入以下信息:
 
-**+++German+++**
+    **+++German+++**
 
 13. 按回车键，结果将显示与德国相关的灵敏度信息类型。选中“**Name**”旁边的复选框
     以选择所有敏感信息类型。
 
-![BrokenImage](./media/image79.png)
+    ![BrokenImage](./media/image79.png)
 
 14. 选择 **Add**。 
 
-![BrokenImage](./media/image80.png)
+    ![BrokenImage](./media/image80.png)
 
 15. 选择 **Next**。
 
-![A screenshot of a computer Description automatically
-generated](./media/image81.png)
+    ![A screenshot of a computer Description automatically generated](./media/image81.png)
 
 16. 在“**Define protection settings for groups and
     sites** ”页上，选择“**Next**”。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image82.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image82.png)
 
 17. 在“**Review your settings and finish**”页上，选择“**Create
     label**”。 
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image83.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image83.png)
 
 18. 在“**Your sensitivity label was created**”页上，选择“**Automatically
     apply label to sensitive
     content**”的单选按钮，然后单击“**Done**”按钮。
 
-![](./media/image84.png)
+    ![](./media/image84.png)
 
 19. 从子导航中，选择“**Sensitivity Labels** \> **Publish Labels**”。
 
-![](./media/image85.png)
+    ![](./media/image85.png)
 
 20. “**Publish sensitivity labels**”向导将启动。 
 
 21. 在“**Choose sensitivity labels to publish**”页上，选择“**Choose
     sensitivity labels to publish**”链接。
 
-![](./media/image86.png)
+    ![](./media/image86.png)
 
 22. **Sensitivity labels to publish**
     窗格将显示在右侧。导航并选中“**Internal** ”和“**Internal/GDPR
     Germany** ”复选框，然后单击“**Add**”按钮**。**
 
-![](./media/image87.png)
+    ![](./media/image87.png)
 
 23. 在“**Choose sensitivity labels to publish**”页上，选择“**Next**”。
 
-![](./media/image88.png)
+    ![](./media/image88.png)
 
 24. 在“Assign admin units”页上，单击“**Next**”按钮。
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image89.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image89.png)
 
 25. 在“**Publish to users and groups** ”页上，选择“**Next**”。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image90.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image90.png)
 
 26. 在“**Policy settings** ”页上，选择“**Next** ”。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image91.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image91.png)
 
 27. 在 **Apply a default label to documents** 页上，选择**Next**。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image92.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image92.png)
 
 28. 在“**Apply a default label to emails** ”页上，选择“**Next**”。
 
-> ![A screenshot of a computer screen AI-generated content may be
-> incorrect.](./media/image93.png)
+    ![A screenshot of a computer screen AI-generated content may be incorrect.](./media/image93.png)
 
 29. 在 **Default settings for meetings and calendar events** 上，选择
     **Next**。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image94.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image94.png)
 
 30. 在“**Default settings for Fabric and Power BI
     content **”页上，选择“**Next**”。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image95.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image95.png)
 
 31. 在“**Name your policy**”页上，输入以下信息:
 
@@ -679,17 +616,15 @@ incorrect.](./media/image95.png)
 
 32. 选择 **Next**。
 
-![](./media/image96.png)
+    ![](./media/image96.png)
 
 33. 在“**Review and finish** ”页上，选择“**Submit**”。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image97.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image97.png)
 
 34. 在“**New policy created**”页面上，单击“**Done**”按钮。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image98.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image98.png)
 
 ## 总结
 
