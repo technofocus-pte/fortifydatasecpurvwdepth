@@ -36,7 +36,7 @@ Microsoft Purview 中的自适应保护将 Microsoft Purview 内部风险管理�
 
    ![](./media/image3.png)
 
-    ![](./media/image4.png)
+   ![](./media/image4.png)
 
 4.  在“**Conditions for insider risk levels**”下，选择“User performs at
     least 3 data exfiltration activities, each…  “提升 **Elevated risk
@@ -49,7 +49,8 @@ Microsoft Purview 中的自适应保护将 Microsoft Purview 内部风险管理�
 
 5.  单击“**Save**”按钮。
 
-     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image6.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image6.png)
+
 
 任务 2 - 为端点创建自定义自适应保护 DLP 策略
 
@@ -168,4 +169,5 @@ Purview 中配置了自适应保护。然后，你为端点设备创建了自定
 （DLP）
 策略，该策略使用自适应保护在检测到风险升高时自动限制活动（例如复制到 USB
 或打印）。该策略使用可训练的分类器针对敏感内容，并根据内部风险级别应用严格的作，以减轻潜在的数据泄露。
+
 
