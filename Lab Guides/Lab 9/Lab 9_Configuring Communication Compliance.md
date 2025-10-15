@@ -27,30 +27,26 @@ ID。
 2.  向下滚动并选中“**Communication
     Compliance**”旁边的复选框。然后，单击铅笔图标进行 **Edit**。
 
-![](./media/image2.png)
+    ![](./media/image2.png)
 
 3.  在“**Edit members of the role group**”上，选择“**Choose Users**”。 
 
-![A screenshot of a computer Description automatically
-generated](./media/image3.png)
+    ![A screenshot of a computer Description automatically generated](./media/image3.png)
 
 4.  确保选择 **MOD Administrator**, **Megan Bowen**,和 **Patti
     Fernandez**。然后选择**Select**。
 
-![](./media/image4.png)
+   ![](./media/image4.png)
 
 5.  选择 **Next**。
 
-![A screenshot of a computer Description automatically
-generated](./media/image5.png)
+    ![A screenshot of a computer Description automatically generated](./media/image5.png)
 
 6.  选择“**Save**”以将用户添加到角色组。选择 **Done** 以完成步骤。 
 
-![A screenshot of a computer Description automatically
-generated](./media/image6.png)
+    ![A screenshot of a computer Description automatically generated](./media/image6.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image7.png)
+    ![A screenshot of a computer Description automatically generated](./media/image7.png)
 
 ## 练习 2 – 设置通信合规性组
 
@@ -62,30 +58,28 @@ generated](./media/image7.png)
 1.  右键单击 Windows 图标，然后导航并选择 **Windows
     PowerShell（Admin）**
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image8.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image8.png)
 
-1.  On User Account Control dialog box, select **Yes**.
+2.  On User Account Control dialog box, select **Yes**.
 
-![A screenshot of a computer error AI-generated content may be
-incorrect.](./media/image9.png)
+    ![A screenshot of a computer error AI-generated content may be incorrect.](./media/image9.png)
 
-2.  输入以下 cmdlet 以使用 **Exchange Online PowerShell**
+3.  输入以下 cmdlet 以使用 **Exchange Online PowerShell**
     模块并连接到租户:
 
-**+++Connect-ExchangeOnline+++**
+    **+++Connect-ExchangeOnline+++**
 
-![Text Description automatically generated](./media/image10.png)
+    ![Text Description automatically generated](./media/image10.png)
 
-3.  显示“**Sign in**”窗口时，以 **MOD Administrator** 身份登录。如果
+4.  显示“**Sign in**”窗口时，以 **MOD Administrator** 身份登录。如果
     **Automatically sign in to all desktop apps and websites on this
     device?** 此对话框出现，然后选择“**No, this app only**”按钮 
 
-![](./media/image11.png)
+    ![](./media/image11.png)
 
-![](./media/image12.png)
+    ![](./media/image12.png)
 
-4.  使用以下属性为全局通信合规性策略创建专用通讯组:
+5.  使用以下属性为全局通信合规性策略创建专用通讯组:
 
     - **MemberDepartRestriction = Closed**。
       确保用户无法从通讯组中删除自己。
@@ -100,7 +94,7 @@ incorrect.](./media/image9.png)
 Contoso" -Alias "CCG_Contoso" -MemberDepartRestriction
 'Closed' -MemberJoinRestriction 'Closed' -ModerationEnabled $true+++**
 
-![BrokenImage](./media/image13.png)
+    ![BrokenImage](./media/image13.png)
 
 **注意：**您可以添加 **Exchange Custom Attribute** ，如以下**command**
 所示，以跟踪添加到组织中通信合规性策略的用户。
@@ -108,10 +102,9 @@ Contoso" -Alias "CCG_Contoso" -MemberDepartRestriction
 **+++Set-DistributionGroup -Identity "Communication Compliance Group
 Contoso"-CustomAttribute1 "MonitoredCommunication"+++**
 
-![A screen shot of a computer Description automatically
-generated](./media/image14.png)
+    ![A screen shot of a computer Description automatically generated](./media/image14.png)
 
-5.  按定期计划运行以下 PowerShell 脚本，将用户添加到通信合规性策略:
+6.  按定期计划运行以下 PowerShell 脚本，将用户添加到通信合规性策略:
 
 **+++$Mbx = (Get-Mailbox -RecipientTypeDetails UserMailbox -ResultSize
 Unlimited -Filter {CustomAttribute9 -eq $Null})**
@@ -137,93 +130,85 @@ Contoso" -Member $M.DistinguishedName -ErrorAction SilentlyContinue**
 **Write-Host $i "Mailboxes added to supervisory review distribution
 group." +++**
 
-![BrokenImage](./media/image15.png)
+    ![BrokenImage](./media/image15.png)
 
-6.  从脚本生成输出后，打开一个新选项卡并输入以下
+7.  从脚本生成输出后，打开一个新选项卡并输入以下
     URL：+++<https://admin.cloud.microsoft/>+++以打开 Microsoft 365
     admin center。
 
-7.  在 Microsoft 365 admin center 页中，导航并单击 **Teams &
+8.  在 Microsoft 365 admin center 页中，导航并单击 **Teams &
     groups\>Active teams & groups\>Distribution list\>Communication
     Compliance Group Contoso**。
 
-![](./media/image16.png)
+    ![](./media/image16.png)
 
-8.  在右侧显示的“Communication
+9.  在右侧显示的“Communication
     Compliance”窗格中，单击“Members”选项卡，向下滚动并查看“Distribution
     list”组中的所有成员。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image17.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image17.png)
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image18.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image18.png)
 
 ## 练习 3 – 创建通信合规性策略
 
 1.  在 Microsoft Purview 门户中，选择“**Solutions** \> **Communication
     Compliance**”。
 
-![](./media/image19.png)
+    ![](./media/image19.png)
 
 2.  在“**Communication
     Compliance**”边栏选项卡中，导航并单击“**Policies**”。然后，在“**Policies**”页中，选择“**+
     Create policy**”，然后单击“**Custom policy**”。
 
-![](./media/image20.png)
+   ![](./media/image20.png)
 
 3.  在“**Name**”字段中，在“**Name**”字段中键入 **+++My first
     communication compliance
     policy+++**，并在“**Description**”字段中键入 **+++This is a policy
     to test communication compliance+++**。选择 **Next**。
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image21.png)
+    ![Graphical user interface, text, application Description automatically generated](./media/image21.png)
 
 4.  在“**Choose users and
     reviewers** ”页上，导航到“**Reviewers**”部分，键入并选择“**Patti
     Fernandez**”。然后，单击“下**Next** ”按钮。
 
-![A screenshot of a computer Description automatically
-generated](./media/image22.png)
+    ![A screenshot of a computer Description automatically generated](./media/image22.png)
 
 5.  在“**Choose locations to detect**
     **communications** ”页上，确保选中“**Microsoft 365
     locations** 下的所有复选框，然后单击” **Next** “按钮。
 
-![](./media/image23.png)
+    ![](./media/image23.png)
 
 6.  在“**Choose conditions and review
     percentage**”上，向下滚动并选择“**Add
     condition**”，然后导航并选择“**Content contains sensitive info
     types**”。
 
-![](./media/image24.png)
+    ![](./media/image24.png)
 
 7.  在“**Content contains any of these sensitive info
     types**”框中，选择“**Add**”，单击“**Sensitive info
     types**”，然后搜索“**contoso**”。选中我们在早期实验室中创建的所有敏感信息类型的框。然后点击
     **Add**  
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image25.png)
+    ![Graphical user interface, text, application Description automatically generated](./media/image25.png)
 
 8.  向下滚动并选中旁边的复选框 **Use OCR to extract text from
     images**，**Review percentage to 100%**，然后单击 **Next** 按钮。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image26.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image26.png)
 
 9.  在“**Review and finish** ”页上，选择“**Create policy**”。
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image27.png)
+    ![Graphical user interface, text, application Description automatically generated](./media/image27.png)
 
 10. 将显示“**Your policy was
     created** ”页面，其中包含有关何时激活策略以及将捕获哪些通信的指南。现在，单击“**Done**”按钮。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image28.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image28.png)
 
 ## 练习 4 – 编辑通信合规性策略
 
@@ -231,39 +216,33 @@ incorrect.](./media/image28.png)
     communication compliance
     policy**”旁边的省略号，然后导航并单击“**Edit**”。
 
-**注意**：如果您没有看到我的第一个通信合规性策略，请刷新页面。
+    **注意**：如果您没有看到我的第一个通信合规性策略，请刷新页面。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image29.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image29.png)
 
 2.  保留 **Name and describe your policy**，然后单击 **Next** 按钮。 
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image30.png)
+    ![Graphical user interface, text, application Description automatically generated](./media/image30.png)
 
 3.  在“**Choose users and reviewers**”页上，导航并选择“**Select
     users**”旁边的单选按钮。 
 
-![A screenshot of a computer screen AI-generated content may be
-incorrect.](./media/image31.png)
+    ![A screenshot of a computer screen AI-generated content may be incorrect.](./media/image31.png)
 
 4.  在“**Start typing to find users or
     groups**”中，搜索“**Communication**”，然后选择“**Communication
     Compliance Groups Contoso**”。
 
-![A screenshot of a computer screen AI-generated content may be
-incorrect.](./media/image32.png)
+    ![A screenshot of a computer screen AI-generated content may be incorrect.](./media/image32.png)
 
 5.  在“**Reviewers**”部分中，键入并选择“MOD
     Administrator”。选择“**Next**”，直到到达“**Review and finish**”页。 
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image33.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image33.png)
 
 6.  然后，单击“**Save**”按钮。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image34.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image34.png)
 
 ## 练习 5 – 创建通知模板并配置用户匿名化
 
@@ -271,8 +250,7 @@ incorrect.](./media/image34.png)
     门户中，选择右上角的“**Settings**”，然后导航并选择“**Communication
     Compliance**”。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image35.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image35.png)
 
 2.  在“**Communication Compliance settings –
     Privacy**”页中，若要启用匿名化，请确保选择“**Show anonymized
@@ -281,12 +259,11 @@ incorrect.](./media/image35.png)
 **注意：**如果“**Save**”按钮未突出显示，请选择其他功能单选按钮，然后再次选择“**Show
 anonymized versions of usernames**”单选按钮。
 
-![](./media/image36.png)
+    ![](./media/image36.png)
 
 3.  选择 **Notice templates**，然后单击 + 符号以创建通知模板。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image37.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image37.png)
 
 4.  在修改**Modify a notice template** 页上，填写以下字段:
 
@@ -307,8 +284,7 @@ incorrect.](./media/image37.png)
 
 5.  选择 **Create** 以创建并保存通知模板。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image38.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image38.png)
 
 ## 练习 6 – 测试通信合规性策略
 
@@ -319,12 +295,11 @@ incorrect.](./media/image38.png)
 
 2.  向您的个人电子邮件帐户发送一封电子邮件，其中包含以下邮件正文。
 
-主题行：**Patti Fernandez (EMP123456) on Medical Leave Due to Flu**
+    主题行：**Patti Fernandez (EMP123456) on Medical Leave Due to Flu**
 
-消息正文：**+++Employee Patti Fernandez EMP123456 is on absence
-because of the flu/influenza+++**
+    消息正文：**+++Employee Patti Fernandez EMP123456 is on absence because of the flu/influenza+++**
 
-![](./media/image39.png)
+    ![](./media/image39.png)
 
 **注意** 电子邮件可能需要大约 24 小时才能在策略中完全处理。Microsoft
 Teams、Yammer 和第三方平台中的通信可能需要大约 48
@@ -339,3 +314,4 @@ compliance** \> **Alerts** ”，查看 24 小时后策略的警报。
 在本实验室中，你已了解如何在 Microsoft Purview
 中配置和管理通信合规性。分配了所需的角色，使用 PowerShell
 创建通讯组，并设置合规性策略以监视内部通信。你启用了匿名化以在评审期间保护用户标识，创建了用户通知模板，并了解如何在完全强制实施之前模拟和测试通信合规性策略。
+
