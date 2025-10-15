@@ -1,4 +1,4 @@
-**实验室 3_管理可训练分类器**
+# **实验室 3_管理可训练分类器**
 
 ## 介绍:
 
@@ -99,3 +99,4 @@ incorrect.](./media/image11.png)
 Microsoft Purview 中创建了名为 *Contoso Company Data*
 的可训练分类器。该分类器将分析文档以识别公司特定数据，培训最多需要 24
 小时。
+
