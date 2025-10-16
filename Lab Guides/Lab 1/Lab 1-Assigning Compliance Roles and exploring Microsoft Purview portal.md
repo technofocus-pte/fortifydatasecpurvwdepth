@@ -184,12 +184,37 @@ Purview
 
    ![A screenshot of a search engine Description automatically generated](./media/image27.png)
 
+
+## **练习 2 - 启用自适应保护**
+
+1. 在 Microsoft Purview
+门户左侧导航窗格中，单击“**Solutions**”，然后导航并 选择“**nsider Risk
+Management**”
+
+   ![A screenshot of a computer AI-generated content may be incorrect.](./media/image64.png)
+
+2. 在“**Insider Risk Management**”窗格中，导航并单击“**Adaptive Protection**”，然后选择“**Adaptive Protection settings**”。现在，打开
+   “Adaptive Protection”**开关**。
+
+   ![A screenshot of a computer AI-generated content may be incorrect.](./media/image65.png)
+
+3. 单击“**Save**”按钮。
+
+   ![A screenshot of a computer AI-generated content may be incorrect.](./media/image66.png)
+
+4. 启用自适应保护需要一些时间。我们将在第 5
+   个实验中探索自适应保护功能。
+
+   ![BrokenImage](./media/image67.png)
+
+
 ## **总结**
 
 在本实验室中，你配置了基础合规性设置，并探索了用于数据保护的 Microsoft
 Purview 功能。首先，创建用户，为他们分配适当的角色
 （，如经理和合规性管理员） ，并设置 Microsoft 365 组和安全组以模拟
 Contoso 的组织结构。
+
 
 
 
