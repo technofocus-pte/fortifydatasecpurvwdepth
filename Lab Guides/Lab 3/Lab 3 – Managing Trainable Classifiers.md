@@ -25,13 +25,13 @@ SharePoint サイトを選択します。
 2.  左側のナビゲーションから、 **\[Solutions\]** \> **\[Data Loss
     Prevention\]**を選択します。
 
-![](./media/image1.png)
+    ![](./media/image1.png)
 
 3.  左側のペインから**「Classifiers」**を展開します。サブナビゲーションペインから**「Trainable
     Classifiers」を選択します。** 新しい分類子を作成するには、 **「+
     Create trainable classifier」**を選択します。
 
-![](./media/image2.png)
+    ![](./media/image2.png)
 
 4.  **Name and describe your trainable
     classifier**ページに次の情報を入力します。
@@ -43,13 +43,11 @@ SharePoint サイトを選択します。
 
 7.  **「Next」**を選択します。
 
-![A screenshot of a computer Description automatically
-generated](./media/image3.png)
+    ![A screenshot of a computer Description automatically generated](./media/image3.png)
 
 8.  **\[Choose sites\]**を選択して右側のペインを開きます。
 
-![A screenshot of a computer Description automatically
-generated](./media/image4.png)
+    ![A screenshot of a computer Description automatically generated](./media/image4.png)
 
 9.  次の SharePoint サイトを選択し、 **\[Add\]**を選択します。
 
@@ -63,40 +61,35 @@ generated](./media/image4.png)
 
     - マーク8プロジェクトチーム
 
-![](./media/image5.png)
+    ![](./media/image5.png)
 
 10. 選択したサイトがリストに表示されるまで待ってから、
     **「Next」**を選択します。
 
-![A screenshot of a computer Description automatically
-generated](./media/image6.png)
+    ![A screenshot of a computer Description automatically generated](./media/image6.png)
 
 11. **Source of the negative sample contentページ**で、「**+Choose
     sites」をクリックします。**
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image7.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image7.png)
 
 12. **\[Add SharePoint sites\]**ウィンドウで、 **\[Learn\]
     の**横にあるチェックボックスに移動して選択し、**\[Add\]**ボタンをクリックします。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image8.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image8.png)
 
 13. **「Next」**ボタンをクリックします。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image9.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image9.png)
 
 14. 設定を確認し、 **「Create trainable classifier」**を選択します。
 
-![](./media/image10.png)
+    ![](./media/image10.png)
 
 15. **Your trainable classifier is being trainedページ**で、
     **\[Done\]**ボタンをクリックします。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image11.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image11.png)
 
 選択した SharePoint
 サイト内のドキュメントとファイルが分析中です。分析には最大 24
