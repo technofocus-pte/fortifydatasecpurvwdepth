@@ -44,20 +44,19 @@ ID のパターンを認識する新しいカスタムSensitive Info Typesを作
     portal**ダイアログボックスが表示されたら、\[**Get
     Started\]**ボタンをクリックします。
 
-> ![](./media/image1.png)
+    ![](./media/image1.png)
 
 3.  左側のナビゲーションから、 **\[Solutions\]** \> **\[Data Loss
     Prevention\]**を選択します。
 
-![](./media/image2.png)
+    ![](./media/image2.png)
 
 4.  左ペインから**「Classifiers」**を選択します。サブナビゲーションペインから**「Sensitive
     Info Types」**を選択します。 **「+ Create sensitive info
     type** **」**を選択して、新しいSensitive Info
     Typesを作成するためのウィザードを開きます。
 
-![A screenshot of a computer Description automatically
-generated](./media/image3.png)
+    ![A screenshot of a computer Description automatically generated](./media/image3.png)
 
 5.  **「Name your sensitive info
     type」**ページで、次の情報を入力します。
@@ -68,20 +67,17 @@ generated](./media/image3.png)
 
 6.  **「Next」**を選択します。
 
-![Graphical user interface, application Description automatically
-generated](./media/image4.png)
+    ![Graphical user interface, application Description automatically generated](./media/image4.png)
 
 7.  **\[Define patterns for this sensitive info type\]ページ**で、
     **\[Create pattern\]**を選択します。
 
-![A screenshot of a computer Description automatically
-generated](./media/image5.png)
+    ![A screenshot of a computer Description automatically generated](./media/image5.png)
 
 8.  右側に表示される**\[New pattern\]**ペインで、 **\[Add primary
     element\]**を選択し、 **\[Regular expression\]**を選択します。
 
-![Graphical user interface, application, Teams Description automatically
-generated](./media/image6.png)
+    ![Graphical user interface, application, Teams Description automatically generated](./media/image6.png)
 
 9.  新しい右側のペイン**「Add a regular
     expression」で**、次のように入力します。
@@ -94,23 +90,20 @@ generated](./media/image6.png)
 
 10. **\[Done\]**を選択します。
 
-![Graphical user interface, application Description automatically
-generated](./media/image7.png)
+    ![Graphical user interface, application Description automatically generated](./media/image7.png)
 
 11. \[New pattern\] ペインで、**Character
     proximity** 値を*100文字*に減らします。
 
-![](./media/image8.png)
+    ![](./media/image8.png)
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image9.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image9.png)
 
 12. **「Supporting elements」見出し**に移動し、 **「+ Add supporting
     elements or group of elements」**ドロップダウン
     メニューをクリックして、 **「Keyword list」**を選択します。
 
-![Graphical user interface, application Description automatically
-generated](./media/image10.png)
+    ![Graphical user interface, application Description automatically generated](./media/image10.png)
 
 13. **\[Add a keyword list\]ペイン**で、次のように入力します。
 
@@ -118,37 +111,35 @@ generated](./media/image10.png)
 
     - **Case insensitive**: **+++ Employee** **ID +++**
 
-> ![](./media/image11.png)
+    ![](./media/image11.png)
 
 14. **「Word match」の**横にあるラジオボタンを選択します。次に、
     **「Done」**ボタンをクリックします。
 
-![](./media/image12.png)
+    ![](./media/image12.png)
 
 15. 次に、 **「Create」**ボタンをクリックします。
 
-![](./media/image13.png)
+    ![](./media/image13.png)
 
 16. **Define patterns for this sensitive info type** ページに戻り、
     **\[Next\]**を選択します。
 
-![Graphical user interface, text, application, Teams Description
-automatically generated](./media/image14.png)
+    ![Graphical user interface, text, application, Teams Description automatically generated](./media/image14.png)
 
 17. **\[Choose the recommended confidence level to show in compliance
     policies\]ページ**で既定値を使用し、
     **\[Next\]**ボタンを選択します。
 
-![BrokenImage](./media/image15.png)
+    ![BrokenImage](./media/image15.png)
 
 18. **「Review settings and finish」ページ**で設定を確認し、
     **「Create」**を選択します。正常に作成されたら、
     **「Done」**を選択します。
 
-![](./media/image16.png)
+    ![](./media/image16.png)
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image17.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image17.png)
 
 19. ブラウザウィンドウを開いたままにしておきます。
 
@@ -161,17 +152,19 @@ incorrect.](./media/image17.png)
 追加の検索パターンとして、従業員データのデータベーススキーマを使用して、EDMベースの分類を作成します。データベースソースファイルは、従業員の以下のデータフィールド（名前、生年月日、住所、従業員ID）でフォーマットされます。
 
 1.  「Solutions」をクリックし、 **「Data Loss
-    Prevention」**を選択します。 ![](./media/image18.png)
+    Prevention」**を選択します。
+
+    ![](./media/image18.png)
 
 2.  **「Classifiers」**をクリックし、 **「EDM
     Classifiers」を選択します**。EDMClassifiersページで、「**New EDM
     experience」**の横にあるトグルボタンをクリックして**Off**にします。
 
-![](./media/image19.png)
+    ![](./media/image19.png)
 
 3.  次に、 **「Create EDM schema」**をクリックします **。**
 
-![](./media/image20.png)
+    ![](./media/image20.png)
 
 4.  **Name**フィールドに**+++ employeedb +++**と入力します。
 
@@ -180,29 +173,25 @@ incorrect.](./media/image17.png)
     **「Ignore delimiters and punctuation for all schema
     fields」の**チェックを外します。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image21.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image21.png)
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image22.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image22.png)
 
 6.  最初のスキーマフィールド名に**「+++Name+++」と入力します。Field is
     searchable**ボックスをチェックします。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image23.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image23.png)
 
 7.  **\[Choose delimiters and punctuation to
     ignore\]**のドロップダウンをクリックし、 **\[Hyphen\]** 、
     **\[Period\]** 、 \[**Space\]** 、 **\[Open parenthesis\]** 、
     **\[閉じ括弧\]**を選択します。
 
-![Graphical user interface, application Description automatically
-generated](./media/image24.png)
+    ![Graphical user interface, application Description automatically generated](./media/image24.png)
 
 8.  下端から**+ Add schema data fieldを**選択します。
 
-![BrokenImage](./media/image25.png)
+    ![BrokenImage](./media/image25.png)
 
 9.  **Schema field name**で、**Schema field \#2の下に+++Birthdate+++
     と**入力します。
@@ -221,36 +210,31 @@ generated](./media/image24.png)
 
 15. **\[Save\]**を選択します。
 
-![Graphical user interface, application Description automatically
-generated](./media/image26.png)
+    ![Graphical user interface, application Description automatically generated](./media/image26.png)
 
 16. 左側のペインから**EDM Sensitive Info Types**を選択し、 **+ EDM
     Sensitive Info Typesの**作成を選択**して、EDM rule
     packageウィザード**を開きます。
 
-![](./media/image27.png)
+    ![](./media/image27.png)
 
 17. **\[Define data store schema\]ページ**で、 **\[Choose an existing
     EDM schema\]**を選択します。
 
-![Graphical user interface, application Description automatically
-generated](./media/image28.png)
+    ![Graphical user interface, application Description automatically generated](./media/image28.png)
 
 18. **employeedb**を選択し、**Add**を選択します。
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image29.png)
+    ![Graphical user interface, text, application Description automatically generated](./media/image29.png)
 
 19. データ ストア スキーマを確認し、 **\[Next\]**を選択します。
 
-![Graphical user interface, application Description automatically
-generated](./media/image30.png)
+    ![Graphical user interface, application Description automatically generated](./media/image30.png)
 
 20. **Define patterns for this EDM sensitive info type** **ページ**で、
     **+ Create pattern**を選択します。
 
-![Graphical user interface, application Description automatically
-generated](./media/image31.png)
+    ![Graphical user interface, application Description automatically generated](./media/image31.png)
 
 21. 右側の \[**New pattern\]ペイン**の**\[Primary
     element\]**フィールドで、 ***EmployeeID***を選択します。
@@ -258,8 +242,7 @@ generated](./media/image31.png)
 22. **Primary element's sensitive info type**の下で、Choose **Sensitive
     Info Typeを選択します**。
 
-![A screenshot of a pattern Description automatically
-generated](./media/image32.png)
+    ![A screenshot of a pattern Description automatically generated](./media/image32.png)
 
 23. **サーチ**バーに***「Contoso」と入力し***、Enter キーを押します。
 
@@ -267,21 +250,18 @@ generated](./media/image32.png)
 
 25. **\[Done\]**を選択します。
 
-![A screenshot of a computer Description automatically
-generated](./media/image33.png)
+    ![A screenshot of a computer Description automatically generated](./media/image33.png)
 
 26. *Define patterns for this EDM sensitive info
     type* 画面で**Nextを**選択します。
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image34.png)
+    ![Graphical user interface, text, application Description automatically generated](./media/image34.png)
 
 27. **Choose the recommended confidence level and character
     proximity** 場合は、デフォルト値をそのままにして、
     **\[Next\]**を選択します。
 
-![Graphical user interface, text, application, Word Description
-automatically generated](./media/image35.png)
+    ![Graphical user interface, text, application, Word Description automatically generated](./media/image35.png)
 
 28. **Name and describe your EDM sensitive info
     type**のページで、名前として**「+++Contoso Employee
@@ -291,19 +271,16 @@ automatically generated](./media/image35.png)
     sensitive information type for employee personal information.+ ++
     」と入力します**。 **「Next」**を選択します**。**
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image36.png)
+    ![Graphical user interface, text, application Description automatically generated](./media/image36.png)
 
 30. 設定を確認し、 **\[Submit\]**を選択します。
 
-![Graphical user interface, application Description automatically
-generated](./media/image37.png)
+    ![Graphical user interface, application Description automatically generated](./media/image37.png)
 
 31.  **Your EDM sensitive info type was createdページ**で、
     **\[Done\]**を選択します。
 
-![A screenshot of a computer Description automatically
-generated](./media/image38.png)
+    ![A screenshot of a computer Description automatically generated](./media/image38.png)
 
 32. Microsoft Purview ポータルでブラウザを開いたままにしておきます。
 
@@ -317,21 +294,19 @@ EDM
 アップロード エージェント ツールを使用してSensitive Information
 Typeの実際のデータをハッシュしてアップロードする必要があります。
 
-1.  **Microsoft Edge**で、 **+++**
-    https://go.microsoft.com/fwlink/?linkid=2088639**+++** EDM
+1.  **Microsoft Edge**で、 **+++https://go.microsoft.com/fwlink/?linkid=2088639+++** EDM
     ダウンロード エージェントをダウンロードします。
 
 2.  **Open file**リンクをクリックして、
     **EdmUploadAgent.msi**にアクセスします**。**
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image39.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image39.png)
 
 3.  **\[Welcome to the Microsoft Exact Data Match Upload Agent Setup
     Wizard\]**ダイアログ ボックスで、
     **\[Next\]**ボタンをクリックします。
 
-![BrokenImage](./media/image40.png)
+    ![BrokenImage](./media/image40.png)
 
 4.  **Microsoft Exact Data Match Upload Agent Setup**ウィザードで、
     **\[Next\]**を選択します。
@@ -352,16 +327,13 @@ Typeの実際のデータをハッシュしてアップロードする必要が�
 
     - インストールが完了したら、 **\[Finish\]**を選択します。
 
-5\.
-次に、Windowsアイコンを右クリックし、「**Run**」をクリックします。「**Run**」ダイアログボックスで「+++notepad+++」と入力し、「**OK**」ボタンをクリックします。
+5. 次に、Windowsアイコンを右クリックし、「**Run**」をクリックします。「**Run**」ダイアログボックスで「+++notepad+++」と入力し、「**OK**」ボタンをクリックします。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image41.png)
+   ![A screenshot of a computer AI-generated content may be incorrect.](./media/image41.png)
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image42.png)
+   ![A screenshot of a computer AI-generated content may be incorrect.](./media/image42.png)
 
-6\. メモ帳ウィンドウの最初の行に次のテキストを入力します。
+6. メモ帳ウィンドウの最初の行に次のテキストを入力します。
 
 **+++ Name,Birthdate,StreetAddress,EmployeeID**
 
@@ -377,44 +349,40 @@ incorrect.](./media/image42.png)
 9.  **Encodingフィールド**で、 **UTF-8**が選択されていることを確認し、
     **\[Save\]**ボタンをクリックします。
 
-![BrokenImage](./media/image43.png)
+    ![BrokenImage](./media/image43.png)
 
 10. メモ帳ウィンドウを閉じます。
 
 11. タスクバーの Windows アイコンを右クリックし、\[Windows PowerShell
     (Admin)\] を選択して管理者として実行します。
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image44.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image44.png)
 
 12. **「User Account Control」ダイアログ ボックス**で、
     **「Yes」**ボタンをクリックします。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image45.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image45.png)
 
 13. EDM アップロード エージェント ディレクトリに移動します。
 
-**+++cd "C:\Program Files\Microsoft\\ EdmUploadAgent "+++**
+    **+++cd "C:\Program Files\Microsoft\\ EdmUploadAgent "+++**
 
-![Text Description automatically generated](./media/image46.png)
+    ![Text Description automatically generated](./media/image46.png)
 
 14. 次のコマンドレットを実行して、アカウントでデータベースをテナントにアップロードすることを承認します。
 
-**+++.\EdmUploadAgent.exe /承認+++**
+    **+++.\EdmUploadAgent.exe /承認+++**
 
-![BrokenImage](./media/image47.png)
+    ![BrokenImage](./media/image47.png)
 
 15. **\[Pick an
     account\]ウィンドウが表示され**たら、ユーザー名**PattiF@WWLxXXXXXX.onmicrosoft.com**と\[Resources\]
     タブで指定したユーザー パスワードを使用して、 **Patti
     Fernandez**としてログインします。(またはリセットした新しいパスワード)
 
-> ![A computer screen with a sign in box AI-generated content may be
-> incorrect.](./media/image48.png)
->
-> ![A screenshot of a login box AI-generated content may be
-> incorrect.](./media/image49.png)
+    ![A computer screen with a sign in box AI-generated content may be incorrect.](./media/image48.png)
+
+    ![A screenshot of a login box AI-generated content may be incorrect.](./media/image49.png)
 
 16. PowerShell で次のスクリプトを実行して、EDM
     ベースの分類機密情報タイプのデータベース
@@ -426,7 +394,7 @@ incorrect.](./media/image45.png)
 **EDM_DataUploaders**グループのメンバーシップが適用されるまでさらに時間がかかる可能性があります。スキーマファイルのダウンロードが可能になるまで、最大1時間かかる場合があります。失敗した場合は、次のタスクに進み、後でこの手順に戻ってください。または、VM
 上のドキュメントフォルダへのパスを確認してください。
 
-![BrokenImage](./media/image50.png)
+    ![BrokenImage](./media/image50.png)
 
 17. PowerShell で次のスクリプトを実行して、データベース
     ファイルをハッシュし、EDM
@@ -437,7 +405,7 @@ incorrect.](./media/image45.png)
 C:\Users\Admin\Documents\\
 /SchemaC:\Users\Admin\Documents\employeedb.xml+++**
 
-![BrokenImage](./media/image51.png)
+    ![BrokenImage](./media/image51.png)
 
 **注意:**次のエラーが表示された場合
 
@@ -447,15 +415,14 @@ C:\Users\Admin\Documents\\
 
 EmployeeData.csvファイルを保存したパスを確認してください。
 
-![Text Description automatically generated](./media/image52.png)
+    ![Text Description automatically generated](./media/image52.png)
 
 18. 状態が完了に変わるまでアップロードの進行状況を確認し、次の
     PowerShell コマンドを実行します。
 
 **+++.\EdmUploadAgent.exe /GetSession /DataStoreNameemployeedb +++**
 
-![A screenshot of a computer program AI-generated content may be
-incorrect.](./media/image53.png)
+    ![A screenshot of a computer program AI-generated content may be incorrect.](./media/image53.png)
 
 EDMベースの分類機密情報タイプのデータベース
 ファイルをハッシュしてアップロードしました。
@@ -472,16 +439,14 @@ EDMベースの分類機密情報タイプのデータベース
 2.  左側のナビゲーションから、 **\[Solutions\]** \> **\[Data Loss
     Prevention\]**を選択します。opp
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image54.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image54.png)
 
 3.  左ペインから**「Classifiers」**を選択します。サブナビゲーションペインから**「Sensitive
     Info Types」**を選択します。 **「+Create Sensitive Info
     Types」**を選択して、新しいSensitive Info
     Typesを作成するためのウィザードを開きます。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image55.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image55.png)
 
 4.  **「Name your sensitive info
     type」ページ**で、次のように入力します。
@@ -490,22 +455,19 @@ incorrect.](./media/image55.png)
 
     - Description: **+++ List of possible diseases of employees.+ ++**
 
-![Graphical user interface, application, Teams Description automatically
-generated](./media/image56.png)
+    ![Graphical user interface, application, Teams Description automatically generated](./media/image56.png)
 
 5.  **「Next」**を選択します。
 
 6.  **\[Define patterns for this sensitive info type\]ページ**で、
     **\[+Create pattern\]** を選択します。
 
-![Graphical user interface, application, Teams Description automatically
-generated](./media/image57.png)
+    ![Graphical user interface, application, Teams Description automatically generated](./media/image57.png)
 
 7.  **Primary element**の下のドロップダウン
     フィールドを選択し、**Keyword dictionary**を選択します。
 
-![Graphical user interface, application Description automatically
-generated](./media/image58.png)
+    ![Graphical user interface, application Description automatically generated](./media/image58.png)
 
 8.  **Add a keyword dictionary** ページで、名前に「 **!! *Diseases
     Dictionary* !!」**と入力します。
@@ -524,7 +486,7 @@ generated](./media/image58.png)
 
 **+++**
 
-![BrokenImage](./media/image59.png)
+    ![BrokenImage](./media/image59.png)
 
 10. **\[Done\]**を選択します。
 
@@ -533,8 +495,7 @@ generated](./media/image58.png)
     list** を選択して、キーワード
     ディクショナリに追加のサポートを追加します。
 
-![Graphical user interface, application Description automatically
-generated](./media/image60.png)
+    ![Graphical user interface, application Description automatically generated](./media/image60.png)
 
 12. **「Add a keyword list」ページ**で、
     **IDフィールド**に**「Employee」**と入力します。 **「Case
@@ -546,31 +507,28 @@ generated](./media/image60.png)
 
 **+++reason+++**
 
-![](./media/image61.png)
+    ![](./media/image61.png)
 
 13. **\[New pattern\]ページ**で構成を確認し、
     **\[Create\]**を選択します。
 
-![Graphical user interface, application Description automatically
-generated](./media/image62.png)
+    ![Graphical user interface, application Description automatically generated](./media/image62.png)
 
 14. **Define patterns for this sensitive info type** で、
     **\[Next\]**を選択します。
 
-![Graphical user interface, application, Teams Description automatically
-generated](./media/image63.png)
+    ![Graphical user interface, application, Teams Description automatically generated](./media/image63.png)
 
 15. **Choose the recommended confidence level to show in compliance
     policies**では、既定値をそのままにして、 **\[Next\]**を選択します。
 
-![A screenshot of a computer Description automatically
-generated](./media/image64.png)
+    ![A screenshot of a computer Description automatically generated](./media/image64.png)
 
 16. **「Review settings and finish」ページ**で設定を確認し、
     **「Create」を選択します**。プロセスが完了したら、
     **「Done」**を選択します。
 
-![BrokenImage](./media/image65.png)
+    ![BrokenImage](./media/image65.png)
 
 17. Microsoft Purview ポータルのブラウザ
     ウィンドウを開いたままにします。
@@ -584,11 +542,9 @@ generated](./media/image64.png)
 1.  Windowsアイコンを右クリックし、「**Run」**をクリックします。「**Run**」ダイアログボックスに**「**
     +++notepad+++」と入力し、 **「OK」**ボタンをクリックします。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image41.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image41.png)
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image42.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image42.png)
 
 2.  メモ帳ウィンドウに次のテキストを入力します。
 
@@ -609,64 +565,59 @@ because of the flu/influenza +++**
     Types」**を選択します。右上の**検索ボックスに*「Contoso」と入力し***、Enterキーを押します。
     **「Contoso Employee ID」をクリックして**右側のペインを開きます。
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image66.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image66.png)
 
 7.  右側のペインから**「Test」**を選択します。
 
-![A screenshot of a computer Description automatically
-generated](./media/image67.png)
+    ![A screenshot of a computer Description automatically generated](./media/image67.png)
 
 8.  **\[Upload file to test\]ページ**で、 **\[Upload
     file\]**を選択します。
 
-![BrokenImage](./media/image68.png)
+    ![BrokenImage](./media/image68.png)
 
 9.  **\[Documents\]**を選択し、
     **SickTestData**という名前のファイルを選択して**\[Open\]**を選択します。
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image69.png)
+    ![Graphical user interface, text, application Description automatically generated](./media/image69.png)
 
 10. 分析を開始するには、 **「Test」**を選択します。
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image70.png)
+    ![Graphical user interface, text, application Description automatically generated](./media/image70.png)
 
 11. **「Match results」ページ**で、見つかった一致を確認します。
 
-![](./media/image71.png)
+    ![](./media/image71.png)
 
 12. **\[Finish\]**を選択し、 **\[X\]ボタン**をクリックしてテスト
     ページを閉じます。
 
-![](./media/image72.png)
+    ![](./media/image72.png)
 
 13. **Data classificationページ**に戻り、 **「Contoso Diseases
     List」**という名前のSensitive Info Typesを選択します。
 
 14. 右側のペインで、 **\[Test\]を選択します**。
 
-![BrokenImage](./media/image73.png)
+    ![BrokenImage](./media/image73.png)
 
 15. **\[Upload file to test\]ページ**で、 **\[Upload
     file\]**を選択します。
 
-![BrokenImage](./media/image74.png)
+    ![BrokenImage](./media/image74.png)
 
 16. **\[Documents\]**を選択し、
     *SickTestData*という名前のファイルを選択して**\[Open\]**を選択します。
 
 17. 分析を開始するには、 **「Test」**を選択します。
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image75.png)
+    ![Graphical user interface, text, application Description automatically generated](./media/image75.png)
 
 18. **Match
     results**ページで、見つかった一致を確認します。確認が完了したら、
     **「Finish」**を選択します。
 
-> ![](./media/image76.png)
+    ![](./media/image76.png)
 
 
 ## まとめ：
@@ -675,4 +626,5 @@ generated](./media/image75.png)
 テクニックを使用して Microsoft Purview でカスタムの機密情報タイプ (SIT)
 を作成およびテストし、Data Loss
 Prevention機能を強化する方法を学習しました。
+
 
