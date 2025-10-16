@@ -23,9 +23,7 @@ labelsを有効にすると、次のようになります。
 にアクセスする**
 
 1.  Edge ブラウザーのアドレス バーを開き、次の URL を入力して Fabric
-    ポータルを開きます -
-
-  **+++https://app.fabric.microsoft.com+++**
+    ポータルを開きます - **+++https://app.fabric.microsoft.com+++**
 
   ![A screenshot of a computer AI-generated content may be incorrect.](./media/image1.png)
 
@@ -205,4 +203,5 @@ labelsを有効にすると、次のようになります。
 ポータルにアクセスし、ユーザーに Fabric および Power BI
 コンテンツに「Confidential」ラベルを適用させるよう必須のsensitivity
 labelポリシーを作成しました。。その後、ポリシーの適用優先順位を設定しました。
+
 
