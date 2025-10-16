@@ -45,7 +45,7 @@ Contoso
 
 3. 以下を実行します。
 
-**+++Install-ModuleExchangeOnlineManagement+++**
+     **+++Install-ModuleExchangeOnlineManagement+++**
 
 4.  「 **Do you want PowerShellGet to install and import the NuGet
     provider now?**」および**「Are you sure you want to install the
@@ -56,13 +56,13 @@ Contoso
 
 5.  次のコマンドを実行します。
 
-**+++Import-Module ExchangeOnlineManagement+++**
+    **+++Import-Module ExchangeOnlineManagement+++**
 
     ![A screenshot of a computer Description automatically generated](./media/image4.png)
 
 6.  次のコマンドを実行して、Exchange Online に接続します。
 
-**+++Connect-IPPSSession+++**
+    **+++Connect-IPPSSession+++**
 
     ![A screenshot of a computer Description automatically generated](./media/image5.png)
 
@@ -258,5 +258,6 @@ Purview 内で IB
 ポリシーを構成し、特定のセグメント間の通信をブロックまたは許可しました（例：SalesのResearchへの通信をブロックする）。これらのポリシーは、ハンズ・オン練習のためにポータルと
 PowerShell
 の両方で作成しました。最後に、ポリシーを適用して、定義した通信制限を組織内で有効化および適用しました。
+
 
 
