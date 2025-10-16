@@ -52,7 +52,7 @@ Contoso
     modules from 'PSGallery'?**」というメッセージが表示されたら、
     **y**と入力して Enter キーを押します。
 
-       ![A screenshot of a computer Description automatically generated](./media/image3.png)
+    ![A screenshot of a computer Description automatically generated](./media/image3.png)
 
 5.  次のコマンドを実行します。
 
@@ -215,8 +215,7 @@ app only」**ボタンをクリックします。
     」**というIBポリシーを作成します。このポリシーをアクティブにして適用すると、
     **Research**セグメントのユーザーが**Sales**セグメントのユーザーと通信するのを防ぐことができます。
 
-**+++
-New-InformationBarrierPolicy -Name "Research-Sales" -AssignedSegment "Research" -SegmentsBlocked "Sales" -StateInactive
+**+++New-InformationBarrierPolicy -Name "Research-Sales" -AssignedSegment "Research" -SegmentsBlocked "Sales" -StateInactive
 +++**
 
     ![](./media/image27.png)
@@ -259,4 +258,5 @@ Purview 内で IB
 ポリシーを構成し、特定のセグメント間の通信をブロックまたは許可しました（例：SalesのResearchへの通信をブロックする）。これらのポリシーは、ハンズ・オン練習のためにポータルと
 PowerShell
 の両方で作成しました。最後に、ポリシーを適用して、定義した通信制限を組織内で有効化および適用しました。
+
 
