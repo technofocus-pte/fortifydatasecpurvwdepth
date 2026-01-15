@@ -581,7 +581,7 @@ In this task, you'll send a test email from a member of the Finance department t
 
 1. Select **Read the message**.
 
-    ![](./media/image781.png)
+    ![](./media/image81.png)
 
 1. Select **Sign in with a One-time passcode** to receive a limited time passcode.
 
