@@ -1,4 +1,4 @@
-# Lab 7 – Configuring Insider Risk Management
+# Lab 6 – Configuring Insider Risk Management
 
 ## Introduction
 
