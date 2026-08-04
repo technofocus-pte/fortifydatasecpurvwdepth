@@ -1,3 +1,14 @@
+---
+lab:
+  title: Lab 7 – Exploring the capabilities of Adaptive Protection
+  description: In this exercise, you configured Adaptive Protection in Microsoft Purview by first defining insider risk levels based on data exfiltration activity thresholds. You then created a custom Data Loss Prevention (DLP) policy for endpoint devices that uses Adaptive Protection to automatically restrict activities—such as copying to USB or printing—when elevated risk is detected. The policy targets sensitive content using trainable classifiers and applies strict actions based on insider risk levels to mitigate potential data leaks.
+  duration: 72 minutes
+  level: 200
+  islab: true
+  primarytopics:
+    - Microsoft Purview
+---
+
 # Lab 7 – Exploring the capabilities of Adaptive Protection
 
 ## Introduction
