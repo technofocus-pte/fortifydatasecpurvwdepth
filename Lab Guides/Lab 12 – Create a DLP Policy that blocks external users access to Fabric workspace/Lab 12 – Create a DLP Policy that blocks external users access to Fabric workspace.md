@@ -1,3 +1,15 @@
+---
+lab:
+  title: Lab 12 – Create a DLP Policy that blocks external users access to Fabric workspace
+  description: In this lab, you have created a custom DLP policy in Microsoft Purview to protect Fabric and Power BI content by detecting sensitive data and applying restrictions to block external user access. The policy also enables user notifications and admin alerts.
+  duration: 72 minutes
+  level: 200
+  islab: true
+  primarytopics:
+    - Power BI
+    - Microsoft Purview
+---
+
 # Lab 12 – Create a DLP Policy that blocks external users access to Fabric workspace
 
 ## Introduction
