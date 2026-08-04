@@ -1,3 +1,14 @@
+---
+lab:
+  title: Lab 4 - Create and manage sensitivity labels
+  description: In this lab, you assumed the role of Patti Fernandez, a system administrator at Contoso Ltd., and implemented information protection using Microsoft Purview Sensitivity Labels. You enabled sensitivity label support in SharePoint and Teams using PowerShell, created and published an Internal label and an HR-specific sublabel, and applied these labels in Word documents and Outlook emails. You also created and published an auto-labeling sensitivity label for GDPR-related content specific to Germany. These steps ensure HR and regulatory documents are properly classified and protected within the organization.
+  duration: 158 minutes
+  level: 400
+  islab: true
+  primarytopics:
+    - Microsoft Purview
+---
+
 # Lab 4 - Create and manage sensitivity labels
 
 ## Introduction
