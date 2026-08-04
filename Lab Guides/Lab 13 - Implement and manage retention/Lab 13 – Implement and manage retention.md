@@ -1,3 +1,12 @@
+---
+lab:
+  title: Lab 13 – Implement and manage retention
+  description: You've created an auto-apply policy that identifies personal financial data and applies a retention label automatically.
+  duration: 144 minutes
+  level: 200
+  islab: true
+---
+
 # Lab 13 – Implement and manage retention
 
 You are Patti Fernandez, a Compliance Administrator at Contoso Ltd. The company is tightening its data security strategy to reduce risk exposure related to financial data and privileged communications. You've been asked to configure Microsoft Purview retention solutions that support audit readiness, limit unnecessary data retention, and ensure proper oversight for sensitive communications.
