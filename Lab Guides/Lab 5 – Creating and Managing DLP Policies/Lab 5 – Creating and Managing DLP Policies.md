@@ -1,3 +1,12 @@
+---
+lab:
+  title: Lab 5 – Creating and Managing DLP Policies
+  description: In this task, you will modify the existing DLP policy you created in the previous step to also scan e-mails for Credit Card information and inform users if they want to share this content in an e-mail.
+  duration: 156 minutes
+  level: 300
+  islab: true
+---
+
 # Lab 5 – Creating and Managing DLP Policies
 
 ## Introduction
