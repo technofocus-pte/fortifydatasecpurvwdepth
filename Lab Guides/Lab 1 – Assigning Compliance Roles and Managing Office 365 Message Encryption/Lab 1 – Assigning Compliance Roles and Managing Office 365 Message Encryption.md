@@ -1,3 +1,15 @@
+---
+lab:
+  title: Lab 1 – Assigning Compliance Roles and Managing Office 365 Message Encryption
+  description: In this lab we successfully replicated an organisation in our admin center, assigned appropriate licenses and learnt how to use Microsoft 365 built-in Office 365 Message Encryption (OME).
+  duration: 168 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Microsoft 365
+    - Office 365
+---
+
 # Lab 1 – Assigning Compliance Roles and Managing Office 365 Message Encryption
 
 ## Introduction:
