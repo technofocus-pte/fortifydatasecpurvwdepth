@@ -1,3 +1,16 @@
+---
+lab:
+  title: Lab 10 – Enforce Sensitivity Labeling in Fabric and Power BI using Microsoft Purview
+  description: In this lab, you’ve activated a Microsoft Fabric trial, accessed the Microsoft Purview portal, and created a mandatory sensitivity label policy requiring users to apply the "Confidential" label to Fabric and Power BI content. The policy was then prioritized for enforcement.
+  duration: 82 minutes
+  level: 100
+  islab: true
+  primarytopics:
+    - Microsoft Fabric
+    - Power BI
+    - Microsoft Purview
+---
+
 # Lab 10 – Enforce Sensitivity Labeling in Fabric and Power BI using Microsoft Purview
 
 ## Introduction
