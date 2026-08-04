@@ -1,3 +1,12 @@
+---
+lab:
+  title: Lab 2 — Managing Sensitive Information Types​
+  description: In this exercise, you will use the Security & Compliance Center PowerShell module to create a new custom sensitive information type that recognizes the pattern of employee IDs near the keywords "Employee" and "ID".
+  duration: 146 minutes
+  level: 100
+  islab: true
+---
+
 # Lab 2 — Managing Sensitive Information Types​
 
 ## Introduction
