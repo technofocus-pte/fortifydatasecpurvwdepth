@@ -1,3 +1,12 @@
+---
+lab:
+  title: Lab setup - Prepare your environment for administration
+  description: In this lab, you'll configure and prepare your environment for administration tasks. You'll enable required features, configure permissions, and prepare core services for administration.
+  duration: 30 minutes
+  level: 100
+  islab: true
+---
+
 # Lab setup - Prepare your environment for administration
 
 In this lab, you'll configure and prepare your environment for administration tasks. You'll enable required features, configure permissions, and prepare core services for administration.

@@ -1,3 +1,12 @@
+---
+lab:
+  title: Lab 9 – Configuring Communication Compliance
+  description: In this lab, you will configure a compliance policy to detect any sensitive information being communicated by the users in your organisation. You will use the sensitive info types created in the earlier lab, to detect the employee health data or employee IDs being communicated through Emails.
+  duration: 102 minutes
+  level: 300
+  islab: true
+---
+
 # Lab 9 – Configuring Communication Compliance
 
 ## Introduction

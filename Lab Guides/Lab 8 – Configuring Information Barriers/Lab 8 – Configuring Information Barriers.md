@@ -1,3 +1,15 @@
+---
+lab:
+  title: Lab 8 – Configuring Information Barriers
+  description: In this lab, you created organizational segments (HR, Sales, Marketing, Research, and Manufacturing) using PowerShell and enabled scoped directory search in Microsoft Teams to align user visibility with segment restrictions. You then configured IB policies within Microsoft Purview to block or allow communication between specific segments (e.g., blocking Sales from communicating with Research). These policies were created both via the portal and PowerShell for hands-on practice.
+  duration: 90 minutes
+  level: 200
+  islab: true
+  primarytopics:
+    - Microsoft Purview
+    - Microsoft Teams
+---
+
 # Lab 8 – Configuring Information Barriers
 
 ## Introduction

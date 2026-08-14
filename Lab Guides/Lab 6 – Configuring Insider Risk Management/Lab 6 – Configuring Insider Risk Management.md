@@ -1,3 +1,12 @@
+---
+lab:
+  title: Lab 6 – Configuring Insider Risk Management
+  description: In this lab, we will learn how to configure Insider Risk Management using the Insider Risk Management Policies. We will use the Sensitive Info Types that we created in Lab 1 and DLP policies that we created in Lab 4 to create policies which will secure the organisation against risky browser usage or any data theft or leaks.
+  duration: 30 minutes
+  level: 300
+  islab: true
+---
+
 # Lab 6 – Configuring Insider Risk Management
 
 ## Introduction

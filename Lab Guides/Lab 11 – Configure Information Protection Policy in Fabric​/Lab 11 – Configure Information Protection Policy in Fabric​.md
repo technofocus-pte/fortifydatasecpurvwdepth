@@ -1,3 +1,14 @@
+---
+lab:
+  title: Lab 11 – Configure Information Protection Policy in Fabric​
+  description: In this lab, you’ve enabled various information protection settings in the Microsoft Fabric Admin Portal to support sensitivity label application, inheritance, automatic labeling, and admin overrides.
+  duration: 15 minutes
+  level: 200
+  islab: true
+  primarytopics:
+    - Microsoft Fabric
+---
+
 # Lab 11 – Configure Information Protection Policy in Fabric​
 
 ## Introduction
