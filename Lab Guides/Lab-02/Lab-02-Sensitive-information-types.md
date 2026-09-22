@@ -145,13 +145,10 @@ In this task, you'll build a sensitive information type that detects Contoso's c
    Import-Module ExchangeOnlineManagement
    Connect-IPPSSession -UserPrincipalName AllanD@TenantName
 ```
-
+--
 	![](./media/image16.png)
-
 	![](./media/image17.png)
-
 	![](./media/image18.png)
-
 	![](./media/image19.png)
 
 3. Create the keyword dictionary from the confidential clinical terms:
@@ -159,13 +156,13 @@ In this task, you'll build a sensitive information type that detects Contoso's c
 ```powershell
    $terms = "influenza`nbronchitis`notitis`nefficacy endpoint`nunblinding`nadverse event`nserious adverse event"
 ```
-
+--
 	![](./media/image20.png)
 
 ```powershell
    $dict = New-DlpKeywordDictionary -Name "Contoso Clinical Terms Dictionary" -Description "Confidential clinical vocabulary for Contoso trials." -FileData ([System.Text.Encoding]::UTF8.GetBytes($terms))
 ```
-
+--
 	![](./media/image21.png)
 
    > [!NOTE]
@@ -176,7 +173,7 @@ In this task, you'll build a sensitive information type that detects Contoso's c
 ```powershell
    Get-DlpKeywordDictionary -Name "Contoso Clinical Terms Dictionary" | Format-List Name, Identity
 ```
-
+--
 	![](./media/image22.png)
 
 5. Reference the dictionary in the rule-package file. In **C:\Lab Files**, open `ClinicalTerms-RulePackage.xml` in a text editor such as Notepad. Locate the `<IdMatch>` element, which contains the placeholder `idRef="REPLACE-WITH-DICTIONARY-GUID"`, and replace `REPLACE-WITH-DICTIONARY-GUID` with the **Identity** GUID you copied in step 4 (for example, `idRef="6f2161a1-8055-4672-b1a5-d5953ad56d3a"`). Save the file, keeping its **UTF-16 (Unicode)** encoding.
@@ -189,7 +186,7 @@ In this task, you'll build a sensitive information type that detects Contoso's c
 ```powershell
    New-DlpSensitiveInformationTypeRulePackage -FileData ([System.IO.File]::ReadAllBytes("C:\Lab Files\ClinicalTerms-RulePackage.xml"))
 ```
-
+--
 	![](./media/image23.png)
 
 7. Confirm the new sensitive information type exists:
@@ -197,7 +194,7 @@ In this task, you'll build a sensitive information type that detects Contoso's c
 ```powershell
    Get-DlpSensitiveInformationType -Identity "Contoso Clinical Terms" | Format-List Name, Publisher, Type
 ```
-
+--
 	![](./media/image24.png)
 
 8. Verify the sensitive information type detects the clinical vocabulary. Run a classification test against sample text that contains dictionary terms near a clinical context word:
@@ -206,7 +203,6 @@ In this task, you'll build a sensitive information type that detects Contoso's c
    (Test-DataClassification -TextToClassify "The efficacy endpoint was met; one serious adverse event was recorded for this confidential subject during unblinding." -ClassificationNames "Contoso Clinical Terms").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
 ```
    Confirm the result shows `Contoso Clinical Terms` with a count of at least 1.
-
 	![](./media/image25.png)
 
    > [!IMPORTANT]
@@ -231,7 +227,7 @@ Contoso identifies investigational compounds with a compound ID in the format of
 ```powershell
    New-DlpSensitiveInformationTypeRulePackage -FileData ([System.IO.File]::ReadAllBytes("C:\Lab Files\CompoundID-RulePackage.xml"))
 ```
-
+--
 	![](./media/image26.png)
 
 4. Confirm the new sensitive information type exists:
@@ -239,7 +235,7 @@ Contoso identifies investigational compounds with a compound ID in the format of
 ```powershell
    Get-DlpSensitiveInformationType -Identity "Contoso Compound ID" | Format-List Name, Publisher, Type
 ```
-
+--
 	![](./media/image27.png)
 
 5. Verify the sensitive information type detects a compound ID near a context word. Confirm the result lists `Contoso Compound ID` with a count of at least 1:
@@ -247,7 +243,7 @@ Contoso identifies investigational compounds with a compound ID in the format of
 ```powershell
    (Test-DataClassification -ClassificationNames "Contoso Compound ID" -TextToClassify "Investigational compound CX-2087 confidential formulation.").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
 ```
-
+--
 	![](./media/image28.png)
 
 6. Test with a non-matching sample. The command prints nothing, because `CX-20` has only two digits and no compound identifier is present:
@@ -255,7 +251,7 @@ Contoso identifies investigational compounds with a compound ID in the format of
 ```powershell
    (Test-DataClassification -ClassificationNames "Contoso Compound ID" -TextToClassify "Conference room CX-20 is booked for the afternoon.").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
 ```
-
+--
 	![](./media/image29.png)
 
 > [!IMPORTANT]
@@ -375,7 +371,7 @@ A pattern detects a format; an Exact Data Match classifier detects the exact rec
 ```powershell
     cd "C:\Program Files\Microsoft\EdmUploadAgent"
 ```
-
+--
 	![](./media/image48.png)
 
 16. Authorize the agent. When prompted, sign in as **Allan Deyoung**:
@@ -389,7 +385,7 @@ A pattern detects a format; an Exact Data Match classifier detects the exact rec
 ```powershell
     .\EdmUploadAgent.exe /SaveSchema /DataStoreName <schemaName> /OutputDir "C:\Lab Files"
 ```
-
+--
 	![](./media/image49.png)
 
 18. Hash and upload the provided `ClinicalTrialSubjects.csv` file. Replace `<schemaName>` with the same schema name:
@@ -397,7 +393,7 @@ A pattern detects a format; an Exact Data Match classifier detects the exact rec
 ```powershell
     .\EdmUploadAgent.exe /UploadData /DataStoreName <schemaName> /DataFile "C:\Lab Files\ClinicalTrialSubjects.csv" /HashLocation "C:\Lab Files" /Schema "C:\Lab Files\<schemaName>.xml"
 ```
-
+--
 	![](./media/image50.png)
 
 19. Check the upload status. Replace `<schemaName>` with the same schema name, and re-run until the status shows completed:
@@ -405,7 +401,7 @@ A pattern detects a format; an Exact Data Match classifier detects the exact rec
 ```powershell
     .\EdmUploadAgent.exe /GetSession /DataStoreName <schemaName>
 ```
-
+--
 	![](./media/image51.png)
 
 > [!IMPORTANT]
@@ -434,7 +430,7 @@ Custom classifiers should always be tested before they are used in policies, so 
 ```powershell
    (Test-DataClassification -ClassificationNames "Contoso Clinical Trial Subject ID" -TextToClassify "Trial subject CTS-004512 was enrolled at the study site.").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
 ```
-
+--
 	![](./media/image52.png)
 
 4. Test the same SIT with a non-matching sample. The command prints nothing, because `CTS-45120` has only five digits:
@@ -442,7 +438,7 @@ Custom classifiers should always be tested before they are used in policies, so 
 ```powershell
    (Test-DataClassification -ClassificationNames "Contoso Clinical Trial Subject ID" -TextToClassify "Reference code CTS-45120 is unrelated.").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
 ```
-
+--
 	![](./media/image53.png)
 
 5. Test the **Clinical Terms** SIT with the provided files. In **Microsoft Edge**, in the Microsoft Purview portal, go to **Solutions** > **Information Protection** > **Classifiers** > **Sensitive info types**. Search for `Contoso Clinical Terms`, select it, then select **Test**.
@@ -472,7 +468,7 @@ Custom classifiers should always be tested before they are used in policies, so 
 ```powershell
    (Test-DataClassification -ClassificationNames "Contoso Compound ID" -TextToClassify "Investigational compound CX-2087 confidential formulation.").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
 ```
-
+--
 	![](./media/image62.png)
 
 9. Test the **EDM classifier** with a record from the registry. In the elevated terminal, run the following and confirm the result lists `Contoso Clinical Trial Subjects` with a count of `1`. The values used are a real record in `ClinicalTrialSubjects.csv`:
@@ -480,7 +476,7 @@ Custom classifiers should always be tested before they are used in policies, so 
 ```powershell
    (Test-DataClassification -ClassificationNames "Contoso Clinical Trial Subjects" -TextToClassify "Subject record: Avery Howell, CTS-004512, MRN-7781422.").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
 ```
-
+--
 	![](./media/image63.png)
 
 > [!IMPORTANT]
