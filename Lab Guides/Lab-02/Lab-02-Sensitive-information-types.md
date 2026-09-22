@@ -141,29 +141,28 @@ In this task, you'll build a sensitive information type that detects Contoso's c
 2. Connect to Security & Compliance PowerShell. When the sign-in window appears, sign in as **Allan Deyoung**, `AllanD@TenantName`:
 
 ```powershell
-   Install-Module ExchangeOnlineManagement
-   Import-Module ExchangeOnlineManagement
-   Connect-IPPSSession -UserPrincipalName AllanD@TenantName
+Install-Module ExchangeOnlineManagement
+Import-Module ExchangeOnlineManagement
+Connect-IPPSSession -UserPrincipalName AllanD@TenantName
 ```
 --
 	![](./media/image16.png)
 	![](./media/image17.png)
 	![](./media/image18.png)
-	![](./media/image19.png)
 
 3. Create the keyword dictionary from the confidential clinical terms:
 
 ```powershell
-   $terms = "influenza`nbronchitis`notitis`nefficacy endpoint`nunblinding`nadverse event`nserious adverse event"
+$terms = "influenza`nbronchitis`notitis`nefficacy endpoint`nunblinding`nadverse event`nserious adverse event"
+```
+--
+	![](./media/image19.png)
+
+```powershell
+$dict = New-DlpKeywordDictionary -Name "Contoso Clinical Terms Dictionary" -Description "Confidential clinical vocabulary for Contoso trials." -FileData ([System.Text.Encoding]::UTF8.GetBytes($terms))
 ```
 --
 	![](./media/image20.png)
-
-```powershell
-   $dict = New-DlpKeywordDictionary -Name "Contoso Clinical Terms Dictionary" -Description "Confidential clinical vocabulary for Contoso trials." -FileData ([System.Text.Encoding]::UTF8.GetBytes($terms))
-```
---
-	![](./media/image21.png)
 
    > [!NOTE]
    > The terms are stored in the `$terms` variable separated by `` `n `` (PowerShell's newline character), producing the newline-separated list the dictionary expects. The `-FileData` parameter requires the terms as bytes, which is why the text is wrapped in `[System.Text.Encoding]::UTF8.GetBytes(...)`.
@@ -171,10 +170,10 @@ In this task, you'll build a sensitive information type that detects Contoso's c
 4. Confirm the dictionary was created and capture its identity (GUID). Copy the **Identity** value from the output — you'll paste it into the rule-package file in the next step:
 
 ```powershell
-   Get-DlpKeywordDictionary -Name "Contoso Clinical Terms Dictionary" | Format-List Name, Identity
+Get-DlpKeywordDictionary -Name "Contoso Clinical Terms Dictionary" | Format-List Name, Identity
 ```
 --
-	![](./media/image22.png)
+	![](./media/image21.png)
 
 5. Reference the dictionary in the rule-package file. In **C:\Lab Files**, open `ClinicalTerms-RulePackage.xml` in a text editor such as Notepad. Locate the `<IdMatch>` element, which contains the placeholder `idRef="REPLACE-WITH-DICTIONARY-GUID"`, and replace `REPLACE-WITH-DICTIONARY-GUID` with the **Identity** GUID you copied in step 4 (for example, `idRef="6f2161a1-8055-4672-b1a5-d5953ad56d3a"`). Save the file, keeping its **UTF-16 (Unicode)** encoding.
 
@@ -187,7 +186,7 @@ In this task, you'll build a sensitive information type that detects Contoso's c
    New-DlpSensitiveInformationTypeRulePackage -FileData ([System.IO.File]::ReadAllBytes("C:\Lab Files\ClinicalTerms-RulePackage.xml"))
 ```
 --
-	![](./media/image23.png)
+	![](./media/image22.png)
 
 7. Confirm the new sensitive information type exists:
 
@@ -195,7 +194,7 @@ In this task, you'll build a sensitive information type that detects Contoso's c
    Get-DlpSensitiveInformationType -Identity "Contoso Clinical Terms" | Format-List Name, Publisher, Type
 ```
 --
-	![](./media/image24.png)
+	![](./media/image23.png)
 
 8. Verify the sensitive information type detects the clinical vocabulary. Run a classification test against sample text that contains dictionary terms near a clinical context word:
 
