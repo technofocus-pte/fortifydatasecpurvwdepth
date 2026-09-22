@@ -183,7 +183,7 @@ Get-DlpKeywordDictionary -Name "Contoso Clinical Terms Dictionary" | Format-List
 6. Import the rule package to create the sensitive information type. This uses the edited `ClinicalTerms-RulePackage.xml` file, which now references your dictionary:
 
 ```powershell
-   New-DlpSensitiveInformationTypeRulePackage -FileData ([System.IO.File]::ReadAllBytes("C:\Lab Files\ClinicalTerms-RulePackage.xml"))
+New-DlpSensitiveInformationTypeRulePackage -FileData ([System.IO.File]::ReadAllBytes("C:\Lab Files\ClinicalTerms-RulePackage.xml"))
 ```
 --
 	![](./media/image22.png)
@@ -191,7 +191,7 @@ Get-DlpKeywordDictionary -Name "Contoso Clinical Terms Dictionary" | Format-List
 7. Confirm the new sensitive information type exists:
 
 ```powershell
-   Get-DlpSensitiveInformationType -Identity "Contoso Clinical Terms" | Format-List Name, Publisher, Type
+Get-DlpSensitiveInformationType -Identity "Contoso Clinical Terms" | Format-List Name, Publisher, Type
 ```
 --
 	![](./media/image23.png)
@@ -199,7 +199,7 @@ Get-DlpKeywordDictionary -Name "Contoso Clinical Terms Dictionary" | Format-List
 8. Verify the sensitive information type detects the clinical vocabulary. Run a classification test against sample text that contains dictionary terms near a clinical context word:
 
 ```powershell
-   (Test-DataClassification -TextToClassify "The efficacy endpoint was met; one serious adverse event was recorded for this confidential subject during unblinding." -ClassificationNames "Contoso Clinical Terms").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
+(Test-DataClassification -TextToClassify "The efficacy endpoint was met; one serious adverse event was recorded for this confidential subject during unblinding." -ClassificationNames "Contoso Clinical Terms").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
 ```
    Confirm the result shows `Contoso Clinical Terms` with a count of at least 1.
 	![](./media/image25.png)
@@ -218,13 +218,13 @@ Contoso identifies investigational compounds with a compound ID in the format of
 2. Return to the elevated **Terminal (Administrator)** window, still connected to Security & Compliance PowerShell from Task 2. If the session has timed out, reconnect:
 
 ```powershell
-   Connect-IPPSSession -UserPrincipalName AllanD@TenantName
+Connect-IPPSSession -UserPrincipalName AllanD@TenantName
 ```
 
 3. Upload the rule package to create the sensitive information type:
 
 ```powershell
-   New-DlpSensitiveInformationTypeRulePackage -FileData ([System.IO.File]::ReadAllBytes("C:\Lab Files\CompoundID-RulePackage.xml"))
+New-DlpSensitiveInformationTypeRulePackage -FileData ([System.IO.File]::ReadAllBytes("C:\Lab Files\CompoundID-RulePackage.xml"))
 ```
 --
 	![](./media/image26.png)
@@ -232,7 +232,7 @@ Contoso identifies investigational compounds with a compound ID in the format of
 4. Confirm the new sensitive information type exists:
 
 ```powershell
-   Get-DlpSensitiveInformationType -Identity "Contoso Compound ID" | Format-List Name, Publisher, Type
+Get-DlpSensitiveInformationType -Identity "Contoso Compound ID" | Format-List Name, Publisher, Type
 ```
 --
 	![](./media/image27.png)
@@ -240,7 +240,7 @@ Contoso identifies investigational compounds with a compound ID in the format of
 5. Verify the sensitive information type detects a compound ID near a context word. Confirm the result lists `Contoso Compound ID` with a count of at least 1:
 
 ```powershell
-   (Test-DataClassification -ClassificationNames "Contoso Compound ID" -TextToClassify "Investigational compound CX-2087 confidential formulation.").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
+(Test-DataClassification -ClassificationNames "Contoso Compound ID" -TextToClassify "Investigational compound CX-2087 confidential formulation.").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
 ```
 --
 	![](./media/image28.png)
@@ -248,7 +248,7 @@ Contoso identifies investigational compounds with a compound ID in the format of
 6. Test with a non-matching sample. The command prints nothing, because `CX-20` has only two digits and no compound identifier is present:
 
 ```powershell
-   (Test-DataClassification -ClassificationNames "Contoso Compound ID" -TextToClassify "Conference room CX-20 is booked for the afternoon.").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
+(Test-DataClassification -ClassificationNames "Contoso Compound ID" -TextToClassify "Conference room CX-20 is booked for the afternoon.").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
 ```
 --
 	![](./media/image29.png)
@@ -368,7 +368,7 @@ A pattern detects a format; an Exact Data Match classifier detects the exact rec
 15. In the elevated terminal, change to the EDM Upload Agent directory:
 
 ```powershell
-    cd "C:\Program Files\Microsoft\EdmUploadAgent"
+cd "C:\Program Files\Microsoft\EdmUploadAgent"
 ```
 --
 	![](./media/image48.png)
@@ -376,13 +376,13 @@ A pattern detects a format; an Exact Data Match classifier detects the exact rec
 16. Authorize the agent. When prompted, sign in as **Allan Deyoung**:
 
 ```powershell
-    .\EdmUploadAgent.exe /Authorize
+.\EdmUploadAgent.exe /Authorize
 ```
 
 17. Download the schema you created. Replace `<schemaName>` with the schema name you noted in step 12:
 
 ```powershell
-    .\EdmUploadAgent.exe /SaveSchema /DataStoreName <schemaName> /OutputDir "C:\Lab Files"
+.\EdmUploadAgent.exe /SaveSchema /DataStoreName <schemaName> /OutputDir "C:\Lab Files"
 ```
 --
 	![](./media/image49.png)
@@ -390,7 +390,7 @@ A pattern detects a format; an Exact Data Match classifier detects the exact rec
 18. Hash and upload the provided `ClinicalTrialSubjects.csv` file. Replace `<schemaName>` with the same schema name:
 
 ```powershell
-    .\EdmUploadAgent.exe /UploadData /DataStoreName <schemaName> /DataFile "C:\Lab Files\ClinicalTrialSubjects.csv" /HashLocation "C:\Lab Files" /Schema "C:\Lab Files\<schemaName>.xml"
+.\EdmUploadAgent.exe /UploadData /DataStoreName <schemaName> /DataFile "C:\Lab Files\ClinicalTrialSubjects.csv" /HashLocation "C:\Lab Files" /Schema "C:\Lab Files\<schemaName>.xml"
 ```
 --
 	![](./media/image50.png)
@@ -398,7 +398,7 @@ A pattern detects a format; an Exact Data Match classifier detects the exact rec
 19. Check the upload status. Replace `<schemaName>` with the same schema name, and re-run until the status shows completed:
 
 ```powershell
-    .\EdmUploadAgent.exe /GetSession /DataStoreName <schemaName>
+.\EdmUploadAgent.exe /GetSession /DataStoreName <schemaName>
 ```
 --
 	![](./media/image51.png)
@@ -420,14 +420,14 @@ Custom classifiers should always be tested before they are used in policies, so 
 2. Connect to Security & Compliance PowerShell. When the sign-in window appears, sign in as **Allan Deyoung**, `AllanD@TenantName`:
 
 ```powershell
-   Import-Module ExchangeOnlineManagement
-   Connect-IPPSSession -UserPrincipalName AllanD@TenantName
+Import-Module ExchangeOnlineManagement
+Connect-IPPSSession -UserPrincipalName AllanD@TenantName
 ```
 
 3. Test the **Clinical Trial Subject ID** SIT with a matching sample. Confirm the result lists `Contoso Clinical Trial Subject ID` with a count of `1`:
 
 ```powershell
-   (Test-DataClassification -ClassificationNames "Contoso Clinical Trial Subject ID" -TextToClassify "Trial subject CTS-004512 was enrolled at the study site.").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
+(Test-DataClassification -ClassificationNames "Contoso Clinical Trial Subject ID" -TextToClassify "Trial subject CTS-004512 was enrolled at the study site.").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
 ```
 --
 	![](./media/image52.png)
@@ -435,7 +435,7 @@ Custom classifiers should always be tested before they are used in policies, so 
 4. Test the same SIT with a non-matching sample. The command prints nothing, because `CTS-45120` has only five digits:
 
 ```powershell
-   (Test-DataClassification -ClassificationNames "Contoso Clinical Trial Subject ID" -TextToClassify "Reference code CTS-45120 is unrelated.").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
+(Test-DataClassification -ClassificationNames "Contoso Clinical Trial Subject ID" -TextToClassify "Reference code CTS-45120 is unrelated.").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
 ```
 --
 	![](./media/image53.png)
@@ -465,7 +465,7 @@ Custom classifiers should always be tested before they are used in policies, so 
 8. Test the **Compound ID** SIT with a matching sample. Confirm the result lists `Contoso Compound ID` with a count of at least 1:
 
 ```powershell
-   (Test-DataClassification -ClassificationNames "Contoso Compound ID" -TextToClassify "Investigational compound CX-2087 confidential formulation.").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
+(Test-DataClassification -ClassificationNames "Contoso Compound ID" -TextToClassify "Investigational compound CX-2087 confidential formulation.").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
 ```
 --
 	![](./media/image62.png)
@@ -473,7 +473,7 @@ Custom classifiers should always be tested before they are used in policies, so 
 9. Test the **EDM classifier** with a record from the registry. In the elevated terminal, run the following and confirm the result lists `Contoso Clinical Trial Subjects` with a count of `1`. The values used are a real record in `ClinicalTrialSubjects.csv`:
 
 ```powershell
-   (Test-DataClassification -ClassificationNames "Contoso Clinical Trial Subjects" -TextToClassify "Subject record: Avery Howell, CTS-004512, MRN-7781422.").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
+(Test-DataClassification -ClassificationNames "Contoso Clinical Trial Subjects" -TextToClassify "Subject record: Avery Howell, CTS-004512, MRN-7781422.").ClassificationResults | ForEach-Object { "$($_.ClassificationName): $($_.Count)" }
 ```
 --
 	![](./media/image63.png)
