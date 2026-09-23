@@ -1,7 +1,7 @@
 ---
 lab:
-  title: Lab 4 — Protect high-value data with encrypted sensitivity labels, label groups, content marking and dynamic watermarking, client-side and service-side auto-labeling, and Defender for Cloud Apps integration
-  description: In this lab we created and published encrypted sensitivity labels with content marking and watermarking, configured auto-labeling, and integrated labeling with Defender for Cloud Apps.
+  title: Lab 4 — Protect high-value data with encrypted sensitivity labels, label groups, content marking and dynamic watermarking, client-side and service-side auto-labeling
+  description: In this lab we created and published encrypted sensitivity labels with content marking and watermarking, configured auto-labeling.
   duration: 30 minutes
   level: 300
   islab: true
@@ -10,7 +10,7 @@ lab:
     - Information Protection
 ---
 
-# Lab 4 — Protect high-value data with encrypted sensitivity labels, label groups, content marking and dynamic watermarking, client-side and service-side auto-labeling, and Defender for Cloud Apps integration
+# Lab 4 — Protect high-value data with encrypted sensitivity labels, label groups, content marking and dynamic watermarking, client-side and service-side auto-labeling
 
 Contoso Pharmaceuticals now has classifiers that detect its regulated data, but detection isn't protection. To actually protect the formulation intellectual property behind compound CX-2087 (Project Falcon), the personal and health information of trial participants, and the pre-publication trial results that are material non-public information, Contoso applies sensitivity labels that encrypt content, mark it visibly, and restrict who can open it. In this lab, acting as Allan Deyoung, you build a four-tier label taxonomy inside a label group, publish it, apply labels automatically through both client-side and service-side auto-labeling driven by the classifiers from Lab 2, prove that the encryption denies unauthorized access, and extend label protection to cloud-stored files through Microsoft Defender for Cloud Apps.
 
