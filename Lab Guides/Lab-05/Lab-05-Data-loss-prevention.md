@@ -28,7 +28,7 @@ You build the first policy in the portal to learn the wizard, then create a seco
 **Tasks**:
 
 1. Create a cloud and email DLP policy in simulation mode
-2. Extend the policy to Teams and review simulation results
+2. Edit the policy to remove OneDrive accounts as the monitored location
 3. Create an Endpoint DLP policy for devices
 4. Create a DLP policy with PowerShell
 5. Move policies to enforcement and set priority
@@ -251,7 +251,7 @@ In this task, you'll create a DLP policy that detects Contoso's compound identif
 
 You have successfully created a DLP policy in simulation mode that detects Contoso's research and trial data across email and cloud locations.
 
-## Task 2 – Extend the policy to Teams and review simulation results
+## Task 2 – Edit the policy to remove OneDrive accounts as the monitored location
 
 Simulation shows what a policy would do before it affects anyone. In this task, you'll review the first policy's simulation results and extend it to Teams so that compound identifiers and trial-subject records are also protected in chat and channel messages.
 
@@ -263,16 +263,12 @@ Simulation shows what a policy would do before it affects anyone. In this task, 
 
 	![](./media/image28.png)
 
-4. Select **Next** until you reach the **Choose where to apply the policy** page, select **Teams chat and channel messages**, then select **Next**, **Submit**, and **Done**.
-
-	![](./media/image29.png)
-
-	![](./media/image30.png)
+4. Select **Next** until you reach the **Choose where to apply the policy** page, deselect **OneDrive Accounts**, then select **Next**, **Submit**, and **Done**.
 
 > [!NOTE]
 > Simulation results are not immediate — DLP evaluates content on a schedule, and a first pass over existing SharePoint and OneDrive content can take several hours to a day. Review simulation results before moving a policy to enforcement so you understand its impact. These timings are indicative, not guaranteed.
 
-You have successfully extended the policy to Teams and reviewed its simulation results.
+You have successfully extended the policy to Teams.
 
 ## Task 3 – Create an Endpoint DLP policy for devices
 
@@ -455,7 +451,7 @@ DLP is only useful if someone acts on what it finds. In this task, you'll review
 You have successfully reviewed the DLP alerts dashboard and an alert's detail.
 ## Summary
 
-In this lab, you built Contoso Pharmaceuticals' data loss prevention across the paths that matter for exfiltration: a cloud and email policy spanning Exchange, SharePoint, and OneDrive, extended to Teams; and an Endpoint DLP policy restricting USB, clipboard, network-share, and print activities on onboarded devices. All of these detect Contoso's data using the sensitive information types and Exact Data Match classifier from Lab 2 and the sensitivity labels from Lab 4. You created a policy in the portal and another with PowerShell, followed the simulation-to-enforcement discipline, set policy priority, reviewed the DLP alerts surface, and proved that an enforced policy blocks a genuine exfiltration attempt while honoring a justified override. These policies stop sensitive data from leaving Contoso through everyday channels.
+In this lab, you built Contoso Pharmaceuticals' data loss prevention across the paths that matter for exfiltration: a cloud and email policy spanning Exchange, SharePoint, and OneDrive and an Endpoint DLP policy restricting USB, clipboard, network-share, and print activities on onboarded devices. All of these detect Contoso's data using the sensitive information types and Exact Data Match classifier from Lab 2 and the sensitivity labels from Lab 4. You created a policy in the portal and another with PowerShell, followed the simulation-to-enforcement discipline, set policy priority, reviewed the DLP alerts surface, and proved that an enforced policy blocks a genuine exfiltration attempt while honoring a justified override. These policies stop sensitive data from leaving Contoso through everyday channels.
 
 ## Script notes
 
