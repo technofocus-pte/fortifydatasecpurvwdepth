@@ -76,8 +76,6 @@ In this task, you'll create a retention label for clinical-trial records that mu
 
    ![](./media/image7.png)
 
-   ![](./media/image8.png)
-
 > [!NOTE]
 > This label retains content for a fixed period and then deletes it automatically — appropriate for records where unattended disposal is acceptable. Later in this lab you create a second label that routes regulated records to a human reviewer instead of deleting them automatically. Retaining from creation, rather than last modification, is common for records that must be kept for a set time regardless of edits.
 
@@ -89,28 +87,30 @@ Publishing makes a retention label available for users to apply manually across 
 
 1. In Microsoft Purview, on the **Retention labels** page, select the checkbox next to **Clinical Trial Records**, then select **Publish labels**.
 
-   ![](./media/image9.png)
+   ![](./media/image8.png)
 
 2. On the **Choose labels to publish** page, verify **Clinical Trial Records** is selected, then select **Next**.
 
-   ![](./media/image10.png)
+   ![](./media/image9.png)
 
 3. On the **Policy scope** page, select **Next**. On the **Choose the type of retention policy to create** page, select **Static**, then select **Next**.
 
+   ![](./media/image10.png)
+
    ![](./media/image11.png)
+   
+5. On the **Choose where to publish labels** page, select **Let me choose specific locations**, enable **Exchange mailboxes**, **SharePoint classic and communication sites**, and **OneDrive accounts**, and deselect all other locations. Select **Next**.
 
    ![](./media/image12.png)
 
-4. On the **Choose where to publish labels** page, select **Let me choose specific locations**, enable **Exchange mailboxes**, **SharePoint classic and communication sites**, and **OneDrive accounts**, and deselect all other locations. Select **Next**.
-
-   ![](./media/image13.png)
-
-5. On the **Name your policy** page, enter:
+6. On the **Name your policy** page, enter:
 
    - **Name**: `Publish Clinical Trial Records label`
    - **Description**: `Makes the Clinical Trial Records label available in Exchange, SharePoint, and OneDrive.`
 
-6. Select **Next**, then **Submit**, then **Done**.
+   ![](./media/image13.png)
+   
+7. Select **Next**, then **Submit**, then **Done**.
 
    ![](./media/image14.png)
 
@@ -129,51 +129,51 @@ Relying on users to label every record is unreliable, so you'll auto-apply the l
 
 1. In Microsoft Purview, select **Data Lifecycle Management** > **Policies** > **Label policies**.
 
-   ![](./media/image17.png)
-
 2. On the **Label policies** page, select **Auto-apply a label**.
 
-   ![](./media/image18.png)
+   ![](./media/image17.png)
 
 3. On the **Let's get started** page, enter:
 
    - **Name**: `Auto-apply Clinical Trial Records`
    - **Description**: `Applies the Clinical Trial Records label to content containing Contoso trial identifiers.`
 
-4. Select **Next**. On the **Choose the type of content you want to apply this label to** page, select **Apply label to content that contains sensitive info**, then select **Next**.
+   ![](./media/image18.png)
+
+5. Select **Next**. On the **Choose the type of content you want to apply this label to** page, select **Apply label to content that contains sensitive info**, then select **Next**.
 
    ![](./media/image19.png)
 
-   ![](./media/image20.png)
+6. On the **Content that contains sensitive info** page, instead of a built-in regulation, select **Custom** > **Custom policy** > **Next**.
 
-5. On the **Content that contains sensitive info** page, instead of a built-in regulation, select **Custom** > **Custom policy** > **Next**.
+   ![](./media/image20.png)
 
    ![](./media/image21.png)
 
-   ![](./media/image22.png)
+8. On the **Define content that contains sensitive info** page, select **Add** > **Sensitive info types**, select **Contoso Clinical Trial Subject ID** and **Contoso Clinical Trial Subjects (EDM)** — then select **Next**.
 
-6. On the **Define content that contains sensitive info** page, select **Add** > **Sensitive info types**, select **Contoso Clinical Trial Subject ID** and **Contoso Clinical Trial Subjects (EDM)** — then select **Next**.
+   ![](./media/image22.png)
 
    ![](./media/image23.png)
 
    ![](./media/image24.png)
 
+9. On the **Policy scope** page, select **Next**.
+
    ![](./media/image25.png)
 
-7. On the **Policy scope** page, select **Next**.
+10. On the **Choose the type of retention policy to create** page, select **Static**, then select **Next**.
 
    ![](./media/image26.png)
 
-8. On the **Choose the type of retention policy to create** page, select **Static**, then select **Next**.
+11. On the **Choose where to apply the label** page, select **Let me choose specific locations**, enable **Exchange mailboxes**, **SharePoint classic and communication sites**, and **OneDrive accounts**, and deselect the rest. Select **Next**.
 
    ![](./media/image27.png)
 
-9. On the **Choose where to apply the label** page, select **Let me choose specific locations**, enable **Exchange mailboxes**, **SharePoint classic and communication sites**, and **OneDrive accounts**, and deselect the rest. Select **Next**.
+11. On the **Choose a label to auto-apply** page, select **Add label**, select **Clinical Trial Records**, then select **Add**, then **Next**.
 
    ![](./media/image28.png)
-
-10. On the **Choose a label to auto-apply** page, select **Add label**, select **Clinical Trial Records**, then select **Add**, then **Next**.
-
+   
    ![](./media/image29.png)
 
    ![](./media/image30.png)
@@ -251,38 +251,38 @@ Static policies apply to fixed locations; adaptive scopes target content dynamic
 
 4. On the **Create the query to define users** page, select the **Attribute** dropdown and select **Name**, leave **is equal to**, and enter `Leadership` as the value.
 
-   ![](./media/image46.png)
-
 5. Select **+ Add attribute**. Change the operator from **And** to **Or**, select the **Attribute** dropdown and select **Name**, leave **is equal to**, and enter `Research` as the value. Select **Next**.
+
+   ![](./media/image46.png)
 
    ![](./media/image47.png)
 
-6. On the **Review and finish** page, select **Submit**, then **Done**.
+7. On the **Review and finish** page, select **Submit**, then **Done**.
 
    ![](./media/image48.png)
 
    ![](./media/image49.png)
 
-7. Now create the policy. Select **Data Lifecycle Management** > **Policies** > **Retention policies**, then **+ New retention policy**.
+8. Now create the policy. Select **Data Lifecycle Management** > **Policies** > **Retention policies**, then **+ New retention policy**.
 
    ![](./media/image50.png)
 
    ![](./media/image51.png)
 
-8. On the **Name your retention policy** page, enter:
+9. On the **Name your retention policy** page, enter:
 
    - **Name**: `Privileged Group Retention`
    - **Description**: `Retains content from Leadership and Research groups for five years.`
 
    ![](./media/image52.png)
 
-9. Select **Next**. On the **Policy scope** page, select **Next**. On the **Choose the type of retention policy to create** page, select **Adaptive**, then select **Next**.
+10. Select **Next**. On the **Policy scope** page, select **Next**. On the **Choose the type of retention policy to create** page, select **Adaptive**, then select **Next**.
 
    ![](./media/image53.png)
 
    ![](./media/image54.png)
 
-10. On the **Choose adaptive policy scopes and locations** page, select **+ Add scopes**, select **Leadership and Research Groups**, then select **Add**. Enable **Microsoft 365 Group mailboxes & sites**, and leave other locations disabled. Select **Next**.
+11. On the **Choose adaptive policy scopes and locations** page, select **+ Add scopes**, select **Leadership and Research Groups**, then select **Add**. Enable **Microsoft 365 Group mailboxes & sites**, and leave other locations disabled. Select **Next**.
 
    ![](./media/image55.png)
 
