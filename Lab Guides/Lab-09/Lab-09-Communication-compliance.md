@@ -185,7 +185,7 @@ When a reviewer decides a message warrants a reminder, they send the user a noti
 
    - **Template name**: `Contoso communication notice`
    - **Send from**: select **Megan Bowen**
-   - **Cc**: select **Megan Bowen**
+   - **Cc**: select **Mod Admin**
    - **Subject**: `Your communication may violate Contoso communication compliance policy.`
    - **Message body**: `This message was flagged by Contoso's communication compliance policy. Please review company policy and provide a justification for this communication.`
 
