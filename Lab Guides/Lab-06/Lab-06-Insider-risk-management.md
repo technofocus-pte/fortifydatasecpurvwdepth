@@ -138,7 +138,7 @@ Contoso's greatest insider concern is a departing employee taking research or tr
 
 14. On the **Indicators** page, ensure the Office and device indicators relevant to exfiltration are selected (for example, downloading from SharePoint, copying to USB, copying to network share, sending email with attachments to external recipients), then select **Next**. 
 
-		![](./media/image24.png)
+	![](./media/image24.png)
 
 15. On the **Detection options** and **Choose threshold type for indicators** pages, leave the defaults (or apply the thresholds provided by Microsoft), then select **Next**.
 
