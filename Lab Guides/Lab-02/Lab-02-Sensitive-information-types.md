@@ -300,7 +300,7 @@ You have successfully created a document-fingerprint sensitive information type 
 
 A pattern detects a format; an Exact Data Match classifier detects the exact records in a specific data set, which dramatically reduces false positives — essential for clinical-trial data, where you want to detect real enrolled participants and nothing else. In this task, you'll create an EDM classifier that matches against Contoso's trial-subject registry, using the Subject ID SIT from Task 1 as the primary-element detector, then hash and upload the registry with the EDM Upload Agent. The `EDM_DataUploaders` group and your membership were created in Lab 0.
 
-1. In **Microsoft Edge**, in the Microsoft Purview portal as **Allan Deyoung**, select **Solutions** > **Data classification**, then select **EDM classifiers**.
+1. In **Microsoft Edge**, in the Microsoft Purview portal as **Allan Deyoung**, select **Solutions** > **Information Protection**, then select **EDM classifiers**.
 
 2. Make sure the **New EDM experience** toggle is set to **On**.
 
