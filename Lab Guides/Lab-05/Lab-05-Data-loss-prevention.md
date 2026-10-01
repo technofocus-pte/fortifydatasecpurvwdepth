@@ -1,7 +1,7 @@
 ---
 lab:
-  title: Lab 5 — Prevent data exfiltration with endpoint, email, Teams, and cloud data loss prevention policies, from simulation to enforcement
-  description: In this lab we created data loss prevention policies across endpoint, email, Teams, and cloud locations, moved them from simulation to enforcement, and verified that they block exfiltration.
+  title: Lab 5 — Prevent data exfiltration with endpoint, email, and cloud data loss prevention policies, from simulation to enforcement
+  description: In this lab we created data loss prevention policies across endpoint, email, and cloud locations, moved them from simulation to enforcement, and verified that they block exfiltration.
   duration: 20 minutes
   level: 300
   islab: true
@@ -10,15 +10,16 @@ lab:
     - Data Loss Prevention
 ---
 
-# Lab 5 — Prevent data exfiltration with endpoint, email, Teams, and cloud data loss prevention policies, from simulation to enforcement
+# Lab 5 — Prevent data exfiltration with endpoint, email, and cloud data loss prevention policies, from simulation to enforcement
 
-Contoso Pharmaceuticals now classifies and labels its regulated data, but classification does not stop someone from emailing a compound formulation to a competitor, pasting a trial-subject record into a Teams chat, or copying research files to a USB stick. Data loss prevention (DLP) closes those exfiltration paths. In this lab, acting as Allan Deyoung, you build DLP policies that detect Contoso's sensitive data — using the classifiers from Lab 2 and the labels from Lab 4 — and prevent it from leaving the organization across the paths that matter: endpoints (USB, clipboard, network shares, print), email, Teams, and cloud storage. You follow the disciplined rollout every DLP deployment should: start in simulation to observe impact, then enforce, and prove the block actually works.
+Contoso Pharmaceuticals now classifies and labels its regulated data, but classification does not stop someone from emailing a compound formulation to a competitor or copying research files to a USB stick. Data loss prevention (DLP) closes those exfiltration paths. In this lab, acting as Allan Deyoung, you build DLP policies that detect Contoso's sensitive data — using the classifiers from Lab 2 and the labels from Lab 4 — and prevent it from leaving the organization across the paths that matter: endpoints (USB, clipboard, network shares, print), email, and cloud storage. You follow the disciplined rollout every DLP deployment should: start in simulation to observe impact, then enforce, and prove the block actually works.
 
 You build the first policy in the portal to learn the wizard, then create a second with PowerShell, the way an administrator manages DLP at scale. The endpoint policy relies on the device onboarding enabled in Lab 0.
 
 **Learning outcomes.** After this lab you can:
 
-- Create a DLP policy in simulation mode across Exchange, Teams, SharePoint, and OneDrive.
+- Create a DLP policy in simulation mode across Exchange, SharePoint, and OneDrive.
+- Edit a policy's monitored locations.
 - Create an Endpoint DLP policy that restricts USB, clipboard, network-share, and print activities on onboarded devices.
 - Create a DLP policy with PowerShell.
 - Move a policy from simulation to enforcement and manage policy priority.
@@ -179,7 +180,7 @@ In this task, you'll create a DLP policy that detects Contoso's compound identif
 
 	![](./media/image6.png)
 
-8. On the **Choose where to apply the policy** page, enable **Exchange email**, **SharePoint sites**, and **OneDrive accounts**. Disable all other locations for now (Teams is added in Task 2, Devices in Task 3). Select **Next**.
+8. On the **Choose where to apply the policy** page, enable **Exchange email**, **SharePoint sites**, and **OneDrive accounts**. Disable all other locations for now (Devices are configured in Task 3). Select **Next**.
 
 	![](./media/image7.png)
 
@@ -249,17 +250,20 @@ In this task, you'll create a DLP policy that detects Contoso's compound identif
 
 	![](./media/image27.png)
 
+> [!NOTE]
+> This rule requires all of its conditions together: the content must be shared externally, contain one of the listed sensitive information types, and carry one of the listed sensitivity labels. This is the behavior you'll account for when you test the policy in Task 6. A rule written this way blocks only content that meets every condition at once.
+
 You have successfully created a DLP policy in simulation mode that detects Contoso's research and trial data across email and cloud locations.
 
 ## Task 2 – Edit the policy to remove OneDrive accounts as the monitored location
 
-Simulation shows what a policy would do before it affects anyone. In this task, you'll review the first policy's simulation results and extend it to Teams so that compound identifiers and trial-subject records are also protected in chat and channel messages.
+Simulation shows what a policy would do before it affects anyone, and you can adjust a policy's scope at any time. In this task, you'll review the first policy's simulation results and then narrow its scope by removing OneDrive accounts as a monitored location.
 
 1. Allow the policy time to evaluate content, then on the **Policies** page select the **Protect research and trial data** policy to open its flyout.
 
 2. Review the simulation overview, which shows how many items the policy would have acted on and where. This is the information you use to judge whether the policy is scoped correctly before enforcing it.
 
-3. Select the **Protect research and trial data** policy, then select **Edit policy**. 
+3. Select the **Protect research and trial data** policy, then select **Edit policy**.
 
 	![](./media/image28.png)
 
@@ -268,7 +272,7 @@ Simulation shows what a policy would do before it affects anyone. In this task, 
 > [!NOTE]
 > Simulation results are not immediate — DLP evaluates content on a schedule, and a first pass over existing SharePoint and OneDrive content can take several hours to a day. Review simulation results before moving a policy to enforcement so you understand its impact. These timings are indicative, not guaranteed.
 
-You have successfully extended the policy to Teams.
+You have successfully edited the policy to remove OneDrive accounts as a monitored location.
 
 ## Task 3 – Create an Endpoint DLP policy for devices
 
@@ -410,26 +414,29 @@ You have successfully moved the policies to enforcement and set their priority.
 
 ## Task 6 – Prove the policy blocks a real exfiltration attempt
 
-A DLP policy is only trustworthy if it actually blocks. In this task, you'll attempt a genuine exfiltration — emailing a compound identifier externally — and confirm the enforced policy blocks it and shows the policy tip.
+A DLP policy is only trustworthy if it actually blocks. In this task, you'll attempt a genuine exfiltration — emailing trial-subject data externally with a labeled attachment — and confirm the enforced policy blocks it. Because the rule from Task 1 requires all of its conditions together, the test message must satisfy all three: it is shared externally, it contains a trial-subject identifier, and it carries a Research or Trial Data sensitivity label.
 
 1. In **Microsoft Edge**, open a **New InPrivate window**, navigate to **`https://outlook.office.com`**, and sign in as **Isaiah Langer**, `IsaiahL@TenantName` (a Contoso user). Isaiah's password is provided in the Resources tab.
 
-2. Select **New mail**. In the **To** line, enter an external email address you control (outside the Contoso tenant). In the subject, enter `Compound update`, and in the body enter `Please review the formulation data for investigational compound CX-2087.`
+2. Select **New mail**. In the **To** line, enter an external email address you control (outside the Contoso tenant). In the subject, enter `Trial subject records`, and in the body enter `Please review the enrolled trial subject CTS-004512 records for this protocol.`
 
-3. Before sending, confirm a **policy tip** appears in the message, warning that it contains sensitive information that Contoso policy protects.
+3. Select **Attach file** and attach the **CX-2087 Formulation Process.docx** file — the document labeled **Restricted – Trial Data** in Lab 4. This attachment satisfies the rule's sensitivity-label condition.
 
 > [!NOTE]
-> If the policy tip and block do not appear immediately, this is expected: moving a policy from simulation to enforcement (Task 5) can take up to 24 hours to propagate to Exchange Online. Wait and retry this task rather than assuming the policy is misconfigured. Also note that in Outlook on the web, the policy tip sometimes appears only when you select **Send** (steps 4–5) rather than while composing (step 3) — the block at send is the definitive proof the policy is enforcing. The block and policy tip confirm the email/cloud policy is enforcing. To verify the endpoint policy the same way, on the onboarded device attempt to copy a document containing `CX-2087` to a USB device and confirm the copy is blocked with a policy tip — this requires the device to have received the enforced policy, which can take time. These timings are indicative, not guaranteed.
+> The test message is built to match every condition in the Task 1 rule at once: it goes to an external recipient; the body contains a Clinical Trial Subject ID (the `CTS-004512` value, with the words "trial subject" and "protocol" nearby so the sensitive information type matches); and the labeled attachment supplies the required Research or Trial Data sensitivity label. A message that meets only one or two of these conditions will not be blocked by this rule — which is why the test combines trial-subject text with a labeled document. Confirm that the `CX-2087 Formulation Process.docx` file is labeled Restricted – Trial Data before sending.
 
 4. Select **Send**.
 
 5. Confirm the send is **blocked**: Outlook reports that the message conflicts with a policy and cannot be sent to external recipients, and offers the option to override with a business justification (from the override setting you configured).
 
+> [!NOTE]
+> If the block does not appear immediately, this is expected: moving a policy from simulation to enforcement (Task 5) can take time to propagate to Exchange Online. A pre-send policy tip may not render while composing even when the policy is enforcing; the block at send is the definitive proof. If nothing blocks after allowing time, confirm the attachment carries the Restricted – Trial Data label and that the body keeps the trial-subject keywords, since the rule requires all its conditions together. These timings are indicative, not guaranteed.
+
 6. Select the override option, enter a business justification, and confirm the behavior — the message can now be sent, and the override with justification is recorded for the admin to review.
 
 7. Return to the Microsoft Purview portal, go to **Data loss prevention** > **Alerts**, and confirm a new alert corresponding to this match has appeared (allowing a short time for it to surface).
 
-You have successfully proven that the enforced DLP policy blocks a real exfiltration attempt, shows a policy tip, honors the justified override, and raises an alert.
+You have successfully proven that the enforced DLP policy blocks a real exfiltration attempt, honors the justified override, and raises an alert.
 
 ## Task 7 – Review DLP alerts
 
@@ -446,12 +453,13 @@ DLP is only useful if someone acts on what it finds. In this task, you'll review
     ![](./media/image72.png)
 
 > [!NOTE]
-> Alerts appear after a policy is enforced and a matching activity occurs, and can take time to surface after the event. If no alerts are present yet, generate one with the verification in the next task and return here. This timing is indicative, not guaranteed.
+> Alerts appear after a policy is enforced and a matching activity occurs, and can take time to surface after the event. If no alerts are present yet, generate one with the verification in Task 6 and return here. This timing is indicative, not guaranteed.
 
 You have successfully reviewed the DLP alerts dashboard and an alert's detail.
+
 ## Summary
 
-In this lab, you built Contoso Pharmaceuticals' data loss prevention across the paths that matter for exfiltration: a cloud and email policy spanning Exchange, SharePoint, and OneDrive and an Endpoint DLP policy restricting USB, clipboard, network-share, and print activities on onboarded devices. All of these detect Contoso's data using the sensitive information types and Exact Data Match classifier from Lab 2 and the sensitivity labels from Lab 4. You created a policy in the portal and another with PowerShell, followed the simulation-to-enforcement discipline, set policy priority, reviewed the DLP alerts surface, and proved that an enforced policy blocks a genuine exfiltration attempt while honoring a justified override. These policies stop sensitive data from leaving Contoso through everyday channels.
+In this lab, you built Contoso Pharmaceuticals' data loss prevention across the paths that matter for exfiltration: a cloud and email policy spanning Exchange and SharePoint, and an Endpoint DLP policy restricting USB, clipboard, network-share, and print activities on onboarded devices. All of these detect Contoso's data using the sensitive information types and Exact Data Match classifier from Lab 2 and the sensitivity labels from Lab 4. You created a policy in the portal and another with PowerShell, followed the simulation-to-enforcement discipline, set policy priority, reviewed the DLP alerts surface, and proved that an enforced policy blocks a genuine exfiltration attempt while honoring a justified override. These policies stop sensitive data from leaving Contoso through everyday channels.
 
 ## Script notes
 
