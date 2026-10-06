@@ -420,17 +420,17 @@ A DLP policy is only trustworthy if it actually blocks. In this task, you'll att
 
 2. Select **New mail**. In the **To** line, enter an external email address you control (outside the Contoso tenant). In the subject, enter `Trial subject records`, and in the body enter `Please review the enrolled trial subject CTS-004512 records for this protocol.`
 
-3. Select **Attach file** and attach the **CX-2087 Formulation Process.docx** file — the document labeled **Restricted – Trial Data** in Lab 4. This attachment satisfies the rule's sensitivity-label condition.
+3. Select **Attach file** and attach the **CX-2087 Formulation Process.docx** file — the document labeled **Highly Confidential – Research** in Lab 4. This attachment satisfies the rule's sensitivity-label condition.
 
 > [!NOTE]
-> The test message is built to match every condition in the Task 1 rule at once: it goes to an external recipient; the body contains a Clinical Trial Subject ID (the `CTS-004512` value, with the words "trial subject" and "protocol" nearby so the sensitive information type matches); and the labeled attachment supplies the required Research or Trial Data sensitivity label. A message that meets only one or two of these conditions will not be blocked by this rule — which is why the test combines trial-subject text with a labeled document. Confirm that the `CX-2087 Formulation Process.docx` file is labeled Restricted – Trial Data before sending.
+> The test message is built to match every condition in the Task 1 rule at once: it goes to an external recipient; the body contains a Clinical Trial Subject ID (the `CTS-004512` value, with the words "trial subject" and "protocol" nearby so the sensitive information type matches); and the labeled attachment supplies the required Research or Trial Data sensitivity label. A message that meets only one or two of these conditions will not be blocked by this rule — which is why the test combines trial-subject text with a labeled document. Confirm that the `CX-2087 Formulation Process.docx` file is labeled Highly Confidential – Research before sending.
 
 4. Select **Send**.
 
 5. Confirm the send is **blocked**: Outlook reports that the message conflicts with a policy and cannot be sent to external recipients, and offers the option to override with a business justification (from the override setting you configured).
 
 > [!NOTE]
-> If the block does not appear immediately, this is expected: moving a policy from simulation to enforcement (Task 5) can take time to propagate to Exchange Online. A pre-send policy tip may not render while composing even when the policy is enforcing; the block at send is the definitive proof. If nothing blocks after allowing time, confirm the attachment carries the Restricted – Trial Data label and that the body keeps the trial-subject keywords, since the rule requires all its conditions together. These timings are indicative, not guaranteed.
+> If the block does not appear immediately, this is expected: moving a policy from simulation to enforcement (Task 5) can take time to propagate to Exchange Online. A pre-send policy tip may not render while composing even when the policy is enforcing; the block at send is the definitive proof. If nothing blocks after allowing time, your attached file may not be correctly labeled — confirm the `CX-2087 Formulation Process.docx` attachment carries the Highly Confidential – Research label (apply it in Lab 4, Task 7 if needed), and that the body keeps the trial-subject keywords, since the rule requires all its conditions together. As a further fallback, attach the other documents from the **C:\Lab Files** folder alongside it, so that a correctly labeled document is included in the message. These timings are indicative, not guaranteed.
 
 6. Select the override option, enter a business justification, and confirm the behavior — the message can now be sent, and the override with justification is recorded for the admin to review.
 
